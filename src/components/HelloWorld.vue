@@ -1,5 +1,4 @@
 <template>
-  
   <b-container>   
     <b-row>
     <b-col>
@@ -17,8 +16,8 @@
                 <label>Contraseña</label>
                 <input type="password" class="form-control form-control-lg" />
             </div>
-            <router-link to="/about" tag="button">
-            <button type="submit" class="btn btn-dark btn-lg btn-block" @click="sendToView(view)">Ingresar</button></router-link>
+            <button type="submit" class="btn btn-dark btn-lg btn-block" @click="sendToView(view)">
+            <router-link to="/about">Ingresar</router-link></button>
             <p class="forgot-password text-right mt-2 mb-4">
                 <router-link to="/HelloWorld2" exact>Olvidó su contraseña?</router-link>
             </p>
