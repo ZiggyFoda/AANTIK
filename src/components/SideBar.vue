@@ -229,12 +229,12 @@
       //! Color barra
       bgColor: {
         type: String,
-        default: '#1548A8',
+        default: '#2C5698',
       },
       //! Color parte inferior barra y barra busqueda
       secondaryColor: {
         type: String,
-        default: '#F1E11E',
+        default: '#e3b82a',
       },
       homeSectionColor: {
         type: String,
@@ -243,12 +243,12 @@
       //! Color titulo barra
       logoTitleColor: {
         type: String,
-        default: '#F1E11E',
+        default: '#e3b82a',
       },
       //! Color iconos 
       iconsColor: {
         type: String,
-        default: '#F1E11E',
+        default: '#e3b82a',
       },
       itemsTooltipColor: {
         type: String,
@@ -264,7 +264,7 @@
       },
       menuItemsTextColor: {
         type: String,
-        default: '#F1E11E',
+        default: '#e3b82a',
       },
       menuFooterTextColor: {
         type: String,
@@ -432,7 +432,7 @@
     border: none;
     border-radius: 12px;
     transition: all 0.5s ease;
-    background: var(--secondary-color);
+    background: #FFF;
   }
   .sidebar.open input {
     padding: 0 20px 0 50px;
@@ -444,11 +444,11 @@
     left: 0;
     transform: translateY(-50%);
     font-size: 22px;
-    background: var(--secondary-color);
-    color: #1548A8;
+    background: #FFF;
+    color: #2C5698;
   }
   .sidebar.open .bx-search:hover {
-    background: var(--secondary-color);
+    background: #FFF;
     color: var(--icons-color);
   }
   .sidebar .bx-search:hover {
