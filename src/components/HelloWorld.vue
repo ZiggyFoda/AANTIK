@@ -8,6 +8,16 @@
         <form>
             <h3>AANTIK</h3>
             <h3>Inicio de sesión estudiante</h3>
+            Seleccione una opción:
+            <select name="combo">
+              <!-- Opciones de la lista -->
+              <option value="1">Estudiante</option>
+              <option value="2" selected>Entidad Social</option> <!-- Opción por defecto -->
+              <option value="3">Emprendimiento</option>
+              <option value="3">Docente</option>
+              <option value="3">Coordinador PSU</option>
+              <option value="3">Administrador</option>
+            </select>
             <div class="form-group">
                 <label>Correo electronico</label>
                 <input type="email" class="form-control form-control-lg" />
@@ -16,8 +26,9 @@
                 <label>Contraseña</label>
                 <input type="password" class="form-control form-control-lg" />
             </div>
-            <button type="submit" class="btn btn-dark btn-lg btn-block" @click="sendToView(view)">
-            <router-link to="/about">Ingresar</router-link></button>
+            <router-link to="/about">
+            <button type="submit" class="btn btn-dark btn-lg btn-block">
+            Ingresar</button></router-link>
             <p class="forgot-password text-right mt-2 mb-4">
                 <router-link to="/HelloWorld2" exact>Olvidó su contraseña?</router-link>
             </p>

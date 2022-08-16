@@ -1,9 +1,20 @@
 <template>
- <div>
-    <sidebar-menu-akahon 
-      @search-input-emit="search"
-    />
-  </div>
+  <b-container>  
+       <div>
+          <sidebar-menu-akahon 
+            @search-input-emit="search"
+          />
+        </div> 
+        hola muindo 3
+    <b-row>
+      <b-col>
+        hola mundo 2
+      </b-col>
+      <b-col>
+        hola mundo
+      </b-col>
+    </b-row>
+  </b-container>   
 </template>
 
 <script>

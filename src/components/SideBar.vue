@@ -226,25 +226,29 @@
         default: true,
       },
       //! Styles
+      //! Color barra
       bgColor: {
         type: String,
-        default: '#F1E11E',
+        default: '#1548A8',
       },
+      //! Color parte inferior barra y barra busqueda
       secondaryColor: {
         type: String,
-        default: '#1d1b31',
+        default: '#F1E11E',
       },
       homeSectionColor: {
         type: String,
         default: '#e4e9f7',
       },
+      //! Color titulo barra
       logoTitleColor: {
         type: String,
-        default: '#1548A8',
+        default: '#F1E11E',
       },
+      //! Color iconos 
       iconsColor: {
         type: String,
-        default: '#fff',
+        default: '#F1E11E',
       },
       itemsTooltipColor: {
         type: String,
@@ -256,11 +260,11 @@
       },
       menuItemsHoverColor: {
         type: String,
-        default: '#fff',
+        default: '#FFF',
       },
       menuItemsTextColor: {
         type: String,
-        default: '#fff',
+        default: '#F1E11E',
       },
       menuFooterTextColor: {
         type: String,
@@ -441,7 +445,7 @@
     transform: translateY(-50%);
     font-size: 22px;
     background: var(--secondary-color);
-    color: var(--icons-color);
+    color: #1548A8;
   }
   .sidebar.open .bx-search:hover {
     background: var(--secondary-color);
@@ -518,7 +522,8 @@
   .sidebar div.profile .job {
     font-size: 15px;
     font-weight: 400;
-    color: var(--menu-footer-text-color);
+    /*color: var(--menu-footer-text-color);*/
+    color:#1548A8;
     white-space: nowrap;
   }
   .sidebar div.profile .job {
