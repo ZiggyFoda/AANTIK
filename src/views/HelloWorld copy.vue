@@ -5,13 +5,19 @@
             @search-input-emit="search"
           />
         </div> 
-        hola muindo 3
     <b-row>
       <b-col>
-        hola mundo 2
+        <div class="hello">
+          <h3>Se encuentra en el ciclo 2022-03</h3>
+          <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
+        </div>
+        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        Estudiantes</button>
+        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        Organizaciones Sociales</button>
       </b-col>
       <b-col>
-        hola mundo
+        
       </b-col>
     </b-row>
   </b-container>   
