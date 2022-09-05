@@ -1,44 +1,9 @@
 <template>
   <b-container>   
-    <b-row>
-    <b-col>
-    </b-col>
-    <b-col>
-     <div class="vue-tempalte">
-        <form>
-            <h3>AANTIK</h3>
-            <h3>Inicio de sesión estudiante</h3>
-            Seleccione una opción:
-            <select name="combo">
-              <!-- Opciones de la lista -->
-              <option value="1">Estudiante</option>
-              <option value="2" selected>Organización Social</option> <!-- Opción por defecto -->
-              <option value="3">Emprendimiento</option>
-              <option value="3">Docente</option>
-              <option value="3">Coordinador PSU</option>
-              <option value="3">Administrador</option>
-            </select>
-            <div class="form-group">
-                <label>Correo electronico</label>
-                <input type="email" class="form-control form-control-lg" v-model="user.username"  />
-            </div>
-            <div class="form-group">
-                <label>Contraseña</label>
-                <input type="password" class="form-control form-control-lg" v-model="user.password"  />
-            </div>
-            <router-link to="/about">
-            <button type="submit" class="btn btn-dark btn-lg btn-block" @click="save">
-            Ingresar</button></router-link>
-            <p class="forgot-password text-right mt-2 mb-4">
-                <router-link to="/HelloWorld2" exact>Olvidó su contraseña?</router-link>
-            </p>
-        </form>
-    </div>
-    </b-col>
-    
-    <b-col>
-    </b-col>
-  </b-row>
+    <v-footer padless>
+  <hr width=100%  color=#e3b82a  size=50   noshade="noshade">
+  <hr width=100%  color=#fff size=50   noshade="noshade">
+  <hr width=100%  color=#2C5698  size=50   noshade="noshade"></v-footer>
   </b-container>
 </template>
 

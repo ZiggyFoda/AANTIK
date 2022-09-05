@@ -1,13 +1,13 @@
 <template>
-  <b-container>   
+  <b-container padding-right= 0px padding-left="0px">   
     <b-row>
     <b-col>    
     </b-col>
     <b-col>
      <div class="vue-tempalte">
-        <img alt="Vue logo" src="../assets/escudoPUJ.png" width="75%" height="25%"/>
+        <img alt="Vue logo" src="../assets/escudoPUJ.png" width="100%" height="25%"/>
         <form>
-            <h3>AANTIK</h3>
+            <h3 class="titulo">AANTIK</h3>
             <h3>Inicio de sesión</h3>
             <div class="form-group">
                 <label>Correo electronico</label>
@@ -17,7 +17,7 @@
                 <label>Contraseña</label>
                 <input v-model="persona.password" type="password" class="form-control form-control-lg" />
             </div>
-            <button type="submit" class="btn btn-dark btn-lg btn-block" @click="save">
+            <button type="submit" class="btn btn-dark btn-lg btn-block" @click="save(persona)">
             Ingresar</button>
             <p class="forgot-password text-right mt-2 mb-4">
                 <router-link to="/login">Olvidó su contraseña?</router-link>
@@ -29,6 +29,12 @@
     <b-col>
     </b-col>
   </b-row>
+  <footer>
+  <hr width=100%  color=#e3b82a  size=50   noshade="noshade">
+  <hr width=100%  color=#fff size=50   noshade="noshade">
+  <hr width=100%  color=#2C5698  size=50   noshade="noshade">
+
+  </footer>
   </b-container>
 </template>
 
@@ -52,10 +58,19 @@ export default {
   },
   methods: {
     async save() {
+      var data = {
+        username: this.persona.username,
+        role: this.persona.password
+      };
       try {
-        this.loginService.save(this.persona);
-        console.log(this.persona);
-        this.$router.push("/")
+
+        await this.loginService.save(this.persona)
+        .then(response => {
+          console.log(response);
+        })
+
+        //.then(response => this.$router.push("/about"))
+        //.catch(error => this.$router.push("/login"));
       } catch (error) {
         console.log(error);
       }
@@ -82,5 +97,35 @@ li {
 }
 a {
   color: #42b983;
+}
+hr {
+  height: 25px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.container, .container-sm {
+  max-width: 100%;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 15%;
+    margin-left: 15%;
+}
+.container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
+    padding-top: 35px;
+}
+footer {
+      position: absolute;
+      bottom: 0;
+      width: 98%;
+      height: 80px;
+      color: white;
+  }
+.titulo{
+  font-family: times;
+  color: #2C5698 ;
+  font-style: bold;
+  font-size: 30pt;
 }
 </style>

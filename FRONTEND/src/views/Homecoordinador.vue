@@ -35,7 +35,7 @@
 import SidebarMenuAkahon from "@/components/SideBar.vue"
 
 export default {
-  name: 'Homecoordinadors',
+  name: 'Homecoordinador',
   props: {
     msg: String
   },
