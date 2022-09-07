@@ -4,16 +4,22 @@ import java.util.Random;
 
 public class Match {
 	//se obtienen de leer las tablas
-	int cantEst=25;
-	int cantEmp=11;
+	int cantEst=100;
+	int cantEmp=100;
 	int asignados=0;
 	int estu[][][]= new int[cantEst][cantEmp+1][2] ;
 	int asignaciones[][]= new int[cantEst][2];
 	int cupos[][] = new int[cantEmp][2];
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Instancias ins=new Instancias();
+		ins.instanciaEmprendimientos();
+		ins.instanciaEstudiantes();
+		
 		Match mt=new Match();
-		mt.llenar();
+		mt.calcularPuntaje(ins);
+		mt.llenar2(ins);
 		mt.imprimirD1();
 		mt.imprimirD2();
 		mt.llenarCupos();
@@ -30,6 +36,34 @@ public class Match {
 		mt.imprimirD2();
 		mt.asignacion();
 		
+	}
+	
+	void calcularPuntaje(Instancias in) {
+		cantEst=in.getCantEst();
+		System.out.println("----Cantidad de estudiantes "+this.cantEst+"---");
+		cantEmp=in.getCantEmp();
+		System.out.println("----Cantidad de emprendimientos "+this.cantEmp+"---");
+		
+		
+	}
+	
+	void llenar2(Instancias in) {
+		for(int i =0;i<cantEst;i++) {
+			estu[i][0][0]=in.estudiantes[i].id;			
+			estu[i][0][1]=estu[i][0][0];
+		}
+		for(int j =1;j<cantEmp+1;j++) {
+			//estu[0][j][0]=new Random().nextInt(30)+11;
+			estu[0][j][0]=in.emprendimientos[j-1].id;
+			cupos[j-1][0]=estu[0][j][0];
+		}
+		//puntajes 
+		for(int i = 0;i<cantEst;i++) {
+			for(int j =1;j<cantEmp+1;j++) {
+				estu[i][j][1]=this.match(in.estudiantes[i], in.emprendimientos[j-1]);
+				estu[i][j][0]=estu[0][j][0];
+			}
+		}
 	}
 	
 	void llenar() { 
@@ -147,9 +181,9 @@ public class Match {
 	  if(est.contacto==emp.contacto){
 	    val += 1;
 	  }
-	  if(est.limitLocalidad.equals(emp.localidad)){
+	  /*if(est.limitLocalidad.equals(emp.localidad)){
 	    val += - est.pUbicacion*2;
-	  }
+	  }*/
 	  return val;		   
 	}
 	
@@ -166,12 +200,19 @@ public class Match {
 				}
 				
 			}
-			asignaciones[asignados][0]=estu[idEst][0][1];		
-			asignaciones[asignados][1]=idemp;
-			System.out.println("Asignado a estudiante "+asignaciones[asignados][0]+" el emprendimiento "+asignaciones[asignados][1]);
-			asignados++;
-			estu[idEst][0][1]=0;
+			if(estu[idEst][0][1]!=0) {
+				asignaciones[asignados][0]=estu[idEst][0][1];		
+				asignaciones[asignados][1]=idemp;
+				System.out.println("Asignado a estudiante "+asignaciones[asignados][0]+" el emprendimiento "+asignaciones[asignados][1]);
+				asignados++;
+				estu[idEst][0][1]=0;
+			}
+			
 			mayor=0;
+
+			if(i>=cantEst) {
+				break;
+			}			
 		}
 	}
 	
@@ -204,14 +245,14 @@ public class Match {
 	
 	boolean asignado(int idEmp) {
 
-		System.out.println("Validando cupos en "+idEmp);
+		//System.out.println("Validando cupos en "+idEmp);
 		int cuposDis=0;
 		for(int i=0;i<asignados;i++) {
 			if(asignaciones[i][1]==idEmp) {
 				cuposDis++;				
 			}			
 		}
-		System.out.println("cupos asignados"+cuposDis);
+		//System.out.println("cupos asignados"+cuposDis);
 		for(int j=0; j<cantEmp;j++) {
 			if(cupos[j][0]==idEmp) {
 				if(cupos[j][1]>cuposDis) {
@@ -259,6 +300,23 @@ public class Match {
 		}
 		
 		System.out.println("-Cupos totales- "+cuposTotales+" -Asignaciones- "+asignados);	
+		
+		if(cantEmp>cantEst) {
+			System.out.println("-Emprendimientos sin asignar-");
+			boolean find=true;
+			for(int i=0;i<cantEmp+1;i++) {
+				int idEmpr=estu[0][i][0];
+				for(int j=0;j<asignados;j++) {
+					if(idEmpr==asignaciones[j][1]) 
+						find=true;
+				}
+				if(find==false) {
+					System.out.println(idEmpr);					
+				}
+				find=false;
+			}				
+		}	
+		
 		if(asignados<cantEst) {
 			System.out.println("-Estudiantes sin asignar-");
 			for(int i=0;i<cantEst;i++) {

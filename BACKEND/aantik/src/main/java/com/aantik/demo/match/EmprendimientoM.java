@@ -14,5 +14,10 @@ public class EmprendimientoM {
 	  boolean experiencia;
 	  boolean promedio;
 	  String contacto;
+	  
+	  
+	public EmprendimientoM() {
+		// TODO Auto-generated constructor stub
+	}
 	
 }
