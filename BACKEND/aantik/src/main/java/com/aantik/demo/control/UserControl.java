@@ -56,6 +56,8 @@ public class UserControl {
 		User personaAux = new User();
 		try {
 			personaAux.setUsername("userrr");
+			personaAux.setPassword("userrr");
+			personaAux.setId((long) 1);
 			if(userService.login(persona.getUsername(),persona.getPassword())==true) 
 				return new ResponseEntity<User>(personaAux, HttpStatus.OK);
 		} catch (Exception e) {
