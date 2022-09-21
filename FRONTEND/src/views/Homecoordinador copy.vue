@@ -11,29 +11,18 @@
           <h3>Se encuentra en el ciclo 2022-03</h3>
           <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div>
-        Aquí puede gestionar todos los estudiantes inscritos al ciclo actual
         <router-link to="/estudiantes">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Estudiantes</button></router-link><br>
-        Aquí puede gestionar todas las organizaciones sociales inscritas al ciclo actual
-         
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Organizaciones Sociales</button>
-        Aquí puede consultar la información de los docentes de la asigantura
-        
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Docentes</button>
-        Aquí puede consultar la información de los grupos de clase
-        
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Grupos de clase</button>
-        Aquí puede gestionar todos los emprendimientos inscritos al ciclo actual
-         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Emprendimientos</button>
-        Aquí puede correr el algoritmo de asignación con estudiantes preinscritos
-        o conocer los resultados obtenidos del ciclo actual
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Asignación</button>
+        Emprendimientos</button>
+
       </b-col>
       <b-col>
         

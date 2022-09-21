@@ -35,12 +35,41 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Homecoordinador.vue')
   },
   {
+    path: "/upload",
+    name: "upload",
+    component: () => import(/* webpackChunkName: "about" */ '../views/UploadFiles.vue')
+  },
+  {
     path: '/estudiantes',
     name: 'estudiantesCord',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/EstudiantesCord.vue')
+  },
+  {
+    path: '/adminServ',
+    name: 'adminHome',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/adminHome.vue')
+  },
+  {
+    path: '/ayuda',
+    name: 'ayuda',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/ayuda.vue')
+  },
+  {
+    path: '/subirFile',
+    name: 'subirFile',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/subirCsv.vue')
   }
 ]
 

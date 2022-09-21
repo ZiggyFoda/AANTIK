@@ -11,6 +11,9 @@
           <h3>Gestor de estudiantes</h3>
           <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div>
+        <router-link to="/subirFile">
+        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        Agregar estudiante preinscrito</button></router-link><br>
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Agregar estudiante</button>
         <button type="submit" class="btn btn-dark btn-lg btn-block">

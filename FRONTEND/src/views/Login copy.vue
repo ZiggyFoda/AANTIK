@@ -64,10 +64,15 @@ export default {
       };
       try {
 
+        let self = this;
         await this.loginService.save(this.persona)
-        .then(response => {
-          console.log(response);
-        })
+        .then(function(response) {
+          console.log(response.data); // DISPLAYS THE DATA I WANT
+         // user = response.data; // THROWS TYPE ERROR: Cannot set property 'thoughtWallet' of undefined at eval
+          self.$router.push({name:'about' })
+        }).catch(function(error) {
+          console.log(error);
+        });
 
         //.then(response => this.$router.push("/about"))
         //.catch(error => this.$router.push("/login"));

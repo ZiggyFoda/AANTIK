@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 export default class LoginService {
 
     url = "http://localhost:8080/";
@@ -12,8 +11,6 @@ export default class LoginService {
         return axios.post(this.url + "save",{
           username:user.username,
           password:user.password,
-        }).then(response => {
-        console.log("RES"+response.id);
         })
     }
     
@@ -26,4 +23,5 @@ export default class LoginService {
       const user = { email, password };
       return axios.post(ENDPOINT_PATH + "login", user);
     }
+
 }
