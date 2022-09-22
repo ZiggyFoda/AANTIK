@@ -82,7 +82,7 @@ export default {
     },
       print() {
         console.log("Esto es un método"+this.persona.email);
-      }
+    }
   }  
   }
 </script>
