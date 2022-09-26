@@ -24,8 +24,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.aantik.demo.api.UserAPI;
+import com.aantik.demo.entidad.Estudiante;
 import com.aantik.demo.entidad.User;
-import com.aantik.demo.entidad.UserCRUD;
+import com.aantik.demo.service.UserCRUD;
 
 @Controller
 public class UserControl {
@@ -88,9 +89,29 @@ public class UserControl {
 	public void preinscritosFile(@RequestParam("file") MultipartFile fileM) {
 		System.out.println(fileM.getSize());
 		System.out.println(fileM.toString());
-
-
-
 	}
 
+	@GetMapping("/all")
+	public ResponseEntity<Estudiante[]> sendStudents() {
+		Estudiante est[] = new Estudiante[2];
+		try {
+			est[0]=new Estudiante();
+			est[1]=new Estudiante();
+			est[0].setNombre("Pepito Perez");
+			est[0].setCorreo("pepitoPe@gmail.com");
+			est[0].setTelefono("3123125");
+			System.out.println("Enviar estudiante: "+est[0].getNombre());
+			est[1].setNombre("Julia Perez");
+			est[1].setCorreo("Julia@gmail.com");
+			est[1].setTelefono("11122233");
+			System.out.println("Enviar estudiante: "+est[1].getNombre());
+				return new ResponseEntity<Estudiante[]>(est, HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println("Usuario no existe"+e);
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+	}
+	
 }

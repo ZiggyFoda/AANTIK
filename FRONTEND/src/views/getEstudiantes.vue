@@ -7,10 +7,9 @@
         </div> 
     <b-row>
       <b-col>
-        <div class="hello">
+        <p>
           <h3>Gestor de estudiantes</h3>
-          <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
-        </div>
+        </p>
         <router-link to="/subirFile">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Agregar estudiante preinscrito</button></router-link><br>
@@ -24,7 +23,7 @@
         Listado de estudiantes inscritos
         <br>
         <div>
-          <b-table striped hover :items="items"  @change="getFile($event)"></b-table>
+          <b-table striped hover :items="estudiante"  @change="getFile($event)"></b-table>
         </div>
         <br>
         Listado de estudiantes preinscritos
@@ -58,7 +57,13 @@ export default {
         nombre: null,
         correo: null,
         telefono: null
-      }
+      },
+      items2: [
+          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Requisitos: 'Satisfecho' },
+          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Clase: '4202', Requisitos: 'Pendiente' },
+          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: '2353001', Clase: '4206', Requisitos: 'Pendiente' },
+          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Clase: '4208', Requisitos: 'Satisfecho' }
+      ]
     };
   },
   items: [
@@ -72,8 +77,8 @@ export default {
   ],
   loginService: null,
   created() {
-    this.getAll();
     this.loginService = new LoginService();
+    this.getAll();
   },
   methods: {
    /* async save() {
