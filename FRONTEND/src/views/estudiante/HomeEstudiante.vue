@@ -8,20 +8,36 @@
     <b-row>
       <b-col>
         <div class="hello">
-          <h3>Se encuentra en el ciclo 2022-03</h3>
+          <h3>Se encuentra inscrito al ciclo 2022-03</h3>
           <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
-        </div>
+        </div><br>
+        Aquí puede consultar el puntaje del emprendimiento asignado y
+         asignar puntaje a las preguntas que no se califican automaticamente
         <router-link to="/estudiantes">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Estudiantes</button></router-link><br>
+        Gestionar diagnóstico</button></router-link>
+        <br>
+        Aquí puede definir el plan de acción y subir los informes de soporte
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Organizaciones Sociales</button>
+        Progreso</button>
+        <br>
+        Aquí ************
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Docentes</button>
+        Benchmarking****</button>
+        <br>
+        Aquí puede subir una noticia, ver su historial o dirigirse a 
+        las noticias publicadas en el sistema.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Grupos de clase</button>
+        Noticias</button>
+        <br>
+        Puede acceder al foro y contestar preguntas realizados por los emprendimientos
+         que se están asesorando en el ciclo actual
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Emprendimientos</button>
+        Foro</button>
+        <br>
+        No olvide mantener sus datos actualizados      
+        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        Actualizar datos</button>
 
       </b-col>
       <b-col>

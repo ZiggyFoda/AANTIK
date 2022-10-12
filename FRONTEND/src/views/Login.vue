@@ -1,74 +1,137 @@
 <template>
-  <div class="col-md-12">
-    <div class="card card-container">
-      <img id="profile-img" src="../assets/puj.png" class="profile-img-card" />
-      <Form @submit="handleLogin" :validation-schema="schema">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <Field name="username" type="text" class="form-control" />
-          <ErrorMessage name="username" class="error-feedback" />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <Field name="password" type="password" class="form-control" />
-          <ErrorMessage name="password" class="error-feedback" />
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary btn-block" :disabled="loading">
-            <span
-              v-show="loading"
-              class="spinner-border spinner-border-sm"
-            ></span>
-            <span>Login</span>
-          </button>
-        </div>
-        <div class="form-group">
-          <div v-if="message" class="alert alert-danger" role="alert">
-            {{ message }}
-          </div>
-        </div>
-      </Form>
+  <b-container padding-right= 0px padding-left="0px">   
+    <b-row>
+    <b-col>    
+    </b-col>
+    <b-col>
+     <div class="vue-tempalte">
+        <img alt="Vue logo" src="../assets/escudoPUJ.png" width="100%" height="25%"/>
+        <form>
+            <h3 class="titulo">AANTIK</h3>
+            <h3>Inicio de sesión</h3>
+            <div class="form-group">
+                <label>Correo electronico</label>
+                <input v-model="persona.username" type="email" class="form-control form-control-lg"/>
+            </div>
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input v-model="persona.password" type="password" class="form-control form-control-lg" />
+            </div>
+            <button type="submit" class="btn btn-dark btn-lg btn-block" @click="save(persona)">
+            Ingresar</button>
+            <p class="forgot-password text-right mt-2 mb-4">
+                <router-link to="/login">Olvidó su contraseña?</router-link>
+            </p>
+        </form>
     </div>
-  </div>
+    </b-col>
+    
+    <b-col>
+    </b-col>
+  </b-row>
+  <footer>
+  <hr width=100%  color=#e3b82a  size=50   noshade="noshade">
+  <hr width=100%  color=#fff size=50   noshade="noshade">
+  <hr width=100%  color=#2C5698  size=50   noshade="noshade">
+
+  </footer>
+  </b-container>
 </template>
+
+
+
 <script>
-
-
-
-import * as yup from "yup";
+import LoginService from "../service/LoginService";
 export default {
- 
-};
+  name: "CrudApp",
+  data() {
+    return{
+      persona: {
+        username: null,
+        password: null
+      }
+    };
+  },
+  loginService: null,
+  created() {
+    this.loginService = new LoginService();
+  },
+  methods: {
+    async save() {
+      var data = {
+        username: this.persona.username,
+        password: this.persona.password,
+
+      };
+      try {
+
+        let self = this;
+        await this.loginService.save(this.persona)
+        .then(function(response) {
+          console.log(response.data);
+          if (response.data==1)
+          self.$router.push({name:'about' })
+        }).catch(function(error) {
+          console.log(error);
+        });
+
+        //.then(response => this.$router.push("/about"))
+        //.catch(error => this.$router.push("/login"));
+      } catch (error) {
+        console.log(error);
+      }
+    },
+      print() {
+        console.log("Esto es un método"+this.persona.email);
+      }
+  }  
+}
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-label {
-  display: block;
-  margin-top: 10px;
+h3 {
+  margin: 40px 0 0;
 }
-.card-container.card {
-  max-width: 350px !important;
-  padding: 40px 40px;
+ul {
+  list-style-type: none;
+  padding: 0;
 }
-.card {
-  background-color: #f7f7f7;
-  padding: 20px 25px 30px;
-  margin: 0 auto 25px;
-  margin-top: 50px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+li {
+  display: inline-block;
+  margin: 0 10px;
 }
-.profile-img-card {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto 20px;
-  display: inside;
-  object-fit: scale-down;
-  -moz-border-radius: 60%;
-  -webkit-border-radius: 80%;
-  border-radius: 80%;
+a {
+  color: #42b983;
+}
+hr {
+  height: 25px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.container, .container-sm {
+  max-width: 100%;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 15%;
+    margin-left: 15%;
+}
+.container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
+    padding-top: 35px;
+}
+footer {
+      position: absolute;
+      bottom: 0;
+      width: 98%;
+      height: 80px;
+      color: white;
+  }
+.titulo{
+  font-family: times;
+  color: #2C5698 ;
+  font-style: bold;
+  font-size: 30pt;
 }
 </style>

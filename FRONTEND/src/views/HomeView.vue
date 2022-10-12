@@ -7,13 +7,19 @@
     <hr width=100%  color=#2C5698  size=50   noshade="noshade">
 
     <h3>Bienvenido a AANTIK</h3>
-    <p>AANTIK es un sistema de información personalizado para la gestión de procesos de madures
-      empresarial en emprendimientos que pertenecen al programa de PSU, facilitando tareas de 
+    <p>AANTIK es un sistema de información personalizado para la gestión de procesos de madurez
+      empresarial, aplicandose en emprendimientos que pertenecen al programa de PSU, facilitando tareas de 
       asignación de entidad y estudiantes por medio de la personalización.
-      Se permite gestionar todo el proceso de madurez empresarial del emprendimiento accediento a 
-      servicios adicionales de benchmarking, información con noticias relevantes y por interés,
+      AANTIK cuenta con servicios que permiten tener el historial y trazabilidad de todo el proceso de madurez
+      empresarial aplicado al emprendimiento, adicionalmente cuenta con servicios de información presentando
+      noticias relevantes y del sector de interés de los emprendimientos, servicio de Benchmarking,
       foro para comunicación entre entidades, tejido social que facilita el contacto de proveedores
       y clientes entre las organizaciones que usan AANTIK.
+    </p>
+    <p class="boton">
+      <router-link to="/login">
+        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        Iniciar sesión</button></router-link><br>
     </p>
   </div>
 </template>
@@ -46,6 +52,15 @@ export default {
     margin-top: 5%;
     margin-left: 12%;
     margin-right: 12%;
+  }
+  p.boton {
+    margin-top: 5%;
+    margin-left: 40%;
+  }
+  .btn-block {
+    display: block;
+    width: 20%;
+    align-items: center;
   }
 </style>
   

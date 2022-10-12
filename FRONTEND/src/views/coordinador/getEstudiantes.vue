@@ -41,7 +41,7 @@
 
 <script>
 import SidebarMenuAkahon from "@/components/SideBar.vue"
-import LoginService from "../service/LoginService";
+import LoginService from "@/service/LoginService";
 
 export default {
   //name: 'estudiantesCord2',
@@ -57,7 +57,7 @@ export default {
         nombre: null,
         correo: null,
         telefono: null
-      },
+      } ,
       items2: [
           { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Requisitos: 'Satisfecho' },
           { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Clase: '4202', Requisitos: 'Pendiente' },

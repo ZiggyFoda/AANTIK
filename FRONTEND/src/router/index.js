@@ -13,71 +13,81 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Login copy.vue')
+    component: () => import('../views/Login.vue')
   },
   {
     path: '/login2',
     name: 'Login2',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+    component: () => import('../views/LoginGab.vue')
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Homecoordinador.vue')
-  },
-  {
-    path: "/upload",
-    name: "upload",
-    component: () => import(/* webpackChunkName: "about" */ '../views/UploadFiles.vue')
-  },
-  {
-    path: '/estudiantes',
-    name: 'estudiantesCord',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/EstudiantesCord.vue')
-  },
-  {
-    path: '/estudiantes2',
-    name: 'estudiantesCord2',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/getEstudiantes.vue')
-  },
-  {
-    path: '/adminServ',
-    name: 'adminHome',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/adminHome.vue')
+    path: '/recuperarPassword',
+    name: 'recuperarPassword',
+    component: () => import('../views/recuperaPswrd.vue')
   },
   {
     path: '/ayuda',
     name: 'ayuda',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/ayuda.vue')
+    component: () => import('../views/ayuda.vue')
+  },
+  {
+    path: '/foro',
+    name: 'foro',
+    component: () => import('../views/foro.vue')
+  },
+  {
+    path: '/noticias',
+    name: 'noticias',
+    component: () => import('../views/noticias.vue')
+  },
+  //ORGANIZACION SOCIAL
+  {
+    path: '/orgSocHome',
+    name: 'orgSocHome',
+    component: () => import('../views/orgSocial/HomeOrgSocial.vue')
+  },
+  //ESTUDIANTE
+  {
+    path: '/studentHome',
+    name: 'studentHome',
+    component: () => import('../views/estudiante/HomeEstudiante.vue')
+  },
+  {
+    path: '/preinscHome',
+    name: 'preinscHome',
+    component: () => import('../views/estudiante/HomePreinscrito.vue')
+  },
+  //COORDINADOR
+  {
+    path: "/CoordHome",
+    name: "CoordHome",
+    component: () => import('../views/coordinador/Homecoordinador.vue')
+  },
+  {
+    path: "/subirPre",
+    name: "subirPre",
+    component: () => import('../views/coordinador/UploadFiles.vue')
+  },
+  {
+    path: '/estudiantes',
+    name: 'estudiantesCord',
+    component: () => import('../views/coordinador/EstudiantesCord.vue')
+  },
+  {
+    path: '/estudiantes2',
+    name: 'estudiantesCord2',
+    component: () => import('../views/coordinador/getEstudiantes.vue')
   },
   {
     path: '/subirFile',
     name: 'subirFile',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/subirCsv.vue')
+    component: () => import('../views/coordinador/subirCsv.vue')
+  },
+  //ADMIN
+  {
+    path: '/adminHome',
+    name: 'adminHome',
+    component: () => import('../views/admin/HomeAdmin.vue')
   }
 ]
 

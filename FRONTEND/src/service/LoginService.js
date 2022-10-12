@@ -8,7 +8,7 @@ export default class LoginService {
     }
 
     async save(user) {
-        return axios.post(this.url + "save",{
+        return axios.post(this.url + "login",{
           username:user.username,
           password:user.password,
         })

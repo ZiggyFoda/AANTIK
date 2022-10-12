@@ -5,9 +5,9 @@
     <hr width=100% color=#e3b82a  size=50   noshade="noshade">
     <hr width=100%  color=#fff size=50   noshade="noshade">
     <hr width=100%  color=#2C5698  size=50   noshade="noshade">
-    <div class="texto">
+
     <h1><br>Ayuda del sistema AANTIK para coordinadores de asignastura</h1>
-    <p class="align-left">
+    <p>
       <h2>Subir archivos de excel</h2>
       Para subir una tabla de excel, debe guardar estos datos como .csv y mantener el formato definido 
       en la actualización mas reciente del software:
@@ -24,7 +24,6 @@
       <h3>Ingresar docentes</h3>
       <h3>Ingresar Grupos de clase</h3>
     </p>
-    </div>
   </div>
 </template>
 
@@ -52,12 +51,6 @@ export default {
     margin-top:30px;
   }
   p {
-    text-align: left;
-    margin-top: 5%;
-    margin-left: 12%;
-    margin-right: 12%;
-  }
-  div.texto {
     text-align: left;
     margin-top: 5%;
     margin-left: 12%;

@@ -41,7 +41,7 @@
 
 <script>
 import SidebarMenuAkahon from "@/components/SideBar.vue"
-import FileService from "../service/FileService";
+import FileService from "@/service/FileService";
 export default {
   components: {
     SidebarMenuAkahon,

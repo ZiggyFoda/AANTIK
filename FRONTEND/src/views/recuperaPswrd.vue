@@ -8,20 +8,17 @@
         <img alt="Vue logo" src="../assets/escudoPUJ.png" width="100%" height="25%"/>
         <form>
             <h3 class="titulo">AANTIK</h3>
-            <h3>Inicio de sesión</h3>
+            <h3>Recuperación de password</h3>
             <div class="form-group">
-                <label>Correo electronico</label>
-                <input v-model="persona.username" type="email" class="form-control form-control-lg"/>
+                <label>Contraseña nueva</label>
+                <input v-model="persona.username" type="password" class="form-control form-control-lg"/>
             </div>
             <div class="form-group">
-                <label>Contraseña</label>
+                <label>Confirme contraseña</label>
                 <input v-model="persona.password" type="password" class="form-control form-control-lg" />
             </div>
             <button type="submit" class="btn btn-dark btn-lg btn-block" @click="save(persona)">
-            Ingresar</button>
-            <p class="forgot-password text-right mt-2 mb-4">
-                <router-link to="/login">Olvidó su contraseña?</router-link>
-            </p>
+            Actualizar</button>
         </form>
     </div>
     </b-col>
@@ -60,15 +57,16 @@ export default {
     async save() {
       var data = {
         username: this.persona.username,
-        role: this.persona.password
+        password: this.persona.password,
+
       };
       try {
 
         let self = this;
         await this.loginService.save(this.persona)
         .then(function(response) {
-          console.log(response.data); // DISPLAYS THE DATA I WANT
-         // user = response.data; // THROWS TYPE ERROR: Cannot set property 'thoughtWallet' of undefined at eval
+          console.log(response.data);
+          if (response.data==1)
           self.$router.push({name:'about' })
         }).catch(function(error) {
           console.log(error);
