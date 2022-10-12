@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.aantik.demo.match.Instancias;
+
 @Service
 public class FilesStorageServiceImpl implements FilesStorageService {
 
@@ -31,6 +33,11 @@ public class FilesStorageServiceImpl implements FilesStorageService {
   public void save(MultipartFile file) {
     try {
       Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
+      System.out.println("EJECUTANDO: save(MultipartFile file)"+this.root+"\\"+file.getOriginalFilename());
+      Instancias ins=new Instancias();
+		ins.instanciaPreinscritos(this.root+"\\"+file.getOriginalFilename());		
+		System.out.println("PREINSCRITO 0: "+ins.preinscritos[0].nombre);
+		
     } catch (Exception e) {
       throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
     }

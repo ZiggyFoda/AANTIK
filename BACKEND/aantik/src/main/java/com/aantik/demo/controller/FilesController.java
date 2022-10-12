@@ -33,7 +33,7 @@ public class FilesController {
     String message = "";
     try {
       storageService.save(file);
-
+      System.out.println("EJECUTANDO: @PostMapping(\"/upload\")");
       message = "Uploaded the file successfully: " + file.getOriginalFilename();
       return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
     } catch (Exception e) {
@@ -49,6 +49,7 @@ public class FilesController {
       String url = MvcUriComponentsBuilder
           .fromMethodName(FilesController.class, "getFile", path.getFileName().toString()).build().toString();
 
+      System.out.println("EJECUTANDO:   @GetMapping(\"/files\")");
       return new FileInfo(filename, url);
     }).collect(Collectors.toList());
 
@@ -57,6 +58,7 @@ public class FilesController {
 
   @GetMapping("/files/{filename:.+}")
   public ResponseEntity<Resource> getFile(@PathVariable String filename) {
+    System.out.println("EJECUTANDO: @GetMapping(\"/files/{filename:.+}\")");
     Resource file = storageService.load(filename);
     return ResponseEntity.ok()
         .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"").body(file);

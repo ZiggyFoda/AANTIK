@@ -2,9 +2,11 @@ package com.aantik.demo.match;
 
 import java.io.*;
 
+import com.aantik.demo.model.Preinscrito;
+
 public class CSV {
 	
-	 public static void main(String[] args) {
+	/* public static void main(String[] args) {
 	  
 	  //CSV = Comma-Separated Values 
 	  //   text file that uses a comma to separate values
@@ -55,7 +57,7 @@ public class CSV {
 		  {
 		      System.out.println(Arr[i]);
 		  }*/
-		  int k =0;
+	/*	  int k =0;
 		  for(int i = 0; i < 5; i++){
 			  System.out.println("--------------------------------------------------");
 			     for(int j = 0; j < 39; j++){
@@ -129,7 +131,7 @@ public class CSV {
 		  System.out.println(Mat[3][24]);
 		  
 		
-	}
+	}/**/
 	 
 	 void leerEstudiantes(EstudianteM[] est, String fileEst) {
 		 String file = fileEst;
@@ -273,4 +275,48 @@ public class CSV {
 		 
 		 return inicial;
 	}
+	 
+	 void leerPreinscritos(Preinscrito[] est, String fileEst) {
+		 String file = fileEst;
+		  BufferedReader reader = null;
+		  String line = "";
+		  int numLineas = 0;
+		  
+		  try {
+		   reader = new BufferedReader(new FileReader(file));
+		   reader.readLine();
+		   while((line = reader.readLine()) != null) {
+			est[numLineas]=new Preinscrito();
+			line=line.replaceAll("\"", "");
+		    String[] row = line.split(",");
+		    System.out.println(line);
+		    if(row[4].contains("id")) {
+		    	
+		    }else {
+		    	est[numLineas].nombre=row[1];
+			    est[numLineas].correo=row[2];
+			    est[numLineas].telefono=row[8];
+			    est[numLineas].asignatura=row[5];
+			    est[numLineas].idEstudiantil=Long.parseLong(row[3].trim());;
+			    est[numLineas].identificacion=Long.parseLong(row[4].trim());
+			    est[numLineas].tallerSP=row[6];
+			    est[numLineas].fechaSP=row[7];
+			    est[numLineas].infografia=row[9];		    	
+			    numLineas++;
+		    }
+		    
+		   }
+		  }
+		  catch(Exception e) {
+		   e.printStackTrace();
+		  }
+		  finally {
+		   try {
+		    reader.close();
+		   } catch (IOException e) {
+		    // TODO Auto-generated catch block
+		    e.printStackTrace();
+		   }
+		  }
+	 }
 }

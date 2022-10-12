@@ -26,6 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.aantik.demo.api.UserAPI;
 import com.aantik.demo.entidad.Estudiante;
 import com.aantik.demo.entidad.User;
+import com.aantik.demo.model.Preinscrito;
 import com.aantik.demo.service.UserCRUD;
 
 @Controller
@@ -65,16 +66,19 @@ public class UserControl {
 		return "index";
 	}
 
-	@PostMapping("/save")
-	public ResponseEntity<User> save(@RequestBody User persona) {
-		System.out.println("RECIBE:  per"+persona.getUsername());
+	@PostMapping("/login")
+	public ResponseEntity<String> save(@RequestBody User persona) {
+		System.out.println("RECIBE: "+persona.getUsername());
 		User personaAux = new User();
+		String ret="0";
 		try {
-			personaAux.setUsername("userrr");
-			personaAux.setPassword("userrr");
-			personaAux.setId((long) 1);
-			if(userService.login(persona.getUsername(),persona.getPassword())==true) 
-				return new ResponseEntity<User>(personaAux, HttpStatus.OK);
+			
+			if(userService.login(persona.getUsername(),persona.getPassword())==true) {
+				personaAux = userService.getUserByUsername(persona.getUsername());
+				if (personaAux.getRoles().toString().contains("id=1"))
+				ret="1"; 
+				return new ResponseEntity<String>(ret, HttpStatus.OK);
+			}							
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
@@ -92,11 +96,11 @@ public class UserControl {
 	}
 
 	@GetMapping("/all")
-	public ResponseEntity<Estudiante[]> sendStudents() {
-		Estudiante est[] = new Estudiante[2];
+	public ResponseEntity<Preinscrito[]> sendStudents() {
+		Preinscrito est[] = new Preinscrito[2];
 		try {
-			est[0]=new Estudiante();
-			est[1]=new Estudiante();
+			est[0]=new Preinscrito();
+			est[1]=new Preinscrito();
 			est[0].setNombre("Pepito Perez");
 			est[0].setCorreo("pepitoPe@gmail.com");
 			est[0].setTelefono("3123125");
@@ -105,7 +109,7 @@ public class UserControl {
 			est[1].setCorreo("Julia@gmail.com");
 			est[1].setTelefono("11122233");
 			System.out.println("Enviar estudiante: "+est[1].getNombre());
-				return new ResponseEntity<Estudiante[]>(est, HttpStatus.OK);
+				return new ResponseEntity<Preinscrito[]>(est, HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();

@@ -2,16 +2,16 @@ package com.aantik.demo.model;
 
 public class Preinscrito {
 	
-	private String nombre;
-	private String correo;
-	private String telefono;
-	private String direccion;	
-	private String asignatura;//CDIO-PSU
-	private Long idEstudiantil;	
-	private Long identificacion;
-	private String tallerSP; //taller sentido de mi practica	
-	private String fechaSP; //fecha asistencia sentido de mi practica			
-	private String infografia; //revision de infografia de pasos a seguir
+	public String nombre;
+	public String correo;
+	public String telefono;
+	public String direccion;	
+	public String asignatura;//CDIO-PSU
+	public Long idEstudiantil;	
+	public Long identificacion;
+	public String tallerSP; //taller sentido de mi practica	
+	public String fechaSP; //fecha asistencia sentido de mi practica			
+	public String infografia; //revision de infografia de pasos a seguir
 	
 	public Preinscrito() {
 

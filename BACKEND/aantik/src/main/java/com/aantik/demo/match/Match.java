@@ -1,6 +1,14 @@
 package com.aantik.demo.match;
 
 import java.util.Random;
+import java.io.IOException;
+import java.io.InputStream;
+
+import com.jcraft.jsch.Channel;
+import com.jcraft.jsch.ChannelExec;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.Session;
 
 public class Match {
 	//se obtienen de leer las tablas
@@ -13,8 +21,63 @@ public class Match {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		  String host="13.66.33.251";
+		    String user="aantik";
+		    String password="+JuGaLi123*";
+		    String command1="cd Aantik";
+		    String command2="ls";
+		    String command3="java HelloWorldApp";
+		    try{
+		    	
+		    	java.util.Properties config = new java.util.Properties(); 
+		    	config.put("StrictHostKeyChecking", "no");
+		    	JSch jsch = new JSch();
+		    	Session session=jsch.getSession(user, host, 22);
+		    	session.setPassword(password);
+		    	session.setConfig(config);
+		    	session.connect();
+		    	System.out.println("Connected");
+		    	
+		    	Channel channel=session.openChannel("exec"); 
+		        ((ChannelExec)channel).setCommand(command1+" && "+command2+" && "+command3); 
+		        channel.setInputStream(null);
+		        ((ChannelExec)channel).setErrStream(System.err);
+				InputStream in=channel.getInputStream();
+				channel.connect();
+		        byte[] tmp=new byte[1024];
+		        while(true){
+					while(in.available()>0){
+					    int i=in.read(tmp, 0, 1024);
+					    if(i<0)break;
+					    System.out.print(new String(tmp, 0, i));
+					  }
+
+		          if(channel.isClosed()){
+		            System.out.println("exit-status: "+channel.getExitStatus());
+		            break;
+		          }
+		          try{Thread.sleep(1000);}catch(Exception ee){}
+		        }
+				
+
+
+		       // respuesta(channel); 
+		        //respuesta(channel);
+		        
+
+		        channel.disconnect();
+		        session.disconnect();
+		        System.out.println("DONE");
+		    }catch(Exception e){
+		    	e.printStackTrace();
+		    }
+		
 		Instancias ins=new Instancias();
-		ins.instanciaEmprendimientos();
+		ins.instanciaPreinscritos("");
+		
+		System.out.println(ins.preinscritos[0]);
+		/*	ins.instanciaEmprendimientos();
 		ins.instanciaEstudiantes();
 		
 		Match mt=new Match();
@@ -34,10 +97,18 @@ public class Match {
 		mt.mathc2();
 		System.out.println("----resultado match---");
 		mt.imprimirD2();
-		mt.asignacion();
+		mt.asignacion();*/
 		
 	}
 	
+	static void respuesta(String command,Channel channel) throws IOException {
+		
+
+
+
+	}
+/*	
+ 
 	void calcularPuntaje(Instancias in) {
 		cantEst=in.getCantEst();
 		System.out.println("----Cantidad de estudiantes "+this.cantEst+"---");
@@ -169,7 +240,7 @@ public class Match {
 	  if(enfasis(est.enfasis, emp.actividadEco)){
 	    val += 2;
 	  }*/
-	  if(est.modalidad == emp.modalidad){
+	/*  if(est.modalidad == emp.modalidad){
 	    val += 2;
 	  }
 	  if(est.experiencia == emp.experiencia && est.experiencia == true){
@@ -184,7 +255,7 @@ public class Match {
 	  /*if(est.limitLocalidad.equals(emp.localidad)){
 	    val += - est.pUbicacion*2;
 	  }*/
-	  return val;		   
+	/*  return val;		   
 	}
 	
 	void mathcInicial() {
@@ -286,7 +357,7 @@ public class Match {
 			System.out.println("hay mas emprendimientos que estudiantes, sobran emprendimientos");
 		/*else if(cantEmp<cantEst) 
 			System.out.println("hay mas estudiantes que emprendimientos, quedarán estudiantes sin asignación");
-		*/if(cuposTotales==cantEst)
+		*//*if(cuposTotales==cantEst)
 			System.out.println("Cantidad de cupos igual a cantidad de estusdiantes, condiciones optimas de asignación");
 		
 	}
@@ -328,5 +399,5 @@ public class Match {
 		for(int i=0;i<asignados;i++) {
 			System.out.println("Estudiante: "+asignaciones[i][0]+" Asignado a emprendimiento "+asignaciones[i][1]);
 		}
-	}
+	}*/
 }
