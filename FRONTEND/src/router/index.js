@@ -40,6 +40,11 @@ const routes = [
     name: 'noticias',
     component: () => import('../views/noticias.vue')
   },
+  {
+    path: '/tejido',
+    name: 'tejido',
+    component: () => import('../views/tejido.vue')
+  },
   //ORGANIZACION SOCIAL
   {
     path: '/orgSocHome',
