@@ -10,10 +10,12 @@
     <h1><br>Bienvenido al foro de AANTIK</h1>
     </div>
   </div>
-  <b-card title="Pregunta de America solidaria" >
+  
+  <div v-for="(item, i) in items">
+  <b-card title="Pregunta de " ><v-card-title v-text="item.Nombres"/>
     <b-card-text>
-      Fecha:01/01/22<br>
-      Como puedo registrar un nuevo emprendimiento<br>
+      Fecha: <v-card-text v-text="item.Fecha"/><br>
+      <v-card-text v-text="item.Pregunta"/><br>
       <br>RESPUESTAS<br></b-card-text>
       <div v-for="(item, i) in items2">
         <b-card><v-card-title v-text="item.Nombres"/>
@@ -28,6 +30,7 @@
       max-rows="6"
     ></b-form-textarea>
   </b-card>
+  </div>
    
     <b-col></b-col>
 
@@ -50,8 +53,8 @@ export default {
   data() {
       return {
         items: [
-          { Nombres: 'America solidaria', Pregunta: 'Como puedo registrar un nuevo emprendimiento' },
-          { Nombres: 'Org Soc1 ', Pregunta: 'Como puedo encontrar clientes' },
+          { Nombres: 'America solidaria', Pregunta: 'Como puedo registrar un nuevo emprendimiento', Fecha: '01/01/22'},
+          { Nombres: 'Org Soc1 ', Pregunta: 'Como puedo encontrar clientes', Fecha: '02/03/22' },
          ],
         items2: [
           { Nombres: 'Emprendimiento 1', Respuesta: 'Comunicandose con coordinacion de proyectos' },
