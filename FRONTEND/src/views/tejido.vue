@@ -1,202 +1,181 @@
 <template>
-  <div id="app" class="container-fluid">
-    <div class="large-12 medium-12 small-12 cell" id="app">
-      <input type="file" accept="application/json" />
+  <b-container class="bv-example-row">
+    <div class="home">
+      <img alt="Vue logo" src="../assets/escudoPUJ.png" width="20%" height="10%" >
+  
+      <hr width=100% color=#e3b82a  size=50   noshade="noshade">
+      <hr width=100%  color=#fff size=50   noshade="noshade">
+      <hr width=100%  color=#2C5698  size=50   noshade="noshade">
+      <div class="texto">
+      <h1><br>Bienvenido al Tejido Humano de AANTIK</h1>
+      </div>
     </div>
-    <div class="col-md-9 panel panel-default">
-      <tree
-        ref="tree"
-        :identifier="getId"
-        :zoomable="zoomable"
-        :data="Graph.tree"
-        :node-text="nodeText"
-        :margin-x="Marginx"
-        :margin-y="Marginy"
-        :radius="radius"
-        :type="type"
-        :layout-type="layoutType"
-        :duration="duration"
-        class="tree"
-        @clicked="onClick"
-        @expand="onExpand"
-        @retract="onRetract"
-      />
-    </div>
+    
+    <div>
+  <b-card-group columns>
+    <b-card
+      title="Emprendimiento"
+    >
+    
+      <b-card-text>
+        emprendmienito de artesanias
+      </b-card-text>
+    </b-card>
+    <b-card-group deck>
+      <div v-for="(item, i) in items">
+    <b-card title="Cliente" >
+      <b-card-text>
+        This is a wider card with supporting text below as a natural lead-in to additional content.
+        This content is a little bit longer.
+      </b-card-text>
+      <template #footer>
+        <div>
+  <b-button v-b-modal.modal-1>Contacto</b-button>
+
+  <b-modal id="modal-1" i title="Informacion de contacto">
+    <p class="my-4">Bogota, Colombia <br> Cr 15a #123-45</p>
+  </b-modal>
+</div>
+      </template>
+    </b-card>
   </div>
-</template>
+  </b-card-group>
 
-<script>
-import { tree } from "vued3tree";
-import axios from "axios";
-// import data from "../../data/data";
-var data = {
-  Graph: {
-    tree: {
-      id: 0,
-      text: "DiscogsClient MAIN",
-      photo: "http://lorempixel.com/60/60/cats/2",
-      children: [
-        {
-          id: 1,
-          text: "DiscogsClient",
-          photo: "http://lorempixel.com/60/60/cats/3",
-          children: [
-            {
-              id: 11,
-              text: "Data",
-              photo: "http://lorempixel.com/60/60/cats/5",
-              children: [
-                {
-                  id: 49,
-                  text: "Query",
-                  children: [
-                    {
-                      children: [],
-                      id: 53,
-                      text: "DiscogsEntityType",
-                    },
-                    {
-                      children: [],
-                      id: 51,
-                      text: "DiscogsSortInformation",
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              id: 8,
-              text: "Internal",
-              photo: "http://lorempixel.com/60/60/cats/2",
-              children: [
-                {
-                  children: [],
-                  id: 9,
-                  text: "DiscogsWebClient",
-                },
-                {
-                  children: [],
-                  id: 10,
-                  text: "IDiscogsWebClient",
-                },
-              ],
-            },
-            {
-              children: [],
-              id: 2,
-              text: "DiscogsAuthentifierClient",
-              photo: "http://lorempixel.com/60/60/cats/2",
-            },
-            {
-              children: [],
-              id: 3,
-              text: "DiscogsClient",
-              photo: "http://lorempixel.com/60/60/cats/4",
-            },
-          ],
-        },
-      ],
+  <b-card-group deck>
+    <div v-for="(item2, i) in items">
+    <b-card title="Proveedor" >
+      <b-card-text>
+        This is a wider card with supporting text below as a natural lead-in to additional content.
+        This card has even longer content than the first to show that equal height action.
+      </b-card-text>
+      <template #footer>
+        <div>
+  <b-button v-b-modal.modal-1>Contacto</b-button>
+
+  <b-modal id="modal-2" i title="Informacion de contacto">
+    <p class="my-4">Bogota, Colombia <br> Cr 15a #123-45</p>
+  </b-modal>
+</div>
+      </template>
+    </b-card>
+  </div>
+  </b-card-group>
+  <b-card-group deck>
+    <div v-for="(item3, i) in items">
+    <b-card title="Aliado Estrategico" >
+      <b-card-text>
+        This is a wider card with supporting text below as a natural lead-in to additional content.
+        This card has even longer content than the first to show that equal height action.
+      </b-card-text>
+      <template #footer>
+        <div>
+  <b-button v-b-modal.modal-1>Contacto</b-button>
+
+  <b-modal id="mod" title="Informacion de contacto">
+    <p class="my-4">Bogota, Colombia <br> Cr 15a #123-45</p>
+  </b-modal>
+</div>
+      </template>
+    </b-card>
+  </div>
+  </b-card-group>
+
+  </b-card-group>
+</div>
+
+
+    <div v-for="(item, i) in items">
+      <b-card bg-variant="light" border-variant="secondary">
+        <template #header>
+          <h6 class="mb-0"> <b>Pregunta de: </b> </h6> <v-card-title v-text="item.Nombres"/>
+        </template>
+        <h4><b><v-card-title v-text="item.Titulo"/></b></h4>
+        <b-card-text>
+          <h6><b>Fecha:</b></h6> <v-card-text v-text="item.Fecha"/><br><br>
+          <v-card-text v-text="item.Pregunta"/><br><br>
+          <div v-for="(item, i) in items2">
+          <b-card ><b><v-card-title v-text="item.Nombres"/></b>
+            <b-card-text  v-text="item.Respuesta"></b-card-text> 
+          </b-card>
+        </div>
+        <b-form-textarea
+        id="textarea"
+        v-model="text"
+        placeholder="Ingresar una respuesta..."
+        rows="3"
+        max-rows="6"
+      ></b-form-textarea>
+          </b-card-text>
+        <template #footer>
+          <em> </em>
+        </template>
+      </b-card>
+      <br>
+    </div>
+     
+      <b-col></b-col>
+  
+  </b-container>
+  </template>
+  
+  <script>
+  export default {
+    name: 'foro',
+    props: {
+      msg: String
     },
-
-    text: "DiscogsClient",
-  },
-};
-
-Object.assign(data, {
-  type: "tree",
-  duration: 750,
-  Marginx: 30,
-  Marginy: 30,
-  radius: 3,
-  nodeText: "text",
-  currentNode: null,
-  zoomable: true,
-  isLoading: false,
-  events: [],
-});
-
-export default {
-  name: "app",
-  data() {
-    return data;
-  },
-  components: {
-    tree,
-  },
-  methods: {
-    getId(node) {
-      return node.id;
+     components: {
     },
-    onClick(evt) {
-      this.currentNode = evt.element;
-      this.onEvent("onClick", evt);
+    methods: {
+      search() {
+        
+      }
     },
-    onExpand(evt) {
-      this.onEvent("onExpand", evt);
-    },
-    onRetract(evt) {
-      this.onEvent("onRetract", evt);
-    },
-    onEvent(eventName, data) {
-      this.events.push({ eventName, data: data.data });
-    },
-  },
-
-  async mounted() {},
-};
-</script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 20px;
-}
-
-.node {
-  cursor: pointer;
-}
-
-.node circle {
-  fill: #fff;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
-
-.node text {
-  font: 10px sans-serif;
-}
-
-.link {
-  fill: none;
-  stroke: #ccc;
-  stroke-width: 1.5px;
-}
-
-.tree {
-  height: 800px;
-  width: 800px;
-}
-
-.graph-root {
-  height: 800px;
-  width: 100%;
-}
-
-.feedback {
-  height: 50px;
-  line-height: 50px;
-  vertical-align: middle;
-}
-
-.log {
-  height: 200px;
-  overflow-x: auto;
-  overflow-y: auto;
-  overflow: auto;
-  text-align: left;
-}
-</style>
+    data() {
+        return {
+          items: [
+            { Nombres: 'America solidaria', Pregunta: 'Como puedo registrar un nuevo emprendimiento', Fecha: '01/01/22'},
+            { Nombres: 'Org Soc1 ', Pregunta: 'Como puedo encontrar clientes', Fecha: '02/03/22' },
+            { Nombres: 'Org Soc1 ', Pregunta: 'Como puedo encontrar clientes', Fecha: '02/03/22' },
+           ],
+          items2: [
+            { Nombres: 'Emprendimiento 1', Respuesta: 'Comunicandose con coordinacion de proyectos' },
+            { Nombres: 'Estudiante pepito', Respuesta: 'Te enviaremos un correo con la información'},
+         ],
+         items3: [
+            { Nombres: 'Emprendimiento 1', Respuesta: 'Comunicandose con coordinacion de proyectos' },
+            { Nombres: 'Estudiante pepito', Respuesta: 'Te enviaremos un correo con la información'},
+            { Nombres: 'Estudiante ps', Respuesta: 'Te enviaremos un correo con la información'},
+         ],
+        }      
+    }
+  }
+  </script>
+  
+  <style scoped>
+  
+    hr {
+      height: 25px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    img {
+      margin-bottom:35px;
+      margin-top:30px;
+    }
+    p {
+      text-align: left;
+      margin-top: 5%;
+      margin-left: 12%;
+      margin-right: 12%;
+    }
+    b-row.entidad{
+      text-align: left;
+      color: aqua;
+      margin-top: 5%;
+      margin-left: 12%;
+      margin-right: 12%;
+    }
+  </style>
+    
+  

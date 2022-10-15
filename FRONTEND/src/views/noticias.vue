@@ -7,18 +7,29 @@
       <hr width=100%  color=#fff size=50   noshade="noshade">
       <hr width=100%  color=#2C5698  size=50   noshade="noshade">
       <div class="texto">
-      <h1><br>Noticias de AANTIK, mantengase al día</h1>
+      <h1><br>Noticias de <b>AANTIK</b>, mantengase al día</h1>
       </div>
     </div>
     
-    <div v-for="(item, i) in items">
-    <b-card><v-card-title v-text="item.Titulo"/>
+    <div v-for="(item, i) in items"><div>
+
+    <b-card bg-variant="light" border-variant="secondary">
+      <template #header>
+        <h6 class="mb-0"> </h6>
+      </template>
+      <h4><b><v-card-title v-text="item.Titulo"/></b></h4>
       <b-card-text>
-        Fecha: <v-card-text v-text="item.Fecha"/><br><br>
+        <h6><b>Fecha:</b></h6> <v-card-text v-text="item.Fecha"/><br><br>
         <v-card-text v-text="item.Resumen"/><br><br>
-        Fuente: <v-card-text v-text="item.Fuente"/>
+        Fuente: <i><v-card-text v-text="item.Fuente"/></i>
         </b-card-text>
+      <template #footer>
+        <em> </em>
+      </template>
     </b-card>
+
+</div>
+
     <br>
     </div>
      
