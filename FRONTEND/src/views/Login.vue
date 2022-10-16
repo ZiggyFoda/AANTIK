@@ -71,6 +71,14 @@ export default {
           console.log(response.data);
           if (response.data==1)
           self.$router.push({name:'about' })
+          if (response.data==2)
+          self.$router.push({name:'about' })
+          if (response.data==3)
+          self.$router.push({name:'about' })
+          if (response.data==4)
+          self.$router.push({name:'about' })
+          if (response.data==5)
+          self.$router.push({name:'about' })
         }).catch(function(error) {
           console.log(error);
         });

@@ -10,19 +10,28 @@
     <p class="align-left">
       <h2>Subir archivos de excel</h2>
       Para subir una tabla de excel, debe guardar estos datos como .csv y mantener el formato definido 
-      en la actualización mas reciente del software:
-      <h3>Subir estudiantes preinscritos</h3>
+      en la actualización mas reciente del software:<br>
+
+      <h4>Subir estudiantes preinscritos</h4>
+      <h4>Pasar excel a .csv</h4>
+      Ingrse a la opción de archivo en el excel<br>
+      <img src="../assets/Captura3.png" width="40%" height="30%" ><br>
+      <br>
+      Seleccione guardar como, y alija la opción de la imagen<br>
+      <img src="../assets/Captura4.png" width="100%" height="100%" ><br>
+
+      Luego puede subir el archivo.
       .
       <h2>Fechas límite para actualización de información</h2>
       Recuerde que el buen funcionamiento del software se encuentra limitado con fechas, con el fin 
       de mantener un buen funcionamiento, guiado en los procesos que se lleven con el calendario 
       de la universidad:
-      <h3>Ingresar estudiantes preinscritos</h3>
-      <h3>Ingresar estudiantes inscrito</h3>
-      <h3>Ingresar organizaciones sociales</h3>
-      <h3>Ingresar emprendimientos</h3>
-      <h3>Ingresar docentes</h3>
-      <h3>Ingresar Grupos de clase</h3>
+      <h4>Ingresar estudiantes preinscritos</h4>
+      <h4>Ingresar estudiantes inscrito</h4>
+      <h4>Ingresar organizaciones sociales</h4>
+      <h4>Ingresar emprendimientos</h4>
+      <h4>Ingresar docentes</h4>
+      <h4>Ingresar Grupos de clase</h4>
     </p>
     </div>
   </div>

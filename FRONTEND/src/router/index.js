@@ -45,7 +45,11 @@ const routes = [
     name: 'tejido',
     component: () => import('../views/tejido.vue')
   },
-  //ORGANIZACION SOCIAL
+  {
+    path: '/tejido2',
+    name: 'tejido2',
+    component: () => import('../views/tejido copy.vue')
+  },  //ORGANIZACION SOCIAL
   {
     path: '/orgSocHome',
     name: 'orgSocHome',

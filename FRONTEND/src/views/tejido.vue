@@ -1,26 +1,26 @@
 <template>
   <div id="app" class="container-fluid">
-    <div class="large-12 medium-12 small-12 cell" id="app">
-      <input type="file" accept="application/json" />
-    </div>
+
     <div class="col-md-9 panel panel-default">
       <tree
         ref="tree"
         :identifier="getId"
         :zoomable="zoomable"
-        :data="Graph.tree"
+        :data="Graph.tree2"
         :node-text="nodeText"
         :margin-x="Marginx"
         :margin-y="Marginy"
         :radius="radius"
         :type="type"
-        :layout-type="layoutType"
+        :layout-type="vertical"
         :duration="duration"
         class="tree"
         @clicked="onClick"
         @expand="onExpand"
         @retract="onRetract"
-      />
+      >
+      
+    </tree>
     </div>
   </div>
 </template>
@@ -33,12 +33,12 @@ var data = {
   Graph: {
     tree: {
       id: 0,
-      text: "DiscogsClient MAIN",
+      text: "ENTIDAD",
       photo: "http://lorempixel.com/60/60/cats/2",
       children: [
         {
           id: 1,
-          text: "DiscogsClient",
+          text: "CLIENTES",
           photo: "http://lorempixel.com/60/60/cats/3",
           children: [
             {
@@ -95,11 +95,83 @@ var data = {
             },
           ],
         },
+        {
+          id: 49,
+          text: "PROVEEDORES",
+          children: [
+            {
+              children: [],
+              id: 53,
+              text: "DiscogsEntityType",
+            },
+            {
+              children: [],
+              id: 51,
+              text: "DiscogsSortInformation",
+            },
+          ],
+        },
+        {
+          id: 49,
+          text: "ALIADOS",
+          children: [
+            {
+              children: [],
+              id: 53,
+              text: "DiscogsEntityType",
+            },
+            {
+              children: [],
+              id: 51,
+              text: "DiscogsSortInformation",
+            },
+          ],
+        },
       ],
     },
 
     text: "DiscogsClient",
   },
+  aliado:[{
+    nombre:'empresa2',
+    direccion: 'cra 34# 34',
+    telefono: '2322332',
+    descripcion: 'emprendimiento base',
+  },
+  {
+    nombre:'empresa3',
+    direccion: 'cra 34# 34',
+    telefono: '2322332',
+    descripcion: 'emprendimiento base',
+  }],
+  Graph: {
+    tree2: {
+      text: 'Empresa1',
+      children: [
+        {
+          text: 'ALIADOS',
+          children: [{
+            ALIAM:[{NOM:'´HJUH'}],
+            text: '[ALIAM] \n hjhg'
+            
+          }],         
+      },
+      {
+          text: 'CLIENTES',
+          children: [{
+            text: '[aliado]'
+          }],         
+      },
+      {
+          text: 'PROVEEDORES',
+          children: [{
+            text: '[aliado]'
+          }],         
+      }
+      ],
+ 
+    }
+  }
 };
 
 Object.assign(data, {
@@ -158,6 +230,7 @@ export default {
 
 .node {
   cursor: pointer;
+  height: 20px;
 }
 
 .node circle {
@@ -167,7 +240,7 @@ export default {
 }
 
 .node text {
-  font: 10px sans-serif;
+  font: 55px sans-serif;
 }
 
 .link {
@@ -177,8 +250,8 @@ export default {
 }
 
 .tree {
-  height: 800px;
-  width: 800px;
+  height: 600px;
+  width: 1000px;
 }
 
 .graph-root {
@@ -198,5 +271,11 @@ export default {
   overflow-y: auto;
   overflow: auto;
   text-align: left;
+}
+
+text {
+    display: block;
+    white-space: nowrap;
+    font-size: 550px;
 }
 </style>
