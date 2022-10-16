@@ -12,16 +12,19 @@
   </div>
   
   <div v-for="(item, i) in items">
-  <b-card title="Pregunta de " ><v-card-title v-text="item.Nombres"/>
-    <b-card-text>
-      Fecha: <v-card-text v-text="item.Fecha"/><br>
-      <v-card-text v-text="item.Pregunta"/><br>
-      <br>RESPUESTAS<br></b-card-text>
-      <div v-for="(item, i) in items2">
-        <b-card><v-card-title v-text="item.Nombres"/>
+    <b-card bg-variant="light" border-variant="secondary">
+      <template #header>
+        <h6 class="mb-0"> <b>Pregunta de: </b> </h6> <v-card-title v-text="item.Nombres"/>
+      </template>
+      <h4><b><v-card-title v-text="item.Titulo"/></b></h4>
+      <b-card-text>
+        <h6><b>Fecha:</b></h6> <v-card-text v-text="item.Fecha"/><br><br>
+        <v-card-text v-text="item.Pregunta"/><br><br>
+        <div v-for="(item, i) in items2">
+        <b-card ><b><v-card-title v-text="item.Nombres"/></b>
           <b-card-text  v-text="item.Respuesta"></b-card-text> 
         </b-card>
-      </div> 
+      </div>
       <b-form-textarea
       id="textarea"
       v-model="text"
@@ -29,7 +32,12 @@
       rows="3"
       max-rows="6"
     ></b-form-textarea>
-  </b-card>
+        </b-card-text>
+      <template #footer>
+        <em> </em>
+      </template>
+    </b-card>
+    <br>
   </div>
    
     <b-col></b-col>
