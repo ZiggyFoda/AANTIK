@@ -8,10 +8,14 @@
     <div class="texto">
     <h1><br>Ayuda del sistema AANTIK para coordinadores de asignastura</h1>
     <p class="align-left">
+    <b-card>
+      <template #header>
+        <h6 class="mb-0"> </h6>
+      </template>
       <h2>Subir archivos de excel</h2>
       Para subir una tabla de excel, debe guardar estos datos como .csv y mantener el formato definido 
       en la actualización mas reciente del software:<br>
-
+   
       <h4>Subir estudiantes preinscritos</h4>
       <h4>Pasar excel a .csv</h4>
       Ingrse a la opción de archivo en el excel<br>
@@ -26,12 +30,17 @@
       Recuerde que el buen funcionamiento del software se encuentra limitado con fechas, con el fin 
       de mantener un buen funcionamiento, guiado en los procesos que se lleven con el calendario 
       de la universidad:
-      <h4>Ingresar estudiantes preinscritos</h4>
-      <h4>Ingresar estudiantes inscrito</h4>
-      <h4>Ingresar organizaciones sociales</h4>
-      <h4>Ingresar emprendimientos</h4>
-      <h4>Ingresar docentes</h4>
-      <h4>Ingresar Grupos de clase</h4>
+      <br><h3>Ingresar estudiantes preinscritos</h3>
+      <br><h3>Ingresar estudiantes inscrito</h3>
+      <br>><h3>Ingresar organizaciones sociales</h3>
+      <br><h3>Ingresar emprendimientos</h3>
+      <br><h3>Ingresar docentes</h3>
+      <br><h3>Ingresar Grupos de clase</h3>
+      <template #footer>
+        <em> </em>
+      </template>
+    </b-card>
+
     </p>
     </div>
   </div>

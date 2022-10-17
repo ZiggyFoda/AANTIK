@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { tree } from "vued3tree";
+//import { tree } from "vued3tree";
 import axios from "axios";
 // import data from "../../data/data";
 var data = {
