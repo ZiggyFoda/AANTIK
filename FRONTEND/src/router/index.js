@@ -73,6 +73,11 @@ const routes = [
     component: () => import('../views/coordinador/Homecoordinador.vue')
   },
   {
+    path: "/agregarStd",
+    name: "agregarStd",
+    component: () => import('../views/coordinador/addEstudiante.vue')
+  },
+  {
     path: "/subirPre",
     name: "subirPre",
     component: () => import('../views/coordinador/UploadFiles.vue')

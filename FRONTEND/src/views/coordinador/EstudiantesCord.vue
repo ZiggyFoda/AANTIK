@@ -10,20 +10,29 @@
         <div class="hello">
           <h3>Gestor de estudiantes</h3>
         </div>
+        Ingrese aquí para agregar estudiantes preinscritos de forma masiva
+        por medio de un archivo .csv
         <router-link to="/subirFile">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar estudiante preinscrito</button></router-link><br>
+        Agregar estudiantes preinscritos</button></router-link><br>
+        Ingrese aquí para agregar un estudiante individual
+        <router-link to="/agregarStd">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar estudiante</button>
+        Agregar estudiante</button></router-link><br>
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Eliminar estudiante</button>
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Modificar estudiante</button>
         <br>
         Listado de estudiantes inscritos
+           
         <br>
         <div>
-          <b-table striped hover :items="items"></b-table>
+          <b-table striped hover id="pages-table" :items="items" :fields="fields">
+            <template slot="actions" slot-scope="data">
+              <button class="btn btn-dark" @click="update(data)" :ref="'btn' + data.index">Update</button>
+            </template>
+          </b-table>
         </div>
         <br>
         Listado de estudiantes preinscritos
@@ -53,6 +62,12 @@ export default {
   methods: {
     search() {
       
+    },
+    update(data) {
+      // I need to disable the button here
+      this.output = data;
+      data.item.name = "Dave";
+      this.$refs["btn" + data.index].disabled = true      
     }
   },
   data() {
@@ -68,6 +83,18 @@ export default {
           { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Clase: '4202', Requisitos: 'Pendiente' },
           { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: '2353001', Clase: '4206', Requisitos: 'Pendiente' },
           { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Clase: '4208', Requisitos: 'Satisfecho' }
+        ],fields: [
+          {
+            key: "ID",
+            label: "ID",
+            sortable: true
+          },
+          { key: "Nombres" },
+          { key: "Apellido" },
+          { key: "Asignatura" },
+          { key: "Clase" },
+          { key: "Emprendimiento" },
+          { key: "actions" }
         ]
       }      
   }
