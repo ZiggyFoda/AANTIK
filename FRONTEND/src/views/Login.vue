@@ -20,7 +20,7 @@
             <button type="submit" class="btn btn-dark btn-lg btn-block" @click="save(persona)">
             Ingresar</button>
             <p class="forgot-password text-right mt-2 mb-4">
-                <router-link to="/login">Olvidó su contraseña?</router-link>
+                <router-link to="/recuperarPassword">Olvidó su contraseña?</router-link>
             </p>
         </form>
     </div>

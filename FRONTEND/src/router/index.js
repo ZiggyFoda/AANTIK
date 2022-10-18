@@ -78,6 +78,11 @@ const routes = [
     component: () => import('../views/coordinador/addEstudiante.vue')
   },
   {
+    path: "/agregarOrgSoc",
+    name: "agregarOrgSoc",
+    component: () => import('../views/coordinador/addOrgSoc.vue')
+  },
+  {
     path: "/subirPre",
     name: "subirPre",
     component: () => import('../views/coordinador/UploadFiles.vue')
@@ -95,6 +100,11 @@ const routes = [
   {
     path: '/subirFile',
     name: 'subirFile',
+    component: () => import('../views/coordinador/subirCsv.vue')
+  },
+  {
+    path: '/subirFileOrgSoc',
+    name: 'subirFileOrgSoc',
     component: () => import('../views/coordinador/subirCsv.vue')
   },
   {

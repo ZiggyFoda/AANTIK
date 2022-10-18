@@ -8,19 +8,27 @@
     <b-row>
       <b-col>
         <div class="hello">
-          <h3>Gestor de estudiantes</h3>
+          <h3>Gestor de organizaciones sociales</h3>
         </div>
-        Ingrese aquí para agregar estudiantes preinscritos de forma masiva
+        Ingrese aquí para agregar organizaciones sociales de forma masiva
         por medio de un archivo .csv
-        <router-link to="/subirFile">
+        <router-link to="/subirFileOrgSoc">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar estudiantes preinscritos</button></router-link><br>
-        Ingrese aquí para agregar un estudiante individual
-        <router-link to="/agregarStd">
+        Agregar organizaciones sociales</button></router-link><br>
+        Ingrese aquí para agregar una organizacion social de forma individual
+        <router-link to="/agregarOrgSoc">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar estudiante</button></router-link><br>
+        Agregar organizacion social</button></router-link><br>
         <br>
-        Listado de estudiantes inscritos
+      </b-col>
+      <b-col>
+              
+            </b-col>
+            </b-row>
+            
+    <b-row>
+      <b-col>
+        Listado de organizaciones sociales inscritas
            
         <br>
         <div>
@@ -36,27 +44,11 @@
           </b-table>
         </div>
         <br>
-        Listado de estudiantes preinscritos
-        <br>
-        <div>
-          <b-table striped hover :items="items2" :fields="fields2">
-            <template #cell(Editar)="row">
-              <b-button class="mr-2">Editar
-              </b-button>
-            </template>
-            <template #cell(Eliminar)="row">
-              <b-button class="mr-2">Elminar
-              </b-button>
-            </template>
-          </b-table>
-        </div>  
-              </b-col>
-              <b-col>
-              
-              </b-col>
-            </b-row>
-          </b-container>   
-        </template>
+      </b-col>
+      
+    </b-row>
+  </b-container>   
+</template>
 
 <script>
 import SidebarMenuAkahon from "@/components/SideBar.vue"
@@ -83,43 +75,33 @@ export default {
   data() {
       return {
         items: [
-          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Emprendimiento: 'emprendimiento 2' },
-          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Clase: '4202' },
-          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: '2353001', Clase: '4206', Emprendimiento: 'emprendimiento 2' },
-          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Clase: '4208', Emprendimiento: 'emprendimiento 1',isActive: true }
+          { ID: 40, Nombre: 'America Solidaria', email: 'lideresolidariosas@americasolidaria.org',
+          tipoOrg: 'Fundación', actEco: 'Servicios', emprendimientos: '2',
+          serProd: 'Talleres, Contactos Ecosistema Emprendimiento-Apoyo financiero' },
+          { ID: 21, Nombre: 'Fundacion Buena Semilla', email: 'lu.orjuela@hotmail.com',
+          tipoOrg: 'Fundación', actEco: 'Manufactura - confecciones', emprendimientos: '1',
+          serProd: 'Tejidos+Carpinteria+servicios turismo+Servicio Comedor Comunitario'  },
         ],
-        items2: [
-          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Requisitos: 'Satisfecho' },
-          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Clase: '4202', Requisitos: 'Pendiente' },
-          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: '2353001', Clase: '4206', Requisitos: 'Pendiente' },
-          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Clase: '4208', Requisitos: 'Satisfecho' }
-        ],fields: [
+        fields: [
           {
             key: "ID",
             label: "ID",
             sortable: true
           },
-          { key: "Nombres" },
-          { key: "Apellido" },
-          { key: "Asignatura" },
-          { key: "Clase" },
-          { key: "Emprendimiento" },
+          { key: "Nombre" },
+          { key: "email",
+          label:"correo electrónico" },
+          { key: "tipoOrg",
+          label: "tipo de organización" },
+          { key: "actEco",
+          label: "Actividad económica" },
+          { key: "emprendimientos",
+          label: "Emprendimientos" },
+          { key: "serProd",
+          label: "Servicio o producto" },
           { key: "Editar" },
           { key: "Eliminar" }
-        ],fields2: [
-          {
-            key: "ID",
-            label: "ID",
-            sortable: true
-          },
-          { key: "Nombres" },
-          { key: "Apellido" },
-          { key: "Asignatura" },
-          { key: "Clase" },
-          { key: "Requisitos" },
-          { key: "Editar" },
-          { key: "Eliminar" }
-        ]
+        ],
       }      
   }
 }

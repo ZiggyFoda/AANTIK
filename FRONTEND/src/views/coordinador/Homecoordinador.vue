@@ -16,24 +16,26 @@
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Estudiantes</button></router-link><br>
         Aquí puede gestionar todas las organizaciones sociales inscritas al ciclo actual
-         
+        <router-link to="/orgSociales">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Organizaciones Sociales</button>
+        Organizaciones Sociales</button></router-link><br>
         Aquí puede consultar la información de los docentes de la asigantura
-        
+        <router-link to="/docentes">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Docentes</button>
+        Docentes</button></router-link><br>
         Aquí puede consultar la información de los grupos de clase
-        
+        <router-link to="/gruposClase">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Grupos de clase</button>
+        Grupos de clase</button></router-link><br>
         Aquí puede gestionar todos los emprendimientos inscritos al ciclo actual
-         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Emprendimientos</button>
+        <router-link to="/emprendimientos">
+        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        Emprendimientos</button></router-link><br>
         Aquí puede correr el algoritmo de asignación con estudiantes preinscritos
         o conocer los resultados obtenidos del ciclo actual
+        <router-link to="/asignacion">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Asignación</button>
+        Asignación</button></router-link>
       </b-col>
       <b-col>
         
