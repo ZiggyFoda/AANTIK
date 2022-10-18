@@ -97,6 +97,31 @@ const routes = [
     name: 'subirFile',
     component: () => import('../views/coordinador/subirCsv.vue')
   },
+  {
+    path: '/orgSociales',
+    name: 'orgSociales',
+    component: () => import('../views/coordinador/organizaciones.vue')
+  },
+  {
+    path: '/emprendimientos',
+    name: 'emprendimientos',
+    component: () => import('../views/coordinador/emprendimientos.vue')
+  },
+  {
+    path: '/docentes',
+    name: 'docentes',
+    component: () => import('../views/coordinador/docentes.vue')
+  },
+  {
+    path: '/gruposClase',
+    name: 'gruposClase',
+    component: () => import('../views/coordinador/gruposClass.vue')
+  },
+  {
+    path: '/asignacion',
+    name: 'asignacion',
+    component: () => import('../views/coordinador/asignacion.vue')
+  },
   //ADMIN
   {
     path: '/adminHome',
