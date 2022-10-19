@@ -123,7 +123,7 @@
         <b-button type="submit" variant="primary">Guardar</b-button>
         <b-button type="reset" variant="danger">Cancelar</b-button>
         
-    </b-container>  
+      </b-container>  
       </b-form>
       
     </div>
