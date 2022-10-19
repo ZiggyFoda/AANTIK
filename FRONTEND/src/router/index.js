@@ -137,7 +137,19 @@ const routes = [
     path: '/adminHome',
     name: 'adminHome',
     component: () => import('../views/admin/HomeAdmin.vue')
-  }
+  },
+  //EMPRENDIMIENTO
+  {
+    path: '/HomeEmp',
+    name: 'HomeEmp',
+    component: () => import('../views/emprendimiento/HomeEmp.vue')
+  },
+   //DOCENTE
+   {
+    path: '/HomeDoc',
+    name: 'HomeDoc',
+    component: () => import('../views/docente/HomeDoc.vue')
+  },
 ]
 
 const router = new VueRouter({
