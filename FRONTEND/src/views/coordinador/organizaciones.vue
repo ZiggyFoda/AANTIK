@@ -34,7 +34,7 @@
         <div>
           <b-table striped hover id="pages-table" :items="items" :fields="fields">
             <template #cell(Editar)="row">
-              <b-button class="mr-2">Editar
+              <b-button class="mr-2">Ver y Editar
               </b-button>
             </template>
             <template #cell(Eliminar)="row">
@@ -76,10 +76,10 @@ export default {
       return {
         items: [
           { ID: 40, Nombre: 'America Solidaria', email: 'lideresolidariosas@americasolidaria.org',
-          tipoOrg: 'Fundación', actEco: 'Servicios', emprendimientos: '2',
+          tipoOrg: 'Fundación', actEco: 'Servicios', emprendimientos: '2',interlocutor: 'interlo1',
           serProd: 'Talleres, Contactos Ecosistema Emprendimiento-Apoyo financiero' },
           { ID: 21, Nombre: 'Fundacion Buena Semilla', email: 'lu.orjuela@hotmail.com',
-          tipoOrg: 'Fundación', actEco: 'Manufactura - confecciones', emprendimientos: '1',
+          tipoOrg: 'Fundación', actEco: 'Manufactura - confecciones', emprendimientos: '1',interlocutor: 'interlo2',
           serProd: 'Tejidos+Carpinteria+servicios turismo+Servicio Comedor Comunitario'  },
         ],
         fields: [
@@ -89,13 +89,11 @@ export default {
             sortable: true
           },
           { key: "Nombre" },
-          { key: "email",
-          label:"correo electrónico" },
+          { key: "interlocutor",
+          label:"Interlocutor" },
           { key: "tipoOrg",
           label: "tipo de organización" },
           { key: "actEco",
-          label: "Actividad económica" },
-          { key: "emprendimientos",
           label: "Emprendimientos" },
           { key: "serProd",
           label: "Servicio o producto" },

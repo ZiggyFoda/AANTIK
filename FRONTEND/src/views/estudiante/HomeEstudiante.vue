@@ -11,19 +11,19 @@
           <h3>Se encuentra inscrito al ciclo 2022-03</h3>
           <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div><br>
-        Aquí puede consultar el puntaje del emprendimiento asignado y
-         asignar puntaje a las preguntas que no se califican automaticamente
+        Aquí puede consultar el puntaje del diagnóstico del emprendimiento asignado
+         y asignar puntaje a las presuntas del diagnóstico que no se califican automáticamente.
         <router-link to="/estudiantes">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Gestionar diagnóstico</button></router-link>
         <br>
-        Aquí puede definir el plan de acción y subir los informes de soporte
+        Aquí puede definir el proyecto social y subir los informes de soporte.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Progreso</button>
         <br>
-        Aquí ************
+        Aquí puede consultar el benchmarking.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Benchmarking****</button>
+        Benchmarking</button>
         <br>
         Aquí puede subir una noticia, ver su historial o dirigirse a 
         las noticias publicadas en el sistema.
@@ -31,11 +31,11 @@
         Noticias</button>
         <br>
         Puede acceder al foro y contestar preguntas realizados por los emprendimientos
-         que se están asesorando en el ciclo actual
+         que se están asesorando en el ciclo actual.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Foro</button>
+        Red colaborativa</button>
         <br>
-        No olvide mantener sus datos actualizados      
+        No olvide mantener sus datos actualizados.     
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Actualizar datos</button>
 

@@ -18,15 +18,16 @@
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Ver emprendimientos</button></router-link>
         <br>
-        Si su organización se encuentra en proceso de madurez empresarial y/o sus
-        emprendimientos, aquí puede consular los progresos y validar la continuidad
-         de este.
+        Si su organización social cuenta con emprendimientos que estén siendo asesorados, 
+        aquí puede consular el progreso y validar la continuidad del emprendimiento en 
+        el programa de asesoría técnica.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Progreso</button>        
         <br>
-        Aqui puede consultar las asignaciones de sus emprendimientos o 
+        Aquí puede consultar las asignaciones de sus emprendimientos o 
         de su organización social si se encuentra en proceso de 
-        madurez.
+        asistencia tecnica.
+
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Consultar asignación actual</button>
         <br>
@@ -40,14 +41,14 @@
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Ver historial</button>
         <br>
-        Si te interesa conocer de estratégias de crecimiento
-         basado en competencia, ingresa aquí.
+        Si te interesa conocer de estrategias sugeridas de crecimiento
+         basado en la situación del sector economico, ingresa aquí.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Benchmarking</button>
         <br>
         En este módulo puede encontrar noticias por sector economico y 
-        enfocadas a los emprendimientos, adicionalmente puede acceder al 
-        foro.
+        enfocadas a los emprendimientos, adicionalmente puede acceder a la 
+        red de colaboracion.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Módulo de información</button>
         <br>

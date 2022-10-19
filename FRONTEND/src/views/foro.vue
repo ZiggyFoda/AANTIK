@@ -7,7 +7,8 @@
     <hr width=100%  color=#fff size=50   noshade="noshade">
     <hr width=100%  color=#2C5698  size=50   noshade="noshade">
     <div class="texto">
-    <h1><br>Bienvenido al foro de AANTIK</h1>
+    <h1><br>Bienvenido a la red colaborativa de AANTIK</h1><br>
+    <h3>Acá podrá solucionar sus dudas con la comunidad</h3><br>
     </div>
   </div>
   

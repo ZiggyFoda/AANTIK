@@ -20,22 +20,7 @@
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Agregar estudiante</button></router-link><br>
         <br>
-        Listado de estudiantes inscritos
-           
-        <br>
-        <div>
-          <b-table striped hover id="pages-table" :items="items" :fields="fields">
-            <template #cell(Editar)="row">
-              <b-button class="mr-2">Editar
-              </b-button>
-            </template>
-            <template #cell(Eliminar)="row">
-              <b-button class="mr-2">Elminar
-              </b-button>
-            </template>
-          </b-table>
-        </div>
-        <br>
+
         Listado de estudiantes preinscritos
         <br>
         <div>
@@ -49,7 +34,23 @@
               </b-button>
             </template>
           </b-table>
-        </div>  
+        </div>
+        Listado de estudiantes inscritos
+           
+           <br>
+           <div>
+             <b-table striped hover id="pages-table" :items="items" :fields="fields">
+               <template #cell(Editar)="row">
+                 <b-button class="mr-2">Editar
+                 </b-button>
+               </template>
+               <template #cell(Eliminar)="row">
+                 <b-button class="mr-2">Elminar
+                 </b-button>
+               </template>
+             </b-table>
+           </div>
+           <br>  
               </b-col>
               <b-col>
               
@@ -89,10 +90,10 @@ export default {
           { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Clase: '4208', Emprendimiento: 'emprendimiento 1',isActive: true }
         ],
         items2: [
-          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Requisitos: 'Satisfecho' },
-          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Clase: '4202', Requisitos: 'Pendiente' },
-          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: '2353001', Clase: '4206', Requisitos: 'Pendiente' },
-          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Clase: '4208', Requisitos: 'Satisfecho' }
+          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Requisitos: 'Satisfecho' },
+          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Requisitos: 'Pendiente' },
+          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: '2353001', Requisitos: 'Pendiente' },
+          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Requisitos: 'Satisfecho' }
         ],fields: [
           {
             key: "ID",
@@ -115,7 +116,6 @@ export default {
           { key: "Nombres" },
           { key: "Apellido" },
           { key: "Asignatura" },
-          { key: "Clase" },
           { key: "Requisitos" },
           { key: "Editar" },
           { key: "Eliminar" }
