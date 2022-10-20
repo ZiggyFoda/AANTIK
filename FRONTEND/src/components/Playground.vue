@@ -2,7 +2,7 @@
     <div class="playground">
       <svg class="links-layer">
         <div v-for="link in fullLinks">
-          <Link :key="`${link.from}_${link.to}`" :item="link"></Link>
+          <Link :key="`${link.from}${link.to}`" :item="link"></Link>
         </div>
       </svg>
       <template v-for="node in nodes">

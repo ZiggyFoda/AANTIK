@@ -96,5 +96,6 @@
   .node {
     position: absolute;
     background: green;
+    font: italic;
   }
   </style>
