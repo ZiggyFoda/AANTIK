@@ -12,35 +12,36 @@
           <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div>
         <br>
-        Aquí puede responder las preguntas del benchmarking.
-
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Responder</button>
-        <br>
-        Aquí puede ver su estado
-        <button @click="$bvModal.show('my-modal1')" class="btn btn-dark btn-lg btn-block">
-        Ver estado</button>
-        <b-modal id="my-modal1">Estado: En proceso de maduracion (tilde plz)</b-modal>
-        <br>
-        Aquí puede ver los estudiantes asiganados a su proyecto
-        <button @click="$bvModal.show('my-modal2')" class="btn btn-dark btn-lg btn-block">
-        Estudiantes</button>
-        <b-modal id="my-modal2">Billy info billy <br> Mandy info Mandy</b-modal>        
-        <br>
         Recuerde mantener sus datos actualizados con el fin de garantizar
          el buen funcionamiento del sistema.
+        <button @click="$bvModal.show('my-modal1')" class="btn btn-dark btn-lg btn-block">
+        Ver datos</button>
+        <b-modal id="my-modal1">Nombre: emp 1 <br> 
+          Direccion: cr 123 <br> 
+          Descripcion: se hacen artesanias de madera <br> 
+        </b-modal>
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Actualizar datos</button>
         <br>
-        Aqui puede ver el historial de los procesos de madurez realizados
-        desde el uso de la aplicación.
+        Aquí puede responder las preguntas del diagnostico organizacional.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Ver historial</button>
+        Diagnostico organizacional</button>
         <br>
-        Si te interesa conocer de estrategias sugeridas de crecimiento
-         basado en la situación del sector economico, ingresa aquí.
+        Aquí puede ver su estado
+        <button @click="$bvModal.show('my-modal3')" class="btn btn-dark btn-lg btn-block">
+        Ver estado</button>
+        <b-modal id="my-modal3">Estado: En proceso de maduracion <br> 
+        </b-modal>
+        <br>
+        Aquí puede ver los estudiantes asiganados a su proyecto
+        <button @click="$bvModal.show('my-modal2')" class="btn btn-dark btn-lg btn-block">
+        Estudiantes asiganados</button>
+        <b-modal id="my-modal2">Billy info billy <br> Mandy info Mandy</b-modal>        
+        <br>
+        Aqui puede ver las asesorias realizados desde el uso de la aplicación.  
+        <router-link to="/asesoria">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Benchmarking</button>
+        Ver asesorias</button></router-link>
         <br>
         En este módulo puede encontrar noticias por sector economico y 
         enfocadas a los emprendimientos, adicionalmente puede acceder a la 
@@ -50,8 +51,9 @@
         <br>
         Si te interesa conseguir clientes, proveedores o posibles 
         aliados, ingrese aquí.
+        <router-link to="/tejido">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Tejido social</button>
+        Tejido social</button></router-link><br>
       </b-col>
       <b-col>
         

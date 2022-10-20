@@ -8,31 +8,20 @@
     <b-row>
       <b-col>
         <div class="hello">
-          <h3>Docente 'nombre'</h3>
+          <h3>Asesoria</h3>
           <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div>
         <br>
-        Aquí puede entrar a ver los archivos subidos por los estudiantes.
+        Consulte su nivel de maduracion organizacional.      
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Ver archivos</button>
+          Ver nivel</button>
         <br>
-        Aquí puede ver el listado de estudiantes.
-        <button @click="$bvModal.show('my-modal1')" class="btn btn-dark btn-lg btn-block">
-        Estudiantes</button>
-        <b-modal id="my-modal1">Estado: En proceso de maduracion (tilde plz)</b-modal>
         <br>
-        Recuerde mantener sus datos actualizados con el fin de garantizar
-         el buen funcionamiento del sistema.
+        Si te interesa conocer de estrategias sugeridas de crecimiento
+         basado en la situación del sector economico, ingresa aquí.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Actualizar datos</button>
+        Benchmarking</button>
         <br>
-        Aqui puede ver las asesorias realizadas
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Ver historial</button>
-        <br>
-        Aqui puede consultar las noticias subidas por los estudiates.
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Módulo de información</button>
       </b-col>
       <b-col>
         

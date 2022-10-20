@@ -150,6 +150,12 @@ const routes = [
     name: 'HomeDoc',
     component: () => import('../views/docente/HomeDoc.vue')
   },
+    //EMPRENDIMIENTO
+    {
+      path: '/asesoria',
+      name: 'asesoria',
+      component: () => import('../views/emprendimiento/asesoria.vue')
+    },
 ]
 
 const router = new VueRouter({
