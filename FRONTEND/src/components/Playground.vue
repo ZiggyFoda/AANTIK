@@ -1,9 +1,9 @@
 <template>
     <div class="playground">
       <svg class="links-layer">
-        <div v-for="link in fullLinks">
-          <Link :key="`${link.from}${link.to}`" :item="link"></Link>
-        </div>
+        <template v-for="link in fullLinks">
+          <Link :key="`${link.from}.${link.to}`" :item="link"></Link>
+        </template>
       </svg>
       <template v-for="node in nodes">
         <Node
