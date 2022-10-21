@@ -23,29 +23,29 @@
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Actualizar datos</button>
         <br>
-        Aquí puede responder las preguntas del diagnostico organizacional.
+        Aquí puede responder las preguntas del diagnóstico organizacional.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Diagnostico organizacional</button>
         <br>
-        Aquí puede ver su estado
+        Aquí puede ver el estado de la asesoría en curso.
         <button @click="$bvModal.show('my-modal3')" class="btn btn-dark btn-lg btn-block">
         Ver estado</button>
         <b-modal id="my-modal3">Estado: En proceso de maduracion <br> 
         </b-modal>
         <br>
-        Aquí puede ver los estudiantes asiganados a su proyecto
+        Aquí puede ver los estudiantes asignados a su proyecto
         <button @click="$bvModal.show('my-modal2')" class="btn btn-dark btn-lg btn-block">
         Estudiantes asiganados</button>
-        <b-modal id="my-modal2">Billy info billy <br> Mandy info Mandy</b-modal>        
+        <b-modal id="my-modal2">Billy <br>Correo<br>Telefono <br><br> Mandy <br>Correo<br>Telefono</b-modal>        
         <br>
-        Aqui puede ver las asesorias realizados desde el uso de la aplicación.  
+        Aquí puede ver las asesorías realizadas al emprendimiento desde su inscripción.  
         <router-link to="/asesoria">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Ver asesorias</button></router-link>
         <br>
         En este módulo puede encontrar noticias por sector economico y 
         enfocadas a los emprendimientos, adicionalmente puede acceder a la 
-        red de colaboracion.
+        red de colaboración.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Módulo de información</button>
         <br>

@@ -35,8 +35,7 @@
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Red colaborativa</button>
         <br>
-        Aquí puede consultar que proyecto debe asesorar, en caso de ya
-        haber sido asignado
+        Aquí puede consultar el proyecto asignado para que realice su asesoría técnica.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Consultar asignación</button><br>
         No olvide mantener sus datos actualizados.     

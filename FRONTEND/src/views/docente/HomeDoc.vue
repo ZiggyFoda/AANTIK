@@ -26,11 +26,12 @@
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Actualizar datos</button>
         <br>
-        Aqui puede ver las asesorias realizadas
+        Aquí puede ver todas las asesorías técnicas realizadas a 
+        las organizaciones sociales que han sido parte de su curso.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Ver historial</button>
         <br>
-        Aqui puede consultar las noticias subidas por los estudiates.
+        Aqui puede consultar las noticias cargadas por los estudiates.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Módulo de información</button>
       </b-col>

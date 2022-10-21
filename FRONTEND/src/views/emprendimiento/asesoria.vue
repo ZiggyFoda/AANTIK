@@ -17,10 +17,15 @@
           Ver nivel</button>
         <br>
         <br>
-        Si te interesa conocer de estrategias sugeridas de crecimiento
-         basado en la situación del sector economico, ingresa aquí.
+        Para conocer nuestras sugerencias de estrategias que te pueden generar crecimiento
+        relacionadas con su sector económico, ingresa aquí.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Benchmarking</button>
+        <br>
+        <br>
+        Si quiere conocer las estrategias sugeridas para crecer en el nivel de maduración, ingresa aquí.
+        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        Estrategias de maduración</button>
         <br>
       </b-col>
       <b-col>
