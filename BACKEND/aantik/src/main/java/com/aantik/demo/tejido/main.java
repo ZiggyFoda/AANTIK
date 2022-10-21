@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import com.aantik.demo.model.CIIU;
+
 public class main {
 
 	public static void main(String[] args) {
@@ -19,11 +21,13 @@ public class main {
 		}  
 	//	MATRIZ ACTIVIDADES RELACIONES P
 		*/
-		leerExcelBench bench = new leerExcelBench();
+		CIIU [] CIIUlista = new CIIU[500];
+		leerExcelBench tejido = new leerExcelBench();
 		FileInputStream fis2;
 		try {
 			fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
-			bench.excelToTutorials(fis2);
+			//tejido.leerTejido(fis2,CIIUlista);
+			tejido.getActividad(fis2,"302.0");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

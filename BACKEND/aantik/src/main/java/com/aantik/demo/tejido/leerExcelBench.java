@@ -1,5 +1,6 @@
 package com.aantik.demo.tejido;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -15,6 +16,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.aantik.demo.model.CIIU;
+
 public class leerExcelBench {
 	public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 	  static String SHEET = "MATRIZ ACTIVIDADES RELACIONES P";
@@ -28,7 +31,7 @@ public class leerExcelBench {
 	    return true;
 	  }
 
-	  public void excelToTutorials(InputStream is) {
+	  public void leerTejido(InputStream is,CIIU[] CIIUlista) {
 	    try {
 	      Workbook workbook = new XSSFWorkbook(is);
 	      Sheet sheet = workbook.getSheetAt(3);
@@ -77,4 +80,51 @@ public class leerExcelBench {
 	      throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
 	    }
 	  }
+	  
+	  public String getActividad(InputStream is,String agrupacion) {
+		  	String actividad= null;
+		    try {
+		      Workbook workbook = new XSSFWorkbook(is);
+		      Sheet sheet = workbook.getSheetAt(1);
+		      Iterator<Row> rows = sheet.iterator();
+		      Sheet sheet2=workbook.getSheetAt(1);   //getting the XSSFSheet object at given index  
+			  int colNumber = sheet2.getRow(1).getPhysicalNumberOfCells();
+		      System.out.println("xcol: "+colNumber);	   
+		      int rowNumber = 0;
+		      while (rows.hasNext()) {
+
+		        // skip header
+		        rowNumber++;
+		        Row row=sheet2.getRow(rowNumber);  //returns the logical row      
+		          if(row==null) {
+		        	  break;
+		          }
+		        Cell cell; 
+		        Cell cell2; 
+		         //getting the cell representing the given column     //getting cell value  
+		        String value;
+		        String value2;
+		          cell=row.getCell(0);
+		          cell2=row.getCell(1);
+		          if(cell!=null) {
+		        	  value= String.valueOf(cell2.getNumericCellValue());
+			  	      value2= String.valueOf(cell.getStringCellValue());
+			          if(value2.length()!=0) {
+			        	  actividad=value2;
+			          }
+		        	  System.out.println("Actividad: "+actividad+
+        			  " agrupacion: "+row.getCell(1)); 
+		        	  if (value.equals(agrupacion)) {
+		        		System.out.println("CLOSE: "+actividad);	
+		        		return actividad; 
+		        	  }
+		          }	        	
+		      }
+
+	    	  System.out.println("CLOSE: ");	
+		      return "";
+		    } catch (IOException e) {
+		      throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
+		    }
+		  }
 }

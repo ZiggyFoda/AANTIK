@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Set;
 
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.aantik.demo.api.UserAPI;
 import com.aantik.demo.entidad.Estudiante;
+import com.aantik.demo.entidad.Role;
 import com.aantik.demo.entidad.User;
 import com.aantik.demo.model.Preinscrito;
 import com.aantik.demo.service.UserCRUD;
@@ -72,12 +74,14 @@ public class UserControl {
 		User personaAux = new User();
 		String ret="0";
 		try {
-			
+			String rolS="0";
 			if(userService.login(persona.getUsername(),persona.getPassword())==true) {
 				personaAux = userService.getUserByUsername(persona.getUsername());
-				if (personaAux.getRoles().toString().contains("id=1"))
-				ret="1"; 
-				return new ResponseEntity<String>(ret, HttpStatus.OK);
+				Set<Role> rol=personaAux.getRoles();
+				for (Role value : rol)
+		            rolS= Long.toString(value.getId());					
+								
+				return new ResponseEntity<String>(rolS, HttpStatus.OK);
 			}							
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
