@@ -70,15 +70,19 @@ export default {
         .then(function(response) {
           console.log(response.data);
           if (response.data==1)
-          self.$router.push({name:'about' })
+          self.$router.push({name:'studentHome' })
           if (response.data==2)
-          self.$router.push({name:'about' })
+          self.$router.push({name:'adminHome' })
           if (response.data==3)
-          self.$router.push({name:'about' })
+          self.$router.push({name:'orgSocHome' })
           if (response.data==4)
-          self.$router.push({name:'about' })
+          self.$router.push({name:'HomeEmp' })
           if (response.data==5)
-          self.$router.push({name:'about' })
+          self.$router.push({name:'CoordHome' })
+          if (response.data==6)
+          self.$router.push({name:'HomeDoc' })
+          if (response.data==7)
+          self.$router.push({name:'preinscHome' })
         }).catch(function(error) {
           console.log(error);
         });
