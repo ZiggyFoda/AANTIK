@@ -8,27 +8,22 @@
     <b-row>
       <b-col>
         <div class="hello">
-          <h3>Gestor de grupos de clase</h3>
+          <h3>Nuevo resultado de asignación</h3>
         </div>
-        Ingrese aquí para agregar un grupo de clase
-        <router-link to="/addGrupoClass">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar grupo de clase</button></router-link><br>
         
         <br>
-        Listado de grupos de clase del ciclo
+        RESULTADOS 
+        <br><br>
+        Listado de sugerencias
            
         <br>
         <div>
           <b-table striped hover id="pages-table" :items="items" :fields="fields">
-            <template #cell(Editar)="row">
-              <b-button class="mr-2">Editar/Ver
+            <template #cell(asignar)="row">
+              <b-button class="mr-2">Asignar
               </b-button>
             </template>
-            <template #cell(Eliminar)="row">
-              <b-button class="mr-2">Elminar
-              </b-button>
-            </template>
+           
           </b-table>
         </div>
         <br>
@@ -45,7 +40,7 @@
 import SidebarMenuAkahon from "@/components/SideBar.vue"
 
 export default {
-  name: 'addGrupoClass',
+  name: 'estudiantesCord',
   props: {
     msg: String
   },
@@ -66,23 +61,19 @@ export default {
   data() {
       return {
         items: [
-          { ID: 40, Asignatura: '2353001', Docente: 'Clara Mabel', cupDis:'10', cupAsig:'22',cuposT:'32'},
-          { ID: 40, Asignatura: '2353001', Docente: 'Clara Mabel', cupDis:'11', cupAsig:'21',cuposT:'32'},
-          { ID: 40, Asignatura: '2353001', Docente: 'Clara Mabel', cupDis:'5', cupAsig:'27',cuposT:'32'},
-          { ID: 40, Asignatura: '2353001', Docente: 'Clara Mabel', cupDis:'2', cupAsig:'30',cuposT:'32'}
+          { ID: 40, Nombres: 'Dickerson', Clase:'2230' , Emprendimiento: 'emprendimiento 2' },
+          { ID: 40, Nombres: 'Dickerson', Clase:'2230' , Emprendimiento: 'emprendimiento 2' },
+          { ID: 40, Nombres: 'Dickerson', Clase:'2230' , Emprendimiento: 'emprendimiento 2' }
         ],fields: [
           {
             key: "ID",
             label: "ID",
             sortable: true
           },
-          { key: "Asignatura" },
-          { key: "Docente" },
-          { key: "cupDis", label:"Cupos disponibles" },
-          { key: "cupAsig", label:"Cupos asignados" },
-          { key: "cuposT", label:"Cupos totales" },
-          { key: "Editar" },
-          { key: "Eliminar" }
+          { key: "Nombres" },
+          { key: "Clase" },
+          { key: "Emprendimiento" },
+          { key: "asignar" }
         ]
       }      
   }

@@ -8,25 +8,25 @@
     <b-row>
       <b-col>
         <div class="hello">
-          <h3>Gestor de estudiantes</h3>
+          <h3>Gestor de docentes</h3>
         </div>
-        Ingrese aquí para agregar estudiantes preinscritos de forma masiva
-        por medio de un archivo .csv
+        Ingrese aquí para agregar docentes de forma masiva
+        por medio de un archivo excel
         <router-link to="/subirFile">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar estudiantes preinscritos</button></router-link><br>
-        Ingrese aquí para agregar un estudiante individual
-        <router-link to="/agregarStd">
+        Agregar docentes </button></router-link><br>
+        Ingrese aquí para agregar un docente individual
+        <router-link to="/addDocentes">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar estudiante</button></router-link><br>
+        Agregar docente</button></router-link><br>
         <br>
-        Listado de estudiantes inscritos
+        Listado de docentes actuales 
            
         <br>
         <div>
           <b-table striped hover id="pages-table" :items="items" :fields="fields">
             <template #cell(Editar)="row">
-              <b-button class="mr-2">Editar
+              <b-button class="mr-2">Editar/Ver
               </b-button>
             </template>
             <template #cell(Eliminar)="row">
@@ -36,20 +36,7 @@
           </b-table>
         </div>
         <br>
-        Listado de estudiantes preinscritos
-        <br>
-        <div>
-          <b-table striped hover :items="items2" :fields="fields2">
-            <template #cell(Editar)="row">
-              <b-button class="mr-2">Editar
-              </b-button>
-            </template>
-            <template #cell(Eliminar)="row">
-              <b-button class="mr-2">Elminar
-              </b-button>
-            </template>
-          </b-table>
-        </div>  
+        
               </b-col>
               <b-col>
               
@@ -62,7 +49,7 @@
 import SidebarMenuAkahon from "@/components/SideBar.vue"
 
 export default {
-  name: 'estudiantesCord',
+  name: 'docentesCord',
   props: {
     msg: String
   },
@@ -83,17 +70,12 @@ export default {
   data() {
       return {
         items: [
-          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Emprendimiento: 'emprendimiento 2' },
-          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Clase: '4202' },
-          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: '2353001', Clase: '4206', Emprendimiento: 'emprendimiento 2' },
-          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Clase: '4208', Emprendimiento: 'emprendimiento 1',isActive: true }
+          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: 'PSU', Vinc: 'Planta', Especialidad: 'Mercadeo+ SC' },
+          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: 'PSU', Vinc: 'Catedra', Especialidad:'Calidad' },
+          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: 'CDIO', Vinc: 'Planta', Especialidad: 'Geociencias-Meteorologia' },
+          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: 'CDIO', Vinc: 'Catedra', Especialidad: 'Calidad'}
         ],
-        items2: [
-          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Requisitos: 'Satisfecho' },
-          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Clase: '4202', Requisitos: 'Pendiente' },
-          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: '2353001', Clase: '4206', Requisitos: 'Pendiente' },
-          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Clase: '4208', Requisitos: 'Satisfecho' }
-        ],fields: [
+        fields: [
           {
             key: "ID",
             label: "ID",
@@ -102,21 +84,8 @@ export default {
           { key: "Nombres" },
           { key: "Apellido" },
           { key: "Asignatura" },
-          { key: "Clase" },
-          { key: "Emprendimiento" },
-          { key: "Editar" },
-          { key: "Eliminar" }
-        ],fields2: [
-          {
-            key: "ID",
-            label: "ID",
-            sortable: true
-          },
-          { key: "Nombres" },
-          { key: "Apellido" },
-          { key: "Asignatura" },
-          { key: "Clase" },
-          { key: "Requisitos" },
+          { key: "Vinc", label:"Vinculación" },
+          { key: "Especialidad" },
           { key: "Editar" },
           { key: "Eliminar" }
         ]

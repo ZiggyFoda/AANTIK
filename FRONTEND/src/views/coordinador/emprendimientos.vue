@@ -8,25 +8,25 @@
     <b-row>
       <b-col>
         <div class="hello">
-          <h3>Gestor de estudiantes</h3>
+          <h3>Gestor de emprendimientos</h3>
         </div>
-        Ingrese aquí para agregar estudiantes preinscritos de forma masiva
-        por medio de un archivo .csv
+        Ingrese aquí para agregar emprendimientos de forma masiva
+        por medio de un archivo excel
         <router-link to="/subirFile">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar estudiantes preinscritos</button></router-link><br>
-        Ingrese aquí para agregar un estudiante individual
-        <router-link to="/agregarStd">
+        Agregar emprendimientos</button></router-link><br>
+        Ingrese aquí para agregar un emprendimiento individual
+        <router-link to="/addemprendimientos">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar estudiante</button></router-link><br>
+        Agregar emprendimiento</button></router-link><br>
         <br>
-        Listado de estudiantes inscritos
+        Listado de emprendimientos inscritos
            
         <br>
         <div>
           <b-table striped hover id="pages-table" :items="items" :fields="fields">
-            <template #cell(Editar)="row">
-              <b-button class="mr-2">Editar
+            <template #cell(EditarVer)="row">
+              <b-button class="mr-2">Editar/Ver
               </b-button>
             </template>
             <template #cell(Eliminar)="row">
@@ -36,20 +36,7 @@
           </b-table>
         </div>
         <br>
-        Listado de estudiantes preinscritos
-        <br>
-        <div>
-          <b-table striped hover :items="items2" :fields="fields2">
-            <template #cell(Editar)="row">
-              <b-button class="mr-2">Editar
-              </b-button>
-            </template>
-            <template #cell(Eliminar)="row">
-              <b-button class="mr-2">Elminar
-              </b-button>
-            </template>
-          </b-table>
-        </div>  
+       
               </b-col>
               <b-col>
               
@@ -83,41 +70,22 @@ export default {
   data() {
       return {
         items: [
-          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Emprendimiento: 'emprendimiento 2' },
-          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Clase: '4202' },
-          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: '2353001', Clase: '4206', Emprendimiento: 'emprendimiento 2' },
-          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Clase: '4208', Emprendimiento: 'emprendimiento 1',isActive: true }
+          { ID: 40, Emprendimiento: 'Ruta Turismo Social', Organizacion: 'Fundacion Buena Semilla', Localidad: 'Candelaria', Interlocutor: 'Guadalupe Orjuela Ayala' },
+          { ID: 47, Emprendimiento: 'Taller Tejidos', Organizacion: 'Fundacion Buena Semilla-', Localidad: 'Candelaria', Interlocutor: 'Guadalupe Orjuela Ayala' },
+          { ID: 45, Emprendimiento: 'ClockChain', Organizacion: 'Fundación Vida en Acción', Localidad: 'Puente Aranda', Interlocutor: 'Elizabeth Maffiold' },
+          { ID: 4, Emprendimiento: 'Importaciones Radida.cap', Organizacion: 'Fundación Vida en Acción', Localidad: 'Puente Aranda', Interlocutor: 'Paola Pantano' }
         ],
-        items2: [
-          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Requisitos: 'Satisfecho' },
-          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Clase: '4202', Requisitos: 'Pendiente' },
-          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: '2353001', Clase: '4206', Requisitos: 'Pendiente' },
-          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Clase: '4208', Requisitos: 'Satisfecho' }
-        ],fields: [
+        fields: [
           {
             key: "ID",
             label: "ID",
             sortable: true
           },
-          { key: "Nombres" },
-          { key: "Apellido" },
-          { key: "Asignatura" },
-          { key: "Clase" },
           { key: "Emprendimiento" },
-          { key: "Editar" },
-          { key: "Eliminar" }
-        ],fields2: [
-          {
-            key: "ID",
-            label: "ID",
-            sortable: true
-          },
-          { key: "Nombres" },
-          { key: "Apellido" },
-          { key: "Asignatura" },
-          { key: "Clase" },
-          { key: "Requisitos" },
-          { key: "Editar" },
+          { key: "Organizacion" },
+          { key: "Localidad" },
+          { key: "Interlocutor" },
+          { key: "EditarVer" },
           { key: "Eliminar" }
         ]
       }      

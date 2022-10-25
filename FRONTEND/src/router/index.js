@@ -118,9 +118,19 @@ const routes = [
     component: () => import('../views/coordinador/emprendimientos.vue')
   },
   {
+    path: '/addemprendimientos',
+    name: 'addemprendimientos',
+    component: () => import('../views/coordinador/addEmpren.vue')
+  },
+  {
     path: '/docentes',
     name: 'docentes',
     component: () => import('../views/coordinador/docentes.vue')
+  },
+  {
+    path: '/addDocentes',
+    name: 'addDocentes',
+    component: () => import('../views/coordinador/addDocente.vue')
   },
   {
     path: '/gruposClase',
@@ -128,9 +138,19 @@ const routes = [
     component: () => import('../views/coordinador/gruposClass.vue')
   },
   {
+    path: '/addGrupoClass',
+    name: 'addGrupoClass',
+    component: () => import('../views/coordinador/addGrupoClass.vue')
+  },
+  {
     path: '/asignacion',
     name: 'asignacion',
-    component: () => import('../views/coordinador/asignacion.vue')
+    component: () => import('../views/coordinador/asignacionAct.vue')
+  },
+  {
+    path: '/asignacionNueva',
+    name: 'asignacionNueva',
+    component: () => import('../views/coordinador/asignacionNew.vue')
   },
   //ADMIN
   {

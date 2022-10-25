@@ -8,19 +8,19 @@
     <b-row>
       <b-col>
         <div class="hello">
-          <h3>Gestor de estudiantes</h3>
+          <h3>Resultado de asignación</h3>
         </div>
-        Ingrese aquí para agregar estudiantes preinscritos de forma masiva
-        por medio de un archivo .csv
-        <router-link to="/subirFile">
+        Seleccione aquí para correr el algoritmo de sugerencia de asignaciones
+        <router-link to="/asignacionNueva">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar estudiantes preinscritos</button></router-link><br>
-        Ingrese aquí para agregar un estudiante individual
-        <router-link to="/agregarStd">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar estudiante</button></router-link><br>
+        Sugerir asignaciones</button></router-link><br>
         <br>
-        Listado de estudiantes inscritos
+        RESULTADOS DEL CICLO # 
+        <br><br>
+        Estudiantes sin asignar: 2<br>
+        Cupos disponibles en emprendimientos: 5
+        <br><br>
+        Listado de estudiantes asignados
            
         <br>
         <div>
@@ -36,7 +36,7 @@
           </b-table>
         </div>
         <br>
-        Listado de estudiantes preinscritos
+        Listado de estudiantes no asignados
         <br>
         <div>
           <b-table striped hover :items="items2" :fields="fields2">
@@ -49,7 +49,24 @@
               </b-button>
             </template>
           </b-table>
-        </div>  
+        </div>
+        <br>
+        Listado de emprendimientos sin asignar
+           
+        <br> 
+        <div>
+          <b-table striped hover :items="items3" :fields="fields3">
+            <template #cell(Editar)="row">
+              <b-button class="mr-2">Editar
+              </b-button>
+            </template>
+            <template #cell(Eliminar)="row">
+              <b-button class="mr-2">Elminar
+              </b-button>
+            </template>
+          </b-table>
+        </div> 
+        <br>
               </b-col>
               <b-col>
               
@@ -83,16 +100,18 @@ export default {
   data() {
       return {
         items: [
-          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Emprendimiento: 'emprendimiento 2' },
-          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Clase: '4202' },
-          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: '2353001', Clase: '4206', Emprendimiento: 'emprendimiento 2' },
-          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Clase: '4208', Emprendimiento: 'emprendimiento 1',isActive: true }
+          { ID: 40, Nombres: 'Dickerson', Clase:'2230' , Emprendimiento: 'emprendimiento 2' },
+          { ID: 40, Nombres: 'Dickerson', Clase:'2230' , Emprendimiento: 'emprendimiento 2' },
+          { ID: 40, Nombres: 'Dickerson', Clase:'2230' , Emprendimiento: 'emprendimiento 2' }
         ],
         items2: [
-          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Requisitos: 'Satisfecho' },
-          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Clase: '4202', Requisitos: 'Pendiente' },
-          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: '2353001', Clase: '4206', Requisitos: 'Pendiente' },
-          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Clase: '4208', Requisitos: 'Satisfecho' }
+          { ID: 40, Nombres: 'Dickerson', Clase:'2230', Requisitos:'si'},
+          { ID: 40, Nombres: 'Dickerson', Clase:'2230', Requisitos:'si'},
+          { ID: 40, Nombres: 'Dickerson', Clase:'2230', Requisitos:'No'}
+        ],items3: [
+          { ID: 40, Emprendimiento: 'Dickerson', Cuposd:'3', cuposT:'1'},
+          { ID: 40, Emprendimiento: 'Dickerson', Cuposd:'3', cuposT:'1'},
+          { ID: 40, Emprendimiento: 'Dickerson', Cuposd:'3', cuposT:'1'}
         ],fields: [
           {
             key: "ID",
@@ -100,12 +119,8 @@ export default {
             sortable: true
           },
           { key: "Nombres" },
-          { key: "Apellido" },
-          { key: "Asignatura" },
           { key: "Clase" },
-          { key: "Emprendimiento" },
-          { key: "Editar" },
-          { key: "Eliminar" }
+          { key: "Emprendimiento" }
         ],fields2: [
           {
             key: "ID",
@@ -113,12 +128,17 @@ export default {
             sortable: true
           },
           { key: "Nombres" },
-          { key: "Apellido" },
-          { key: "Asignatura" },
           { key: "Clase" },
-          { key: "Requisitos" },
-          { key: "Editar" },
-          { key: "Eliminar" }
+          { key: "Requisitos" }
+        ],fields3: [
+          {
+            key: "ID",
+            label: "ID",
+            sortable: true
+          },
+          { key: "Emprendimiento" },
+          { key: "Cuposd", label:"Cupos disponibles" },
+          { key: "cuposT", label:"Cupos totales"  }
         ]
       }      
   }
