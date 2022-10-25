@@ -14,22 +14,38 @@
         <router-link to="/estudiantes">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Gestionar estudiantes</button></router-link><br>
+        
+        <router-link to="/orgSociales">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Gestionar Organizaciones Sociales</button><br>
+        Gestionar Organizaciones Sociales</button></router-link><br>
+        
+        <router-link to="/docentes">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Gestionar Docentes</button><br>
+        Gestionar Docentes</button></router-link><br>
+        
+        <router-link to="/gruposClase">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Gestionar grupos de clase</button><br>
+        Gestionar grupos de clase</button></router-link><br>
+        
+        <router-link to="/emprendimientos">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Gestionar emprendimientos</button><br>
+        Gestionar emprendimientos</button></router-link><br>
+        
+        <router-link to="/gesCoordinador">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Gestionar coordinadores</button><br>
+        Gestionar coordinadores</button></router-link><br>
+        
+        <router-link to="/gesForo">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Gestionar foro</button><br>
+        Gestionar foro</button></router-link><br>
+        
+        <router-link to="/gesNoticias">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Gestionar noticias</button><br>
+        Gestionar noticias</button></router-link><br>
+        
+        <router-link to="/gesIndicadores">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Gestionar indicadores</button>
+        Gestionar indicadores</button></router-link><br>
       </b-col>
       <b-col>
         

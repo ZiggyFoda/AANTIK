@@ -158,6 +158,31 @@ const routes = [
     name: 'adminHome',
     component: () => import('../views/admin/HomeAdmin.vue')
   },
+  {
+    path: '/gesNoticias',
+    name: 'gesNoticias',
+    component: () => import('../views/admin/GNoticias.vue')
+  },
+  {
+    path: '/gesIndicadores',
+    name: 'gesIndicadores',
+    component: () => import('../views/admin/GIndicadores.vue')
+  },
+  {
+    path: '/gesCoordinador',
+    name: 'gesCoordinador',
+    component: () => import('../views/admin/GCoordinador.vue')
+  },
+  {
+    path: '/addCoord',
+    name: 'addCoord',
+    component: () => import('../views/admin/addCoordinador.vue')
+  },
+  {
+    path: '/gesForo',
+    name: 'gesForo',
+    component: () => import('../views/admin/GForo.vue')
+  },
   //EMPRENDIMIENTO
   {
     path: '/HomeEmp',
