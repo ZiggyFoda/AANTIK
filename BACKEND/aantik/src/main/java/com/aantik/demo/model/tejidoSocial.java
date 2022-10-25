@@ -2,7 +2,8 @@ package com.aantik.demo.model;
 
 public class tejidoSocial{
 	
-	public CIIU emprenOrigen;
-	public CIIU emprenDest;
+	public Long emprenOrigen;
+	public Long emprenDest;
+	public Long id;
 		
 }

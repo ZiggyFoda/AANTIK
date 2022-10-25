@@ -1,56 +1,50 @@
 package com.aantik.demo.entidad;
 
-import java.io.Serializable;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class RedTejido implements Serializable{
+public class RedTejido {
 	
-	private static final long serialVersionUID = 6726922550147191349L;
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO, generator="native")
-	@GenericGenerator(name="native",strategy="native")
+    @Column(name = "id")
 	private Long id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="emprenOrigen_id", nullable=false)
-	private CIIU emprenOrigen;
+    @Column
+	private Long emprenOrigen;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="emprenDest_id", nullable=false)
-	private CIIU emprenDest;
+    @Column
+	private Long emprenDest;
 
 	public Long getId() {
 		return id;
+	}
+
+	public Long getEmprenOrigen() {
+		return emprenOrigen;
+	}
+
+	public void setEmprenOrigen(Long emprenOrigen) {
+		this.emprenOrigen = emprenOrigen;
+	}
+
+	public Long getEmprenDest() {
+		return emprenDest;
+	}
+
+	public void setEmprenDest(Long emprenDest) {
+		this.emprenDest = emprenDest;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public CIIU getEmprenOrigen() {
-		return emprenOrigen;
-	}
-
-	public void setEmprenOrigen(CIIU emprenOrigen) {
-		this.emprenOrigen = emprenOrigen;
-	}
-
-	public CIIU getEmprenDest() {
-		return emprenDest;
-	}
-
-	public void setEmprenDest(CIIU emprenDest) {
-		this.emprenDest = emprenDest;
+	@Override
+	public String toString() {
+		return "RedTejido [id=" + id + ", emprenOrigen=" + emprenOrigen + ", emprenDest=" + emprenDest + "]";
 	}
 
 	@Override
@@ -90,10 +84,11 @@ public class RedTejido implements Serializable{
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "RedTejido [id=" + id + ", emprenOrigen=" + emprenOrigen + ", emprenDest=" + emprenDest + "]";
+	public RedTejido() {
+
 	}
+
+
 	
 	
 }

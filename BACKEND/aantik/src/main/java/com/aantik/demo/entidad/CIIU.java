@@ -1,22 +1,17 @@
 package com.aantik.demo.entidad;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.hibernate.annotations.GenericGenerator;
-
 @Entity
-public class CIIU implements Serializable{
+public class CIIU{
 	
-	private static final long serialVersionUID = 6726922550147191349L;
+	/**
+	 * 
+	 */
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO, generator="native")
-	@GenericGenerator(name="native",strategy="native")
+    @Column(name = "id")
 	private Long id;
 	@Column
 	private String actividad;
@@ -130,6 +125,9 @@ public class CIIU implements Serializable{
 		} else if (!tipo.equals(other.tipo))
 			return false;
 		return true;
+	}
+	public CIIU() {
+		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public String toString() {
