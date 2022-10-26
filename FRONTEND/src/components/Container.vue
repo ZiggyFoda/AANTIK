@@ -8,8 +8,9 @@
   <br></p></div>
     <div class="container">
       <Playground :nodes="nodes" :links="links"></Playground>
-    </div></b-container>
-  </template>
+    </div>
+  </b-container>
+</template>
   
   <script>
   import Playground from "./Playground";
