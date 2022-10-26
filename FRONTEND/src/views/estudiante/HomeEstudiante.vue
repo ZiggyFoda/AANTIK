@@ -12,7 +12,7 @@
           <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div><br>
         Aquí puede consultar el puntaje del diagnóstico del emprendimiento asignado
-         y asignar puntaje a las presuntas del diagnóstico que no se califican automáticamente.
+         y asignar puntaje a las preguntas del diagnóstico que no se califican automáticamente.
         <router-link to="/estudiantes">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Gestionar diagnóstico</button></router-link>
@@ -27,20 +27,34 @@
         <br>
         Aquí puede subir una noticia, ver su historial o dirigirse a 
         las noticias publicadas en el sistema.
+        <router-link to="/noticiaEs">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Noticias</button>
+        Noticias</button></router-link>
         <br>
         Puede acceder a la red colaborativa y contestar preguntas realizados por los emprendimientos
          que se están asesorando en el ciclo actual.
-         <router-link to="/foro">
+        <router-link to="/foro">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Red colaborativa</button></router-link>
+
         <br>
         Aquí puede consultar el proyecto asignado para que realice su asesoría técnica.
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Consultar asignación</button>
-        <br>
-        
+       
+        <b-button v-b-modal.req class="btn btn-dark btn-lg btn-block">Consultar asignación</b-button>
+
+<b-modal id="req" title="Asignación">
+  <p v-if="false" class="my-4"><b>Aun no tiene un emprendimiento asiganado</b>
+  </p>
+  <p v-else class="my-4">
+    <b>Organizacion Social:</b> America Solidaria<br>
+    <b>Emprendimiento:</b> Doña rosita<br>
+    <b>Interlocutor:</b> Rosa Maria<br>
+    <b>Telefono:</b> 316-325-2584<br>
+    <b>Dirección:</b> Cr 123-45-6<br>
+
+  </p>
+</b-modal>
+<br>
         No olvide mantener sus datos actualizados.
         <router-link to="/datosEs">   
         <button type="submit" class="btn btn-dark btn-lg btn-block">

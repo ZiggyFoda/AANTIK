@@ -219,6 +219,12 @@ const routes = [
       name: 'reqEs',
       component: () => import('../views/estudiante/Requisitos.vue')
     },
+    //SubirNoticia
+    {
+      path: '/noticiaEs',
+      name: 'noticiaEs',
+      component: () => import('../views/estudiante/SubirNoticia.vue')
+    },
 ]
 
 const router = new VueRouter({
