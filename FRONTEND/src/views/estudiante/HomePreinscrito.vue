@@ -7,24 +7,29 @@
         </div> 
     <b-row>
       <b-col>
+        <br>
         <div class="hello">
           <h3>Se encuentra preinscrito en el ciclo '2022-03'</h3>
           <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div><br>
         Es importante que verifique sus datos y los actualice
-        <router-link to="/estudiantes">
+        <router-link to="/datosPre">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Actualizar datos</button></router-link>
         <br>
+        
         La asignación de emprendimientos se realizará por medio de la personalización 
         para esto debe llenar el formulario que se encuentra aquí
+        <router-link to="/datosPre">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Formato de personalización</button>
-        <br>
+          Formato de personalización</button></router-link>
+          <br>
+
         Verifique el cumplimiento de sus requisitos, en caso de haber algún error 
         comuniquese con el/la coordinador/a de la asignatura.
+        <router-link to="/reqEs">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Consultar requisitos</button>
+        Consultar requisitos</button></router-link>
       </b-col>
       <b-col>
         

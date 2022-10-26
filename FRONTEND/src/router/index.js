@@ -201,6 +201,24 @@ const routes = [
       name: 'asesoria',
       component: () => import('../views/emprendimiento/asesoria.vue')
     },
+    //ACTDATOSPre
+    {
+      path: '/datosPre',
+      name: 'datosPre',
+      component: () => import('../views/estudiante/ActualizarDatosPre.vue')
+    },
+    //ACTDATOSEst
+    {
+      path: '/datosEs',
+      name: 'datosEs',
+      component: () => import('../views/estudiante/ActualizarDatosEst.vue')
+    },
+    //requistosEst
+    {
+      path: '/reqEs',
+      name: 'reqEs',
+      component: () => import('../views/estudiante/Requisitos.vue')
+    },
 ]
 
 const router = new VueRouter({

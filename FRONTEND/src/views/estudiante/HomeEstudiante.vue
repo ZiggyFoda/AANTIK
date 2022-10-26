@@ -30,17 +30,21 @@
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Noticias</button>
         <br>
-        Puede acceder al foro y contestar preguntas realizados por los emprendimientos
+        Puede acceder a la red colaborativa y contestar preguntas realizados por los emprendimientos
          que se están asesorando en el ciclo actual.
+         <router-link to="/foro">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Red colaborativa</button>
+        Red colaborativa</button></router-link>
         <br>
         Aquí puede consultar el proyecto asignado para que realice su asesoría técnica.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Consultar asignación</button><br>
-        No olvide mantener sus datos actualizados.     
+        Consultar asignación</button>
+        <br>
+        
+        No olvide mantener sus datos actualizados.
+        <router-link to="/datosEs">   
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Actualizar datos</button>
+        Actualizar datos</button></router-link>
 
       </b-col>
       <b-col>
