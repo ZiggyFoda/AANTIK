@@ -12,8 +12,11 @@
           :y.sync="node.y"
           :width="node.width"
           :height="node.height"
+          :texto="node.texto"
+          :clientes="node.clientes"
         ></Node>
       </template>
+
     </div>
   </template>
   

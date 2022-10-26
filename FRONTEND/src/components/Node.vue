@@ -1,9 +1,23 @@
 <template>
-    <div class="node" ref="node" :style="computedStyle"></div>
+
+    <div class="node" ref="node" :style="computedStyle">
+     <template v-if="clientes.nombre != ''">
+      {{texto}}
+      <b-table striped hover id="pages-table" :items="clientes" :fields="fields">    
+      </b-table>
+      </template>
+      <template v-if="clientes.nombre == ''">
+        <br>
+       <b> {{texto}}</b>
+      </template>
+    </div>
   </template>
   
   <script>
   //import { addEvent } from "../utils";
+
+import { string } from 'yup';
+
   
   export default {
     props: {
@@ -11,7 +25,10 @@
       y: Number,
       width: Number,
       height: Number,
-      parent: Object
+      parent: Object,
+      texto: String,
+      clientes:Array[ {nombre: String,
+                 producto: String,contacto: String}]
     },
     data() {
       return {
@@ -19,7 +36,20 @@
         initialX: 0,
         initialY: 0,
         offsetX: 0,
-        offsetY: 0
+        offsetY: 0,
+        textot:null,
+        cliente: [
+          {nombret: null, producto: null,contacto: null}],
+        items: [
+          { nombre: 'America solidaria ', producto: 'Macdonald', contacto: '10/10/22'},
+          { nombre: 'Apoyo', producto: 'Macdonald', contacto: '10/10/22' },
+          { nombre: 'notica', producto: 'Macdonald', contacto: '01/10/22' }
+        ],
+        fields: [
+          { key: "nombre" ,label:"Entidad"},
+          { key: "producto" },
+          { key: "contacto" }
+        ]
       };
     },
     computed: {
@@ -28,7 +58,7 @@
           left: `${this.initialX}px`,
           top: `${this.initialY}px`,
           width: `${this.width}px`,
-          height: `${this.height}px`
+          height: `${this.height}px`,
         };
       }
     },
@@ -71,8 +101,11 @@
         const movementY = ev.offsetY - this.offsetY;
         this.initialX = this.initialX + movementX;
         this.initialY = this.initialY + movementY;
+        this.textot = this.textot + ev.textot;
+        this.cliente = this.cliente + ev.cliente;
         this.$emit("update:x", this.initialX);
         this.$emit("update:y", this.initialY);
+        console.log('texto'+ev.texto)
       },
       onDragEnd(ev) {
         if (ev.stopPropagation) {
@@ -95,7 +128,8 @@
   <style lang='css' scoped>
   .node {
     position: absolute;
-    background: green;
+    background: #fff;
+    border: 3px solid  #2C5698;
     font: italic;
   }
   </style>
