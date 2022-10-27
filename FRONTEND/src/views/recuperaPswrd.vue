@@ -54,7 +54,7 @@ export default {
          axios.post("http://localhost:8080/user/recuperaPswrd",{
           email: this.emailee
          }).then((data) =>{
-          this.message = data.data.message;
+          this.message = data.data;
          })
       }
     }

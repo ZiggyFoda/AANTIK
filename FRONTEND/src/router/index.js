@@ -21,7 +21,7 @@ const routes = [
     component: () => import('../views/LoginGab.vue')
   },
   {
-    path: '/recuperarPassword',
+    path: '/user/recuperaPswrd',
     name: 'recuperarPassword',
     component: () => import('../views/recuperaPswrd.vue')
   },
