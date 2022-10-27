@@ -6,21 +6,22 @@
     <b-col>
      <div class="vue-tempalte">
         <img alt="Vue logo" src="../assets/escudoPUJ.png" width="100%" height="25%"/>
-        <form>
+        <form @submit.prevent="handleSubmit">
             <h3 class="titulo">AANTIK</h3>
             <h3>Recuperación de password</h3>
             <div class="form-group">
-                <label>Contraseña nueva</label>
-                <input v-model="persona.username" type="password" class="form-control form-control-lg"/>
+                <label>Correo</label>
+                <input type="email" class="form-control" v-model="emailee" placeholder="ejemplo@javeriana.edu.co"/>
             </div>
-            <div class="form-group">
-                <label>Confirme contraseña</label>
-                <input v-model="persona.password" type="password" class="form-control form-control-lg" />
-            </div>
-            <button type="submit" class="btn btn-dark btn-lg btn-block" @click="save(persona)">
-            Actualizar</button>
+            <button type="submit" class="btn btn-dark btn-lg btn-block" >
+            Enviar</button>
         </form>
     </div>
+    <div class="form-group" >
+          <div v-if="message" class="alert alert-secondary" role="alert">
+            {{ message }}
+          </div>
+        </div>
     </b-col>
     
     <b-col>
@@ -35,10 +36,33 @@
   </b-container>
 </template>
 
-
-
 <script>
+import axios from 'axios';
 import LoginService from "../service/LoginService";
+export default {
+  name: "recuperaPswrd",
+  data(){
+    return{
+      user:{
+        email: ""
+     },
+     message: ""
+    }
+  },
+  methods:{
+     handleSubmit() {
+         axios.post("http://localhost:8080/user/recuperaPswrd",{
+          email: this.emailee
+         }).then((data) =>{
+          this.message = data.data.message;
+         })
+      }
+    }
+  }
+
+
+//////////////////////////////
+/*import LoginService from "../service/LoginService";
 export default {
   name: "CrudApp",
   data() {
@@ -82,7 +106,9 @@ export default {
         console.log("Esto es un método"+this.persona.email);
       }
   }  
-}
+}*/
+////////////////////
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -130,5 +156,11 @@ footer {
   color: #2C5698 ;
   font-style: bold;
   font-size: 30pt;
+}
+.form-group{
+  margin-top: 5px;
+}
+.btn{
+  margin-top: 5px;
 }
 </style>
