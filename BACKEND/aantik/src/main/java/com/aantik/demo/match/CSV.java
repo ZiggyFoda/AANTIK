@@ -2,8 +2,7 @@ package com.aantik.demo.match;
 
 import java.io.*;
 
-import com.aantik.demo.model.Preinscrito;
-
+import com.aantik.demo.model.Mpreinscrito;
 public class CSV {
 	
 	/* public static void main(String[] args) {
@@ -276,7 +275,7 @@ public class CSV {
 		 return inicial;
 	}
 	 
-	 void leerPreinscritos(Preinscrito[] est, String fileEst) {
+	 void leerPreinscritos(Mpreinscrito[] est, String fileEst) {
 		 String file = fileEst;
 		  BufferedReader reader = null;
 		  String line = "";
@@ -286,7 +285,7 @@ public class CSV {
 		   reader = new BufferedReader(new FileReader(file));
 		   reader.readLine();
 		   while((line = reader.readLine()) != null) {
-			est[numLineas]=new Preinscrito();
+			est[numLineas]=new Mpreinscrito();
 			line=line.replaceAll("\"", "");
 		    String[] row = line.split(",");
 		    System.out.println(line);
@@ -297,8 +296,8 @@ public class CSV {
 			    est[numLineas].correo=row[2];
 			    est[numLineas].telefono=row[8];
 			    est[numLineas].asignatura=row[5];
-			    est[numLineas].idEstudiantil=Long.parseLong(row[3].trim());;
-			    est[numLineas].identificacion=Long.parseLong(row[4].trim());
+			    est[numLineas].idEstudiantil=row[3].trim();//Long.parseLong(row[3].trim());;
+			    est[numLineas].identificacion=row[4].trim();//=Long.parseLong(row[4].trim());
 			    est[numLineas].tallerSP=row[6];
 			    est[numLineas].fechaSP=row[7];
 			    est[numLineas].infografia=row[9];		    	

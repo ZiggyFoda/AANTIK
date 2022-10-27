@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.aantik.demo.api.UserAPI;
 import com.aantik.demo.entidad.Role;
 import com.aantik.demo.entidad.User;
-import com.aantik.demo.model.Preinscrito;
+import com.aantik.demo.model.Mpreinscrito;
 import com.aantik.demo.service.UserCRUD;
 
 @Controller
@@ -89,20 +89,20 @@ public class UserControl {
 	}
 
 	@GetMapping("/all")
-	public ResponseEntity<Preinscrito[]> sendStudents() {
-		Preinscrito est[] = new Preinscrito[2];
+	public ResponseEntity<Mpreinscrito[]> sendStudents() {
+		Mpreinscrito est[] = new Mpreinscrito[2];
 		try {
-			est[0]=new Preinscrito();
-			est[1]=new Preinscrito();
-			est[0].setNombre("Pepito Perez");
-			est[0].setCorreo("pepitoPe@gmail.com");
-			est[0].setTelefono("3123125");
-			System.out.println("Enviar estudiante: "+est[0].getNombre());
-			est[1].setNombre("Julia Perez");
-			est[1].setCorreo("Julia@gmail.com");
-			est[1].setTelefono("11122233");
-			System.out.println("Enviar estudiante: "+est[1].getNombre());
-				return new ResponseEntity<Preinscrito[]>(est, HttpStatus.OK);
+			est[0]=new Mpreinscrito();
+			est[1]=new Mpreinscrito();
+			est[0].nombre="Pepito Perez";
+			est[0].correo="pepitoPe@gmail.com";
+			est[0].telefono="3123125";
+			System.out.println("Enviar estudiante: "+est[0].nombre);
+			est[1].nombre="Julia Perez";
+			est[1].correo="Julia@gmail.com";
+			est[1].telefono="11122233";
+			System.out.println("Enviar estudiante: "+est[1].nombre);
+				return new ResponseEntity<Mpreinscrito[]>(est, HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
