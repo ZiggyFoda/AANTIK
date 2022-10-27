@@ -100,7 +100,7 @@ public class leerEstudiantes {
 		  }
 	  /*primera version del software una excel para los datos
 	  de los estuciantes, tanto basicos como de perzonalizacion*/
-	  public void getInscritos(InputStream is, ModEstudiante[] lista) {
+	  public int getInscritos(InputStream is, ModEstudiante[] lista) {
 		  	String actividad= null;
 		  	try {
 		    Workbook workbook = new XSSFWorkbook(is);
@@ -248,7 +248,7 @@ public class leerEstudiantes {
 		      }
 
 	    	//  System.out.println("CLOSE: "+rowDatos);	
-  		return;// rowDatos;
+  		return rowDatos;// rowDatos;
 		    } catch (IOException e) {
 		      throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
 		    }

@@ -25,9 +25,10 @@ public class mainCarUser {
 			fis2 = new FileInputStream(new File("Datos basicos-formato.xlsx"));
 			excelEmp.getEmprendimientos(fis2,empLista);
 			fis2 = new FileInputStream(new File("resEncuesta.xlsx"));
-			excelStu.getInscritos(fis2,estLista);
+			int cantSt=excelStu.getInscritos(fis2,estLista);
 			//fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
 		//	tejido.getActividad(fis2,preLista,cant);
+			System.out.println("cantidad clase: "+cantSt);
 			System.out.println(preLista[10].nombre);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
