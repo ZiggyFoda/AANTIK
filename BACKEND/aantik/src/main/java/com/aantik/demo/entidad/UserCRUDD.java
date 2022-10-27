@@ -8,7 +8,7 @@ import com.aantik.demo.repositorio.UsuarioRepositorio;
 
 
 @Service
-public class UserCRUD implements UserCRUDLocal{
+public class UserCRUDD implements UserCRUDLocall{
 	
 	@Autowired
 	UsuarioRepositorio repository;

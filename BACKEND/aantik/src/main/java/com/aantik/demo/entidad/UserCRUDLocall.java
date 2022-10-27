@@ -1,6 +1,6 @@
 package com.aantik.demo.entidad;
 
-public interface UserCRUDLocal {
+public interface UserCRUDLocall {
 	public User getUserById(Long id) throws Exception;
 	public User getUserByUsername(String username) throws Exception;
 	public Iterable<User> getAll();
