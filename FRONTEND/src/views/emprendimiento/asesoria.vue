@@ -8,21 +8,25 @@
     <b-row>
       <b-col>
         <div class="hello">
-          <h3>Se encuentra en el ciclo 2022-03</h3>
+          <h3>Asesoria</h3>
           <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div>
-        <router-link to="/estudiantes">
+        <br>
+        Consulte su nivel de maduracion organizacional.      
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Estudiantes</button></router-link><br>
+          Ver nivel</button>
+        <br>
+        <br>
+        Para conocer nuestras sugerencias de estrategias que te pueden generar crecimiento
+        relacionadas con su sector económico, ingresa aquí.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Organizaciones Sociales</button>
+        Benchmarking</button>
+        <br>
+        <br>
+        Si quiere conocer las estrategias sugeridas para crecer en el nivel de maduración, ingresa aquí.
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Docentes</button>
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Grupos de clase</button>
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Emprendimientos</button>
-
+        Estrategias de maduración</button>
+        <br>
       </b-col>
       <b-col>
         
@@ -35,7 +39,7 @@
 import SidebarMenuAkahon from "@/components/SideBar.vue"
 
 export default {
-  name: 'Homecoordinadors',
+  name: 'Homecoordinador',
   props: {
     msg: String
   },

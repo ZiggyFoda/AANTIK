@@ -1,36 +1,26 @@
 <template>
-  <b-container>   
+  <b-container padding-right= 0px padding-left="0px">   
     <b-row>
-    <b-col>
+    <b-col>    
     </b-col>
     <b-col>
      <div class="vue-tempalte">
+        <img alt="Vue logo" src="../assets/escudoPUJ.png" width="100%" height="25%"/>
         <form>
-            <h3>AANTIK</h3>
-            <h3>Inicio de sesión estudiante</h3>
-            Seleccione una opción:
-            <select name="combo">
-              <!-- Opciones de la lista -->
-              <option value="1">Estudiante</option>
-              <option value="2" selected>Organización Social</option> <!-- Opción por defecto -->
-              <option value="3">Emprendimiento</option>
-              <option value="3">Docente</option>
-              <option value="3">Coordinador PSU</option>
-              <option value="3">Administrador</option>
-            </select>
+            <h3 class="titulo">AANTIK</h3>
+            <h3>Inicio de sesión</h3>
             <div class="form-group">
                 <label>Correo electronico</label>
-                <input type="email" class="form-control form-control-lg" v-model="user.username"  />
+                <input v-model="persona.username" type="email" class="form-control form-control-lg"/>
             </div>
             <div class="form-group">
                 <label>Contraseña</label>
-                <input type="password" class="form-control form-control-lg" v-model="user.password"  />
+                <input v-model="persona.password" type="password" class="form-control form-control-lg" />
             </div>
-            <router-link to="/about">
-            <button type="submit" class="btn btn-dark btn-lg btn-block" @click="save">
-            Ingresar</button></router-link>
+            <button type="submit" class="btn btn-dark btn-lg btn-block" @click="save(persona)">
+            Ingresar</button>
             <p class="forgot-password text-right mt-2 mb-4">
-                <router-link to="/HelloWorld2" exact>Olvidó su contraseña?</router-link>
+                <router-link to="/recuperarPassword">Olvidó su contraseña?</router-link>
             </p>
         </form>
     </div>
@@ -39,6 +29,12 @@
     <b-col>
     </b-col>
   </b-row>
+  <footer>
+  <hr width=100%  color=#e3b82a  size=50   noshade="noshade">
+  <hr width=100%  color=#fff size=50   noshade="noshade">
+  <hr width=100%  color=#2C5698  size=50   noshade="noshade">
+
+  </footer>
   </b-container>
 </template>
 
@@ -46,29 +42,61 @@
 
 <script>
 import LoginService from "../service/LoginService";
-  export default {
-      name: 'loginUser',
+export default {
+  name: "CrudApp",
   data() {
-            return {}
-  }, 
+    return{
+      persona: {
+        username: null,
+        password: null
+      }
+    };
+  },
   loginService: null,
   created() {
     this.loginService = new LoginService();
   },
   methods: {
-    save() {
-      this.loginService.save(this.user).then(data => {
-        if (data.status === 200) {
-          this.displayModal = false;
-          this.user = {
-            username: null,
-            password: null
-          };
-          this.getAll();
-        }
-      });
-    }
-  }
+    async save() {
+      var data = {
+        username: this.persona.username,
+        password: this.persona.password,
+
+      };
+      try {
+
+        let self = this;
+        await this.loginService.save(this.persona)
+        .then(function(response) {
+          console.log(response.data);
+          if (response.data==1)
+          self.$router.push({name:'studentHome' })
+          if (response.data==2)
+          self.$router.push({name:'adminHome' })
+          if (response.data==3)
+          self.$router.push({name:'orgSocHome' })
+          if (response.data==4)
+          self.$router.push({name:'HomeEmp' })
+          if (response.data==5)
+          self.$router.push({name:'CoordHome' })
+          if (response.data==6)
+          self.$router.push({name:'HomeDoc' })
+          if (response.data==7)
+          self.$router.push({name:'preinscHome' })
+        }).catch(function(error) {
+          console.log(error);
+        });
+
+        //.then(response => this.$router.push("/about"))
+        //.catch(error => this.$router.push("/login"));
+      } catch (error) {
+        console.log(error);
+      }
+    },
+      print() {
+        console.log("Esto es un método"+this.persona.email);
+      }
+  }  
 }
 </script>
 
@@ -87,5 +115,35 @@ li {
 }
 a {
   color: #42b983;
+}
+hr {
+  height: 25px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.container, .container-sm {
+  max-width: 100%;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 15%;
+    margin-left: 15%;
+}
+.container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
+    padding-top: 35px;
+}
+footer {
+      position: absolute;
+      bottom: 0;
+      width: 98%;
+      height: 80px;
+      color: white;
+  }
+.titulo{
+  font-family: times;
+  color: #2C5698 ;
+  font-style: bold;
+  font-size: 30pt;
 }
 </style>

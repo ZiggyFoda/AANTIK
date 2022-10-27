@@ -1,31 +1,24 @@
 package com.aantik.demo.entidad;
 
-import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-import org.hibernate.annotations.GenericGenerator;
-
-
 @Entity
-public class Emprendimiento implements Serializable{
+public class Emprendimiento{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 2776320659267095231L;
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
-	@GenericGenerator(name="native",strategy="native")
+    @Column(name = "id")
 	private Long id;
 	@Column
 	private String nombreEmp;

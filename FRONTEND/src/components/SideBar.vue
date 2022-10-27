@@ -189,6 +189,12 @@
             tooltip: 'Setting',
             icon: 'bx-cog',
           },
+          {
+            link: '#',
+            name: 'Subir archivos',
+            tooltip: 'Setting',
+            icon: 'bx-cloud-upload',
+          },
         ],
       },
       //! Search
@@ -512,8 +518,8 @@
     flex-wrap: nowrap;
   }
   .sidebar div img {
-    height: 45px;
-    width: 45px;
+    height: 70px;
+    width: 50px;
     object-fit: cover;
     border-radius: 6px;
     margin-right: 10px;
