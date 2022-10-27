@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aantik.demo.entidad.Estudiante;
+import com.aantik.demo.model.ModEstudiante;
 import com.aantik.demo.repositorio.EstudianteRepositorio;
 
 @Service
@@ -33,6 +34,11 @@ public class EstudianteCRUD implements EstudianteCRUDLocal{
 	@Override
 	public Iterable<Estudiante> getAll() {
         return repository.findAll();
+	}
+
+	public void saveAll(ModEstudiante[] stlista, int cantSt) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -3,19 +3,13 @@ package com.aantik.demo.control;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import com.aantik.demo.entidad.CIIU;
 import com.aantik.demo.model.ModAsignacion;
 import com.aantik.demo.model.tejidoSocial;
-import com.aantik.demo.service.CiiuCRUD;
-import com.aantik.demo.service.TejidoCRUD;
-import com.aantik.demo.tejido.leerExcelBench;
+import com.aantik.demo.tejido.leerExcelTejido;
 
 @Controller
 public class signacionControl {
@@ -31,7 +25,7 @@ public class signacionControl {
 			try {
 				com.aantik.demo.model.CIIU [] CIIUlista = new com.aantik.demo.model.CIIU[500];
 				tejidoSocial [] redTejido = new tejidoSocial[2000];
-				leerExcelBench tejido = new leerExcelBench();
+				leerExcelTejido tejido = new leerExcelTejido();
 				FileInputStream fis2;
 				int cant=0,cantRed=0;
 				try {

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import com.aantik.demo.api.UserAPI;
 import com.aantik.demo.entidad.Role;
 import com.aantik.demo.entidad.User;
 import com.aantik.demo.model.Mpreinscrito;
@@ -24,10 +23,6 @@ public class UserControl {
 
 	@Autowired
 	UserCRUD userService;
-	
-	@Autowired
-	UserAPI userServiceApi;
-
 
 	private final StorageService storageService = null;
 

@@ -3,10 +3,9 @@ package com.aantik.demo.tejido;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.aantik.demo.model.CIIU;
+import com.aantik.demo.model.ModCiiuXemp;
 import com.aantik.demo.model.tejidoSocial;
 import com.aantik.demo.service.CiiuCRUD;
 
@@ -39,14 +38,18 @@ public class main {
 			e.printStackTrace();
 		}
 */		CIIU [] CIIUlista = new CIIU[500];
-		leerExcelBench tejido = new leerExcelBench();
+		leerExcelTejido tejido = new leerExcelTejido();
+		ModCiiuXemp[] cruzar=new ModCiiuXemp[500];
 		FileInputStream fis2;
+		int cant2=0;
 		try {
 			fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
 			//tejido.leerTejido(fis2,CIIUlista);
 			int cant=tejido.getDatosCiiu(fis2,CIIUlista);
 			fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
 			tejido.getActividad(fis2,CIIUlista,cant);
+			fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
+			cant2=tejido.getCuzeInf(fis2,cruzar);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

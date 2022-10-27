@@ -14,7 +14,7 @@ import com.aantik.demo.entidad.CIIU;
 import com.aantik.demo.model.tejidoSocial;
 import com.aantik.demo.service.CiiuCRUD;
 import com.aantik.demo.service.TejidoCRUD;
-import com.aantik.demo.tejido.leerExcelBench;
+import com.aantik.demo.tejido.leerExcelTejido;
 
 @Controller
 public class TejidoControl {
@@ -29,7 +29,7 @@ public class TejidoControl {
 		try {
 			com.aantik.demo.model.CIIU [] CIIUlista = new com.aantik.demo.model.CIIU[500];
 			tejidoSocial [] redTejido = new tejidoSocial[2000];
-			leerExcelBench tejido = new leerExcelBench();
+			leerExcelTejido tejido = new leerExcelTejido();
 			FileInputStream fis2;
 			int cant=0,cantRed=0;
 			try {
