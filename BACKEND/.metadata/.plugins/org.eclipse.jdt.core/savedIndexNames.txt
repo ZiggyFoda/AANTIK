@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\TUCHYS\Documents\GitHub\AANTIK\BACKEND\.metadata\.plugins\org.eclipse.jdt.core
+1424269792.index
+3554023334.index
+2328269416.index
