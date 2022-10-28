@@ -14,14 +14,16 @@
         <br>
         Recuerde mantener sus datos actualizados con el fin de garantizar
          el buen funcionamiento del sistema.
+         
         <button @click="$bvModal.show('my-modal1')" class="btn btn-dark btn-lg btn-block">
         Ver datos</button>
         <b-modal id="my-modal1">Nombre: emp 1 <br> 
           Direccion: cr 123 <br> 
           Descripcion: se hacen artesanias de madera <br> 
         </b-modal>
+        <router-link to="/datosEmp">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Actualizar datos</button>
+        Actualizar datos</button></router-link>
         <br>
         Aquí puede responder las preguntas del diagnóstico organizacional.
         <button type="submit" class="btn btn-dark btn-lg btn-block">

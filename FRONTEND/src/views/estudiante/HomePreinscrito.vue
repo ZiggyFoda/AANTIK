@@ -20,7 +20,7 @@
         
         La asignación de emprendimientos se realizará por medio de la personalización 
         para esto debe llenar el formulario que se encuentra aquí
-        <router-link to="/datosPre">
+        <router-link to="/encuesta">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
           Formato de personalización</button></router-link>
           <br>
