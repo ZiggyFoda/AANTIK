@@ -3,11 +3,9 @@ package com.aantik.demo.tejido;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import com.aantik.demo.model.CIIU;
 import com.aantik.demo.model.ModCiiuXemp;
 import com.aantik.demo.model.tejidoSocial;
-import com.aantik.demo.service.CiiuCRUD;
 
 public class main {
 
@@ -55,7 +53,7 @@ public class main {
 			tejidoServicio ts= new tejidoServicio();
 			ModCiiuXemp buscar = new ModCiiuXemp();
 			buscar.nombreEmp="prueba";
-			buscar.idCiiu=(long) 2790;
+			buscar.idCiiu=(long)2790;
 			ts.hacerTejido(buscar,redTejido,cant,cruzar,cant2);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
