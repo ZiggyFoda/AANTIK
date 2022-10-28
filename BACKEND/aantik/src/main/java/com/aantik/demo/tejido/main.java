@@ -56,7 +56,7 @@ public class main {
 			ModCiiuXemp buscar = new ModCiiuXemp();
 			buscar.nombreEmp="prueba";
 			buscar.idCiiu=(long) 2790;
-			ts.hacerTejido(buscar,redTejido,cant);
+			ts.hacerTejido(buscar,redTejido,cant,cruzar,cant2);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
