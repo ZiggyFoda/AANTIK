@@ -22,34 +22,41 @@ public class main {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}  
+		}  */
 	//	MATRIZ ACTIVIDADES RELACIONES P
 
 		tejidoSocial [] redTejido = new tejidoSocial[2000];
-		leerExcelBench tejido = new leerExcelBench();
+		leerExcelTejido tejido1 = new leerExcelTejido();
 		FileInputStream fis2;
+		int cant = 0;
 		try {
 			fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
-			int cant=tejido.leerTejido(fis2,redTejido);
+			cant=tejido1.leerTejido(fis2,redTejido);
 			System.out.println("cantidad datos= "+redTejido[cant-1].emprenDest);
 			System.out.println("cantidad datos= "+cant);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-*/		CIIU [] CIIUlista = new CIIU[500];
+		CIIU [] CIIUlista = new CIIU[500];
 		leerExcelTejido tejido = new leerExcelTejido();
 		ModCiiuXemp[] cruzar=new ModCiiuXemp[500];
-		FileInputStream fis2;
+		//FileInputStream fis2;
 		int cant2=0;
 		try {
 			fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
 			//tejido.leerTejido(fis2,CIIUlista);
-			int cant=tejido.getDatosCiiu(fis2,CIIUlista);
+			int cant3=tejido.getDatosCiiu(fis2,CIIUlista);
 			fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
-			tejido.getActividad(fis2,CIIUlista,cant);
+			tejido.getActividad(fis2,CIIUlista,cant3);
 			fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
 			cant2=tejido.getCuzeInf(fis2,cruzar);
+			System.out.println(cant2);
+			tejidoServicio ts= new tejidoServicio();
+			ModCiiuXemp buscar = new ModCiiuXemp();
+			buscar.nombreEmp="prueba";
+			buscar.idCiiu=(long) 2790;
+			ts.hacerTejido(buscar,redTejido,cant);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
