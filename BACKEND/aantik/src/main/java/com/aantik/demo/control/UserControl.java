@@ -24,9 +24,6 @@ public class UserControl {
 	@Autowired
 	UserCRUD userService;
 
-	private final StorageService storageService = null;
-
-	
 	@GetMapping("/test")
     public ArrayList<User> obtenerUsuarios(){
 		
@@ -56,7 +53,6 @@ public class UserControl {
 	public ResponseEntity<String> save(@RequestBody User persona) {
 		System.out.println("RECIBE: "+persona.getUsername());
 		User personaAux = new User();
-		String ret="0";
 		try {
 			String rolS="0";
 			if(userService.login(persona.getUsername(),persona.getPassword())==true) {

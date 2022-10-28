@@ -148,7 +148,7 @@ public class leerExcelTejido {
 		     // System.out.println("xcol: "+colNumber);	   		     
 		      int rowDatos=0;
 		      for(int i=0;i<tamLista;i++) {
-		    	  System.out.println(lista[i].codigo);
+		    	 // System.out.println(lista[i].codigo);
 		    	  int rowNumber = 0;
 			      while (rows.hasNext()) {
 			        rowNumber++;
@@ -184,7 +184,7 @@ public class leerExcelTejido {
 		    }
 		  }
 
-	public int getCuzeInf(FileInputStream fis2, ModCiiuXemp[] cruzar) {
+	public int getCuzeInf(FileInputStream fis2, ModCiiuXemp[] lista) {
 	// TODO Auto-generated method stub
 	String actividad= null;
     try {
@@ -194,12 +194,14 @@ public class leerExcelTejido {
 	      Sheet sheet2=workbook.getSheetAt(2);   //getting the XSSFSheet object at given index  
 		  int colNumber = sheet2.getRow(1).getPhysicalNumberOfCells();
 	      System.out.println("xcol: "+colNumber);	   		     
-	      int rowDatos=0;
+	      int rowDatos=0,catDat=0;
 	    	  //System.out.println(cruzar[i].codigo);
-    	  int rowNumber = 3;
+    	  int rowNumber = 2;
 	      while (rows.hasNext()) {
 	        rowNumber++;
-		    cruzar[rowDatos]=new ModCiiuXemp();
+	        lista[catDat]=new ModCiiuXemp();
+	        lista[catDat].nombreEmp="gofl";
+	        		 lista[catDat].idCiiu=(long) 12321;
 	        Row row=sheet2.getRow(rowNumber);  //returns the logical row      
 	          if(row==null) {
 	        	  break;
@@ -208,30 +210,34 @@ public class leerExcelTejido {
 	        String value; 
 	        Long value2;
 	        cell=row.getCell(1);
+	       // System.out.println("rn "+rowNumber+"cd "+catDat+lista[catDat].nombreEmp);
 	        if(cell!=null) {
+	        	if(cell.getCellType()==XSSFCell.CELL_TYPE_NUMERIC) {
 		  	      value2= (long)(cell.getNumericCellValue());
 		          cell=row.getCell(3);
+		          if(cell!=null) {
 		  	      value= String.valueOf(cell.getStringCellValue());
 		          if(value.length()!=0) {
 		        	  actividad=value;
 		          }
 		        	  for(int i=3;i<colNumber;i++) {
-		        		  if( row.getCell(i)!=null) {
-		        			 cruzar[rowDatos].idCiiu=(long) row.getCell(1).getNumericCellValue();
-		        			 cruzar[rowDatos].nombreEmp=row.getCell(i).getStringCellValue();
-		        			 rowDatos++;
-		        		  }
+		        		  if(row.getCell(i)!=null) {
+		        			value=row.getCell(i).getStringCellValue();
+			        		  if( value.length()>1) {
+			        			   lista[catDat].idCiiu=(long) row.getCell(1).getNumericCellValue();
+			        			   lista[catDat].nombreEmp=row.getCell(i).getStringCellValue();
+			        		       //System.out.println("nombre emp: "+lista[catDat].nombreEmp+"ciiu nm  "+lista[catDat].idCiiu);
+			        			   catDat++;
+			        		       lista[catDat]=new ModCiiuXemp();
+			        		  }  
+		        		  }		        		  
 		        	  }
-		        	  System.out.println("nombreEmp: "+cruzar[rowDatos].nombreEmp+
-      			  " idCiiu: "+cruzar[rowDatos].idCiiu); 
-		        
-		          
-		         // rowDatos++;			        	  
+		          }
+		         rowDatos++;
+	        	}
 	          }	        	
 	      }
-	      
-	    	//  System.out.println("CLOSE: "+rowDatos);	
-  		return rowDatos;
+  		return catDat;
 		    } catch (IOException e) {
 		      throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
 		    }
