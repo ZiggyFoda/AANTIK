@@ -10,12 +10,16 @@ import org.springframework.stereotype.Service;
 
 import com.aantik.demo.entidad.CIIU;
 import com.aantik.demo.repositorio.CiiuRepositorio;
+import com.aantik.demo.repositorio.CiiuEmpRepositorio;
 
 @Service
 public class CiiuCRUD implements CiiuCRUDLocal{
 	
 	@Autowired
 	CiiuRepositorio repository;
+	
+	@Autowired
+	CiiuEmpRepositorio repositoryComp;
 	
 	private boolean checkciiuExiste(CIIU ciiu)  {
 		Optional<CIIU> ciiuFindCod = repository.findByCodigo(ciiu.getCodigo());
