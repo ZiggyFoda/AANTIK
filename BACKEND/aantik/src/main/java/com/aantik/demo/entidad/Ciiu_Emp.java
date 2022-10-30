@@ -10,25 +10,45 @@ import javax.persistence.Id;
 public class Ciiu_Emp {
 	@Id
     @Column(name = "id")
-	private Long id;
+	private String id;
 	@Column
-	private String nombre;
-	public Long getId() {
+	private Long idCiiu;
+	@Column
+	private String idName;
+	
+	public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
+
+	public void setId(String id) {
 		this.id = id;
 	}
-	public String getNombre() {
-		return nombre;
+
+	public Long getIdCiiu() {
+		return idCiiu;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+
+	public void setIdCiiu(Long idCiiu) {
+		this.idCiiu = idCiiu;
 	}
+
+	public String getIdName() {
+		return idName;
+	}
+
+	public void setIdName(String idName) {
+		this.idName = idName;
+	}
+
+	public Ciiu_Emp() {
+		
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, nombre);
+		return Objects.hash(id, idCiiu, idName);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -38,20 +58,14 @@ public class Ciiu_Emp {
 		if (getClass() != obj.getClass())
 			return false;
 		Ciiu_Emp other = (Ciiu_Emp) obj;
-		return Objects.equals(id, other.id) && Objects.equals(nombre, other.nombre);
+		return Objects.equals(id, other.id) && Objects.equals(idCiiu, other.idCiiu)
+				&& Objects.equals(idName, other.idName);
 	}
+
 	@Override
 	public String toString() {
-		return "Ciiu_Emp [id=" + id + ", nombre=" + nombre + "]";
-	}
-	public Ciiu_Emp(Long id, String nombre) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-	}
-	public Ciiu_Emp() {
-		
+		return "Ciiu_Emp [id=" + id + ", idCiiu=" + idCiiu + ", idName=" + idName + "]";
 	}
 	
-	
+
 }

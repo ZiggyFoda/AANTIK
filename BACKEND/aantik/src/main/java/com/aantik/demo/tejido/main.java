@@ -53,7 +53,7 @@ public class main {
 			tejidoServicio ts= new tejidoServicio();
 			ModCiiuXemp buscar = new ModCiiuXemp();
 			buscar.nombreEmp="Prodesa";
-			buscar.idCiiu=(long)2790;
+			buscar.idCiiu=(long)3830;
 			ts.hacerTejido(buscar,redTejido,cant,cruzar,cant2);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.aantik.demo.entidad.Ciiu_Emp;
 import com.aantik.demo.entidad.CIIU;
 import com.aantik.demo.repositorio.CiiuRepositorio;
 import com.aantik.demo.repositorio.CiiuEmpRepositorio;
@@ -57,6 +57,33 @@ public class CiiuCRUD implements CiiuCRUDLocal{
 			addCiiu.setId((CIIUlista[i].codigo));
 			crearCIIU(addCiiu);
 		}		
+	}
+
+	public void saveAll2(com.aantik.demo.model.ModCiiuXemp[] cIIUlista, int cant) {
+		// TODO Auto-generated method stub
+		Ciiu_Emp addCiiuEmp=new Ciiu_Emp();
+		for(int i =0;i<cant;i++) {
+			addCiiuEmp.setIdCiiu(cIIUlista[i].idCiiu);
+			addCiiuEmp.setIdName(cIIUlista[i].nombreEmp.toString());
+			crearCIIUxEmp(addCiiuEmp);
+		}		
+	}
+
+	private Ciiu_Emp crearCIIUxEmp(Ciiu_Emp addCiiuEmp) {
+		if(checkciiuExiste(addCiiuEmp)) {
+			addCiiuEmp = repositoryComp.save(addCiiuEmp);
+		}
+		return addCiiuEmp;
+	}
+
+	private boolean checkciiuExiste(Ciiu_Emp addCiiuEmp) {
+		Optional<CIIU> ciiuFindCod = repository.findById(ciiu.getId());
+		System.out.println("dato obtenido------------"+ciiuFindCod);
+		if(ciiuFindCod.isPresent()) {
+			System.out.println("Objeto repetido: "+ciiu.getActividad()+"-"+ciiu.getCodigo());
+			return false;//throw new Exception("Codigo CIIU ya se encuentra registrado");
+		}
+		return true;
 	}
 
 }
