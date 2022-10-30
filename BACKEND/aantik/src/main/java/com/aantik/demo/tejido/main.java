@@ -52,7 +52,7 @@ public class main {
 			System.out.println(cant2);
 			tejidoServicio ts= new tejidoServicio();
 			ModCiiuXemp buscar = new ModCiiuXemp();
-			buscar.nombreEmp="prueba";
+			buscar.nombreEmp="Prodesa";
 			buscar.idCiiu=(long)2790;
 			ts.hacerTejido(buscar,redTejido,cant,cruzar,cant2);
 		} catch (FileNotFoundException e) {

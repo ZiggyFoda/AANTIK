@@ -18,13 +18,13 @@ public class tejidoServicio {
 				System.out.println("Proveedor :"+lista[i].emprenOrigen);
 			}
 		}
-		complemento(aliados,tamAliados,tejido,nodoP.idCiiu);
+		complemento(aliados,tamAliados,tejido,nodoP.idCiiu,nodoP.nombreEmp);
 		return tejido;
 	}
 	
-	public void complemento(ModCiiuXemp[] aliados,int tamAliados,RedTejido red, Long ciiuB) {
+	public void complemento(ModCiiuXemp[] aliados,int tamAliados,RedTejido red, Long ciiuB,String nombre) {
 		for(int j=0;j<tamAliados;j++) {
-			if(ciiuB.equals(aliados[j].idCiiu)) {
+			if(ciiuB.equals(aliados[j].idCiiu) && !nombre.equals(aliados[j].nombreEmp)) {
 				System.out.println("Aliado "+aliados[j].nombreEmp);
 			}
 		}
