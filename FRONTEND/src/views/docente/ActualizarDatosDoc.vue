@@ -22,9 +22,9 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-1" label="Municipio:" label-for="input-1">     
+        <b-form-group id="input-group-1" label="Municipio:" label-for="input-2">     
           <b-form-input
-            id="input-1"
+            id="input-2"
             v-model="form.municipio"
             placeholder="Municipio"
             required
@@ -57,24 +57,44 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-4" label="¿Tiene usted algún tipo de limitaciones a nivel social, psicológico o física?" label-for="input-6">     
+
+        <b-form-group id="input-group-4" label="Seleccione el sector económico de preferencia:" label-for="input-8">     
           <b-form-select
-            id="input-6"
+            id="input-8"
+            v-model="form.sector"
+            :options="sector"
+            required
+          ></b-form-select>
+        </b-form-group>
+
+        <b-form-group id="input-group-4" label="Seleccione su medio de contacto preferido:" label-for="input-9">     
+          <b-form-select
+            id="input-9"
+            v-model="form.contacto"
+            :options="contacto"
+            required
+          ></b-form-select>
+        </b-form-group>
+
+        
+
+        <b-form-group id="input-group-4" label="Seleccione el tipo de organizacion de preferencia:" label-for="input-10">     
+          <b-form-select
+            id="input-10"
+            v-model="form.tipoOrg"
+            :options="tipoOrg"
+            required
+          ></b-form-select>
+        </b-form-group>
+
+                <b-form-group id="input-group-4" label="Si tiene alguna limitacion seleccione aquí:" label-for="input-11">     
+          <b-form-select
+            id="input-11"
             v-model="form.limitacion"
             :options="limitacion"
             required
           ></b-form-select>
         </b-form-group>
-
-        <b-form-group id="input-group-5" label="¿Tiene alguna limitación para realizar su práctica social en alguna localidad de Bogotá?" label-for="input-17">     
-          <b-form-select
-          id="input-7"
-          v-model="form.localidadrest"
-          :options="localidad"
-          required
-        ></b-form-select>
-        </b-form-group>
-
 
         <b-form-group label="Seleccione los días y campo horario en el que desea recibir notificaciones:" v-slot="{ ariaDescribedby }">
       <b-form-checkbox-group
@@ -94,13 +114,14 @@
         <b-form-checkbox value="PM">PM</b-form-checkbox>
       </b-form-checkbox-group>
     </b-form-group>
+
         
 
         <b-button type="submit" variant="primary">Guardar</b-button>
         <b-button type="reset" variant="danger">Cancelar</b-button>
       </b-form>
       <br>
-      <router-link to="/studentHome">
+      <router-link to="/homeEmp">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Volver</button></router-link>
     </div>
@@ -125,16 +146,20 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
           localidad: null,
           barrio: '',
           direccion: '',
-          limitacion: null,
-          localidadrest: null,
           notif: null,
-          selected: [],
+          tipoOrg: null,
+          contacto: null,
+          sector: null,
         },
         localidad: [{ text: 'Selecione una', value: null }, 'Usaquén', 'Chapinero', 'Santa Fe', 'San Cristóbal', 'Usme', 'Tunjuelito', 'Bosa', 'Kennedy', 'Fontibón', 'Engativá', 'Suba', 'Barrios Unidos', 'Teusaquillo', '	Los Mártires', 'Antonio Nariño', 'Puente Aranda', 'La Candelaria', 'Rafael Uribe Uribe', 'Ciudad Bolívar', 'Sumapaz'],
-        experiencia: [{ text: 'Selecione una', value: null }, 'Monitoria en la javeriana', 'Trabajo social o voluntariado', 'No'],
+        notif: [{ text: 'Selecione una', value: null }, 'Lunes', 'Martes', 'Miercoles', 'Jueves'],
+        notif2: [{ text: 'Selecione una', value: null }, '1', '2', '3', '4'],
+        notif3: [{ text: 'Selecione una', value: null }, '1', '2', '3', '4'],
+        sector: [{ text: 'Selecione una', value: null }, 'Manufactura - confecciones', 'Manufactura - alimentos', 'Manufactura - artículos decorativos', 'Servicios'],
+        tipoOrg: [{ text: 'Selecione una', value: null }, 'Fundación', 'Cooperativa', 'Colegio', 'Fondo de empleados', 'Asociación', 'Corporación', 'Hospital'],
         limitacion: [{ text: 'Selecione una', value: null }, 'Social', 'Psicológica', 'Física', 'No'],
-        transporte: [{ text: 'Selecione una', value: null }, 'Carro', 'Moto', 'Otro', 'No'],
-        notif: [{ text: 'Selecione una', value: null }, '1', '2', '3', '4'],
+        contacto: [{ text: 'Selecione una', value: null }, 'Llamada', 'Whatsapp', 'Teams', 'Correo'],
+        selected: [],
         show: true
       }
     },
@@ -143,15 +168,15 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
     },
     methods: {
       onSubmit() {
-        axios.post("http://localhost:8080/datosEs",{
+        axios.post("http://localhost:8080/datosDoc",{
           telefono: this.form.telefono,
           municipio: this.form.municipio,
           localidad: this.form.localidad,
           barrio: this.form.barrio,
           direccion: this.form.direccion,
-          limitacion: this.form.limitacion,
-          localidadrest: this.form.localidadrest,
-          notif: this.form.notif,
+          vincu: this.form.vincu,
+          titulo: this.form.titulo,
+          linacc: this.form.linacc,
         });
 
       },
@@ -163,9 +188,9 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
         this.form.localidad = null
         this.form.barrio = ''
         this.form.direccion = ''
-        this.form.limitacion = null
-        this.form.localidadrest = null
-        this.form.notif = null
+        this.form.vincu = null
+        this.form.titulo = ''
+        this.form.linacc = null
         // Trick to reset/clear native browser form validation state
         this.show = false
         this.$nextTick(() => {

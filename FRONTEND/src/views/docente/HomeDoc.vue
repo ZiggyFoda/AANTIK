@@ -23,8 +23,9 @@
         <br>
         Recuerde mantener sus datos actualizados con el fin de garantizar
          el buen funcionamiento del sistema.
+         <router-link to="/encuesta">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Actualizar datos</button>
+        Actualizar datos</button></router-link>
         <br>
         Aquí puede ver todas las asesorías técnicas realizadas a 
         las organizaciones sociales que han sido parte de su curso.

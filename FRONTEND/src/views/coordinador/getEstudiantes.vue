@@ -23,7 +23,7 @@
         Listado de estudiantes inscritos
         <br>
         <div>
-          <b-table striped hover :items="estudiante"  @change="getFile($event)"></b-table>
+          <b-table striped hover :items="estudiante" :fields="fields" @change="getFile($event)"></b-table>
         </div>
         <br>
         Listado de estudiantes preinscritos
@@ -58,6 +58,11 @@ export default {
         correo: null,
         telefono: null
       } ,
+      fields: [
+          { key: "nombre" },
+          { key: "correo" },
+          { key: "telefono", label:"celular" }
+        ],
       items2: [
           { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Requisitos: 'Satisfecho' },
           { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Clase: '4202', Requisitos: 'Pendiente' },

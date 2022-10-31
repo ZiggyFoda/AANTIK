@@ -97,7 +97,7 @@
           v-if="isExitButton"
           class="bx bx-log-out"
           id="log_out"
-          @click.stop="$emit('button-exit-clicked')"
+          @click.prevent="logOut"
         />
       </div>
     </div>
@@ -105,6 +105,7 @@
 </template>
 
 <script>
+import AuthService from "@/service/auth.service";
   export default {
     name: 'SidebarMenuAkahon',
     props: {
@@ -143,16 +144,18 @@
         default: () => [
           {
             link: '#',
-            name: 'Tablero',
-            tooltip: 'Dashboard',
-            icon: 'bx-grid-alt',
-          },
-          {
-            link: '#',
-            name: 'Usuario',
+            name: AuthService.getUser(),
             tooltip: 'User',
             icon: 'bx-user',
           },
+          {
+            link: '#',
+            name: 'Tablero',
+            tooltip: 'Dashboard',
+            icon: 'bx-grid-alt',
+            
+          },
+
           {
             link: '#',
             name: 'Mensajes',
@@ -306,8 +309,15 @@
       isOpened() {
         window.document.body.style.paddingLeft = this.isOpened && this.isPaddingLeft ? this.menuOpenedPaddingLeftBody : this.menuClosedPaddingLeftBody
       }
-    }
-  }
+    },
+    methods: {
+      logOut() {
+      this.$store.dispatch("auth/logout");
+      this.$router.push("/login2");
+    },
+  },
+}
+
 </script>
 
 <style>
