@@ -1,8 +1,5 @@
 package com.aantik.demo.service;
 
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +60,7 @@ public class CiiuCRUD implements CiiuCRUDLocal{
 		// TODO Auto-generated method stub
 		Ciiu_Emp addCiiuEmp=new Ciiu_Emp();
 		for(int i =0;i<cant;i++) {
+			addCiiuEmp.setId(cIIUlista[i].id);
 			addCiiuEmp.setIdCiiu(cIIUlista[i].idCiiu);
 			addCiiuEmp.setIdName(cIIUlista[i].nombreEmp.toString());
 			crearCIIUxEmp(addCiiuEmp);
@@ -77,10 +75,10 @@ public class CiiuCRUD implements CiiuCRUDLocal{
 	}
 
 	private boolean checkciiuExiste(Ciiu_Emp addCiiuEmp) {
-		Optional<CIIU> ciiuFindCod = repository.findById(ciiu.getId());
+		Optional<Ciiu_Emp> ciiuFindCod = repositoryComp.findById(addCiiuEmp.getId());
 		System.out.println("dato obtenido------------"+ciiuFindCod);
 		if(ciiuFindCod.isPresent()) {
-			System.out.println("Objeto repetido: "+ciiu.getActividad()+"-"+ciiu.getCodigo());
+			System.out.println("Objeto repetido: "+addCiiuEmp.getIdName()+"-"+addCiiuEmp.getIdCiiu());
 			return false;//throw new Exception("Codigo CIIU ya se encuentra registrado");
 		}
 		return true;
