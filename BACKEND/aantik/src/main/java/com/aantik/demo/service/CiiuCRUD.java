@@ -40,6 +40,11 @@ public class CiiuCRUD implements CiiuCRUDLocal{
 	public Iterable<CIIU> getAll() {
         return repository.findAll();
 	}
+	
+	@Override
+	public Iterable<Ciiu_Emp> getAllCE() {//geet all ciiu x emprendimiento
+        return repositoryComp.findAll();
+	}
 
 	public void saveAll(com.aantik.demo.model.CIIU[] CIIUlista,int cant) {
 		// TODO Auto-generated method stub

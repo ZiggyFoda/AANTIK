@@ -11,12 +11,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.aantik.demo.entidad.CIIU;
+import com.aantik.demo.entidad.RedTejido;
 import com.aantik.demo.model.tejidoSocial;
 import com.aantik.demo.model.ModCiiuXemp;
-import com.aantik.demo.model.RedTejido;
+import com.aantik.demo.model.ModRedTejido;
 import com.aantik.demo.service.CiiuCRUD;
 import com.aantik.demo.service.TejidoCRUD;
 import com.aantik.demo.tejido.leerExcelTejido;
+import com.aantik.demo.tejido.tejidoServicio;
 
 @Controller
 public class TejidoControl {
@@ -72,35 +74,26 @@ public class TejidoControl {
 	
 
 	@GetMapping("/pruebaRed")
-	public ResponseEntity<RedTejido> hacerTejido() {
-		RedTejido red = new RedTejido();
+	public ResponseEntity<ModRedTejido> hacerTejido() {
+		ModRedTejido red = new ModRedTejido();
 		try {
 			com.aantik.demo.model.CIIU [] CIIUlista = new com.aantik.demo.model.CIIU[500];
-			tejidoSocial [] redTejido = new tejidoSocial[2000];
+			RedTejido [] redTejido = new RedTejido[2000];
 			leerExcelTejido tejido = new leerExcelTejido();
 			FileInputStream fis2;
-			int cant=0,cantRed=0;
-			try {
-				fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
-				cant=tejido.getDatosCiiu(fis2,CIIUlista);
-				fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
-				tejido.getActividad(fis2,CIIUlista,cant);
-				fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
-				cantRed=tejido.leerTejido(fis2,redTejido);
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		try {
-			System.out.println("Actualizando "+cant+" datos");
-			servCiiu.saveAll(CIIUlista,cant);
-			System.out.println("Actualizando "+cantRed+" red tejido");
-			servRed.saveAll(redTejido,cantRed);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-			return new ResponseEntity<RedTejido>(red, HttpStatus.OK);
+			ModCiiuXemp[] cruzar=new ModCiiuXemp[500];
+			int cant=0,cant2=0;
+				//getall de ciiu emp
+				
+				//getall de tejido social
+
+				tejidoServicio ts= new tejidoServicio();
+				ModCiiuXemp buscar = new ModCiiuXemp();
+				buscar.nombreEmp="Prodesa";
+				buscar.idCiiu=(long)3830;
+				red=ts.hacerTejido(buscar,redTejido,cant,cruzar,cant2);
+			
+			return new ResponseEntity<ModRedTejido>(red, HttpStatus.OK);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		//e.printStackTrace();

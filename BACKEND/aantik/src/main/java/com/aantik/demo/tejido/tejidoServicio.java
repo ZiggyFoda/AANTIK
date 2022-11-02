@@ -1,14 +1,14 @@
 package com.aantik.demo.tejido;
 
 import com.aantik.demo.model.ModCiiuXemp;
-import com.aantik.demo.model.RedTejido;
+import com.aantik.demo.model.ModRedTejido;
 import com.aantik.demo.model.tejidoSocial;
 
 public class tejidoServicio {
 	
-	public RedTejido hacerTejido(ModCiiuXemp nodoP,tejidoSocial[] lista, int tamLista, ModCiiuXemp[] aliados,int tamAliados) {
+	public ModRedTejido hacerTejido(ModCiiuXemp nodoP,tejidoSocial[] lista, int tamLista, ModCiiuXemp[] aliados,int tamAliados) {
 		
-		RedTejido tejido=new RedTejido();
+		ModRedTejido tejido=new ModRedTejido();
 		System.out.println("Tejido con :"+tamLista);
 		for(int i=0;i<tamLista;i++) {
 			if(nodoP.idCiiu.equals(lista[i].emprenOrigen)) {
@@ -22,7 +22,7 @@ public class tejidoServicio {
 		return tejido;
 	}
 	
-	public void complemento(ModCiiuXemp[] aliados,int tamAliados,RedTejido red, Long ciiuB,String nombre) {
+	public void complemento(ModCiiuXemp[] aliados,int tamAliados,ModRedTejido red, Long ciiuB,String nombre) {
 		for(int j=0;j<tamAliados;j++) {
 			if(ciiuB.equals(aliados[j].idCiiu) && !nombre.equals(aliados[j].nombreEmp)) {
 				System.out.println("Aliado "+aliados[j].nombreEmp);
