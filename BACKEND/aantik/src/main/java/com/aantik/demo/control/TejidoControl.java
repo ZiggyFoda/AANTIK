@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.aantik.demo.entidad.CIIU;
 import com.aantik.demo.entidad.RedTejido;
+import com.aantik.demo.entidad.Ciiu_Emp;
 import com.aantik.demo.model.tejidoSocial;
 import com.aantik.demo.model.ModCiiuXemp;
 import com.aantik.demo.model.ModRedTejido;
@@ -78,27 +79,27 @@ public class TejidoControl {
 		ModRedTejido red = new ModRedTejido();
 		try {
 			com.aantik.demo.model.CIIU [] CIIUlista = new com.aantik.demo.model.CIIU[500];
-			RedTejido [] redTejido = new RedTejido[2000];
+			Iterable<RedTejido> redTejido;
 			leerExcelTejido tejido = new leerExcelTejido();
 			FileInputStream fis2;
-			ModCiiuXemp[] cruzar=new ModCiiuXemp[500];
+			Iterable<Ciiu_Emp> cruzar;
 			int cant=0,cant2=0;
-				//getall de ciiu emp
-				
-				//getall de tejido social
-
-				tejidoServicio ts= new tejidoServicio();
-				ModCiiuXemp buscar = new ModCiiuXemp();
-				buscar.nombreEmp="Prodesa";
-				buscar.idCiiu=(long)3830;
-				red=ts.hacerTejido(buscar,redTejido,cant,cruzar,cant2);
+			//getall de ciiu emp
+			cruzar=servCiiu.getAllCE();
+			//getall de tejido social
+			redTejido=servRed.getAll();
+			tejidoServicio ts= new tejidoServicio();
+			Ciiu_Emp buscar = new Ciiu_Emp();
+			buscar.setIdName("Prodesa");
+			buscar.setIdCiiu((long)3830);
+			red=ts.hacerTejido(buscar,redTejido,cruzar);
 			
 			return new ResponseEntity<ModRedTejido>(red, HttpStatus.OK);
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		//e.printStackTrace();
-		System.out.println("Usuario no existe"+e);
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-	}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println("Usuario no existe"+e);
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
 	}
 }
