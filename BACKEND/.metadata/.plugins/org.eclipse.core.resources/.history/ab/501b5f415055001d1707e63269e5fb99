@@ -1,0 +1,37 @@
+package com.aantik.demo.model;
+
+public class ModEmprendimiento {
+	
+	String nombreEmp;
+	String NIT;
+	String fechaCons;
+	String direccion;
+	String temaAsesorar;//**p
+	Long CodCiiu;//**p
+	String orgSocial;
+	String localidad;//****
+	String interlocutorEmp;
+	String telefonoIE;
+	String correoIE;
+	String nombreInterOS;
+	String telefonoIOS;
+	String correoIOS;
+	int cupos;//**p
+	String empleados;
+	String linAccion;//**p
+	String actividadEco;//**
+	String prodServ;
+	String contacto;//medio de comunicacion que prefiere**
+	boolean experiencia;//**
+	boolean promedio;//**
+	String horarioNotif;
+	char modalidad;//**
+	String disponibilidad;
+	String horarioAtencion;
+	char genero;//**
+	String tipoOrg;
+	boolean limitacion;
+	char transporte;//*p
+	String tipoEmp;
+	String comunidad;
+}

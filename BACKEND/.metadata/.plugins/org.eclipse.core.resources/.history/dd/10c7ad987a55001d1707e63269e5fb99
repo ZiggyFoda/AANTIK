@@ -1,0 +1,26 @@
+package com.aantik.demo.control;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.aantik.demo.entidad.CIIU;
+import com.aantik.demo.model.ModAsignacion;
+import com.aantik.demo.service.CiiuCRUD;
+import com.aantik.demo.service.TejidoCRUD;
+
+@Controller
+public class signacionControl {
+	
+		/*@Autowired
+		CiiuCRUD servCiiu;
+		@Autowired
+		TejidoCRUD servRed;*/
+		
+		@GetMapping("/newAsign")
+		public ResponseEntity<ModAsignacion[]> senAsig() {
+			
+		}
+		
+}

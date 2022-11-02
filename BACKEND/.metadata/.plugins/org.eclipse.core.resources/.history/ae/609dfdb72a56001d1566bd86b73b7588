@@ -1,0 +1,11 @@
+package com.aantik.demo.tejido;
+
+import com.aantik.demo.model.RedTejido;
+
+public class tejidoServicio {
+	
+	public RedTejido() {
+		RedTejido tejido=new RedTejido();
+		return tejido;
+	}
+}

@@ -1,0 +1,17 @@
+package com.aantik.demo.model;
+
+public class ModEmprendimiento {
+
+  char genero;
+  boolean limitacion;
+  String localidad;
+  String disponibilidad;
+  String tipoOrg;
+  String tipoEmp;
+  String actividadEco;
+  String comunidad;
+  char modalidad;
+  boolean experiencia;
+  boolean promedio;
+  String contacto;
+}

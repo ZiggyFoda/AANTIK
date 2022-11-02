@@ -1,0 +1,37 @@
+package com.aantik.demo.model;
+
+public class ModEstudiante {
+	  int id;
+	  char genero;
+	  String correo;
+	  String documento;
+	  String telefono;
+	  String ciudad;
+	  String localidad;
+	  String barrio;
+	  String direccion;
+	  boolean actividadExtra;
+	  boolean experiencia;
+	  boolean limitacion;
+	  String limitLocalidad;
+	  boolean transporte;
+	  String asignatura;
+	  String docentePref;
+	  String docenteNoPref;
+	  boolean promedio;
+	  String enfasis;
+	  String contacto;
+	  String linAccion;
+	  char modalidad;
+	  String disponibilidad;
+	  String notificaciones;
+	  String tipoOrg;
+	  String tipoEmp;
+	  String actividadEco;
+	  String comunidad;
+	  int pUbicacion;
+	  int pDispponibilidad;
+	  int pActividad;
+	  int pTipoOrg;
+	  int pComunidad;
+}

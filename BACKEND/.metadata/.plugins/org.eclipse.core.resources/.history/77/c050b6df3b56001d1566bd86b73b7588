@@ -1,0 +1,15 @@
+package com.aantik.demo.tejido;
+
+import com.aantik.demo.model.ModCiiuXemp;
+import com.aantik.demo.model.RedTejido;
+import com.aantik.demo.model.tejidoSocial;
+
+public class tejidoServicio {
+	
+	public RedTejido hacerTejido(ModCiiuXemp nodoP,tejidoSocial[] lista, int tamLista) {
+		
+		RedTejido tejido=new RedTejido();
+		System.out.println("Tejido con :"+tamLista);
+		return tejido;
+	}
+}

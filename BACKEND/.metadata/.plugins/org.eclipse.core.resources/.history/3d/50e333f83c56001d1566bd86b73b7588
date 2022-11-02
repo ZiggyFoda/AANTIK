@@ -1,0 +1,31 @@
+package com.aantik.demo.tejido;
+
+import com.aantik.demo.model.ModCiiuXemp;
+import com.aantik.demo.model.RedTejido;
+import com.aantik.demo.model.tejidoSocial;
+
+public class tejidoServicio {
+	
+	public RedTejido hacerTejido(ModCiiuXemp nodoP,tejidoSocial[] lista, int tamLista, ModCiiuXemp[] aliados,int tamAliados) {
+		
+		RedTejido tejido=new RedTejido();
+		System.out.println("Tejido con :"+tamLista);
+		for(int i=0;i<tamLista;i++) {
+			if(nodoP.idCiiu==lista[i].emprenOrigen) {
+				System.out.println("Cliente :"+lista[i].emprenDest);
+			}
+			if(nodoP.idCiiu==lista[i].emprenDest) {
+				System.out.println("Proveedor :"+lista[i].emprenOrigen);
+			}
+		}
+		return tejido;
+	}
+	
+	public void complemento(ModCiiuXemp[] aliados,int tamAliados,RedTejido red) {
+		for(int j=0;j<tamAliados;j++) {
+			if(red.emprendimiento.equals(aliados[j].nombreEmp)) {
+				
+			}
+		}
+	}
+}
