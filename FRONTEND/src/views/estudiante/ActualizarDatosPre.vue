@@ -12,150 +12,55 @@
     <br><br>
     <div>
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-        <b-form-group id="input-group-1" label="Nombres y apellidos:" label-for="input-1">     
+
+        <b-form-group id="input-group-1" label="Teléfono:" label-for="input-1">     
           <b-form-input
             id="input-1"
-            v-model="form.name"
-            placeholder="Nombres y apellidos"
-            required
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group
-          id="input-group-2"
-          label="Correo institucional:"
-          label-for="input-2"
-        >
-          <b-form-input
-            id="input-2"
-            v-model="form.email"
-            type="email"
-            placeholder="Correo institucional"
-            required
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group id="input-group-3" label="ID estudiantil:" label-for="input-3">     
-          <b-form-input
-            id="input-3"
-            v-model="form.idEst"
-            placeholder="ID estudiantil"
-            required
-          ></b-form-input>
-        </b-form-group>
-        
-        <b-form-group id="input-group-4" label="Cédula:" label-for="input-4">     
-          <b-form-input
-            id="input-4"
-            v-model="form.cedula"
-            placeholder="Cédula"
-            required
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group id="input-group-5" label="Asignatura a inscribir:" label-for="input-5">     
-          <b-form-select
-          id="input-5"
-          v-model="form.asignatura"
-          :options="asignatura"
-          required
-        ></b-form-select>
-        </b-form-group>
-
-        <b-form-group id="input-group-5" label="Genero:" label-for="input-6">     
-          <b-form-select
-          id="input-6"
-          v-model="form.genero"
-          :options="genero"
-          required
-        ></b-form-select>
-        </b-form-group>
-
-        <b-form-group id="input-group-6" label="Fecha en que asistió a charla sentido de mi práctica:" label-for="input-7">     
-          <b-form-input
-            id="input-7"
-            v-model="form.fechaTaller"
-            placeholder="dd/mm/aaaa"
-            required
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group id="input-group-7" label="Teléfono:" label-for="input-8">     
-          <b-form-input
-            id="input-8"
             v-model="form.telefono"
             placeholder="Teléfono"
             required
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-5" label="Municipio:" label-for="input-9">     
-          <b-form-select
-          id="input-9"
-          v-model="form.municipio"
-          :options="municipio"
-          required
-        ></b-form-select>
+        <b-form-group id="input-group-1" label="Municipio:" label-for="input-1">     
+          <b-form-input
+            id="input-1"
+            v-model="form.municipio"
+            placeholder="Municipio"
+            required
+          ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-5" label="Localidad:" label-for="input-10">     
+        <b-form-group id="input-group-5" label="Localidad si esta en Bogotá D.C.:" label-for="input-3">     
           <b-form-select
-          id="input-10"
+          id="input-3"
           v-model="form.localidad"
           :options="localidad"
           required
         ></b-form-select>
         </b-form-group>
 
-        <b-form-group id="input-group-4" label="Barrio:" label-for="input-11">     
+        <b-form-group id="input-group-4" label="Barrio:" label-for="input-4">     
           <b-form-input
-            id="input-11"
-            v-model="form.Barrio"
+            id="input-4"
+            v-model="form.barrio"
             placeholder="Barrio"
             required
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-4" label="Dirección:" label-for="input-12">     
+        <b-form-group id="input-group-4" label="Dirección:" label-for="input-5">     
           <b-form-input
-            id="input-12"
+            id="input-5"
             v-model="form.direccion"
             placeholder="Direción"
             required
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-4" label="¿Realiza actualmente alguna actividad extracurricular? (trabajo, entrenamiento, etc.)
-:" label-for="input-13">     
+        <b-form-group id="input-group-4" label="¿Tiene usted algún tipo de limitaciones a nivel social, psicológico o física?" label-for="input-6">     
           <b-form-select
-            id="input-13"
-            v-model="form.actividad"
-            :options="actividad"
-            required
-          ></b-form-select>
-        </b-form-group>
-
-        <b-form-group id="input-group-4" label="¿Cuáles?:" label-for="input-14">     
-          <b-form-input
-            id="input-14"
-            v-model="form.cualesactiv"
-            placeholder="¿Cuáles?"
-            required
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group id="input-group-4" label="¿Cuenta con experiencia de más de un año en las siguientes actividades?" label-for="input-15">     
-          <b-form-select
-            id="input-15"
-            v-model="form.experiencia"
-            :options="experiencia"
-            required
-          ></b-form-select>
-        </b-form-group>
-
-        <b-form-group id="input-group-4" label="¿Tiene usted algún tipo de limitaciones a nivel social, psicológico o física?" label-for="input-16">     
-          <b-form-select
-            id="input-16"
+            id="input-6"
             v-model="form.limitacion"
             :options="limitacion"
             required
@@ -164,30 +69,41 @@
 
         <b-form-group id="input-group-5" label="¿Tiene alguna limitación para realizar su práctica social en alguna localidad de Bogotá?" label-for="input-17">     
           <b-form-select
-          id="input-17"
+          id="input-7"
           v-model="form.localidadrest"
           :options="localidad"
-          required
+          optional
         ></b-form-select>
         </b-form-group>
 
-        <b-form-group id="input-group-4" label="¿Cuenta con algún tipo de transporte?" label-for="input-18">     
+        <b-form-group id="input-group-4" label="Seleccione los horarios en los que desea recibir notificaciones relacionadas con su proyecto social universitario o CDIO
+" label-for="input-8">     
           <b-form-select
-            id="input-18"
-            v-model="form.treansporte"
-            :options="transporte"
+            id="input-8"
+            v-model="form.notif"
+            :options="notif"
             required
           ></b-form-select>
         </b-form-group>
 
-        <b-form-group id="input-group-4" label="Ingrese el nombre del docente de su preferencia" label-for="input-19">     
-          <b-form-select
-            id="input-19"
-            v-model="form.profe"
-            :options="profe"
-            required
-          ></b-form-select>
-        </b-form-group>
+        <b-form-group label="Seleccione los días y campo horario en el que desea recibir notificaciones:" v-slot="{ ariaDescribedby }">
+      <b-form-checkbox-group
+        id="checkbox-group-2"
+        v-model="selected"
+        :aria-describedby="ariaDescribedby"
+        name="flavour-2"
+      >
+        <b-form-checkbox value="Lunes">Lunes</b-form-checkbox>
+        <b-form-checkbox value="Martes">Martes</b-form-checkbox>
+        <b-form-checkbox value="Miercoles">Miercoles</b-form-checkbox>
+        <b-form-checkbox value="Jueves">Jueves</b-form-checkbox>
+        <b-form-checkbox value="Viernes">Viernes</b-form-checkbox>
+        <b-form-checkbox value="Sabado">Sabado</b-form-checkbox>
+        <b-form-checkbox value="Domingo">Domingo</b-form-checkbox>
+        <b-form-checkbox value="AM">Am</b-form-checkbox>
+        <b-form-checkbox value="PM">PM</b-form-checkbox>
+      </b-form-checkbox-group>
+    </b-form-group>
         
 
         <b-button type="submit" variant="primary">Guardar</b-button>
@@ -207,26 +123,27 @@
 </template>
 
 <script>
+import axios from 'axios';
 import SidebarMenuAkahon from "@/components/SideBar.vue"
 
   export default {
     data() {
       return {
         form: {
-          email: '',
-          name: '',
-          food: null,
-          checked: []
+          telefono: '',
+          municipio: '',
+          localidad: null,
+          barrio: '',
+          direccion: '',
+          limitacion: null,
+          localidadrest: null,
+          notif: null,
         },
-        asignatura: [{ text: 'Selecione una', value: null }, 'PSU', 'CDIO'],
-        genero: [{ text: 'Selecione una', value: null }, 'Masculino', 'Femenino', 'Otro'],
-        municipio: [{ text: 'Selecione una', value: null }, 'Bogota D.C.', 'Otro'],
         localidad: [{ text: 'Selecione una', value: null }, 'Usaquén', 'Chapinero', 'Santa Fe', 'San Cristóbal', 'Usme', 'Tunjuelito', 'Bosa', 'Kennedy', 'Fontibón', 'Engativá', 'Suba', 'Barrios Unidos', 'Teusaquillo', '	Los Mártires', 'Antonio Nariño', 'Puente Aranda', 'La Candelaria', 'Rafael Uribe Uribe', 'Ciudad Bolívar', 'Sumapaz'],
-        actividad: [{ text: 'Selecione una', value: null }, 'Si', 'No'],
         experiencia: [{ text: 'Selecione una', value: null }, 'Monitoria en la javeriana', 'Trabajo social o voluntariado', 'No'],
         limitacion: [{ text: 'Selecione una', value: null }, 'Social', 'Psicológica', 'Física', 'No'],
         transporte: [{ text: 'Selecione una', value: null }, 'Carro', 'Moto', 'Otro', 'No'],
-        profe: [{ text: 'Selecione una', value: null }, '', '', '', ''],
+        notif: [{ text: 'Selecione una', value: null }, '1', '2', '3', '4'],
         show: true
       }
     },
@@ -234,17 +151,30 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
     SidebarMenuAkahon,
     },
     methods: {
-      onSubmit(event) {
-        event.preventDefault()
-        alert(JSON.stringify(this.form))
+      onSubmit() {
+        axios.post("http://localhost:8080/datosPre",{
+          telefono: this.form.telefono,
+          municipio: this.form.municipio,
+          localidad: this.form.localidad,
+          barrio: this.form.barrio,
+          direccion: this.form.direccion,
+          limitacion: this.form.limitacion,
+          localidadrest: this.form.localidadrest,
+          notif: this.form.notif,
+        });
+
       },
       onReset(event) {
         event.preventDefault()
         // Reset our form values
-        this.form.email = ''
-        this.form.name = ''
-        this.form.food = null
-        this.form.checked = []
+        this.form.telefono = ''
+        this.form.municipio = ''
+        this.form.localidad = null
+        this.form.barrio = ''
+        this.form.direccion = ''
+        this.form.limitacion = null
+        this.form.localidadrest = null
+        this.form.notif = null
         // Trick to reset/clear native browser form validation state
         this.show = false
         this.$nextTick(() => {
