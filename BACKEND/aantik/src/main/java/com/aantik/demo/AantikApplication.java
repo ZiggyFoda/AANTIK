@@ -11,7 +11,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.aantik.demo.service.FilesStorageService;
 
 
-
 @SpringBootApplication
 public class AantikApplication {
 	
