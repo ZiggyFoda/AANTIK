@@ -264,6 +264,11 @@ const routes = [
       component: () => import('../views/estudiante/SubirNoticia.vue')
       ,meta: {requiresAuth: true}
     },
+    {
+      path: '/benchmarking',
+      name: 'Benchmarking',
+      component: () => import("@/views/PreguntaBenchmarking.vue")
+    }
 ]
 
 const router = new VueRouter({

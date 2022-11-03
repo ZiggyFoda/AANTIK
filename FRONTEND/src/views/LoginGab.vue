@@ -11,6 +11,7 @@
             type="text"
             class="form-control"
             name="username"
+            placeholder="ejemplo@javeriana.edu.co"
           />
           <div
             v-if="errors.has('username')"
