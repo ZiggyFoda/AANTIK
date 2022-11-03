@@ -78,12 +78,8 @@ public class TejidoControl {
 	public ResponseEntity<ModRedTejido> hacerTejido() {
 		ModRedTejido red = new ModRedTejido();
 		try {
-			com.aantik.demo.model.CIIU [] CIIUlista = new com.aantik.demo.model.CIIU[500];
 			Iterable<RedTejido> redTejido;
-			leerExcelTejido tejido = new leerExcelTejido();
-			FileInputStream fis2;
 			Iterable<Ciiu_Emp> cruzar;
-			int cant=0,cant2=0;
 			//getall de ciiu emp
 			cruzar=servCiiu.getAllCE();
 			//getall de tejido social

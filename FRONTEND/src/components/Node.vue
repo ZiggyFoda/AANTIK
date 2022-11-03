@@ -13,9 +13,8 @@
     </div>
   </template>
   
-  <script>
+<script>
   //import { addEvent } from "../utils";
-
 import { string } from 'yup';
 
   

@@ -4,6 +4,7 @@ import com.aantik.demo.entidad.Ciiu_Emp;
 import com.aantik.demo.entidad.RedTejido;
 import com.aantik.demo.model.ModCiiuXemp;
 import com.aantik.demo.model.ModRedTejido;
+import com.aantik.demo.model.RedNodoHijo;
 import com.aantik.demo.model.tejidoSocial;
 
 public class tejidoServicio {
@@ -11,17 +12,28 @@ public class tejidoServicio {
 	public ModRedTejido hacerTejido(Ciiu_Emp buscar,Iterable<RedTejido> redTejido, Iterable<Ciiu_Emp> cruzar) {
 		
 		ModRedTejido tejido=new ModRedTejido();
-		int i=0;
+		tejido.clientes=new RedNodoHijo[5];
+		tejido.proveedores=new RedNodoHijo[5];
+		tejido.aliados=new RedNodoHijo[5];
+		int i=0,j=0;
 		System.out.println("GENERANDO TEJIDO:");
-		//for(int i=0;i<tamLista;i++) {
 		for (RedTejido lista: redTejido) {
 
-			if(buscar.getIdCiiu().equals(lista.getEmprenOrigen())) {
+			if(buscar.getIdCiiu().equals(lista.getEmprenOrigen()) && i<5) {
 				System.out.println("Cliente :"+lista.getEmprenDest());
-				//tejido.clientes[i].=lista.getEmprenDest();
+				tejido.clientes[i]=new RedNodoHijo();
+				tejido.clientes[i].nombre="cliente "+lista.getEmprenDest();
+				tejido.clientes[i].teleefono="tel: cliente "+i;
+				tejido.clientes[i].producto="producto cliente "+i;
+				i++;
 			}
-			if(buscar.getIdCiiu().equals(lista.getEmprenDest())) {
+			if(buscar.getIdCiiu().equals(lista.getEmprenDest()) && j<5) {
 				System.out.println("Proveedor :"+lista.getEmprenOrigen());
+				tejido.proveedores[j]=new RedNodoHijo();
+				tejido.proveedores[j].nombre="Proveedor "+lista.getEmprenOrigen();
+				tejido.proveedores[j].teleefono="tel: Proveedor "+j;
+				tejido.proveedores[j].producto="producto Proveedor "+j;
+				j++;
 			}
 		}
 		complemento(cruzar,tejido,buscar.getIdCiiu(),buscar.getIdName());
@@ -30,9 +42,15 @@ public class tejidoServicio {
 	
 	public void complemento(Iterable<Ciiu_Emp> aliados,ModRedTejido red, Long ciiuB,String nombre) {
 	//	for(int j=0;j<tamAliados;j++) 
+		int k=0;
 		for (Ciiu_Emp lista: aliados){
-			if(ciiuB.equals(lista.getIdCiiu()) && !nombre.equals(lista.getIdName())) {
+			if(ciiuB.equals(lista.getIdCiiu()) && !nombre.equals(lista.getIdName()) && k<5) {
 				System.out.println("Aliado "+lista.getIdName());
+				red.aliados[k]=new RedNodoHijo();
+				red.aliados[k].nombre="aliados "+lista.getIdName();
+				red.aliados[k].teleefono="tel: aliados "+k;
+				red.aliados[k].producto="producto aliados "+k;
+				k++;
 			}
 		}
 	}
