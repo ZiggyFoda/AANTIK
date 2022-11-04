@@ -15,12 +15,6 @@
         Recuerde mantener sus datos actualizados con el fin de garantizar
          el buen funcionamiento del sistema.
          
-        <button @click="$bvModal.show('my-modal1')" class="btn btn-dark btn-lg btn-block">
-        Ver datos</button>
-        <b-modal id="my-modal1">Nombre: emp 1 <br> 
-          Direccion: cr 123 <br> 
-          Descripcion: se hacen artesanias de madera <br> 
-        </b-modal>
         <router-link to="/datosEmp">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Actualizar datos</button></router-link>
@@ -48,8 +42,9 @@
         En este módulo puede encontrar noticias por sector economico y 
         enfocadas a los emprendimientos, adicionalmente puede acceder a la 
         red de colaboración.
+        <router-link to="/noticias">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Módulo de información</button>
+        Módulo de información</button></router-link>
         <br>
         Si te interesa conseguir clientes, proveedores o posibles 
         aliados, ingrese aquí.

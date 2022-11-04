@@ -156,7 +156,9 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
           limitacion: this.form.limitacion,
           localidadrest: this.form.localidadrest,
           notif: this.form.notif,
+
         });
+        console.log(notif)
 
       },
       onReset(event) {

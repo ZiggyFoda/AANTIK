@@ -66,6 +66,32 @@ const routes = [
     name: 'preinscHome',
     component: () => import('../views/estudiante/HomePreinscrito.vue')
   },
+  {
+    path: '/datosPre',
+    name: 'datosPre',
+    component: () => import('../views/estudiante/ActualizarDatosPre.vue')
+  },
+  {
+    path: '/datosEs',
+    name: 'datosEs',
+    component: () => import('../views/estudiante/ActualizarDatosEst.vue')
+  },
+  {
+    path: '/reqEs',
+    name: 'reqEs',
+    component: () => import('../views/estudiante/Requisitos.vue')
+  },
+  {
+    path: '/noticiaEs',
+    name: 'noticiaEs',
+    component: () => import('../views/estudiante/SubirNoticia.vue')
+  },
+  {
+    path: '/encuesta',
+    name: 'encuesta',
+    component: () => import('../views/estudiante/Encuesta.vue')
+  },
+
   //COORDINADOR
   {
     path: "/CoordHome",
@@ -183,11 +209,32 @@ const routes = [
     name: 'gesForo',
     component: () => import('../views/admin/GForo.vue')
   },
+  {
+    path: '/foroEdit',
+    name: 'foroEdit',
+    component: () => import('../views/admin/foroEdit.vue')
+  },
+  {
+    path: '/notiEdit',
+    name: 'notiEdit',
+    component: () => import('../views/admin/noticiasEdit.vue')
+  },
+
   //EMPRENDIMIENTO
   {
     path: '/HomeEmp',
     name: 'HomeEmp',
     component: () => import('../views/emprendimiento/HomeEmp.vue')
+  },
+  {
+    path: '/asesoria',
+    name: 'asesoria',
+    component: () => import('../views/emprendimiento/asesoria.vue')
+  },
+  {
+    path: '/datosEmp',
+    name: 'datosEmp',
+    component: () => import('../views/emprendimiento/ActualizarDatosEmp.vue')
   },
    //DOCENTE
    {
@@ -195,36 +242,10 @@ const routes = [
     name: 'HomeDoc',
     component: () => import('../views/docente/HomeDoc.vue')
   },
-    //EMPRENDIMIENTO
-    {
-      path: '/asesoria',
-      name: 'asesoria',
-      component: () => import('../views/emprendimiento/asesoria.vue')
-    },
-    //ACTDATOSPre
-    {
-      path: '/datosPre',
-      name: 'datosPre',
-      component: () => import('../views/estudiante/ActualizarDatosPre.vue')
-    },
-    //ACTDATOSEst
-    {
-      path: '/datosEs',
-      name: 'datosEs',
-      component: () => import('../views/estudiante/ActualizarDatosEst.vue')
-    },
-    //requistosEst
-    {
-      path: '/reqEs',
-      name: 'reqEs',
-      component: () => import('../views/estudiante/Requisitos.vue')
-    },
-    //SubirNoticia
-    {
-      path: '/noticiaEs',
-      name: 'noticiaEs',
-      component: () => import('../views/estudiante/SubirNoticia.vue')
-    },
+
+
+
+
 ]
 
 const router = new VueRouter({
