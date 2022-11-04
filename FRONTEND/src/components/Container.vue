@@ -34,6 +34,7 @@ import TejidoService from "@/service/TejidoService";
           { id: "node4", x: 400, y: 80, width: 150, height: 100 ,texto:'Emprendimiento',
           clientes:{nombre:'',producto:'',contacto:''}},
         ],
+        emprendimineto: null,
         auxiliar: null,
         links: [{ from: "node1", to: "node4" },
         { from: "node2", to: "node4" },
