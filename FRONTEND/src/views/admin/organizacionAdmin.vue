@@ -32,7 +32,7 @@
         <div>
           <b-table striped hover id="pages-table" :items="items" :fields="fields">
             <template #cell(Editar)="row">
-              <router-link to="/subirFileOrgSoc">
+              <router-link to="/orgEdit">
               <b-button class="mr-2">Ver y Editar
               </b-button></router-link>
             </template>

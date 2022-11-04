@@ -219,6 +219,42 @@ const routes = [
     name: 'notiEdit',
     component: () => import('../views/admin/noticiasEdit.vue')
   },
+  {
+    path: '/stuEdit',
+    name: 'stuEdit',
+    component: () => import('../views/admin/estudianteEdit.vue')
+  },
+  {
+    path: '/preEdit',
+    name: 'preEdit',
+    component: () => import('../views/admin/preEstudianteEdit.vue')
+  },
+  {
+    path: '/gesStu',
+    name: 'gesStu',
+    component: () => import('../views/admin/estudianteAdmin.vue')
+  },
+  {
+    path: '/orgAdmin',
+    name: 'orgAdmin',
+    component: () => import('../views/admin/organizacionAdmin.vue')
+  },
+  {
+    path: '/orgEdit',
+    name: 'orgEdit',
+    component: () => import('../views/admin/organizacionEdit.vue')
+  },
+  {
+    path: '/docEdit',
+    name: 'docEdit',
+    component: () => import('../views/admin/docenteEdit.vue')
+  },
+  {
+    path: '/docAdmin',
+    name: 'docAdmin',
+    component: () => import('../views/admin/docenteAdmin.vue')
+  },
+
 
   //EMPRENDIMIENTO
   {

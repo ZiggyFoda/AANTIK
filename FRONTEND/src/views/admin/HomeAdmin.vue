@@ -11,15 +11,15 @@
           <h3>Panel administrativo</h3>
           <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div><br><br>
-        <router-link to="/estudiantes">
+        <router-link to="/gesStu">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Gestionar estudiantes</button></router-link><br>
         
-        <router-link to="/orgSociales">
+        <router-link to="/orgAdmin">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Gestionar Organizaciones Sociales</button></router-link><br>
         
-        <router-link to="/docentes">
+        <router-link to="/docAdmin">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Gestionar Docentes</button></router-link><br>
         
