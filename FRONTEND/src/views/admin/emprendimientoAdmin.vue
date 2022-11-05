@@ -8,26 +8,30 @@
     <b-row>
       <b-col>
         <div class="hello">
-          <h3>Gestor de grupos de clase</h3>
+          <h3>Gestor de emprendimientos</h3>
         </div>
-        Ingrese aquí para agregar un grupo de clase
-        <router-link to="/addGrupoClass">
+        Ingrese aquí para agregar emprendimientos de forma masiva
+        por medio de un archivo excel
+        <router-link to="/subirFile">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar grupo de clase</button></router-link><br>
-        
+        Agregar emprendimientos</button></router-link><br>
+        Ingrese aquí para agregar un emprendimiento individual
+        <router-link to="/addemprendimientos">
+        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        Agregar emprendimiento</button></router-link><br>
         <br>
-        Listado de grupos de clase del ciclo
+        Listado de emprendimientos inscritos
            
         <br>
         <div>
           <b-table striped hover id="pages-table" :items="items" :fields="fields">
-            <template #cell(Editar)="row">
-              <router-link to="/classEdit">
+            <template #cell(EditarVer)="row">
+              <router-link to="/empEdit">
               <b-button class="mr-2">Editar/Ver
               </b-button></router-link>
             </template>
             <template #cell(Eliminar)="row">
-              <b-button class="mr-2">Elminar
+              <b-button class="mr-2">Eliminar
               </b-button>
             </template>
           </b-table>
@@ -46,7 +50,7 @@
 import SidebarMenuAkahon from "@/components/SideBar.vue"
 
 export default {
-  name: 'addGrupoClass',
+  name: 'estudiantesCord',
   props: {
     msg: String
   },
@@ -67,22 +71,22 @@ export default {
   data() {
       return {
         items: [
-          { ID: 40, Asignatura: '2353001', Docente: 'Clara Mabel', cupDis:'10', cupAsig:'22',cuposT:'32'},
-          { ID: 40, Asignatura: '2353001', Docente: 'Clara Mabel', cupDis:'11', cupAsig:'21',cuposT:'32'},
-          { ID: 40, Asignatura: '2353001', Docente: 'Clara Mabel', cupDis:'5', cupAsig:'27',cuposT:'32'},
-          { ID: 40, Asignatura: '2353001', Docente: 'Clara Mabel', cupDis:'2', cupAsig:'30',cuposT:'32'}
-        ],fields: [
+          { ID: 40, Emprendimiento: 'Ruta Turismo Social', Organizacion: 'Fundacion Buena Semilla', Localidad: 'Candelaria', Interlocutor: 'Guadalupe Orjuela Ayala' },
+          { ID: 47, Emprendimiento: 'Taller Tejidos', Organizacion: 'Fundacion Buena Semilla-', Localidad: 'Candelaria', Interlocutor: 'Guadalupe Orjuela Ayala' },
+          { ID: 45, Emprendimiento: 'ClockChain', Organizacion: 'Fundación Vida en Acción', Localidad: 'Puente Aranda', Interlocutor: 'Elizabeth Maffiold' },
+          { ID: 4, Emprendimiento: 'Importaciones Radida.cap', Organizacion: 'Fundación Vida en Acción', Localidad: 'Puente Aranda', Interlocutor: 'Paola Pantano' }
+        ],
+        fields: [
           {
             key: "ID",
             label: "ID",
             sortable: true
           },
-          { key: "Asignatura" },
-          { key: "Docente" },
-          { key: "cupDis", label:"Cupos disponibles" },
-          { key: "cupAsig", label:"Cupos asignados" },
-          { key: "cuposT", label:"Cupos totales" },
-          { key: "Editar" },
+          { key: "Emprendimiento" },
+          { key: "Organizacion" },
+          { key: "Localidad" },
+          { key: "Interlocutor" },
+          { key: "EditarVer" },
           { key: "Eliminar" }
         ]
       }      

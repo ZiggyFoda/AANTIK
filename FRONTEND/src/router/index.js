@@ -254,6 +254,31 @@ const routes = [
     name: 'docAdmin',
     component: () => import('../views/admin/docenteAdmin.vue')
   },
+  {
+    path: '/classAdmin',
+    name: 'classAdmin',
+    component: () => import('../views/admin/classAdmin.vue')
+  },
+  {
+    path: '/classEdit',
+    name: 'classEdit',
+    component: () => import('../views/admin/classEdit.vue')
+  },
+  {
+    path: '/empAdmin',
+    name: 'empAdmin',
+    component: () => import('../views/admin/emprendimientoAdmin.vue')
+  },
+  {
+    path: '/empEdit',
+    name: 'empEdit',
+    component: () => import('../views/admin/emprendimientoEdit.vue')
+  },
+  {
+    path: '/coordEdit',
+    name: 'coordEdit',
+    component: () => import('../views/admin/coordinadorEdit.vue')
+  },
 
 
   //EMPRENDIMIENTO

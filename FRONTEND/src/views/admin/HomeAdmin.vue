@@ -23,11 +23,11 @@
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Gestionar Docentes</button></router-link><br>
         
-        <router-link to="/gruposClase">
+        <router-link to="/classAdmin">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Gestionar grupos de clase</button></router-link><br>
         
-        <router-link to="/emprendimientos">
+        <router-link to="/empAdmin">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Gestionar emprendimientos</button></router-link><br>
         

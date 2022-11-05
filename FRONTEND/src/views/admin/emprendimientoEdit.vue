@@ -8,131 +8,183 @@
   <b-row>
     <b-col>
     <br><br>
-    <h3>Diligencie el siguiente formulario con sus datos actualizados</h3>
+    <h3>Diligencie el siguiente formulario con los datos del emprendimiento</h3>
     <br><br>
     <div>
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-
-        <b-table striped hover :items="estudiante" :fields="fields" @change="getFile($event)"></b-table>
-
-
-        <b-form-group id="input-group-4" label="Modifique el estado de los requisitos del estudiante" label-for="input-1">     
-          <b-form-select
+        
+  <b-container>  
+    <b-col> 
+      <b-form-group id="input-group-1" label="Nombres del emprendimiento:" label-for="input-1">     
+          <b-form-input
             id="input-1"
-            v-model="form.estado"
-            :options="estado"
+            v-model="form.emprendimiento"
+            placeholder="Nombre"
             required
-          ></b-form-select>
+          ></b-form-input>
         </b-form-group>
 
+        <b-form-group id="input-group-1" label="Nombres de la organización social:" label-for="input-1">     
+          <b-form-input
+            id="input-1"
+            v-model="form.organizacion3"
+            placeholder="Organización"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-
-        <b-form-group label="Seleccione los días y campo horario en el que desea recibir notificaciones:" v-slot="{ ariaDescribedby }">
-      <b-form-checkbox-group
-        id="checkbox-group-2"
-        v-model="selected"
-        :aria-describedby="ariaDescribedby"
-        name="flavour-2"
-      >
-      </b-form-checkbox-group>
-    </b-form-group>
+        <b-form-group
+          id="input-group-2"
+          label="Correo Interlocutor:"
+          label-for="input-2"
+        >
+          <b-form-input
+            id="input-2"
+            v-model="form.email"
+            type="email"
+            placeholder="Correo Interlocutor"
+            required
+          ></b-form-input>
+        </b-form-group>
+      </b-col> 
+        <b-col> 
+        <b-form-group id="input-group-3" label="Fecha de constitución:" label-for="input-3">     
+          <b-form-input
+            id="input-3"
+            v-model="form.idEst"
+            placeholder="dd/mm/aaaa"
+            required
+          ></b-form-input>
+        </b-form-group>
         
+        <b-form-group id="input-group-4" label="Dirección:" label-for="input-4">     
+          <b-form-input
+            id="input-4"
+            v-model="form.cedula"
+            placeholder="Dirección"
+            required
+          ></b-form-input>
+        </b-form-group>
 
+        <b-form-group id="input-group-5" label="Localidad /Municipio:" label-for="input-5">     
+          <b-form-select
+          id="input-5"
+          v-model="form.asignatura"
+          :options="asignatura"
+          required
+        ></b-form-select>
+        </b-form-group>
+        <h4>DATOS DE INTERLOCUTOR DE LA ORGANIZACIÓN SOCIAL</h4> 
+        <b-form-group id="input-group-6" label="Nombre:" label-for="input-6">     
+          <b-form-input
+            id="input-6"
+            v-model="form.fechaTaller"
+            placeholder="Nombre"
+            required
+          ></b-form-input>
+        </b-form-group>
+
+        <b-form-group id="input-group-7" label="Teléfono:" label-for="input-7">     
+          <b-form-input
+            id="input-7"
+            v-model="form.telefono"
+            placeholder="Teléfono"
+            required
+          ></b-form-input>
+        </b-form-group>
+
+        <b-form-group id="input-group-8" label="correo electrónico:" label-for="input-8">     
+          <b-form-input
+            id="input-8"
+            v-model="form.telefono"
+            placeholder="correo electrónico"
+            required
+          ></b-form-input>
+        </b-form-group>        
+        <h4>DATOS DE PERSONALIZACIÓN</h4> 
+        <b-form-group id="input-group-6" label="Requiere estudiante con algún tipo de experiencia:" label-for="input-6">     
+          <b-form-select
+          id="input-5"
+          v-model="form.opciones"
+          :options="opciones"
+          required
+        ></b-form-select>
+        </b-form-group>
+
+        <b-form-group id="input-group-6" label="Requiere estudiantes con alto promedio:" label-for="input-6">     
+          <b-form-select
+          id="input-5"
+          v-model="form.opciones"
+          :options="opciones"
+          required
+        ></b-form-select>
+        </b-form-group>
+
+        <b-form-group id="input-group-6" label="horarios en que desea recibir notificaciones:" label-for="input-6">     
+          <b-form-select
+          id="input-5"
+          v-model="form.opciones"
+          :options="opcionesH"
+          required
+        ></b-form-select>
+        </b-form-group>
+      </b-col> 
         <b-button type="submit" variant="primary">Guardar</b-button>
         <b-button type="reset" variant="danger">Cancelar</b-button>
+        
+      </b-container>  
       </b-form>
-      <br>
-      <router-link to="/gesStu">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Volver</button></router-link>
+      
     </div>
   </b-col>
       <b-col>
-        
+      
       </b-col>
     </b-row>
   </b-container>  
 </template>
 
 <script>
-import axios from 'axios';
 import SidebarMenuAkahon from "@/components/SideBar.vue"
-import LoginService from "@/service/LoginService";
 
   export default {
     data() {
       return {
-        estudiante: {
-        nombre: null,
-        correo: null,
-      } ,
-      fields: [
-          { key: "nombre" },
-          { key: "correo" },
-        ],
-
         form: {
-          estado: '',
-
+          email: '',
+          name: '',
+          food: null,
+          checked: []
         },
-
-        estado: [{ text: 'Selecione una', value: null }, 'Pendiente', 'Satisfecho'],
+        asignatura: [{ text: 'Selecione una', value: null }, 'Chapinero', 'Usme'],
+        show: true,
+        opciones: [{ text: 'Selecione una', value: null }, 'Si', 'No'],
+        show: true,
+        opcionesH: [{ text: 'Selecione una', value: null }, 'Entre semana AM', 'Entre semana PM'],
         show: true
       }
     },
-    items: [
-    {
-      label: "Refrescar",
-      icon: "pi pi-fw pi-refresh",
-      command: () => {
-        this.getAll();
-      }
-    }
-  ],
-  loginService: null,
-  created() {
-    this.loginService = new LoginService();
-    this.getAll();
-  },
     components: {
     SidebarMenuAkahon,
     },
     methods: {
-      onSubmit() {
-        axios.post("http://localhost:8080/datosPre",{
-          telefono: this.form.telefono,
-          municipio: this.form.municipio,
-          localidad: this.form.localidad,
-          barrio: this.form.barrio,
-          direccion: this.form.direccion,
-          limitacion: this.form.limitacion,
-          localidadrest: this.form.localidadrest,
-          notif: this.form.notif,
-        });
-
+      onSubmit(event) {
+        event.preventDefault()
+        alert(JSON.stringify(this.form))
       },
       onReset(event) {
         event.preventDefault()
         // Reset our form values
-        this.form.telefono = ''
-        this.form.municipio = ''
-        this.form.localidad = null
-        this.form.barrio = ''
-        this.form.direccion = ''
-        this.form.limitacion = null
-        this.form.localidadrest = null
-        this.form.notif = null
+        this.form.email = ''
+        this.form.name = ''
+        this.form.food = null
+        this.form.checked = []
         // Trick to reset/clear native browser form validation state
         this.show = false
         this.$nextTick(() => {
           this.show = true
         })
-      },
-      getAll() {
-      this.loginService.getAll().then(data => {
-        this.estudiante = data.data;
-      });
-      },
+      }
     }
   }
 </script>
@@ -154,5 +206,3 @@ a {
   color: #42b983;
 }
 </style>
-
-
