@@ -279,6 +279,11 @@ const routes = [
     name: 'coordEdit',
     component: () => import('../views/admin/coordinadorEdit.vue')
   },
+  {
+    path: '/indiEdit',
+    name: 'indidEdit',
+    component: () => import('../views/admin/indicadoresEdit.vue')
+  },
 
 
   //EMPRENDIMIENTO

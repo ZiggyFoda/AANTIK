@@ -8,10 +8,24 @@
     <b-row>
       <b-col>
         <div class="hello">
-          <h3>Gestor de indicadores para benchmarking</h3>
+          <h3>Gestor de noticias</h3>
           <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div>
-   
+        <div>
+          <b-table striped hover id="pages-table" :items="items" :fields="fields">
+            <template #cell(Editar)="row">
+              <router-link to="/indiEdit">
+              <b-button class="mr-2">Editar/Ver
+              </b-button></router-link>
+            </template>
+            <template #cell(Eliminar)="row">
+              <b-button class="mr-2">Eliminar
+              </b-button>
+            </template>
+          </b-table>
+        </div>
+        <br>
+
       </b-col>
       <b-col>
         
@@ -27,6 +41,26 @@ export default {
   name: 'Homecoordinador',
   props: {
     msg: String
+  },
+  data() {
+      return {
+        items: [
+          { ID: 40, Indicador: 'Eficacia', Preguntas: '1,2,3' },
+          { ID: 40, Indicador: 'Eficiencia', Preguntas: '40,50,55' },
+          { ID: 40, Indicador: 'Productividad', Preguntas: '44,74,75' }
+        ],
+        fields: [
+          {
+            key: "ID",
+            label: "ID",
+            sortable: true
+          },
+          { key: "Indicador" },
+          { key: "Preguntas" },
+          { key: "Editar" },
+          { key: "Eliminar" }
+        ]
+      }      
   },
    components: {
     SidebarMenuAkahon,
