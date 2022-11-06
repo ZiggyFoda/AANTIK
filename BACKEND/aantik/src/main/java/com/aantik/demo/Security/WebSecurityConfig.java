@@ -91,6 +91,8 @@ public class WebSecurityConfig {
         .antMatchers("/api/excel/**").permitAll()
         .antMatchers("/api/benchmarking/**").permitAll()
         .antMatchers("/user/**").permitAll()
+       // .antMatchers("/pruebaRed").permitAll()
+        .antMatchers("/**").permitAll()
         .anyRequest().authenticated();
     
     http.authenticationProvider(authenticationProvider());
