@@ -224,6 +224,7 @@ public class leerExcelTejido {
 		        		  if(row.getCell(i)!=null) {
 		        			value=row.getCell(i).getStringCellValue();
 			        		  if( value.length()>1) {
+			        			   lista[catDat].id=row.getCell(1).getNumericCellValue()+"-"+i;
 			        			   lista[catDat].idCiiu=(long) row.getCell(1).getNumericCellValue();
 			        			   lista[catDat].nombreEmp=row.getCell(i).getStringCellValue();
 			        		       //System.out.println("nombre emp: "+lista[catDat].nombreEmp+"ciiu nm  "+lista[catDat].idCiiu);

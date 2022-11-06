@@ -1,21 +1,22 @@
 package com.aantik.demo.service;
 
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.aantik.demo.entidad.Ciiu_Emp;
 import com.aantik.demo.entidad.CIIU;
 import com.aantik.demo.repositorio.CiiuRepositorio;
+import com.aantik.demo.repositorio.CiiuEmpRepositorio;
 
 @Service
 public class CiiuCRUD implements CiiuCRUDLocal{
 	
 	@Autowired
 	CiiuRepositorio repository;
+	
+	@Autowired
+	CiiuEmpRepositorio repositoryComp;
 	
 	private boolean checkciiuExiste(CIIU ciiu)  {
 		Optional<CIIU> ciiuFindCod = repository.findByCodigo(ciiu.getCodigo());
@@ -39,6 +40,11 @@ public class CiiuCRUD implements CiiuCRUDLocal{
 	public Iterable<CIIU> getAll() {
         return repository.findAll();
 	}
+	
+	@Override
+	public Iterable<Ciiu_Emp> getAllCE() {//geet all ciiu x emprendimiento
+        return repositoryComp.findAll();
+	}
 
 	public void saveAll(com.aantik.demo.model.CIIU[] CIIUlista,int cant) {
 		// TODO Auto-generated method stub
@@ -53,6 +59,34 @@ public class CiiuCRUD implements CiiuCRUDLocal{
 			addCiiu.setId((CIIUlista[i].codigo));
 			crearCIIU(addCiiu);
 		}		
+	}
+
+	public void saveAll2(com.aantik.demo.model.ModCiiuXemp[] cIIUlista, int cant) {
+		// TODO Auto-generated method stub
+		Ciiu_Emp addCiiuEmp=new Ciiu_Emp();
+		for(int i =0;i<cant;i++) {
+			addCiiuEmp.setId(cIIUlista[i].id);
+			addCiiuEmp.setIdCiiu(cIIUlista[i].idCiiu);
+			addCiiuEmp.setIdName(cIIUlista[i].nombreEmp.toString());
+			crearCIIUxEmp(addCiiuEmp);
+		}		
+	}
+
+	private Ciiu_Emp crearCIIUxEmp(Ciiu_Emp addCiiuEmp) {
+		if(checkciiuExiste(addCiiuEmp)) {
+			addCiiuEmp = repositoryComp.save(addCiiuEmp);
+		}
+		return addCiiuEmp;
+	}
+
+	private boolean checkciiuExiste(Ciiu_Emp addCiiuEmp) {
+		Optional<Ciiu_Emp> ciiuFindCod = repositoryComp.findById(addCiiuEmp.getId());
+		System.out.println("dato obtenido------------"+ciiuFindCod);
+		if(ciiuFindCod.isPresent()) {
+			System.out.println("Objeto repetido: "+addCiiuEmp.getIdName()+"-"+addCiiuEmp.getIdCiiu());
+			return false;//throw new Exception("Codigo CIIU ya se encuentra registrado");
+		}
+		return true;
 	}
 
 }

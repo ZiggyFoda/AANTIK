@@ -12,8 +12,9 @@
   </b-container>
 </template>
   
-  <script>
-  import Playground from "./Playground";
+<script>
+import Playground from "./Playground";
+import TejidoService from "@/service/TejidoService";
   
   export default {
     name: "Container",
@@ -33,11 +34,29 @@
           { id: "node4", x: 400, y: 80, width: 150, height: 100 ,texto:'Emprendimiento',
           clientes:{nombre:'',producto:'',contacto:''}},
         ],
+        emprendimineto: null,
+        auxiliar: null,
         links: [{ from: "node1", to: "node4" },
         { from: "node2", to: "node4" },
         { from: "node4", to: "node3" }]
       };
     },
+    tejidoService: null,
+    created() {      
+      this.tejidoService = new TejidoService();
+      this.getAll();
+    },
+    methods: {      
+      getAll() {
+      this.tejidoService.getAll().then(data => {
+        this.auxiliar = data.data;
+      });
+      },
+      print() {
+        console.log("Esto es un método-----");
+        console.log("Esto es un método"+this.auxiliar);
+      }
+    }
   };
   </script>
   

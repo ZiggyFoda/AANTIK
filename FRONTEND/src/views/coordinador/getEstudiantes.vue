@@ -84,6 +84,7 @@ export default {
   created() {
     this.loginService = new LoginService();
     this.getAll();
+    this.print();
   },
   methods: {
    /* async save() {

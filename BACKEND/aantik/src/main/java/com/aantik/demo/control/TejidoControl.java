@@ -11,10 +11,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.aantik.demo.entidad.CIIU;
+import com.aantik.demo.entidad.RedTejido;
+import com.aantik.demo.entidad.Ciiu_Emp;
 import com.aantik.demo.model.tejidoSocial;
+import com.aantik.demo.model.ModCiiuXemp;
+import com.aantik.demo.model.ModRedTejido;
 import com.aantik.demo.service.CiiuCRUD;
 import com.aantik.demo.service.TejidoCRUD;
 import com.aantik.demo.tejido.leerExcelTejido;
+import com.aantik.demo.tejido.tejidoServicio;
 
 @Controller
 public class TejidoControl {
@@ -30,8 +35,9 @@ public class TejidoControl {
 			com.aantik.demo.model.CIIU [] CIIUlista = new com.aantik.demo.model.CIIU[500];
 			tejidoSocial [] redTejido = new tejidoSocial[2000];
 			leerExcelTejido tejido = new leerExcelTejido();
+			ModCiiuXemp[] cruzar=new ModCiiuXemp[500];
 			FileInputStream fis2;
-			int cant=0,cantRed=0;
+			int cant=0,cantRed=0,cant2 = 0;
 			try {
 				fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
 				cant=tejido.getDatosCiiu(fis2,CIIUlista);
@@ -39,14 +45,20 @@ public class TejidoControl {
 				tejido.getActividad(fis2,CIIUlista,cant);
 				fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
 				cantRed=tejido.leerTejido(fis2,redTejido);
+				fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
+				cant2=tejido.getCuzeInf(fis2,cruzar);
+				System.out.println(cant2);
+				
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			try {
-				System.out.println("Actualizando "+cant+" datos");
+				System.out.println("Actualizando "+cant+" datos cod CIIU");
 				servCiiu.saveAll(CIIUlista,cant);
-				System.out.println("Actualizando "+cantRed+" red tejido");
+				System.out.println("Actualizando "+cant+" datos cod CIIU por emprendimineto");
+				servCiiu.saveAll2(cruzar,cant2);
+				System.out.println("Actualizando "+cantRed+" red tejido por codigos CIIU");
 				servRed.saveAll(redTejido,cantRed);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -61,5 +73,29 @@ public class TejidoControl {
 		}
 	}
 	
-	
+
+	@GetMapping("/pruebaRed")
+	public ResponseEntity<ModRedTejido> hacerTejido() {
+		ModRedTejido red = new ModRedTejido();
+		try {
+			Iterable<RedTejido> redTejido;
+			Iterable<Ciiu_Emp> cruzar;
+			//getall de ciiu emp
+			cruzar=servCiiu.getAllCE();
+			//getall de tejido social
+			redTejido=servRed.getAll();
+			tejidoServicio ts= new tejidoServicio();
+			Ciiu_Emp buscar = new Ciiu_Emp();
+			buscar.setIdName("Prodesa");
+			buscar.setIdCiiu((long)3830);
+			red=ts.hacerTejido(buscar,redTejido,cruzar);
+			
+			return new ResponseEntity<ModRedTejido>(red, HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println("Usuario no existe"+e);
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+	}
 }
