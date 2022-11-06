@@ -39,3 +39,16 @@ INSERT INTO user_roles VALUES ('15','7')
 
 --Ejemplo de update
 update user_roles set role_id='5' where usuario_id='1'
+
+
+
+
+------SQL GABRIEL
+INSERT INTO ROLEs_gabo VALUES ('Estudiante')
+INSERT INTO ROLEs_gabo VALUES ('Administrador')
+INSERT INTO ROLEs_gabo VALUES ('OrgSocial')
+INSERT INTO ROLEs_gabo VALUES ('Emprendimiento')
+INSERT INTO ROLEs_gabo VALUES ('Coordinador')
+INSERT INTO ROLEs_gabo VALUES ('Docente')
+INSERT INTO ROLEs_gabo VALUES ('Preinscrito')
+

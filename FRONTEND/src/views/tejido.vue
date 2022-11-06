@@ -16,10 +16,10 @@ export default {
   },
   data(){    
     return{
-     emprendimineto: [{clientes:[{nombre:null,teleefono:null,contacto:null}],
+     emprendimineto: {nombre:null,sclientes:[{nombre:null,teleefono:null,contacto:null}],
     aliados:[{nombre:null,teleefono:null,contacto:null}],
     proveedores:[{nombre:null,teleefono:null,contacto:null}]
-  }],
+  },
     }
   },
   tejidoService: null,

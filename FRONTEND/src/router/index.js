@@ -48,7 +48,7 @@ const routes = [
     path: '/tejido',
     name: 'tejido',
     component: () => import('../views/tejido.vue')
-    ,meta: {requiresAuth: true}
+ //   ,meta: {requiresAuth: true}
   },
   {
     path: '/tejido2',
@@ -182,8 +182,8 @@ const routes = [
     path: '/adminHome',
     name: 'adminHome',
     component: () => import('../views/admin/HomeAdmin.vue')
-    //,meta: {requiresAuth: true}
-    ,meta:{requiresRoleAdm: true}
+    ,meta: {requiresAuth: true}
+    //,meta:{requiresRoleAdm: true}
   },
   {
     path: '/gesNoticias',
