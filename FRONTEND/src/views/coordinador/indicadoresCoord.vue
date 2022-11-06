@@ -14,7 +14,7 @@
         <div>
           <b-table striped hover id="pages-table" :items="items" :fields="fields">
             <template #cell(Editar)="row">
-              <router-link to="/indiEdit">
+              <router-link to="/CindiEdit">
               <b-button class="mr-2">Editar/Ver
               </b-button></router-link>
             </template>

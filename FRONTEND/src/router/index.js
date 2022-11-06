@@ -178,6 +178,49 @@ const routes = [
     name: 'asignacionNueva',
     component: () => import('../views/coordinador/asignacionNew.vue')
   },
+  {
+    path: '/CstuEdit',
+    name: 'CstuEdit',
+    component: () => import('../views/coordinador/estudianteEdit.vue')
+  },
+  {
+    path: '/CpreEdit',
+    name: 'CpreEdit',
+    component: () => import('../views/coordinador/preEstudianteEdit.vue')
+  },
+  {
+    path: '/CorgEdit',
+    name: 'CorgEdit',
+    component: () => import('../views/coordinador/organizacionEdit.vue')
+  },
+  {
+    path: '/CdocEdit',
+    name: 'CdocEdit',
+    component: () => import('../views/coordinador/docenteEdit.vue')
+  },
+  {
+    path: '/CclassEdit',
+    name: 'CclassEdit',
+    component: () => import('../views/coordinador/classEdit.vue')
+  },
+  {
+    path: '/CempEdit',
+    name: 'CempEdit',
+    component: () => import('../views/coordinador/indicadoresEdit.vue')
+    
+  },
+  {
+    path: '/CindiEdit',
+    name: 'CindiEdit',
+    component: () => import('../views/coordinador/indicadoresEdit.vue')
+    
+  },
+  {
+    path: '/CindiCoord',
+    name: 'CindiCoord',
+    component: () => import('../views/coordinador/indicadoresCoord.vue')
+    
+  },
   //ADMIN
   {
     path: '/adminHome',
