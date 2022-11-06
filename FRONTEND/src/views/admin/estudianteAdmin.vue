@@ -62,8 +62,36 @@
         </template>
 
 <script>
-import SidebarMenuAkahon from "@/components/SideBar.vue"
 
+import SidebarMenuAkahon from "@/components/SideBar.vue"
+import service from "@/service/studentData"
+export default {
+
+name: "user",
+
+data() {
+
+  return{
+
+    user:[]
+
+  }
+},
+mounted() {
+
+service.getPublicContent().then(
+
+  (response) => {
+
+    this.user = response.data;
+
+  });
+}
+}
+
+
+
+/*
 export default {
   name: 'estudiantesCord',
   props: {
@@ -83,7 +111,7 @@ export default {
       this.$refs["btn" + data.index].disabled = true      
     }
   },
-  data() {
+  
       return {
         items: [
           { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Emprendimiento: 'emprendimiento 2' },
@@ -124,7 +152,8 @@ export default {
         ]
       }      
   }
-}
+}*/
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
