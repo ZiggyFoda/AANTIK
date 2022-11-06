@@ -26,8 +26,9 @@
         <div>
           <b-table striped hover id="pages-table" :items="items" :fields="fields">
             <template #cell(EditarVer)="row">
+              <router-link to="/CempEdit">
               <b-button class="mr-2">Editar/Ver
-              </b-button>
+              </b-button></router-link>
             </template>
             <template #cell(Eliminar)="row">
               <b-button class="mr-2">Elminar

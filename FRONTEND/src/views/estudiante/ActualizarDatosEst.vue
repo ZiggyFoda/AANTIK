@@ -78,21 +78,12 @@
 
         <b-form-group label="Seleccione los días y campo horario en el que desea recibir notificaciones:" v-slot="{ ariaDescribedby }">
       <b-form-checkbox-group
-        id="checkbox-group-2"
+        id="checkbox-group-1"
         v-model="selected"
+        :options="options"
         :aria-describedby="ariaDescribedby"
-        name="flavour-2"
-      >
-        <b-form-checkbox value="Lunes">Lunes</b-form-checkbox>
-        <b-form-checkbox value="Martes">Martes</b-form-checkbox>
-        <b-form-checkbox value="Miercoles">Miercoles</b-form-checkbox>
-        <b-form-checkbox value="Jueves">Jueves</b-form-checkbox>
-        <b-form-checkbox value="Viernes">Viernes</b-form-checkbox>
-        <b-form-checkbox value="Sabado">Sabado</b-form-checkbox>
-        <b-form-checkbox value="Domingo">Domingo</b-form-checkbox>
-        <b-form-checkbox value="AM">Am</b-form-checkbox>
-        <b-form-checkbox value="PM">PM</b-form-checkbox>
-      </b-form-checkbox-group>
+        name="flavour-1"
+      ></b-form-checkbox-group>
     </b-form-group>
         
 
@@ -119,6 +110,18 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
   export default {
     data() {
       return {
+        options: [
+          { text: 'Lunes', value: 'Lunes' },
+          { text: 'Martes', value: 'Martes' },
+          { text: 'Miercoles', value: 'Miercoles' },
+          { text: 'Jueves', value: 'Jueves' },
+          { text: 'Viernes', value: 'Viernes' },
+          { text: 'Sabado', value: 'Sabado' },
+          { text: 'Domingo', value: 'Domingo' },
+          { text: 'AM', value: 'AM' },
+          { text: 'PM', value: 'PM' }
+
+        ],
         form: {
           telefono: '',
           municipio: '',
@@ -127,15 +130,16 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
           direccion: '',
           limitacion: null,
           localidadrest: null,
-          notif: null,
-          selected: [],
+          notif: [],
+
         },
         localidad: [{ text: 'Selecione una', value: null }, 'Usaquén', 'Chapinero', 'Santa Fe', 'San Cristóbal', 'Usme', 'Tunjuelito', 'Bosa', 'Kennedy', 'Fontibón', 'Engativá', 'Suba', 'Barrios Unidos', 'Teusaquillo', '	Los Mártires', 'Antonio Nariño', 'Puente Aranda', 'La Candelaria', 'Rafael Uribe Uribe', 'Ciudad Bolívar', 'Sumapaz'],
         experiencia: [{ text: 'Selecione una', value: null }, 'Monitoria en la javeriana', 'Trabajo social o voluntariado', 'No'],
         limitacion: [{ text: 'Selecione una', value: null }, 'Social', 'Psicológica', 'Física', 'No'],
         transporte: [{ text: 'Selecione una', value: null }, 'Carro', 'Moto', 'Otro', 'No'],
-        notif: [{ text: 'Selecione una', value: null }, '1', '2', '3', '4'],
+        //notif: [{ text: 'Selecione una', value: null }, '1', '2', '3', '4'],
         show: true
+        
       }
     },
     components: {
@@ -152,7 +156,9 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
           limitacion: this.form.limitacion,
           localidadrest: this.form.localidadrest,
           notif: this.form.notif,
+
         });
+        console.log(notif)
 
       },
       onReset(event) {

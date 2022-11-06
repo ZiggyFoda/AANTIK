@@ -8,20 +8,13 @@
     <b-row>
       <b-col>
         <div class="hello">
-          <h3>Gestor de coordinadores de asignatura</h3>
+          <h3>Gestor de Indicadores</h3>
           <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div>
-        Ingrese aquí para agregar un coordinador de asignatura 
-        <router-link to="/addCoord">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar coordinador</button></router-link><br>
-        <br>
-        Listado de coordinadores actuales 
-        <br>
         <div>
           <b-table striped hover id="pages-table" :items="items" :fields="fields">
             <template #cell(Editar)="row">
-              <router-link to="/coordEdit">
+              <router-link to="/CindiEdit">
               <b-button class="mr-2">Editar/Ver
               </b-button></router-link>
             </template>
@@ -32,6 +25,7 @@
           </b-table>
         </div>
         <br>
+
       </b-col>
       <b-col>
         
@@ -48,16 +42,12 @@ export default {
   props: {
     msg: String
   },
-   components: {
-    SidebarMenuAkahon,
-  },
   data() {
       return {
         items: [
-          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: 'PSU' },
-          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: 'PSU' },
-          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: 'CDIO' },
-          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: 'CDIO'}
+          { ID: 40, Indicador: 'Eficacia', Preguntas: '1,2,3' },
+          { ID: 40, Indicador: 'Eficiencia', Preguntas: '40,50,55' },
+          { ID: 40, Indicador: 'Productividad', Preguntas: '44,74,75' }
         ],
         fields: [
           {
@@ -65,13 +55,15 @@ export default {
             label: "ID",
             sortable: true
           },
-          { key: "Nombres" },
-          { key: "Apellido" },
-          { key: "Asignatura" },
+          { key: "Indicador" },
+          { key: "Preguntas" },
           { key: "Editar" },
           { key: "Eliminar" }
         ]
       }      
+  },
+   components: {
+    SidebarMenuAkahon,
   },
   methods: {
     search() {

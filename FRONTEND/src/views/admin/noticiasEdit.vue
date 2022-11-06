@@ -27,7 +27,12 @@
         <h6 class="mb-0"> </h6>
       </template>
       <h4><b><v-card-title v-text="item.Titulo"/></b></h4>
-        <b-button v-b-modal.mod variant="primary">Click para leer</b-button>
+      <b-card-text>
+        <h6><b>Fecha:</b></h6> <v-card-text v-text="item.Fecha"/><br><br>
+        <v-card-text v-text="item.Resumen"/><br><br>
+        Fuente: <i><v-card-text v-text="item.Fuente"/></i>
+        </b-card-text>
+        <b-button variant="primary">Eliminar</b-button>
         
       <template #footer>
         Estudiante encargado: <v-card-text v-text="item.Estudiante"/>
@@ -35,13 +40,9 @@
     </b-card>
 
     </div>
-    <b-modal id= "mod" size="xl" title="Noticia">
-          <b-card-text>
-        <h6><b>Fecha:</b></h6> <v-card-text v-text="item.Fecha"/><br><br>
-        <v-card-text v-text="item.Resumen"/><br><br>
-        Fuente: <i><v-card-text v-text="item.Fuente"/></i>
-        </b-card-text>
-      </b-modal>
+
+
+
 
     <br>
     </div>
@@ -60,9 +61,6 @@
      components: {
     },
     methods: {
-      modalId(i) {
-      return 'modal' + i;
-    },
       search() {
         
       }

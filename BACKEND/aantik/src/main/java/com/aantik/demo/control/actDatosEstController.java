@@ -43,7 +43,7 @@ public class actDatosEstController {
 
 	System.out.println("Tel: " + update.getTelefono());
 
-    System.out.println("Localidad: " + update.getLocalidad());
+    System.out.println("Localidad: " + update.getNotif());
 	return ResponseEntity.ok("ok");
 	}
 	

@@ -74,6 +74,32 @@ const routes = [
     component: () => import('../views/estudiante/HomePreinscrito.vue')
     ,meta: {requiresAuth: true}
   },
+  {
+    path: '/datosPre',
+    name: 'datosPre',
+    component: () => import('../views/estudiante/ActualizarDatosPre.vue')
+  },
+  {
+    path: '/datosEs',
+    name: 'datosEs',
+    component: () => import('../views/estudiante/ActualizarDatosEst.vue')
+  },
+  {
+    path: '/reqEs',
+    name: 'reqEs',
+    component: () => import('../views/estudiante/Requisitos.vue')
+  },
+  {
+    path: '/noticiaEs',
+    name: 'noticiaEs',
+    component: () => import('../views/estudiante/SubirNoticia.vue')
+  },
+  {
+    path: '/encuesta',
+    name: 'encuesta',
+    component: () => import('../views/estudiante/Encuesta.vue')
+  },
+
   //COORDINADOR
   {
     path: "/CoordHome",
@@ -175,7 +201,49 @@ const routes = [
     path: '/asignacionNueva',
     name: 'asignacionNueva',
     component: () => import('../views/coordinador/asignacionNew.vue')
-    ,meta: {requiresAuth: true}
+  },
+  {
+    path: '/CstuEdit',
+    name: 'CstuEdit',
+    component: () => import('../views/coordinador/estudianteEdit.vue')
+  },
+  {
+    path: '/CpreEdit',
+    name: 'CpreEdit',
+    component: () => import('../views/coordinador/preEstudianteEdit.vue')
+  },
+  {
+    path: '/CorgEdit',
+    name: 'CorgEdit',
+    component: () => import('../views/coordinador/organizacionEdit.vue')
+  },
+  {
+    path: '/CdocEdit',
+    name: 'CdocEdit',
+    component: () => import('../views/coordinador/docenteEdit.vue')
+  },
+  {
+    path: '/CclassEdit',
+    name: 'CclassEdit',
+    component: () => import('../views/coordinador/classEdit.vue')
+  },
+  {
+    path: '/CempEdit',
+    name: 'CempEdit',
+    component: () => import('../views/coordinador/indicadoresEdit.vue')
+    
+  },
+  {
+    path: '/CindiEdit',
+    name: 'CindiEdit',
+    component: () => import('../views/coordinador/indicadoresEdit.vue')
+    
+  },
+  {
+    path: '/CindiCoord',
+    name: 'CindiCoord',
+    component: () => import('../views/coordinador/indicadoresCoord.vue')
+    
   },
   //ADMIN
   {
@@ -215,6 +283,83 @@ const routes = [
     component: () => import('../views/admin/GForo.vue')
     ,meta: {requiresAuth: true}
   },
+  {
+    path: '/foroEdit',
+    name: 'foroEdit',
+    component: () => import('../views/admin/foroEdit.vue')
+  },
+  {
+    path: '/notiEdit',
+    name: 'notiEdit',
+    component: () => import('../views/admin/noticiasEdit.vue')
+  },
+  {
+    path: '/stuEdit',
+    name: 'stuEdit',
+    component: () => import('../views/admin/estudianteEdit.vue')
+  },
+  {
+    path: '/preEdit',
+    name: 'preEdit',
+    component: () => import('../views/admin/preEstudianteEdit.vue')
+  },
+  {
+    path: '/gesStu',
+    name: 'gesStu',
+    component: () => import('../views/admin/estudianteAdmin.vue')
+  },
+  {
+    path: '/orgAdmin',
+    name: 'orgAdmin',
+    component: () => import('../views/admin/organizacionAdmin.vue')
+  },
+  {
+    path: '/orgEdit',
+    name: 'orgEdit',
+    component: () => import('../views/admin/organizacionEdit.vue')
+  },
+  {
+    path: '/docEdit',
+    name: 'docEdit',
+    component: () => import('../views/admin/docenteEdit.vue')
+  },
+  {
+    path: '/docAdmin',
+    name: 'docAdmin',
+    component: () => import('../views/admin/docenteAdmin.vue')
+  },
+  {
+    path: '/classAdmin',
+    name: 'classAdmin',
+    component: () => import('../views/admin/classAdmin.vue')
+  },
+  {
+    path: '/classEdit',
+    name: 'classEdit',
+    component: () => import('../views/admin/classEdit.vue')
+  },
+  {
+    path: '/empAdmin',
+    name: 'empAdmin',
+    component: () => import('../views/admin/emprendimientoAdmin.vue')
+  },
+  {
+    path: '/empEdit',
+    name: 'empEdit',
+    component: () => import('../views/admin/emprendimientoEdit.vue')
+  },
+  {
+    path: '/coordEdit',
+    name: 'coordEdit',
+    component: () => import('../views/admin/coordinadorEdit.vue')
+  },
+  {
+    path: '/indiEdit',
+    name: 'indidEdit',
+    component: () => import('../views/admin/indicadoresEdit.vue')
+  },
+
+
   //EMPRENDIMIENTO
   {
     path: '/HomeEmp',

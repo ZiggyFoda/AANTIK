@@ -14,11 +14,12 @@
         <div>
           <b-table striped hover id="pages-table" :items="items" :fields="fields">
             <template #cell(Editar)="row">
+              <router-link to="/notiEdit">
               <b-button class="mr-2">Editar/Ver
-              </b-button>
+              </b-button></router-link>
             </template>
             <template #cell(Eliminar)="row">
-              <b-button class="mr-2">Elminar
+              <b-button class="mr-2">Eliminar
               </b-button>
             </template>
           </b-table>
@@ -44,9 +45,9 @@ export default {
   data() {
       return {
         items: [
-          { ID: 40, Titulo: 'Nuevo impuesto a..', Contenido: 'Macdonald', Fecha: '10/10/22', Autor: 'Pepito' },
-          { ID: 40, Titulo: 'Apoyo a emprendimientos en col..', Contenido: 'Macdonald', Fecha: '10/10/22', Autor: 'Juanito' },
-          { ID: 40, Titulo: 'notica', Contenido: 'Macdonald', Fecha: '01/10/22', Autor: 'Camilo' }
+          { ID: 40, Titulo: 'Nuevo impuesto a..', Fecha: '10/10/22', Autor: 'Pepito' },
+          { ID: 40, Titulo: 'Apoyo a emprendimientos en col..',  Fecha: '10/10/22', Autor: 'Juanito' },
+          { ID: 40, Titulo: 'notica', Fecha: '01/10/22', Autor: 'Camilo' }
         ],
         fields: [
           {
@@ -55,7 +56,6 @@ export default {
             sortable: true
           },
           { key: "Titulo" },
-          { key: "Contenido" },
           { key: "Fecha" },
           { key: "Autor" },
           { key: "Editar" },

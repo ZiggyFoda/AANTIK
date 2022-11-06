@@ -8,32 +8,36 @@
     <b-row>
       <b-col>
         <div class="hello">
-          <h3>Gestor de grupos de clase</h3>
+          <h3>Gestor de docentes</h3>
         </div>
-        Ingrese aquí para agregar un grupo de clase
-        <router-link to="/addGrupoClass">
+        Ingrese aquí para agregar docentes de forma masiva
+        por medio de un archivo excel
+        <router-link to="/subirFile">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar grupo de clase</button></router-link><br>
-        
+        Agregar docentes </button></router-link><br>
+        Ingrese aquí para agregar un docente individual
+        <router-link to="/addDocentes">
+        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        Agregar docente</button></router-link><br>
         <br>
-        Listado de grupos de clase del ciclo
+        Listado de docentes actuales 
            
         <br>
         <div>
           <b-table striped hover id="pages-table" :items="items" :fields="fields">
             <template #cell(Editar)="row">
-              <router-link to="/CclassEdit">
+              <router-link to="/docEdit">
               <b-button class="mr-2">Editar/Ver
               </b-button></router-link>
             </template>
             <template #cell(Eliminar)="row">
-              <b-button class="mr-2">Eliminar
+              <b-button class="mr-2">Elminar
               </b-button>
             </template>
           </b-table>
         </div>
         <br>
-       
+        
               </b-col>
               <b-col>
               
@@ -46,7 +50,7 @@
 import SidebarMenuAkahon from "@/components/SideBar.vue"
 
 export default {
-  name: 'addGrupoClass',
+  name: 'docentesCord',
   props: {
     msg: String
   },
@@ -67,21 +71,22 @@ export default {
   data() {
       return {
         items: [
-          { ID: 40, Asignatura: '2353001', Docente: 'Clara Mabel', cupDis:'10', cupAsig:'22',cuposT:'32'},
-          { ID: 40, Asignatura: '2353001', Docente: 'Clara Mabel', cupDis:'11', cupAsig:'21',cuposT:'32'},
-          { ID: 40, Asignatura: '2353001', Docente: 'Clara Mabel', cupDis:'5', cupAsig:'27',cuposT:'32'},
-          { ID: 40, Asignatura: '2353001', Docente: 'Clara Mabel', cupDis:'2', cupAsig:'30',cuposT:'32'}
-        ],fields: [
+          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: 'PSU', Vinc: 'Planta', Especialidad: 'Mercadeo+ SC' },
+          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: 'PSU', Vinc: 'Catedra', Especialidad:'Calidad' },
+          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: 'CDIO', Vinc: 'Planta', Especialidad: 'Geociencias-Meteorologia' },
+          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: 'CDIO', Vinc: 'Catedra', Especialidad: 'Calidad'}
+        ],
+        fields: [
           {
             key: "ID",
             label: "ID",
             sortable: true
           },
+          { key: "Nombres" },
+          { key: "Apellido" },
           { key: "Asignatura" },
-          { key: "Docente" },
-          { key: "cupDis", label:"Cupos disponibles" },
-          { key: "cupAsig", label:"Cupos asignados" },
-          { key: "cuposT", label:"Cupos totales" },
+          { key: "Vinc", label:"Vinculación" },
+          { key: "Especialidad" },
           { key: "Editar" },
           { key: "Eliminar" }
         ]
