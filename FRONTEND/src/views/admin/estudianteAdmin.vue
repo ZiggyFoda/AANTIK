@@ -24,7 +24,9 @@
         Listado de estudiantes preinscritos
         <br>
         <div>
-          <b-table striped hover :items="items2" :fields="fields2">
+
+          
+         <b-table striped hover :items="users" :fields="fields">
             <template #cell(Editar)="row">
               <router-link to="/preEdit">
               <b-button class="mr-2">Editar
@@ -37,10 +39,10 @@
           </b-table>
         </div>
         Listado de estudiantes inscritos
-           
+
            <br>
            <div>
-             <b-table striped hover id="pages-table" :items="items" :fields="fields">
+             <b-table striped hover id="pages-table" :items="users" :fields="fields">
                <template #cell(Editar)="row">
                 <router-link to="/stuEdit">
                  <b-button class="mr-2">Editar
@@ -62,31 +64,61 @@
         </template>
 
 <script>
-
+import axios from "axios";
 import SidebarMenuAkahon from "@/components/SideBar.vue"
 import service from "@/service/studentData"
 export default {
-
+  components: {
+    SidebarMenuAkahon,
+  },
 name: "user",
 
 data() {
 
   return{
+    users: {
 
-    user:[]
+id: null,
+
+nombre: null,
+
+asignatura: null,
+
+identificacion: null,
+
+} ,
+
+fields: [
+
+  { key: "id" },
+
+  { key: "nombre" },
+
+  { key: "asignatura" },
+
+  { key: "Editar" },
+
+  { key: "Eliminar" }
+
+],
+
+
 
   }
 },
 mounted() {
 
-service.getPublicContent().then(
+  axios.get("http://localhost:8080/api/student").then(
 
-  (response) => {
+(response) => {
 
-    this.user = response.data;
+  this.users= response.data;
 
-  });
 }
+
+);
+}
+
 }
 
 

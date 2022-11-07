@@ -1,5 +1,6 @@
 package com.aantik.demo.control;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +32,17 @@ import com.aantik.demo.repositorio.EstudianteRepositorio;
 public class StudentAdmin {
 	@Autowired
     private EstudianteRepositorio userRepository;
-	/*
+	
 	@GetMapping("/student")
 
-	public String fetchUsers(){
-	
-		return ("hola");;
-	    }
-*/
+    public ArrayList<Estudiante> obtenerUsuarios(){
+
+       
+
+        return (ArrayList<Estudiante>) userRepository.findAll();
+
+    }
+
 }
 
 
