@@ -22,12 +22,12 @@
         <div>
           <b-table striped hover id="pages-table" :items="items" :fields="fields">
             <template #cell(Editar)="row">
-              <router-link to="/CclassEdit">
+              <router-link to="/classEdit">
               <b-button class="mr-2">Editar/Ver
               </b-button></router-link>
             </template>
             <template #cell(Eliminar)="row">
-              <b-button class="mr-2">Eliminar
+              <b-button class="mr-2">Elminar
               </b-button>
             </template>
           </b-table>

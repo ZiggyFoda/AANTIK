@@ -10,7 +10,7 @@ public class actualizarDatosEs {
 	private String direccion;
 	private String limitaciones;
 	private String localidadrest;
-	private String notif;
+	private String[] notif;
 	
 	public String getTelefono() {
 		return telefono;
@@ -54,10 +54,10 @@ public class actualizarDatosEs {
 	public void setLocalidadrest(String localidadrest) {
 		this.localidadrest = localidadrest;
 	}
-	public String getNotif() {
+	public String[] getNotif() {
 		return notif;
 	}
-	public void setNotif(String notif) {
+	public void setNotif(String[] notif) {
 		this.notif = notif;
 	}
 

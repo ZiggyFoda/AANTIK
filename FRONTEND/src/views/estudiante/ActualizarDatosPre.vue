@@ -13,6 +13,14 @@
     <div>
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
 
+        <b-table striped hover :items="estudiante" :fields="fields" @change="getFile($event)"></b-table>
+
+    
+          <b-card txt=estudiante.nombre>
+            "txt"
+          </b-card>
+
+
         <b-form-group id="input-group-1" label="Teléfono:" label-for="input-1">     
           <b-form-input
             id="input-1"
@@ -125,10 +133,20 @@
 <script>
 import axios from 'axios';
 import SidebarMenuAkahon from "@/components/SideBar.vue"
+import LoginService from "@/service/LoginService";
 
   export default {
     data() {
       return {
+        estudiante: {
+        nombre: null,
+        correo: null,
+      } ,
+      fields: [
+          { key: "nombre" },
+          { key: "correo" },
+        ],
+
         form: {
           telefono: '',
           municipio: '',
@@ -147,6 +165,20 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
         show: true
       }
     },
+    items: [
+    {
+      label: "Refrescar",
+      icon: "pi pi-fw pi-refresh",
+      command: () => {
+        this.getAll();
+      }
+    }
+  ],
+  loginService: null,
+  created() {
+    this.loginService = new LoginService();
+    this.getAll();
+  },
     components: {
     SidebarMenuAkahon,
     },
@@ -180,7 +212,12 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
         this.$nextTick(() => {
           this.show = true
         })
-      }
+      },
+      getAll() {
+      this.loginService.getAll().then(data => {
+        this.estudiante = data.data;
+      });
+      },
     }
   }
 </script>

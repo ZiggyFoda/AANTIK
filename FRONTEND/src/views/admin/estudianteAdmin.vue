@@ -26,7 +26,7 @@
         <div>
           <b-table striped hover :items="items2" :fields="fields2">
             <template #cell(Editar)="row">
-              <router-link to="/CpreEdit">
+              <router-link to="/preEdit">
               <b-button class="mr-2">Editar
               </b-button></router-link>
             </template>
@@ -42,7 +42,7 @@
            <div>
              <b-table striped hover id="pages-table" :items="items" :fields="fields">
                <template #cell(Editar)="row">
-                <router-link to="/CstuEdit">
+                <router-link to="/stuEdit">
                  <b-button class="mr-2">Editar
                  </b-button></router-link>
                </template>

@@ -36,8 +36,9 @@
         <router-link to="/asignacion">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Asignación</button></router-link><br>
-        <router-link to="/FALTA!">
+        
         Aquí puede consultar los indicadores del benchmarking.
+        <router-link to="/CindiCoord">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Indicadores</button></router-link>
         <br>
