@@ -89,7 +89,7 @@ public class TejidoControl {
 			buscar.setIdName("Prodesa");
 			buscar.setIdCiiu((long)3830);
 			red=ts.hacerTejido(buscar,redTejido,cruzar);
-			
+			red.raiz.nombre="Prodesa";
 			return new ResponseEntity<ModRedTejido>(red, HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
