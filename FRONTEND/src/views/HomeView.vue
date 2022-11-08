@@ -17,7 +17,7 @@
       y clientes entre las organizaciones que usan AANTIK.
     </p>
     <p class="boton">
-      <router-link to="/login">
+      <router-link to="/login2">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Iniciar sesión</button></router-link><br>
     </p>

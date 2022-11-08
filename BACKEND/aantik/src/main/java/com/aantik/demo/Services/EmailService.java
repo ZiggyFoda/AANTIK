@@ -8,6 +8,6 @@ public interface EmailService {
  
     // Method
     // To send an email with attachment
-    String sendMailWithAttachment(String email);
+    String sendMailWithAttachment(String email,String token);
 
 }
