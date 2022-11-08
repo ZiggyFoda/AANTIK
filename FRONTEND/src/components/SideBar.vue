@@ -39,19 +39,6 @@
           class="nav-list"
           style="overflow: visible;"
         >
-          <li
-            v-if="isSearch"
-            @click="isOpened = true"
-          >
-            <i class="bx bx-search" />
-            <input
-              type="text"
-              :placeholder="searchPlaceholder"
-              @input="$emit('search-input-emit', $event.target.value)"
-            >
-            <span class="tooltip">{{ searchTooltip }}</span>
-          </li>
-
           <span
             v-for="(menuItem, index) in menuItems"
             :key="index"
@@ -85,7 +72,7 @@
             </div>
           </div>
         </div>
-        <div class="bx bx-log-out"  id="log_out"  @click.prevent="logOut1"></div> 
+        <div class="bx bx-log-out bx-lg"  id="log_out" size='lg'  @click.prevent="logOut1"></div> 
       </div>
     </div>
   </div>
@@ -523,6 +510,7 @@ import AuthService from "@/service/auth.service";
     background: var(--secondary-color);
     width: 100%;
     height: 60px;
+    font-size: 35px;
     line-height: 60px;
     border-radius: 0px;
     transition: all 0.5s ease;
