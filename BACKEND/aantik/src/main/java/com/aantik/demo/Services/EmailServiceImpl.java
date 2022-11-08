@@ -27,7 +27,7 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public String sendMailWithAttachment(String email) {
+    public String sendMailWithAttachment(String email,String token) {
         // Creating a mime message
         MimeMessage mimeMessage
             = javaMailSender.createMimeMessage();
@@ -41,8 +41,9 @@ public class EmailServiceImpl implements EmailService {
                 = new MimeMessageHelper(mimeMessage, false);
             //mimeMessageHelper.setFrom("aantikpuj@gmail.com");
             mimeMessageHelper.setTo(email);
-            mimeMessageHelper.setText("Siga en el siguiente link para hacer el reseteo de tu cuenta \n");
-            mimeMessageHelper.setSubject("Reseteo de contraseña");
+            String url="http://localhost:8081/#/user/reset/"+token;
+            mimeMessageHelper.setText("Siga en el siguiente link para restablecer tu contraseña \n "+ url);
+            mimeMessageHelper.setSubject("AANTIK restablecer contraseña");
  
             // Sending the mail
             javaMailSender.send(mimeMessage);

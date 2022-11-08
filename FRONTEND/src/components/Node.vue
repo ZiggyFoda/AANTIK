@@ -3,7 +3,7 @@
     <div class="node" ref="node" :style="computedStyle">
      <template v-if="clientes.nombre != ''">
       {{texto}}
-      <b-table striped hover id="pages-table" :items="clientes" :fields="fields">    
+      <b-table  sticky-header striped hover :items="clientes" :fields="fields" head-variant="light">    
       </b-table>
       </template>
       <template v-if="clientes.nombre == ''">

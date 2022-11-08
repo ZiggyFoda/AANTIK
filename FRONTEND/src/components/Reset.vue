@@ -19,20 +19,30 @@ c-22.4,3-38.4,9.2-47.8,18.3c-11.2,10.9-13.6,26.7-16.3,45c-3.1,20.8-6.6,44.4-25.3
         />
       </g>
     </div>
-     <div class="col-md-12">
+    <div class="col-md-12">
     <div class="card card-container">
       <img id="profile-img" src="../assets/puj.png" class="profile-img-card" />
       <form @submit.prevent="handleSubmit">
-        <header class="headerse">Recuperar la contraseña</header>
+        <header class="headerse">Restabelecer contraseña</header>
         <div class="form-group">
-          <label for="username">Usuario:</label>
-          <input v-validate="'required'" type="email" class="form-control" v-model="emailee" placeholder="ejemplo@javeriana.edu.co"/>
+          <label for="username">Contraseña:</label>
+          <input v-validate="'required'" type="password" class="form-control" v-model="password" placeholder="Contraseña"/>
           <div
-            v-if="errors.has('username')"
+            v-if="errors.has('password')"
             class="alert alert-danger"
             role="alert"
-          >Username is required!</div>
+          >Contraseña es requerida!</div>
         </div>
+        <div class="form-group">
+          <label for="username">Confirmar contraseña:</label>
+          <input v-validate="'required'" type="password" class="form-control" v-model="passwordConfirm" placeholder="Confirmar contraseña"/>
+          <div
+            v-if="errors.has('password')"
+            class="alert alert-danger"
+            role="alert"
+          >Contraseña es requerida!</div>
+        </div>
+        <div v-if="this.password != this.passwordConfirm" class="alert alert-danger" role="alert" >Contraseñas no son exactas!</div>
         <div class="form-group">
           <button class="btn btn-primary btn-block" :disabled="loading" margin="10px">
             <span v-show="loading" class="spinner-border spinner-border-sm"></span>
@@ -88,29 +98,28 @@ c-22.4,3-38.4,9.2-47.8,18.3c-11.2,10.9-13.6,26.7-16.3,45c-3.1,20.8-6.6,44.4-25.3
   </div>
   <!--Header ends-->
   <!--Content ends-->   
-     
+    
 </template>
-
 <script>
-import axios from 'axios';
-import LoginService from "../service/LoginService";
+import axios from "axios";
 export default {
-  name: "recuperaPswrd",
-  data(){
-    return{
-      user:{
-        email: ""
-     },
-     message: "",
-     loading: false,
-    }
-  },
-  methods:{
-     handleSubmit() {
-      this.loading = true;
-         axios.post("http://localhost:8080/user/recuperaPswrd",{
-          email: this.emailee
-         }).then((data) =>{
+    name: 'Restabelecer',
+    data(){
+        return {
+        password:"",
+        passwordConfirm:"",
+        message:"",
+        loading: false,
+        }
+    },
+    methods:{
+       async handleSubmit(){
+        this.loading = true;
+        const response = await axios.post("http://localhost:8080/user/reset",{
+            password: this.password,
+            passwordConfirm: this.passwordConfirm,
+            token: this.$route.params.token
+        }).then((data)=>{
           this.message = data.data.message;
           this.loading = false;
          },
@@ -121,59 +130,13 @@ export default {
                 error.message ||
                 error.toString();
             })
-      }
+        console.log(response)
+        this.$router.push('/login2');
+        }
     }
-  }
+}
 
-
-//////////////////////////////
-/*import LoginService from "../service/LoginService";
-export default {
-  name: "CrudApp",
-  data() {
-    return{
-      persona: {
-        username: null,
-        password: null
-      }
-    };
-  },
-  loginService: null,
-  created() {
-    this.loginService = new LoginService();
-  },
-  methods: {
-    async save() {
-      var data = {
-        username: this.persona.username,
-        password: this.persona.password,
-
-      };
-      try {
-
-        let self = this;
-        await this.loginService.save(this.persona)
-        .then(function(response) {
-          console.log(response.data);
-          if (response.data==1)
-          self.$router.push({name:'about' })
-        }).catch(function(error) {
-          console.log(error);
-        });
-
-        //.then(response => this.$router.push("/about"))
-        //.catch(error => this.$router.push("/login"));
-      } catch (error) {
-        console.log(error);
-      }
-    },
-      print() {
-        console.log("Esto es un método"+this.persona.email);
-      }
-  }  
-}*/
-////////////////////
-
+</script>
 </script>
 
 <style scoped>
@@ -295,4 +258,5 @@ h1 {
     transform: translate3d(85px,0,0);
   }
 }
+
 </style>

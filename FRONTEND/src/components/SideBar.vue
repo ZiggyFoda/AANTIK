@@ -93,12 +93,7 @@
             </div>
           </div>
         </div>
-        <i
-          v-if="isExitButton"
-          class="bx bx-log-out"
-          id="log_out"
-          @click.prevent="logOut"
-        />
+        <div class="bx bx-log-out"  id="log_out"  @click.prevent="logOut1"></div> 
       </div>
     </div>
   </div>
@@ -226,10 +221,10 @@ import AuthService from "@/service/auth.service";
         type: String,
         default: 'Dto. Ingeniería Industrial',
       },
-      isExitButton: {
+    /*  isExitButton: {
         type: Boolean,
         default: true,
-      },
+      },*/
       isLoggedIn: {
         type: Boolean,
         default: true,
@@ -311,9 +306,10 @@ import AuthService from "@/service/auth.service";
       }
     },
     methods: {
-      logOut() {
+      logOut1() {
+      this.$router.push('/login2');  
       this.$store.dispatch("auth/logout");
-      this.$router.push("/login2");
+       
     },
   },
 }

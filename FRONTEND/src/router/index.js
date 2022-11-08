@@ -27,6 +27,11 @@ const routes = [
     component: () => import('../views/recuperaPswrd.vue')
   },
   {
+    path: '/user/reset/:token',
+    name: 'restabelecer',
+    component: () => import('@/components/Reset.vue')
+  },
+  {
     path: '/ayuda',
     name: 'ayuda',
     component: () => import('../views/ayuda.vue'),
