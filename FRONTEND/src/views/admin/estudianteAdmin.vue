@@ -108,7 +108,7 @@ fields: [
 },
 mounted() {
 
-  axios.get("http://localhost:8080/api/student").then(
+  axios.get("http://localhost:8080/api/gesStu").then(
 
 (response) => {
 
@@ -118,6 +118,9 @@ mounted() {
 
 );
 }
+
+
+
 
 }
 

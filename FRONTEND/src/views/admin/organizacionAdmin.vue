@@ -30,7 +30,7 @@
            
         <br>
         <div>
-          <b-table striped hover id="pages-table" :items="items" :fields="fields">
+          <b-table striped hover id="pages-table" :items="users" :fields="fields">
             <template #cell(Editar)="row">
               <router-link to="/orgEdit">
               <b-button class="mr-2">Ver y Editar
@@ -50,6 +50,75 @@
 </template>
 
 <script>
+import axios from "axios";
+import SidebarMenuAkahon from "@/components/SideBar.vue"
+export default {
+  components: {
+    SidebarMenuAkahon,
+  },
+name: "user",
+
+data() {
+
+  return{
+    users: {
+
+id: null,
+
+nombre: null,
+
+correo: null,
+
+direccion: null,
+
+actividadEco: null,
+
+tipoOrg: null,
+
+producServ: null,
+
+} ,
+
+fields: [
+
+  { key: "id" },
+
+  { key: "nombre" },
+
+  { key: "correo" },
+
+  { key: "direccion" },
+
+{ key: "actividadEco" },
+
+{ key: "tipoOrg" },
+
+{ key: "producServ" },
+
+  { key: "Editar" },
+
+  { key: "Eliminar" }
+
+],
+
+
+
+  }
+},
+mounted() {
+
+  axios.get("http://localhost:8080/api/orgAdmin").then(
+
+(response) => {
+
+  this.users= response.data;
+
+}
+
+);
+}
+}
+/*
 import SidebarMenuAkahon from "@/components/SideBar.vue"
 
 export default {
@@ -101,7 +170,7 @@ export default {
         ],
       }      
   }
-}
+}*/
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

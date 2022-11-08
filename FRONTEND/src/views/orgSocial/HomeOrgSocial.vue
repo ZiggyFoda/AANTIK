@@ -33,8 +33,9 @@
         <br>
         Recuerde mantener sus datos actualizados con el fin de garantizar
          el buen funcionamiento del sistema.
+         <router-link to="/orgSocHome">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Actualizar datos</button>
+        Actualizar datos</button></router-link>
         <br>
         Aqui puede ver el historial de los procesos de madurez realizados
         desde el uso de la aplicación.
@@ -47,15 +48,22 @@
         Benchmarking</button>
         <br>
         En este módulo puede encontrar noticias por sector economico y 
-        enfocadas a los emprendimientos, adicionalmente puede acceder a la 
-        red de colaboracion.
+        enfocadas a los emprendimientos.
+        <router-link to="/noticias">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Módulo de información</button>
+        Módulo de información</button></router-link>
+        <br>
+        En este módulo puede acceder a la 
+        red de colaboracion.
+        <router-link to="/foro">
+        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        Red de Colaboración</button></router-link>
         <br>
         Si te interesa conseguir clientes, proveedores o posibles 
         aliados, ingrese aquí.
+        <router-link to="/tejido">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Tejido social</button>
+        Tejido social</button></router-link>
       </b-col>
       <b-col>
         

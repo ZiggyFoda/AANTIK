@@ -77,14 +77,21 @@
 
 
         <b-form-group label="Seleccione los días y campo horario en el que desea recibir notificaciones:" v-slot="{ ariaDescribedby }">
-      <b-form-checkbox-group
+          <b-form-select
+          id="input-7"
+          v-model="form.notif"
+          :options="notif"
+          required
+        ></b-form-select>
+        </b-form-group>
+          <!--<b-form-checkbox-group
         id="checkbox-group-1"
         v-model="selected"
         :options="options"
         :aria-describedby="ariaDescribedby"
         name="flavour-1"
       ></b-form-checkbox-group>
-    </b-form-group>
+    </b-form-group>-->
         
 
         <b-button type="submit" variant="primary">Guardar</b-button>
@@ -130,14 +137,14 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
           direccion: '',
           limitacion: null,
           localidadrest: null,
-          notif: [],
+          notif: null,
 
         },
         localidad: [{ text: 'Selecione una', value: null }, 'Usaquén', 'Chapinero', 'Santa Fe', 'San Cristóbal', 'Usme', 'Tunjuelito', 'Bosa', 'Kennedy', 'Fontibón', 'Engativá', 'Suba', 'Barrios Unidos', 'Teusaquillo', '	Los Mártires', 'Antonio Nariño', 'Puente Aranda', 'La Candelaria', 'Rafael Uribe Uribe', 'Ciudad Bolívar', 'Sumapaz'],
         experiencia: [{ text: 'Selecione una', value: null }, 'Monitoria en la javeriana', 'Trabajo social o voluntariado', 'No'],
         limitacion: [{ text: 'Selecione una', value: null }, 'Social', 'Psicológica', 'Física', 'No'],
         transporte: [{ text: 'Selecione una', value: null }, 'Carro', 'Moto', 'Otro', 'No'],
-        //notif: [{ text: 'Selecione una', value: null }, '1', '2', '3', '4'],
+        notif: [{ text: 'Selecione una', value: null }, 'Entre semana AM', 'Entre semana PM', 'Fines de semana AM', 'Fines de semana PM'],
         show: true
         
       }

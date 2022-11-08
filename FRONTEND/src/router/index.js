@@ -367,6 +367,18 @@ const routes = [
     component: () => import('../views/emprendimiento/HomeEmp.vue')
     ,meta: {requiresAuth: true}
   },
+  {
+    path: '/asesoria',
+    name: 'asesoria',
+    component: () => import('../views/emprendimiento/asesoria.vue')
+    ,meta: {requiresAuth: true}
+  },
+  {
+    path: '/datosEmp',
+    name: 'datosEmp',
+    component: () => import('../views/emprendimiento/ActualizarDatosEmp.vue')
+    ,meta: {requiresAuth: true}
+  },
    //DOCENTE
    {
     path: '/HomeDoc',
@@ -374,13 +386,20 @@ const routes = [
     component: () => import('../views/docente/HomeDoc.vue')
     ,meta: {requiresAuth: true}
   },
-    //EMPRENDIMIENTO
-    {
-      path: '/asesoria',
-      name: 'asesoria',
-      component: () => import('../views/emprendimiento/asesoria.vue')
-      ,meta: {requiresAuth: true}
-    },
+  {
+    path: '/datosDoc',
+    name: 'datosDoc',
+    component: () => import('../views/docente/ActualizarDatosDoc.vue')
+    ,meta: {requiresAuth: true}
+  },
+  {
+    path: '/DnotiEdit',
+    name: 'DnotiEdit',
+    component: () => import('../views/docente/noticiasEdit.vue')
+    ,meta: {requiresAuth: true}
+  },
+
+
     //ACTDATOSPre
     {
       path: '/datosPre',

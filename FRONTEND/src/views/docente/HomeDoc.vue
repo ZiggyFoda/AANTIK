@@ -23,7 +23,7 @@
         <br>
         Recuerde mantener sus datos actualizados con el fin de garantizar
          el buen funcionamiento del sistema.
-         <router-link to="/encuesta">
+         <router-link to="/datosDoc">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Actualizar datos</button></router-link>
         <br>
@@ -33,8 +33,9 @@
         Ver historial</button>
         <br>
         Aqui puede consultar las noticias cargadas por los estudiates.
+        <router-link to="/DnotiEdit">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Módulo de información</button>
+        Módulo de información</button></router-link>
       </b-col>
       <b-col>
         

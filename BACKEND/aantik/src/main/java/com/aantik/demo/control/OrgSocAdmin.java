@@ -17,9 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.aantik.demo.entidad.Estudiante;
-
-import com.aantik.demo.repositorio.EstudianteRepositorio;
+import com.aantik.demo.entidad.OrgSocial;
+import com.aantik.demo.repositorio.OrgSocialRepositorio;
 
 @RestController
 @RequestMapping("/api")
@@ -29,17 +28,17 @@ import com.aantik.demo.repositorio.EstudianteRepositorio;
 
 
 
-public class StudentAdmin {
+public class OrgSocAdmin {
 	@Autowired
-    private EstudianteRepositorio userRepository;
+    private OrgSocialRepositorio userRepository;
 	
-	@GetMapping("/gesStu")
+	@GetMapping("/orgAdmin")
 
-    public ArrayList<Estudiante> obtenerUsuarios(){
+    public ArrayList<OrgSocial> obtenerUsuarios(){
 
        
 
-        return (ArrayList<Estudiante>) userRepository.findAll();
+        return (ArrayList<OrgSocial>) userRepository.findAll();
 
     }
 
