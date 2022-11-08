@@ -6,7 +6,7 @@
   >
     <div
       class="logo-details"
-      style="margin: 8px 1px 0 4px;"
+      style="margin: 6px 14px 0 14px;"
     >
       <img
         v-if="menuLogo"
@@ -75,7 +75,15 @@
         class="profile" 
       >
         <div class="profile-details">
- 
+          <img
+            v-if="profileImg"
+            :src="profileImg"
+            alt="profileImg"
+          >
+          <i
+            v-else
+            class="bx bxs-user-rectangle"
+          />
           <div class="name_job">
             <div class="name">
               {{ profileName }}
@@ -85,7 +93,12 @@
             </div>
           </div>
         </div>
-        <div class="bx bx-log-out"  id="log_out"  @click.prevent="logOut1"></div> 
+        <i
+          v-if="isExitButton"
+          class="bx bx-log-out"
+          id="log_out"
+          @click.prevent="logOut"
+        />
       </div>
     </div>
   </div>
@@ -137,30 +150,48 @@ import AuthService from "@/service/auth.service";
           },
           {
             link: '#',
-            name: 'Inicio',
+            name: 'Tablero',
             tooltip: 'Dashboard',
-            icon: 'bx-home',
+            icon: 'bx-grid-alt',
             
           },
 
           {
             link: '#',
-            name: 'Diagnóstico',
+            name: 'Mensajes',
             tooltip: 'Messages',
-            icon: 'bx-list-check',
+            icon: 'bx-chat',
           },
           {
             link: '#',
-            name: 'Progreso',
+            name: 'Reportes',
             tooltip: 'Analytics',
-            icon: 'bx-line-chart',
+            icon: 'bx-pie-chart-alt-2',
           },
           {
             link: '#',
-            name: 'Noticias',
+            name: 'Archivos',
+            tooltip: 'Files',
+            icon: 'bx-folder',
+          },
+          {
+            link: '#',
+            name: 'Order',
             tooltip: 'Order',
-            icon: 'bx-news',
-          },          
+            icon: 'bx-cart-alt',
+          },
+          {
+            link: '#',
+            name: 'Saved',
+            tooltip: 'Saved',
+            icon: 'bx-heart',
+          },
+          {
+            link: '#',
+            name: 'Parametros',
+            tooltip: 'Setting',
+            icon: 'bx-cog',
+          },
           {
             link: '#',
             name: 'Subir archivos',
@@ -195,10 +226,10 @@ import AuthService from "@/service/auth.service";
         type: String,
         default: 'Dto. Ingeniería Industrial',
       },
-    /*  isExitButton: {
+      isExitButton: {
         type: Boolean,
         default: true,
-      },*/
+      },
       isLoggedIn: {
         type: Boolean,
         default: true,
@@ -280,10 +311,9 @@ import AuthService from "@/service/auth.service";
       }
     },
     methods: {
-      logOut1() {
-      this.$router.push('/login2');  
+      logOut() {
       this.$store.dispatch("auth/logout");
-       
+      this.$router.push("/login2");
     },
   },
 }
@@ -327,7 +357,7 @@ import AuthService from "@/service/auth.service";
     width: 250px;
   }
   .sidebar .logo-details {
-    height: 100px;
+    height: 60px;
     display: flex;
     align-items: center;
     position: relative;
@@ -338,7 +368,7 @@ import AuthService from "@/service/auth.service";
   }
   .sidebar .logo-details .logo_name {
     color: var(--logo-title-color);
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 600;
     opacity: 0;
     transition: all 0.5s ease;
@@ -498,8 +528,8 @@ import AuthService from "@/service/auth.service";
     flex-wrap: nowrap;
   }
   .sidebar div img {
-    height: 100px;
-    width: 100px;
+    height: 70px;
+    width: 50px;
     object-fit: cover;
     border-radius: 6px;
     margin-right: 10px;
