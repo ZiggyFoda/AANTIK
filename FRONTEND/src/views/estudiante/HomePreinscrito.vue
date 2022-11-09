@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import SidebarMenuAkahon from "@/components/SideBar.vue"
+import SidebarMenuAkahon from "@/components/SideBarPreIns.vue"
 
 export default {
-  name: 'Homecoordinador',
+  name: 'preinscHome',
   props: {
     msg: String
   },

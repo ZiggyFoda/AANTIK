@@ -105,7 +105,7 @@
 
 <script>
 import axios from 'axios';
-import SidebarMenuAkahon from "@/components/SideBar.vue"
+import SidebarMenuAkahon from "@/components/SideBarSt.vue"
 
   export default {
     data() {

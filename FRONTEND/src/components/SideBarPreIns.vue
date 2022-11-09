@@ -6,7 +6,7 @@
   >
     <div
       class="logo-details"
-      style="margin: 6px 14px 0 14px;"
+      style="margin: 8px 1px 0 4px;"
     >
       <img
         v-if="menuLogo"
@@ -19,9 +19,6 @@
         class="bx icon"
         :class="menuIcon"
       />
-      <div class="logo_name">
-        {{ menuTitle }}
-      </div>
       <i
         class="bx"
         :class="isOpened ? 'bx-menu-alt-right' : 'bx-menu'"
@@ -29,7 +26,14 @@
         @click="isOpened = !isOpened"
       />
     </div>
+    <div
+      class="logo-details"
+    >
+      <div class="logo_name">
+        {{ menuTitle }}
+      </div>
 
+    </div>
     <div style="display: flex ; flex-direction:column; justify-content: space-between; flex-grow: 1; max-height: calc(100% - 60px); ">
       <div
         id="my-scroll"
@@ -39,19 +43,6 @@
           class="nav-list"
           style="overflow: visible;"
         >
-          <li
-            v-if="isSearch"
-            @click="isOpened = true"
-          >
-            <i class="bx bx-search" />
-            <input
-              type="text"
-              :placeholder="searchPlaceholder"
-              @input="$emit('search-input-emit', $event.target.value)"
-            >
-            <span class="tooltip">{{ searchTooltip }}</span>
-          </li>
-
           <span
             v-for="(menuItem, index) in menuItems"
             :key="index"
@@ -75,15 +66,7 @@
         class="profile" 
       >
         <div class="profile-details">
-          <img
-            v-if="profileImg"
-            :src="profileImg"
-            alt="profileImg"
-          >
-          <i
-            v-else
-            class="bx bxs-user-rectangle"
-          />
+ 
           <div class="name_job">
             <div class="name">
               {{ profileName }}
@@ -93,12 +76,7 @@
             </div>
           </div>
         </div>
-        <i
-          v-if="isExitButton"
-          class="bx bx-log-out"
-          id="log_out"
-          @click.prevent="logOut"
-        />
+        <div class="bx bx-log-out bx-lg"  id="log_out" size='lg'  @click.prevent="logOut1"></div> 
       </div>
     </div>
   </div>
@@ -143,60 +121,30 @@ import AuthService from "@/service/auth.service";
         type: Array,
         default: () => [
           {
-            link: '#',
+            link: '#datosPre',
             name: AuthService.getUser(),
             tooltip: 'User',
             icon: 'bx-user',
           },
           {
-            link: '#',
-            name: 'Tablero',
+            link: '#preinscHome',
+            name: 'Inicio',
             tooltip: 'Dashboard',
-            icon: 'bx-grid-alt',
+            icon: 'bx-home',
             
           },
 
           {
-            link: '#',
-            name: 'Mensajes',
+            link: '#encuesta',
+            name: 'Personalización',
             tooltip: 'Messages',
-            icon: 'bx-chat',
+            icon: 'bx-edit',
           },
           {
-            link: '#',
-            name: 'Reportes',
+            link: '#reqEs',
+            name: 'Requisitos',
             tooltip: 'Analytics',
-            icon: 'bx-pie-chart-alt-2',
-          },
-          {
-            link: '#',
-            name: 'Archivos',
-            tooltip: 'Files',
-            icon: 'bx-folder',
-          },
-          {
-            link: '#',
-            name: 'Order',
-            tooltip: 'Order',
-            icon: 'bx-cart-alt',
-          },
-          {
-            link: '#',
-            name: 'Saved',
-            tooltip: 'Saved',
-            icon: 'bx-heart',
-          },
-          {
-            link: '#',
-            name: 'Parametros',
-            tooltip: 'Setting',
-            icon: 'bx-cog',
-          },
-          {
-            link: '#',
-            name: 'Subir archivos',
-            tooltip: 'Setting',
-            icon: 'bx-cloud-upload',
+            icon: 'bx-user-check',
           },
         ],
       },
@@ -226,10 +174,10 @@ import AuthService from "@/service/auth.service";
         type: String,
         default: 'Dto. Ingeniería Industrial',
       },
-      isExitButton: {
+    /*  isExitButton: {
         type: Boolean,
         default: true,
-      },
+      },*/
       isLoggedIn: {
         type: Boolean,
         default: true,
@@ -311,9 +259,10 @@ import AuthService from "@/service/auth.service";
       }
     },
     methods: {
-      logOut() {
+      logOut1() {
+      this.$router.push('/login2');  
       this.$store.dispatch("auth/logout");
-      this.$router.push("/login2");
+       
     },
   },
 }
@@ -357,18 +306,21 @@ import AuthService from "@/service/auth.service";
     width: 250px;
   }
   .sidebar .logo-details {
-    height: 60px;
+    height: 100px;
     display: flex;
     align-items: center;
     position: relative;
   }
   .sidebar .logo-details .icon {
     opacity: 0;
+    margin-left: 50px;
+    margin-top: 50px;
     transition: all 0.5s ease;
   }
   .sidebar .logo-details .logo_name {
     color: var(--logo-title-color);
-    font-size: 20px;
+    font-size: 25px;
+    margin-left: 50px;
     font-weight: 600;
     opacity: 0;
     transition: all 0.5s ease;
@@ -384,7 +336,7 @@ import AuthService from "@/service/auth.service";
     transform: translateY(-50%);
     font-size: 22px;
     transition: all 0.4s ease;
-    font-size: 23px;
+    font-size: 36px;
     text-align: center;
     cursor: pointer;
     transition: all 0.5s ease;
@@ -454,23 +406,6 @@ import AuthService from "@/service/auth.service";
     padding: 0 20px 0 50px;
     width: 100%;
   }
-  .sidebar .bx-search {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    font-size: 22px;
-    background: #FFF;
-    color: #2C5698;
-  }
-  .sidebar.open .bx-search:hover {
-    background: #FFF;
-    color: var(--icons-color);
-  }
-  .sidebar .bx-search:hover {
-    background: var(--menu-items-hover-color);
-    color: var(--bg-color);
-  }
   .sidebar li a {
     display: flex;
     height: 100%;
@@ -528,8 +463,8 @@ import AuthService from "@/service/auth.service";
     flex-wrap: nowrap;
   }
   .sidebar div img {
-    height: 70px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
     object-fit: cover;
     border-radius: 6px;
     margin-right: 10px;
@@ -553,6 +488,7 @@ import AuthService from "@/service/auth.service";
     background: var(--secondary-color);
     width: 100%;
     height: 60px;
+    font-size: 35px;
     line-height: 60px;
     border-radius: 0px;
     transition: all 0.5s ease;

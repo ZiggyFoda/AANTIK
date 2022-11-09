@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import SidebarMenuAkahon from "@/components/SideBar.vue"
+import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
 import FileService from "@/service/FileService";
 export default {
   components: {

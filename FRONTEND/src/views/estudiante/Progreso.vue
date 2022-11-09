@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import SidebarMenuAkahon from "@/components/SideBar.vue"
+import SidebarMenuAkahon from "@/components/SideBarSt.vue"
 import UploadService from "@/service/UploadFilesService";
 
 export default {

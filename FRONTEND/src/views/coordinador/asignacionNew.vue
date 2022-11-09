@@ -37,7 +37,7 @@
         </template>
 
 <script>
-import SidebarMenuAkahon from "@/components/SideBar.vue"
+import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
 
 export default {
   name: 'estudiantesCord',

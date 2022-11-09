@@ -1,5 +1,10 @@
 <template>
   <b-container padding-right= 0px padding-left="0px">   
+    <div>
+          <sidebar-menu-akahon 
+            @search-input-emit="search"
+          />
+    </div> 
     <b-row>
     <b-col>    
     </b-col>
@@ -35,7 +40,24 @@
   </b-container>
 </template>
 
+<script>
+import SidebarMenuAkahon from "@/components/SideBarPreIns.vue"
 
+export default {
+  name: 'preRequisitos',
+  props: {
+    msg: String
+  },
+   components: {
+    SidebarMenuAkahon,
+  },
+  methods: {
+    search() {
+      
+    }
+  }
+}
+</script>
 
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

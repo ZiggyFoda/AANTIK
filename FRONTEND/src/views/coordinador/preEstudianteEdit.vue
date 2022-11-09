@@ -44,7 +44,7 @@
 
 <script>
 import axios from 'axios';
-import SidebarMenuAkahon from "@/components/SideBar.vue"
+import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
 import LoginService from "@/service/LoginService";
 
   export default {
