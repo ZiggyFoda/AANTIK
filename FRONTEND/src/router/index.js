@@ -437,6 +437,17 @@ const routes = [
       path: '/benchmarking',
       name: 'Benchmarking',
       component: () => import("@/views/PreguntaBenchmarking.vue")
+    },
+
+    {
+      path: '/indiEdit2',
+      name: 'indiEdit2',
+      component: () => import("@/views/admin//indicadoresEdit2.vue")
+    },
+    {
+      path: '/indiEdit3',
+      name: 'indiEdit3',
+      component: () => import("@/views/admin//indicadoresEdit3.vue")
     }
 ]
 
