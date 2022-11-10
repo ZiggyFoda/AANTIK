@@ -30,13 +30,6 @@ public class Noticia{
 	private String encargado;		
 	@Column
 	private LocalDate fecha;
-	@Column
-	
-	@ManyToMany(fetch = FetchType.LAZY)
-
-
-
-
 
 	public Long getId() {
 		return id;
