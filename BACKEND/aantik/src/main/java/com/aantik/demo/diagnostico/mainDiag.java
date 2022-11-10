@@ -18,7 +18,7 @@ public class mainDiag {
 		leerDiagnostico DGV = new leerDiagnostico();
 		FileInputStream fis2;
 		ModeloPregunta preguntas[]= new ModeloPregunta[200];
-		int cant = 0,cant2=0;
+		int cant = 0,cant2=0,cant3=0,cant4=0,cant5=0;
 		try {
 			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
 			/*cant=DGV.leerConvenciones(fis2,conven);
@@ -51,7 +51,45 @@ public class mainDiag {
 			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
 			cant2=DGV.leerInfoPreg(fis2,infoPreg);
 			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
-			cant2=DGV.leerPreg(fis2,preguntas);
+			cant3=DGV.leerPregLP(fis2,preguntas);
+			System.out.println("--------"+cant3);
+			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
+			cant4=DGV.leerPregCP(fis2,preguntas,cant3);
+			System.out.println("--------"+cant4);
+			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
+			cant5=DGV.leerPregPC(fis2,preguntas,cant4);
+			System.out.println("--------"+cant5);
+			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
+			cant5=DGV.leerPregQ(fis2,preguntas,cant5);
+			System.out.println("--------"+cant5);
+			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
+			cant5=DGV.leerPregAbas(fis2,preguntas,cant5);
+			System.out.println("--------"+cant5);
+			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
+			cant5=DGV.leerPregM(fis2,preguntas,cant5);
+			System.out.println("--------"+cant5);
+			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
+			cant5=DGV.leerPregGC(fis2,preguntas,cant5);
+			System.out.println("--------"+cant5);
+			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
+			cant5=DGV.leerPregFCF(fis2,preguntas,cant5);
+			System.out.println("--------"+cant5);
+			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
+			cant5=DGV.leerPregSI(fis2,preguntas,cant5);
+			System.out.println("--------"+cant5);
+			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
+			cant5=DGV.leerPregGT(fis2,preguntas,cant5);
+			System.out.println("--------"+cant5);
+			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
+			cant5=DGV.leerPregSegI(fis2,preguntas,cant5);
+			System.out.println("--------"+cant5);
+			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
+			cant5=DGV.leerPregP(fis2,preguntas,cant5);
+			System.out.println("--------"+cant5);
+			System.out.println(preguntas[2].rub[1].cuanti+" "+preguntas[2].automatica+preguntas[2].rub[1].rubrica);
+			System.out.println(preguntas[1].rub[2].cuanti+" "+preguntas[1].automatica);
+			System.out.println(preguntas[73].rub[1].cuanti+" "+preguntas[73].automatica+preguntas[73].rub[1].rubrica);
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
