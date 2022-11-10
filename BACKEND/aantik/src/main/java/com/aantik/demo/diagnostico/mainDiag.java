@@ -69,6 +69,9 @@ public class mainDiag {
 			cant5=DGV.leerPregM(fis2,preguntas,cant5);
 			System.out.println("--------"+cant5);
 			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
+			cant5=DGV.leerPregCD(fis2,preguntas,cant5);
+			System.out.println("--------"+cant5);
+			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
 			cant5=DGV.leerPregGC(fis2,preguntas,cant5);
 			System.out.println("--------"+cant5);
 			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
@@ -76,6 +79,9 @@ public class mainDiag {
 			System.out.println("--------"+cant5);
 			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
 			cant5=DGV.leerPregSI(fis2,preguntas,cant5);
+			System.out.println("--------"+cant5);
+			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
+			cant5=DGV.leerPregCO(fis2,preguntas,cant5);
 			System.out.println("--------"+cant5);
 			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
 			cant5=DGV.leerPregGT(fis2,preguntas,cant5);
@@ -88,7 +94,7 @@ public class mainDiag {
 			System.out.println("--------"+cant5);
 			System.out.println(preguntas[2].rub[1].cuanti+" "+preguntas[2].automatica+preguntas[2].rub[1].rubrica);
 			System.out.println(preguntas[1].rub[2].cuanti+" "+preguntas[1].automatica);
-			System.out.println(preguntas[73].rub[1].cuanti+" "+preguntas[73].automatica+preguntas[73].rub[1].rubrica);
+			System.out.println(preguntas[39].rub[1].cuanti+" "+preguntas[39].automatica+preguntas[39].rub[1].rubrica);
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

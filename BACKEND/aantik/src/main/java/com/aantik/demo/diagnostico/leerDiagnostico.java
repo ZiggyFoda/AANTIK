@@ -585,7 +585,86 @@ public class leerDiagnostico {
 	}	
 	
 	public int leerPregCD(InputStream is, ModeloPregunta[] preguntas,int index) {
-		return 0;
+		try {	 
+		  Workbook workbook = new XSSFWorkbook(is);
+		  Sheet sheet = workbook.getSheetAt(11);
+		  Iterator<Row> rows = sheet.iterator();
+		  int colNumber = sheet.getRow(1).getPhysicalNumberOfCells();
+		  int auxRow= index;
+		  int rowNumber = 0, cant=0;
+		  String codigo=null;	
+		  System.out.println("xcol: "+colNumber);	   	      
+		  while (rows.hasNext()) {
+		
+		    
+		    rowNumber++;
+		    Row row=sheet.getRow(rowNumber);  //returns the logical row      
+		  if(row==null) {
+			  break;
+		  }
+		Cell cell; 
+		 //getting the cell representing the given column     //getting cell value  
+		int cellIdx = 0;
+		String value2;	//infoPreg[rowNumber-1]=new ModInfoPregunta();
+		boolean iniciado=false;
+		while (cellIdx<colNumber) {
+		  cell=row.getCell(cellIdx);
+		  if(cell!=null) {
+		      if(cell.getCellType()==XSSFCell.CELL_TYPE_NUMERIC)
+		    	  value2= String.valueOf(cell.getNumericCellValue());
+		      else
+		  	      value2= String.valueOf(cell.getStringCellValue());
+		      if(String.valueOf(row.getCell(0).getStringCellValue()).length()!=0) {
+		    	  codigo=String.valueOf(row.getCell(0).getStringCellValue());
+		    	  cant=0;
+		    	  if(cellIdx==0) {
+		    		  auxRow++;
+					 preguntas[auxRow]=new ModeloPregunta();
+					 preguntas[auxRow].rub=new ModRubrica[8];
+		    	  }
+		    		  
+		      }
+		      if(value2.length()!=0) {
+		    	  if (cellIdx==0) {
+		    		  preguntas[auxRow].codigo=value2;        	    	  
+				  }else if (cellIdx==1) {
+					  preguntas[auxRow].pregunta=value2;					  
+				  }else if (cellIdx==2) {
+					  preguntas[auxRow].insump=value2;		
+				  }else if (cellIdx==3) {
+			    	  preguntas[auxRow].rub[cant]=new ModRubrica();
+			    	  iniciado=true;
+			    	  if(value2.equals("NA")) {
+			    		  preguntas[auxRow].automatica=false;
+			    		  preguntas[auxRow].rub[cant].cuanti=0;		
+			    	  }else
+					  preguntas[auxRow].rub[cant].cuanti=(int) Double.parseDouble(value2);
+					  
+					  	
+					 // System.out.println("----------"+preguntas[auxRow].rub[cant].cuanti+" cant "+auxRow+" row "+cant);
+				  }else if (cellIdx==4) {
+					  if(cant>1 && preguntas[auxRow].rub[cant-1]==null)
+						  cant--;
+					  if(iniciado==false)
+				    	  preguntas[auxRow].rub[cant]=new ModRubrica();	
+					  
+					  preguntas[auxRow].rub[cant].rubrica=value2;	
+				  }else if (cellIdx==5) {
+					  preguntas[auxRow].rub[cant].actividad=value2;
+				  }
+		    	  
+		    	  //System.out.println(codigo);
+		 // System.out.println("dato "+value2+" cant "+auxRow+" row "+cant);		        	  
+	          }	           
+	      }	    	  
+		      cellIdx++;
+	   }
+		cant++;
+	   }
+		  return auxRow;
+		} catch (IOException e) {
+		  throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
+		}
 	}	
 	
 	public int leerPregGC(InputStream is, ModeloPregunta[] preguntas,int index) {
@@ -808,7 +887,86 @@ public class leerDiagnostico {
 	}
 	
 	public int leerPregCO(InputStream is, ModeloPregunta[] preguntas,int index) {
-		return 0;
+		try {	 
+		  Workbook workbook = new XSSFWorkbook(is);
+		  Sheet sheet = workbook.getSheetAt(15);
+		  Iterator<Row> rows = sheet.iterator();
+		  int colNumber = sheet.getRow(1).getPhysicalNumberOfCells();
+		  int auxRow= index;
+		  int rowNumber = 0, cant=0;
+		  String codigo=null,auxval = null;	
+		  System.out.println("xcol: "+colNumber);	   	      
+		  while (rows.hasNext()) {
+		
+		    
+		    rowNumber++;
+		    Row row=sheet.getRow(rowNumber);  //returns the logical row      
+		  if(row==null) {
+			  break;
+		  }
+		Cell cell; 
+		 //getting the cell representing the given column     //getting cell value  
+		int cellIdx = 0;
+		String value2;
+		boolean iniciado=false;//infoPreg[rowNumber-1]=new ModInfoPregunta();
+		while (cellIdx<colNumber) {
+		  cell=row.getCell(cellIdx);
+		  if(cell!=null) {
+		      if(cell.getCellType()==XSSFCell.CELL_TYPE_NUMERIC)
+		    	  value2= String.valueOf(cell.getNumericCellValue());
+		      else
+		  	      value2= String.valueOf(cell.getStringCellValue());
+		      if(row.getCell(0)!=null && String.valueOf(row.getCell(0).getStringCellValue()).length()!=0 ) {
+		    	  codigo=String.valueOf(row.getCell(0).getStringCellValue());
+		    	  cant=0;
+		    	  if(cellIdx==0) {
+		    		  auxRow++;
+					 preguntas[auxRow]=new ModeloPregunta();
+					 preguntas[auxRow].rub=new ModRubrica[8];
+		    	  }
+		    		  
+		      }
+		      if(value2.length()!=0) {
+		    	  if (cellIdx==0) {
+		    		  preguntas[auxRow].codigo=value2;        	    	  
+				  }else if (cellIdx==1) {
+					  preguntas[auxRow].pregunta=value2;					  
+				  }else if (cellIdx==2) {
+					  preguntas[auxRow].insump=value2;		
+				  }else if (cellIdx==3) {
+			    	  preguntas[auxRow].rub[cant]=new ModRubrica();
+			    	  iniciado=true;
+					  preguntas[auxRow].rub[cant].cuanti=(int) Double.parseDouble(value2);
+					  if((int) Double.parseDouble(value2)==2)
+					  	preguntas[auxRow].automatica=true;	
+					 // System.out.println("----------"+preguntas[auxRow].rub[cant].cuanti+" cant "+auxRow+" row "+cant);
+				  }else if (cellIdx==4) {
+					  if(cant==4 && preguntas[auxRow].rub[1].rubrica==null)
+					  	preguntas[auxRow].automatica=false;	
+					  preguntas[auxRow].rub[cant].rubrica=value2;
+					  auxval=preguntas[auxRow].rub[cant].rubrica;	
+				  }else if (cellIdx==5) {
+					  if(cant==4 && preguntas[auxRow].rub[1].rubrica==null)
+						  	preguntas[auxRow].automatica=false;	
+					 if(iniciado==false)
+				    	  preguntas[auxRow].rub[cant]=new ModRubrica();						 
+					  preguntas[auxRow].rub[cant].rubrica=auxval+","+value2;	
+				  }else if (cellIdx==7) {
+					  preguntas[auxRow].rub[cant].actividad=value2;
+				  }
+		    	  
+		    	  //System.out.println(codigo);
+		    	  //System.out.println("dato "+value2+" cant "+auxRow+" row "+cant);		        	  
+	          }	 	          
+	      }	    	  
+		      cellIdx++;
+	   }
+		cant++;
+	   }
+		  return auxRow;
+		} catch (IOException e) {
+		  throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
+		}
 	}
 	
 	public int leerPregGT(InputStream is, ModeloPregunta[] preguntas,int index) {
@@ -1017,7 +1175,7 @@ public class leerDiagnostico {
 				  }
 		    	  
 		    	  //System.out.println(codigo);
-		 System.out.println("dato "+value2+" cant "+auxRow+" row "+cant);		        	  
+		// System.out.println("dato "+value2+" cant "+auxRow+" row "+cant);		        	  
 	          }	           
 	      }	    	  
 		      cellIdx++;
