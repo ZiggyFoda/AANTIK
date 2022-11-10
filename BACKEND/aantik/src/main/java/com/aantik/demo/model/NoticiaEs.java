@@ -5,8 +5,22 @@ public class NoticiaEs {
 	private String titulo;
     private String noticia;
     private String fuente;   
+    private String fecha; 
+    private String encargado; 
     
-    public String getTitulo() {
+    public String getFecha() {
+		return fecha;
+	}
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+	public String getEncargado() {
+		return encargado;
+	}
+	public void setEncargado(String encargado) {
+		this.encargado = encargado;
+	}
+	public String getTitulo() {
 		return titulo;
 	}
 	public void setTitulo(String titulo) {

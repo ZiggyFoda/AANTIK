@@ -64,6 +64,7 @@
 <script>
 import axios from 'axios';
 import SidebarMenuAkahon from "@/components/SideBar.vue"
+import AuthService from "@/service/auth.service"
 
   export default {
     data() {
@@ -101,7 +102,7 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
           titulo: this.form.titulo,
           noticia: this.form.noticia,
           fuente: this.form.fuente,
-          //nombre: AuthService.getUser(),
+          encargado: AuthService.getUser(),
         });
 console.log(this.store.state.auth.user.username)
       },
