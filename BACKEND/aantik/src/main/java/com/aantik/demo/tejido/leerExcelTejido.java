@@ -21,17 +21,6 @@ import com.aantik.demo.model.ModCiiuXemp;
 import com.aantik.demo.model.tejidoSocial;
 
 public class leerExcelTejido {
-	public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-	  static String SHEET = "MATRIZ ACTIVIDADES RELACIONES P";
-
-	  public static boolean hasExcelFormat(MultipartFile file) {
-
-	    if (!TYPE.equals(file.getContentType())) {
-	      return false;
-	    }
-
-	    return true;
-	  }
 
 	  public int leerTejido(InputStream is,tejidoSocial[] lista) {
 	    try {
