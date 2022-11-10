@@ -26,9 +26,9 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-1" label="Municipio:" label-for="input-1">     
+        <b-form-group id="input-group-1" label="Municipio:" label-for="input-2">     
           <b-form-input
-            id="input-1"
+            id="input-2"
             v-model="form.municipio"
             placeholder="Municipio"
             required
@@ -115,7 +115,7 @@
       </b-form>
       <br>
       <router-link to="/preinscHome">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Volver</button></router-link>
     </div>
   </b-col>
@@ -153,11 +153,11 @@ import LoginService from "@/service/LoginService";
           localidadrest: null,
           notif: null,
         },
-        localidad: [{ text: 'Selecione una', value: null }, 'Usaquén', 'Chapinero', 'Santa Fe', 'San Cristóbal', 'Usme', 'Tunjuelito', 'Bosa', 'Kennedy', 'Fontibón', 'Engativá', 'Suba', 'Barrios Unidos', 'Teusaquillo', '	Los Mártires', 'Antonio Nariño', 'Puente Aranda', 'La Candelaria', 'Rafael Uribe Uribe', 'Ciudad Bolívar', 'Sumapaz'],
-        experiencia: [{ text: 'Selecione una', value: null }, 'Monitoria en la javeriana', 'Trabajo social o voluntariado', 'No'],
-        limitacion: [{ text: 'Selecione una', value: null }, 'Social', 'Psicológica', 'Física', 'No'],
-        transporte: [{ text: 'Selecione una', value: null }, 'Carro', 'Moto', 'Otro', 'No'],
-        notif: [{ text: 'Selecione una', value: null }, 'Entre semana AM', 'Entre semana PM', 'Fines de semana AM', 'Fines de semana PM'],
+        localidad: [{ text: '--------------------Selecione una--------------------', value: null }, 'Usaquén', 'Chapinero', 'Santa Fe', 'San Cristóbal', 'Usme', 'Tunjuelito', 'Bosa', 'Kennedy', 'Fontibón', 'Engativá', 'Suba', 'Barrios Unidos', 'Teusaquillo', '	Los Mártires', 'Antonio Nariño', 'Puente Aranda', 'La Candelaria', 'Rafael Uribe Uribe', 'Ciudad Bolívar', 'Sumapaz'],
+        experiencia: [{ text: '--------------------Selecione una--------------------', value: null }, 'Monitoria en la javeriana', 'Trabajo social o voluntariado', 'No'],
+        limitacion: [{ text: '--------------------Selecione una--------------------', value: null }, 'Social', 'Psicológica', 'Física', 'No'],
+        transporte: [{ text: '--------------------Selecione una--------------------', value: null }, 'Carro', 'Moto', 'Otro', 'No'],
+        notif: [{ text: '--------------------Selecione una--------------------', value: null }, 'Entre semana AM', 'Entre semana PM', 'Fines de semana AM', 'Fines de semana PM'],
         show: true
       }
     },

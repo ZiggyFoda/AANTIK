@@ -25,7 +25,7 @@
             drop-placeholder="Drop file here..."
           ></b-form-file>
           <div class="mt-3">Archivo seleccionado: {{ file1 ? file1.name : '' }}</div>
-          <button type="submit" class="btn btn-dark btn-lg btn-block" @click="send(file1)">
+          <button type="submit" class="btn btn-dark btn-lg w-100" @click="send(file1)">
           Procesar datos</button>
           <!-- Plain mode -->
           <b-form-file v-model="file2" class="mt-3" plain></b-form-file>

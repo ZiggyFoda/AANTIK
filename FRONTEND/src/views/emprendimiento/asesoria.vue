@@ -13,18 +13,18 @@
         </div>
         <br>
         Consulte su nivel de maduracion organizacional.      
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
           Ver nivel</button>
         <br>
         <br>
         Para conocer nuestras sugerencias de estrategias que te pueden generar crecimiento
         relacionadas con su sector económico, ingresa aquí.
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Benchmarking</button>
         <br>
         <br>
         Si quiere conocer las estrategias sugeridas para crecer en el nivel de maduración, ingresa aquí.
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Estrategias de maduración</button>
         <br>
       </b-col>

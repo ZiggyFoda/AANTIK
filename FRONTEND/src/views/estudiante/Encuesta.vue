@@ -303,7 +303,7 @@
       </b-form>
       <br>
       <router-link to="/preinscHome">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Volver</button></router-link>
     </div>
   </b-col>

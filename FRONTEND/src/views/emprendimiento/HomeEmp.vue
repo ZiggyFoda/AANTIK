@@ -16,40 +16,40 @@
          el buen funcionamiento del sistema.
          
         <router-link to="/datosEmp">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Actualizar datos</button></router-link>
         <br>
         Aquí puede responder las preguntas del diagnóstico organizacional.
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Diagnostico organizacional</button>
         <br>
         Aquí puede ver el estado de la asesoría en curso.
-        <button @click="$bvModal.show('my-modal3')" class="btn btn-dark btn-lg btn-block">
+        <button @click="$bvModal.show('my-modal3')" class="btn btn-dark btn-lg w-100">
         Ver estado</button>
         <b-modal id="my-modal3">Estado: En proceso de maduracion <br> 
         </b-modal>
         <br>
         Aquí puede ver los estudiantes asignados a su proyecto
-        <button @click="$bvModal.show('my-modal2')" class="btn btn-dark btn-lg btn-block">
+        <button @click="$bvModal.show('my-modal2')" class="btn btn-dark btn-lg w-100">
         Estudiantes asiganados</button>
         <b-modal id="my-modal2">Billy <br>Correo<br>Telefono <br><br> Mandy <br>Correo<br>Telefono</b-modal>        
         <br>
         Aquí puede ver las asesorías realizadas al emprendimiento desde su inscripción.  
         <router-link to="/asesoria">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Ver asesorias</button></router-link>
         <br>
         En este módulo puede encontrar noticias por sector economico y 
         enfocadas a los emprendimientos, adicionalmente puede acceder a la 
         red de colaboración.
         <router-link to="/noticias">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Módulo de información</button></router-link>
         <br>
         Si te interesa conseguir clientes, proveedores o posibles 
         aliados, ingrese aquí.
         <router-link to="/tejido">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Tejido social</button></router-link><br>
       </b-col>
       <b-col>

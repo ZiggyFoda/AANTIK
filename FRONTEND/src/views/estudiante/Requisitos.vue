@@ -8,7 +8,7 @@
      <div class="vue-tempalte">
       <br>
       <div>
-  <b-button v-b-modal.req class="btn btn-dark btn-lg btn-block">Consultar requisitos</b-button>
+  <b-button v-b-modal.req class="btn btn-dark btn-lg w-100">Consultar requisitos</b-button>
 
   <b-modal id="req" title="Requisitos">
     <p class="my-4"><b>Taller Sentido de mi practica:</b> Listo<br>
@@ -20,7 +20,7 @@
 </div>
 <br>
         <router-link to="/preinscHome">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Volver</button></router-link>
         <br>
 

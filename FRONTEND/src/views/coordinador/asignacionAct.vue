@@ -12,7 +12,7 @@
         </div>
         Seleccione aquí para correr el algoritmo de sugerencia de asignaciones
         <router-link to="/asignacionNueva">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Sugerir asignaciones</button></router-link><br>
         <br>
         RESULTADOS DEL CICLO # 

@@ -12,7 +12,7 @@
         </div>
         Ingrese aquí para agregar un grupo de clase
         <router-link to="/addGrupoClass">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Agregar grupo de clase</button></router-link><br>
         
         <br>

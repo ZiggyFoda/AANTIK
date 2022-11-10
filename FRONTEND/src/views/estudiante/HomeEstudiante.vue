@@ -14,33 +14,33 @@
         Aquí puede consultar el puntaje del diagnóstico del emprendimiento asignado
          y asignar puntaje a las preguntas del diagnóstico que no se califican automáticamente.
         <router-link to="/estudiantes">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Gestionar diagnóstico</button></router-link>
         <br>
         Aquí puede definir el proyecto social y subir los informes de soporte.
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Progreso</button>
         <br>
         Aquí puede consultar el benchmarking.
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Benchmarking</button>
         <br>
         Aquí puede subir una noticia, ver su historial o dirigirse a 
         las noticias publicadas en el sistema.
         <router-link to="/noticiaEs">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Noticias</button></router-link>
         <br>
         Puede acceder a la red colaborativa y contestar preguntas realizados por los emprendimientos
          que se están asesorando en el ciclo actual.
         <router-link to="/foro">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Red colaborativa</button></router-link>
 
         <br>
         Aquí puede consultar el proyecto asignado para que realice su asesoría técnica.
        
-        <b-button v-b-modal.req class="btn btn-dark btn-lg btn-block">Consultar asignación</b-button>
+        <b-button v-b-modal.req class="btn btn-dark btn-lg w-100">Consultar asignación</b-button>
 
 <b-modal id="req" title="Asignación">
   <p v-if="false" class="my-4"><b>Aun no tiene un emprendimiento asiganado</b>
@@ -57,7 +57,7 @@
 <br>
         No olvide mantener sus datos actualizados.
         <router-link to="/datosEs">   
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Actualizar datos</button></router-link>
 
       </b-col>

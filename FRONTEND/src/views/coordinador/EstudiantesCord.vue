@@ -13,11 +13,11 @@
         Ingrese aquí para agregar estudiantes preinscritos de forma masiva
         por medio de un archivo .csv
         <router-link to="/subirFile">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Agregar estudiantes preinscritos</button></router-link><br>
         Ingrese aquí para agregar un estudiante individual
         <router-link to="/agregarStd">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Agregar estudiante</button></router-link><br>
         <br>
 

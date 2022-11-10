@@ -13,28 +13,28 @@
         </div>
         <br>
         Aquí puede entrar a ver los archivos subidos por los estudiantes.
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Ver archivos</button>
         <br>
         Aquí puede ver el listado de estudiantes.
-        <button @click="$bvModal.show('my-modal1')" class="btn btn-dark btn-lg btn-block">
+        <button @click="$bvModal.show('my-modal1')" class="btn btn-dark btn-lg w-100">
         Estudiantes</button>
         <b-modal id="my-modal1">Estado: En proceso de maduracion (tilde plz)</b-modal>
         <br>
         Recuerde mantener sus datos actualizados con el fin de garantizar
          el buen funcionamiento del sistema.
          <router-link to="/datosDoc">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Actualizar datos</button></router-link>
         <br>
         Aquí puede ver todas las asesorías técnicas realizadas a 
         las organizaciones sociales que han sido parte de su curso.
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Ver historial</button>
         <br>
         Aqui puede consultar las noticias cargadas por los estudiates.
         <router-link to="/DnotiEdit">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Módulo de información</button></router-link>
       </b-col>
       <b-col>

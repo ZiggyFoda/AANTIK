@@ -12,34 +12,41 @@
           <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div>
         Aquí puede gestionar todos los estudiantes inscritos al ciclo actual.
+        <br> <br>
         <router-link to="/estudiantes">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Estudiantes</button></router-link><br>
         Aquí puede gestionar todas las organizaciones sociales inscritas al ciclo actual.
+        <br> <br>
         <router-link to="/orgSociales">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Organizaciones Sociales</button></router-link><br>
         Aquí puede consultar la información de los docentes de la asignatura.
+        <br> <br>
         <router-link to="/docentes">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Docentes</button></router-link><br>
         Aquí puede consultar la información de los grupos de clase.
+        <br> <br>
         <router-link to="/gruposClase">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Grupos de clase</button></router-link><br>
         Aquí puede gestionar todos los emprendimientos inscritos al ciclo actual.
+        <br> <br>
         <router-link to="/emprendimientos">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Emprendimientos</button></router-link><br>
         Aquí puede correr el algoritmo de asignación con estudiantes preinscritos
         o conocer los resultados obtenidos del ciclo actual.
+        <br> <br>
         <router-link to="/asignacion">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Asignación</button></router-link><br>
         
         Aquí puede consultar los indicadores del benchmarking.
+        <br> <br>
         <router-link to="/CindiCoord">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Indicadores</button></router-link>
         <br>
       </b-col>

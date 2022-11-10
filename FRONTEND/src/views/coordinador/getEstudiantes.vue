@@ -11,13 +11,13 @@
           <h3>Gestor de estudiantes</h3>
         </p>
         <router-link to="/subirFile">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Agregar estudiante preinscrito</button></router-link><br>
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Agregar estudiante</button>
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Eliminar estudiante</button>
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Modificar estudiante</button>
         <br>
         Listado de estudiantes inscritos

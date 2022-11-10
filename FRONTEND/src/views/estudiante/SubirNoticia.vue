@@ -22,34 +22,35 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-1" label="Noticia:" label-for="input-2">     
+        <b-form-group id="input-group-1" label="Noticia:" label-for="input-2" >     
           <b-form-input
             id="input-2"
             v-model="form.noticia"
             placeholder="Noticia"
             required
+            style="height: 100px"
           ></b-form-input>
         </b-form-group>
 
         <b-form-group id="input-group-1" label="Fuente:" label-for="input-3">     
           <b-form-input
             id="input-3"
-            v-model="form.Url"
+            v-model="form.fuente"
             placeholder="Fuente"
             required
           ></b-form-input>
         </b-form-group>
-    
+        <br>
         <b-button type="submit" variant="primary">Guardar</b-button>
         <b-button type="reset" variant="danger">Cancelar</b-button>
       </b-form>
       <br>
       <router-link to="/noticias">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit1" class="btn btn-dark btn-lg w-100">
         Ver otras noticias</button></router-link>
-      <br>
+      <br>  <br>
       <router-link to="/studentHome">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit1" class="btn btn-dark btn-lg w-100">
         Volver</button></router-link>
     </div>
   </b-col>
@@ -61,46 +62,62 @@
 </template>
 
 <script>
+import axios from 'axios';
 import SidebarMenuAkahon from "@/components/SideBar.vue"
 
   export default {
     data() {
       return {
+      fields: [
+          { key: "titulo" },
+          { key: "noticia" },
+          { key: "fuente" },
+        ],
+
         form: {
-          email: '',
-          name: '',
-          food: null,
-          checked: []
+          titulo: null,
+          noticia: null,
+          fuente: null,
+   
         },
-        localidad: [{ text: 'Selecione una', value: null }, 'Usaquén', 'Chapinero', 'Santa Fe', 'San Cristóbal', 'Usme', 'Tunjuelito', 'Bosa', 'Kennedy', 'Fontibón', 'Engativá', 'Suba', 'Barrios Unidos', 'Teusaquillo', '	Los Mártires', 'Antonio Nariño', 'Puente Aranda', 'La Candelaria', 'Rafael Uribe Uribe', 'Ciudad Bolívar', 'Sumapaz'],
-        experiencia: [{ text: 'Selecione una', value: null }, 'Monitoria en la javeriana', 'Trabajo social o voluntariado', 'No'],
-        limitacion: [{ text: 'Selecione una', value: null }, 'Social', 'Psicológica', 'Física', 'No'],
-        transporte: [{ text: 'Selecione una', value: null }, 'Carro', 'Moto', 'Otro', 'No'],
-        profe: [{ text: 'Selecione una', value: null }, '', '', '', ''],
         show: true
       }
     },
+    items: [
+    {
+      label: "Refrescar",
+      icon: "pi pi-fw pi-refresh",
+      command: () => {
+        this.getAll();
+      }
+    }
+  ],
     components: {
     SidebarMenuAkahon,
     },
     methods: {
-      onSubmit(event) {
-        event.preventDefault()
-        alert(JSON.stringify(this.form))
+      onSubmit() {
+        axios.post("http://localhost:8080/noticiaEs",{
+          titulo: this.form.titulo,
+          noticia: this.form.noticia,
+          fuente: this.form.fuente,
+          nombre: AuthService.getUser(),
+        });
+console.log(this.store.state.auth.user.username)
       },
       onReset(event) {
         event.preventDefault()
         // Reset our form values
-        this.form.email = ''
-        this.form.name = ''
-        this.form.food = null
-        this.form.checked = []
+        this.form.titulo = ''
+        this.form.noticia = ''
+        this.form.fuente = ''
+
         // Trick to reset/clear native browser form validation state
         this.show = false
         this.$nextTick(() => {
           this.show = true
         })
-      }
+      },
     }
   }
 </script>

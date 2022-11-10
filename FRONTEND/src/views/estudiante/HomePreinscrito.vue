@@ -14,21 +14,21 @@
         </div><br>
         Es importante que verifique sus datos y los actualice
         <router-link to="/datosPre">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Actualizar datos</button></router-link>
         <br>
         
         La asignación de emprendimientos se realizará por medio de la personalización 
         para esto debe llenar el formulario que se encuentra aquí
         <router-link to="/encuesta">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
           Formato de personalización</button></router-link>
           <br>
 
         Verifique el cumplimiento de sus requisitos, en caso de haber algún error 
         comuniquese con el/la coordinador/a de la asignatura.
         <router-link to="/reqEs">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Consultar requisitos</button></router-link>
       </b-col>
       <b-col>

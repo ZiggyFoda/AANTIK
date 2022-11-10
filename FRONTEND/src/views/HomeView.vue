@@ -18,7 +18,7 @@
     </p>
     <p class="boton">
       <router-link to="/login2">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Iniciar sesión</button></router-link><br>
     </p>
   </div>
@@ -57,7 +57,7 @@ export default {
     margin-top: 5%;
     margin-left: 40%;
   }
-  .btn-block {
+  .w-100 {
     display: block;
     width: 20%;
     align-items: center;

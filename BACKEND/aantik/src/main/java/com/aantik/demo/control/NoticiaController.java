@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
-
+import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,22 +29,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.bytebuddy.utility.RandomString;
 
-import com.aantik.demo.model.actDatosDoc;
 import com.aantik.demo.model.NoticiaEs;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 
-@RestController
+@Controller
 
 //RequestMapping("/datos")
 
-public class actDatosDocController {
-    @PostMapping("/datosDoc")
-    public ResponseEntity<?> processForgotPassword(@RequestBody actDatosDoc update) {
+public class NoticiaController {
+    @PostMapping("/noticiaEs")
+    public ResponseEntity<?> processForgotPassword(@RequestBody NoticiaEs update) {
 
-    System.out.println("Tel: " + update.getTelefono());
+    System.out.println("Tit: " + update.getTitulo());
 
-    System.out.println("Localidad: " + update.getLocalidad());
+
     return ResponseEntity.ok("ok");
     }
     

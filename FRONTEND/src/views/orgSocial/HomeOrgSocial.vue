@@ -15,54 +15,54 @@
         Aqui puede ver los emprendimientos asociados a su organización social
         en caso de tenerlos.
         <router-link to="/estudiantes">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Ver emprendimientos</button></router-link>
         <br>
         Si su organización social cuenta con emprendimientos que estén siendo asesorados, 
         aquí puede consular el progreso y validar la continuidad del emprendimiento en 
         el programa de asesoría técnica.
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Progreso</button>        
         <br>
         Aquí puede consultar las asignaciones de sus emprendimientos o 
         de su organización social si se encuentra en proceso de 
         asistencia tecnica.
 
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Consultar asignación actual</button>
         <br>
         Recuerde mantener sus datos actualizados con el fin de garantizar
          el buen funcionamiento del sistema.
          <router-link to="/orgSocHome">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Actualizar datos</button></router-link>
         <br>
         Aqui puede ver el historial de los procesos de madurez realizados
         desde el uso de la aplicación.
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Ver historial</button>
         <br>
         Si te interesa conocer de estrategias sugeridas de crecimiento
          basado en la situación del sector economico, ingresa aquí.
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Benchmarking</button>
         <br>
         En este módulo puede encontrar noticias por sector economico y 
         enfocadas a los emprendimientos.
         <router-link to="/noticias">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Módulo de información</button></router-link>
         <br>
         En este módulo puede acceder a la 
         red de colaboracion.
         <router-link to="/foro">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Red de Colaboración</button></router-link>
         <br>
         Si te interesa conseguir clientes, proveedores o posibles 
         aliados, ingrese aquí.
         <router-link to="/tejido">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Tejido social</button></router-link>
       </b-col>
       <b-col>

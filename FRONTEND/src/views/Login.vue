@@ -17,7 +17,7 @@
                 <label>Contraseña</label>
                 <input v-model="persona.password" type="password" class="form-control form-control-lg" />
             </div>
-            <button type="submit" class="btn btn-dark btn-lg btn-block" @click="save(persona)">
+            <button type="submit" class="btn btn-dark btn-lg w-100" @click="save(persona)">
             Ingresar</button>
             <p class="forgot-password text-right mt-2 mb-4">
                 <router-link to="/recuperarPassword">Olvidó su contraseña?</router-link>

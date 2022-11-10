@@ -13,11 +13,11 @@
         Ingrese aquí para agregar organizaciones sociales de forma masiva
         por medio de un archivo .csv
         <router-link to="/subirFileOrgSoc">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Agregar organizaciones sociales</button></router-link><br>
         Ingrese aquí para agregar una organizacion social de forma individual
         <router-link to="/agregarOrgSoc">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Agregar organizacion social</button></router-link><br>
         <br>
 

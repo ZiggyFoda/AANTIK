@@ -13,7 +13,7 @@
         </div>
         Ingrese aquí para agregar un coordinador de asignatura 
         <router-link to="/addCoord">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Agregar coordinador</button></router-link><br>
         <br>
         Listado de coordinadores actuales 

@@ -12,12 +12,14 @@
         </div>
         Ingrese aquí para agregar docentes de forma masiva
         por medio de un archivo excel
+        <br>
         <router-link to="/subirFile">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Agregar docentes </button></router-link><br>
         Ingrese aquí para agregar un docente individual
+        <br>
         <router-link to="/addDocentes">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Agregar docente</button></router-link><br>
         <br>
         Listado de docentes actuales 

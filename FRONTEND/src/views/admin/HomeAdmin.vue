@@ -12,39 +12,40 @@
           <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div><br><br>
         <router-link to="/gesStu">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Gestionar estudiantes</button></router-link><br>
-        
+        <br>
         <router-link to="/orgAdmin">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Gestionar Organizaciones Sociales</button></router-link><br>
-        
+        <br>
         <router-link to="/docAdmin">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Gestionar Docentes</button></router-link><br>
+        <br>
         
         <router-link to="/classAdmin">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Gestionar grupos de clase</button></router-link><br>
-        
+        <br>
         <router-link to="/empAdmin">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Gestionar emprendimientos</button></router-link><br>
-        
+        <br>
         <router-link to="/gesCoordinador">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Gestionar coordinadores</button></router-link><br>
-        
+        <br>
         <router-link to="/gesForo">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Gestionar foro</button></router-link><br>
-        
+        <br>
         <router-link to="/gesNoticias">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Gestionar noticias</button></router-link><br>
-        
+        <br>
         <router-link to="/gesIndicadores">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Gestionar indicadores</button></router-link><br>
       </b-col>
       <b-col>

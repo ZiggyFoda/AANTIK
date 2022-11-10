@@ -13,11 +13,11 @@
         Ingrese aquí para agregar emprendimientos de forma masiva
         por medio de un archivo excel
         <router-link to="/subirFile">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Agregar emprendimientos</button></router-link><br>
         Ingrese aquí para agregar un emprendimiento individual
         <router-link to="/addemprendimientos">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Agregar emprendimiento</button></router-link><br>
         <br>
         Listado de emprendimientos inscritos
