@@ -38,7 +38,8 @@ public class mainCarUser {
 			excelOrg.getEntidades(fis2,orgLista);
 			
 			fis2 = new FileInputStream(new File("Datos basicos-formato.xlsx"));			
-			excelDoc.getDocente(fis2,docLista);
+			int cant=excelDoc.getDocente(fis2,docLista);
+			System.out.println(cant);
 			//fis2 = new FileInputStream(new File("Enfasis   Cadena de Suministro.xlsx"));
 		//	tejido.getActividad(fis2,preLista,cant);
 			System.out.println("cantidad clase: "+cantSt);
@@ -47,8 +48,6 @@ public class mainCarUser {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 		
 	}
 

@@ -14,7 +14,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.aantik.demo.model.ModDocente;
 
 public class leerDocentes {
-	 public void getDocente(InputStream is, ModDocente[] lista) {
+	 public int getDocente(InputStream is, ModDocente[] lista) {
 		  	String actividad= null;
 		  	try {
 		    Workbook workbook = new XSSFWorkbook(is);
@@ -129,7 +129,7 @@ public class leerDocentes {
 		      }
 
 	    	//  System.out.println("CLOSE: "+rowDatos);	
-		return;// rowDatos;
+		return rowDatos+1;// rowDatos;
 		    } catch (IOException e) {
 		      throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
 		    }

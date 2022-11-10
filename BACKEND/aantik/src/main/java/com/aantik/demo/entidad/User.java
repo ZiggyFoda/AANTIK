@@ -35,11 +35,11 @@ public class User implements Serializable{
 	@Column
 	private String password;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	//@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "user_roles",
 			joinColumns=@JoinColumn(name="usuario_id"),
 			inverseJoinColumns=@JoinColumn(name="role_id"))
-	private Set<Role> roles;
+	private Role roles;
 
 	
 	public Long getId() {
@@ -114,11 +114,11 @@ public class User implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Set<Role> getRoles() {
+	public Role getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Set<Role> roles) {
+	public void setRoles(Role roles) {
 		this.roles = roles;
 	}
 
@@ -127,7 +127,7 @@ public class User implements Serializable{
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", roles=" + roles + "]";
 	}
 
-	public User(Long id, String username, String password, Set<Role> roles) {
+	public User(Long id, String username, String password, Role roles) {
 		super();
 		this.id = id;
 		this.username = username;
