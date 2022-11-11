@@ -25,13 +25,21 @@ public class Rubrica_preg_dg implements Serializable{
 	private Long id;
 	@Column
 	private  int cuanti;
-	@Column
+	@Column(length = 500)
 	private  String rubrica;
-	@Column
+	@Column(length = 500)
 	private  String actividad;
 	@Column
 	private Long idPreg;
 	
+	
+	
+	public Long getIdPreg() {
+		return idPreg;
+	}
+	public void setIdPreg(Long idPreg) {
+		this.idPreg = idPreg;
+	}
 	public Long getId() {
 		return id;
 	}

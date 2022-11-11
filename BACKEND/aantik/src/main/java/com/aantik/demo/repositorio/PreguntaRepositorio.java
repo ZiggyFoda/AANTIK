@@ -10,4 +10,5 @@ public interface PreguntaRepositorio extends CrudRepository<Preguntas_Dig,Long>{
 	public Optional<Preguntas_Dig> findById(Long id);
 	public Optional<Preguntas_Dig> getUserById(Long id) throws Exception;
 	public Optional<Preguntas_Dig> findByCodigo(String cod);
+	public Optional<Preguntas_Dig> findByPregunta(String pregunta);
 }
