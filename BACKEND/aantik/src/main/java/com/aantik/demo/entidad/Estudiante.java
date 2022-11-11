@@ -1,18 +1,31 @@
 package com.aantik.demo.entidad;
 
+import java.io.Serializable;
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
-public class Estudiante{
+public class Estudiante implements Serializable{
 	
 	/**
 	 * 
 	 */
+	private static final long serialVersionUID = -5136779542810096179L;
+	/**
+	 * 
+	 */
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
+	@GenericGenerator(name="native",strategy="native")
     @Column(name = "id")
 	private Long id;
 	@Column
@@ -32,9 +45,9 @@ public class Estudiante{
 	@Column
 	private String linAccion;			
 	@Column
-	private Long idEstudiantil;		
+	private String idEstudiantil;		
 	@Column
-	private Long identificacion;	
+	private String identificacion;	
 	@Column
 	private String tallerSP; //taller sentido de mi practica	
 	@Column
@@ -45,7 +58,7 @@ public class Estudiante{
 	@JoinTable(name = "user",
 	joinColumns=@JoinColumn(name="id"),
 	inverseJoinColumns=@JoinColumn(name="id"))
-	private User userId;
+	private long userId;
 
 	public Long getId() {
 		return id;
@@ -119,27 +132,27 @@ public class Estudiante{
 		this.linAccion = linAccion;
 	}
 
-	public User getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(User userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 
-	public Long getIdEstudiantil() {
+	public String getIdEstudiantil() {
 		return idEstudiantil;
 	}
 
-	public void setIdEstudiantil(Long idEstudiantil) {
+	public void setIdEstudiantil(String idEstudiantil) {
 		this.idEstudiantil = idEstudiantil;
 	}
 
-	public Long getIdentificacion() {
+	public String getIdentificacion() {
 		return identificacion;
 	}
 
-	public void setIdentificacion(Long identificacion) {
+	public void setIdentificacion(String identificacion) {
 		this.identificacion = identificacion;
 	}
 
@@ -169,24 +182,8 @@ public class Estudiante{
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((asignatura == null) ? 0 : asignatura.hashCode());
-		result = prime * result + ((clase == null) ? 0 : clase.hashCode());
-		result = prime * result + ((correo == null) ? 0 : correo.hashCode());
-		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
-		result = prime * result + ((entidad == null) ? 0 : entidad.hashCode());
-		result = prime * result + ((fechaSP == null) ? 0 : fechaSP.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((idEstudiantil == null) ? 0 : idEstudiantil.hashCode());
-		result = prime * result + ((identificacion == null) ? 0 : identificacion.hashCode());
-		result = prime * result + ((infografia == null) ? 0 : infografia.hashCode());
-		result = prime * result + ((linAccion == null) ? 0 : linAccion.hashCode());
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-		result = prime * result + ((tallerSP == null) ? 0 : tallerSP.hashCode());
-		result = prime * result + ((telefono == null) ? 0 : telefono.hashCode());
-		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
-		return result;
+		return Objects.hash(asignatura, clase, correo, direccion, entidad, fechaSP, id, idEstudiantil, identificacion,
+				infografia, linAccion, nombre, tallerSP, telefono, userId);
 	}
 
 	@Override
@@ -198,82 +195,14 @@ public class Estudiante{
 		if (getClass() != obj.getClass())
 			return false;
 		Estudiante other = (Estudiante) obj;
-		if (asignatura == null) {
-			if (other.asignatura != null)
-				return false;
-		} else if (!asignatura.equals(other.asignatura))
-			return false;
-		if (clase == null) {
-			if (other.clase != null)
-				return false;
-		} else if (!clase.equals(other.clase))
-			return false;
-		if (correo == null) {
-			if (other.correo != null)
-				return false;
-		} else if (!correo.equals(other.correo))
-			return false;
-		if (direccion == null) {
-			if (other.direccion != null)
-				return false;
-		} else if (!direccion.equals(other.direccion))
-			return false;
-		if (entidad == null) {
-			if (other.entidad != null)
-				return false;
-		} else if (!entidad.equals(other.entidad))
-			return false;
-		if (fechaSP == null) {
-			if (other.fechaSP != null)
-				return false;
-		} else if (!fechaSP.equals(other.fechaSP))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (idEstudiantil == null) {
-			if (other.idEstudiantil != null)
-				return false;
-		} else if (!idEstudiantil.equals(other.idEstudiantil))
-			return false;
-		if (identificacion == null) {
-			if (other.identificacion != null)
-				return false;
-		} else if (!identificacion.equals(other.identificacion))
-			return false;
-		if (infografia == null) {
-			if (other.infografia != null)
-				return false;
-		} else if (!infografia.equals(other.infografia))
-			return false;
-		if (linAccion == null) {
-			if (other.linAccion != null)
-				return false;
-		} else if (!linAccion.equals(other.linAccion))
-			return false;
-		if (nombre == null) {
-			if (other.nombre != null)
-				return false;
-		} else if (!nombre.equals(other.nombre))
-			return false;
-		if (tallerSP == null) {
-			if (other.tallerSP != null)
-				return false;
-		} else if (!tallerSP.equals(other.tallerSP))
-			return false;
-		if (telefono == null) {
-			if (other.telefono != null)
-				return false;
-		} else if (!telefono.equals(other.telefono))
-			return false;
-		if (userId == null) {
-			if (other.userId != null)
-				return false;
-		} else if (!userId.equals(other.userId))
-			return false;
-		return true;
+		return Objects.equals(asignatura, other.asignatura) && Objects.equals(clase, other.clase)
+				&& Objects.equals(correo, other.correo) && Objects.equals(direccion, other.direccion)
+				&& Objects.equals(entidad, other.entidad) && Objects.equals(fechaSP, other.fechaSP)
+				&& Objects.equals(id, other.id) && Objects.equals(idEstudiantil, other.idEstudiantil)
+				&& Objects.equals(identificacion, other.identificacion) && Objects.equals(infografia, other.infografia)
+				&& Objects.equals(linAccion, other.linAccion) && Objects.equals(nombre, other.nombre)
+				&& Objects.equals(tallerSP, other.tallerSP) && Objects.equals(telefono, other.telefono)
+				&& userId == other.userId;
 	}
 
 	@Override
