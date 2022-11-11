@@ -45,11 +45,11 @@ import com.aantik.demo.repositorio.noticiaRepositorio;
 //RequestMapping("/datos")
 
 public class NoticiaController {
-	@Autowired private noticiaRepositorio noticiaRepositorio;
+	//@Autowired private noticiaRepositorio noticiaRepositorio;
     @PostMapping("/noticiaEs")
     public ResponseEntity<?> processForgotPassword(@RequestBody NoticiaEs update) {
 
-    System.out.println("Tit: " + update.getTitulo());
+    System.out.println("Tit: " + update.titulo);
     
     
     Date date = new Date();
@@ -57,13 +57,13 @@ public class NoticiaController {
      String fecha = formatter.format(date);
     System.out.println("Current date: "+ fecha); 
     
-    System.out.println("Encargado: " + update.getEncargado());
+    System.out.println("Encargado: " + update.encargado);
     
-    update.setFecha(fecha);
+    update.fecha=fecha;
     
-    NoticiaEs noticia = new NoticiaEs(update.getTitulo(), update.getNoticia(), update.getFuente(), update.getFecha(), update.getEncargado(),update.getCorreo());
+    Noticia noticia = new Noticia(update.titulo, update.noticia, update.fuente, update.fecha, update.encargado,update.correo);
 
-    noticiaRepositorio.save(noticia);
+    //noticiaRepositorio.save(noticia);
     
     return ResponseEntity.ok("ok");
     

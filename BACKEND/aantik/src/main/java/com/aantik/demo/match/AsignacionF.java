@@ -32,12 +32,12 @@ import com.aantik.demo.model.Mpreinscrito;
 import com.aantik.demo.service.UserCRUD;
 
 
-public class Asignacion {
+public class AsignacionF {
 
 	int cantEst=100;
 	int cantEmp=100;
 	int asignados=0;
-	public ModAsig asig[] = new ModAsig[13];
+	public ModAsig asig[] = new ModAsig[20];
 	int estu[][][]= new int[cantEst][cantEmp+1][2] ;
 	int asignaciones[][]= new int[cantEst][2];
 	int cupos[][] = new int[cantEmp][2];
@@ -380,10 +380,10 @@ public class Asignacion {
 					+"\nUbicado en direccion: "+ret.direccion+" y localidad: "
 					+ret.localidad+"\n\n");
 			asig[i]= new ModAsig();
-			asig[i].setId(asignaciones[i][0]);
-			asig[i].setNombre(nombreStu);
-			asig[i].setCorreo(correoStu);
-			asig[i].setEmprendimiento(ret.nombreEmp);
+			asig[i].id= asignaciones[i][0];
+			asig[i].nombre= (nombreStu);
+			asig[i].correo= (correoStu);
+			asig[i].emprendimiento= (ret.nombreEmp);
 
 		}
 	}

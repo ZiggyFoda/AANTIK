@@ -22,6 +22,15 @@ public class Noticia{
 	private String encargado;		
 	@Column
 	private String fecha;
+	@Column
+	private String correo;
+	
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
 	public String getTitulo() {
 		return titulo;
 	}
@@ -52,13 +61,15 @@ public class Noticia{
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-	public Noticia(String titulo, String noticia, String fuente, String encargado, String fecha) {
+	
+	public Noticia(String titulo, String noticia, String fuente, String encargado, String fecha, String correo) {
 		super();
 		this.titulo = titulo;
 		this.noticia = noticia;
 		this.fuente = fuente;
 		this.encargado = encargado;
 		this.fecha = fecha;
+		this.correo = correo;
 	}
 
 	
