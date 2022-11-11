@@ -4,7 +4,7 @@ import java.util.Random;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.aantik.demo.model.ModAsig;
+//import com.aantik.demo.model.ModAsig;
 import com.aantik.demo.model.ModEmprendimiento;
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelExec;
@@ -414,12 +414,12 @@ public class Match {
 					"\n Asignado a emprendimiento "+asignaciones[i][1]+" "+ret.nombreEmp
 					+"\nUbicado en direccion: "+ret.direccion+" y localidad: "
 					+ret.localidad+"\n\n");
-			ModAsig asig[] = new ModAsig[cantEst];
+			/*ModAsig asig[] = new ModAsig[cantEst];
 			asig[i]=new ModAsig();
 			asig[i].setId(asignaciones[i][0]);
 			asig[i].setNombre(nombreStu);
 			asig[i].setCorreo(correoStu);
-			asig[i].setEmprendimiento(ret.nombreEmp);
+			asig[i].setEmprendimiento(ret.nombreEmp);*/
 		}
 	}
 }

@@ -60,9 +60,9 @@ public class UserControl {
 			String rolS="0";
 			if(userService.login(persona.getUsername(),persona.getPassword())==true) {
 				personaAux = userService.getUserByUsername(persona.getUsername());
-				Set<Role> rol=personaAux.getRoles();
+				/*Set<Role> rol=personaAux.getRoles();
 				for (Role value : rol)
-		            rolS= Long.toString(value.getId());					
+		            rolS= Long.toString(value.getId());	*/				
 								
 				return new ResponseEntity<String>(rolS, HttpStatus.OK);
 			}							
