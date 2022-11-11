@@ -1,10 +1,10 @@
 import axios from 'axios';
-export default class TejidoService {
+export default class studentData {
 
     url = "http://localhost:8080/";
 
     getAll() {
-        return axios.get(this.url + "pruebaRed");
+        return axios.get(this.url + "all");
     }
 
 }

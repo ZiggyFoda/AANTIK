@@ -12,8 +12,6 @@ public class Noticia{
 	 * 
 	 */
 	@Id
-    @Column(name = "id")
-	private Long id;
 	@Column
 	private String titulo;
 	@Column
@@ -23,111 +21,45 @@ public class Noticia{
 	@Column
 	private String encargado;		
 	@Column
-	private LocalDate fecha;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+	private String fecha;
 	public String getTitulo() {
 		return titulo;
 	}
-
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-
 	public String getNoticia() {
 		return noticia;
 	}
-
 	public void setNoticia(String noticia) {
 		this.noticia = noticia;
 	}
-
 	public String getFuente() {
 		return fuente;
 	}
-
 	public void setFuente(String fuente) {
 		this.fuente = fuente;
 	}
-
 	public String getEncargado() {
 		return encargado;
 	}
-
 	public void setEncargado(String encargado) {
 		this.encargado = encargado;
 	}
-
-	public LocalDate getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
-
-	public void setFecha(LocalDate fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-	
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((noticia == null) ? 0 : noticia.hashCode());
-		result = prime * result + ((encargado == null) ? 0 : encargado.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
-		result = prime * result + ((fuente == null) ? 0 : fuente.hashCode());
-		return result;
-	}
-	
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Noticia other = (Noticia) obj;
-		if (noticia == null) {
-			if (other.noticia != null)
-				return false;
-		} else if (!noticia.equals(other.noticia))
-			return false;
-		if (encargado == null) {
-			if (other.encargado != null)
-				return false;
-		} else if (!encargado.equals(other.encargado))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (titulo == null) {
-			if (other.titulo != null)
-				return false;
-		} else if (!titulo.equals(other.titulo))
-			return false;
-		if (fuente == null) {
-			if (other.fuente != null)
-				return false;
-		} else if (!fuente.equals(other.fuente))
-			return false;
-		return true;
+	public Noticia(String titulo, String noticia, String fuente, String encargado, String fecha) {
+		super();
+		this.titulo = titulo;
+		this.noticia = noticia;
+		this.fuente = fuente;
+		this.encargado = encargado;
+		this.fecha = fecha;
 	}
 
-	@Override
-	public String toString() {
-		return "Noticia [id=" + id + ", titulo=" + titulo + ", noticia=" + noticia + ", fuente=" + fuente
-				+ ", encargado=" + encargado + ", fecha=" + fecha + "]";
-	}	
 	
 }

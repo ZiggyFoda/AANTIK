@@ -103,7 +103,10 @@ import AuthService from "@/service/auth.service"
           noticia: this.form.noticia,
           fuente: this.form.fuente,
           encargado: AuthService.getUser(),
+          correo: AuthService.getCorreo(),
+         
         });
+        console.log(AuthService.getCorreo());
 console.log(this.store.state.auth.user.username)
       },
       onReset(event) {
