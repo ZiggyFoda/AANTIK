@@ -34,9 +34,10 @@ import org.springframework.web.bind.annotation.RestController;
 import net.bytebuddy.utility.RandomString;
 
 import com.aantik.demo.model.ModAsig;
-
+import com.aantik.demo.service.AsignacionCRUD;
+import com.aantik.demo.entidad.Asignacion;
 //import com.aantik.demo.repositorio.asigRepositorio;
-import com.aantik.demo.match.Asignacion;
+import com.aantik.demo.match.AsignacionF;
 import com.aantik.demo.match.Match;
 
 
@@ -45,12 +46,13 @@ import com.aantik.demo.match.Match;
 @RequestMapping("/api")
 
 public class AsigController {
-	//@Autowired private asigRepositorio asigRepositorio;
+	@Autowired 
+	private AsignacionCRUD asigRepositorio;
     @GetMapping("/asignacionNueva")
-    public ResponseEntity<ModAsig[]> asigancion() {
+    public ResponseEntity<Iterable<Asignacion>> asigancion() {
     	try {
 
-    Asignacion asigna = new Asignacion();     
+    AsignacionF asigna = new AsignacionF();     
     	
     ModAsig asig[] = new ModAsig[20];
     
@@ -58,8 +60,9 @@ public class AsigController {
     
     asig=asigna.asig;
 
-    //asigRepositorio.save(asig);
-    return new ResponseEntity<ModAsig[]>  (asig, HttpStatus.OK);
+    asigRepositorio.crearAsignacion(asig);    //asigRepositorio.save(asig);
+    Iterable<Asignacion> res=asigRepositorio.getAll();
+    return new ResponseEntity<Iterable<Asignacion>>  (res, HttpStatus.OK);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		//e.printStackTrace();
