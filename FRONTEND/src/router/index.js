@@ -378,6 +378,12 @@ const routes = [
     component: () => import('../views/emprendimiento/ActualizarDatosEmp.vue')
     ,meta: {requiresAuth: true}
   },
+  {
+    path: '/bench',
+    name: 'datosEmp',
+    component: () => import('../views/emprendimiento/benchm.vue')
+    ,meta: {requiresAuth: true}
+  },
    //DOCENTE
    {
     path: '/HomeDoc',

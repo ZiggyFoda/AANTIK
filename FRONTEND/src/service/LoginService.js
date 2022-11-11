@@ -6,6 +6,9 @@ export default class LoginService {
     getAll() {
         return axios.get(this.url + "all");
     }
+    getAllBenc() {
+      return axios.get(this.url + "benchGet");
+  }
 
     async save(user) {
         return axios.post(this.url + "login",{
