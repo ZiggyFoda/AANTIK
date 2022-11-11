@@ -7,9 +7,9 @@
           </div> 
       <b-row>
         <b-col>
-          <p>
+      <!---    <p>--> 
             <h3>Benchmarking</h3>
-          </p>
+         <!--- </p>-->
           <br>
           valores obtenidos por su compañia
           <br>

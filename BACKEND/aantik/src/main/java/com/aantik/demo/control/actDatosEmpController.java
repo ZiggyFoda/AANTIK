@@ -45,7 +45,7 @@ public class actDatosEmpController {
     @PostMapping("/datosEmp")
     public ResponseEntity<?> processForgotPassword(@RequestBody encuestaPre update) {
 
-    System.out.println("Tel: " + update.getdescripcion());
+    System.out.println("Tel: " + update.getTelefono());
 
     System.out.println("Localidad: " + update.getLocalidad());
     return ResponseEntity.ok("ok");
