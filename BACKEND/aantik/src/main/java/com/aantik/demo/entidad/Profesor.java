@@ -1,15 +1,11 @@
 package com.aantik.demo.entidad;
 
 import java.util.Objects;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 
 @Entity
 public class Profesor{
@@ -60,10 +56,10 @@ public class Profesor{
 	@Column
 	private boolean limitacion;
 		
-	@JoinTable(name = "profesor_user",
-			joinColumns=@JoinColumn(name="profesor_id"),
-			inverseJoinColumns=@JoinColumn(name="user_id"))
-	private User userId;
+	@JoinTable(name = "user",
+	joinColumns=@JoinColumn(name="id"),
+	inverseJoinColumns=@JoinColumn(name="id"))
+	private long userId;
 
 	public Long getId() {
 		return id;
@@ -233,11 +229,11 @@ public class Profesor{
 		this.limitacion = limitacion;
 	}
 
-	public User getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(User userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 

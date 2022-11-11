@@ -1,23 +1,45 @@
 package com.aantik.demo.entidad;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
-public class Rubrica_preg_dg {
+import org.hibernate.annotations.GenericGenerator;
 
+@Entity
+public class Rubrica_preg_dg implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2127936651145909995L;
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
+	@GenericGenerator(name="native",strategy="native")
     @Column(name = "id")
 	private Long id;
 	@Column
 	private  int cuanti;
-	@Column
+	@Column(length = 500)
 	private  String rubrica;
-	@Column
+	@Column(length = 500)
 	private  String actividad;
+	@Column
+	private Long idPreg;
+	
+	
+	
+	public Long getIdPreg() {
+		return idPreg;
+	}
+	public void setIdPreg(Long idPreg) {
+		this.idPreg = idPreg;
+	}
 	public Long getId() {
 		return id;
 	}
