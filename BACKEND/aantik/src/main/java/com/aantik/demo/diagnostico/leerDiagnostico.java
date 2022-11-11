@@ -351,7 +351,10 @@ public class leerDiagnostico {
 				  }else if (cellIdx==4) {
 					  preguntas[auxRow].rub[cant].rubrica=Double.parseDouble(value2)*100+"% ";	
 				  }else if (cellIdx==5) {
+					  if(preguntas[auxRow].rub[cant].rubrica !=null)
 					  preguntas[auxRow].rub[cant].rubrica=preguntas[auxRow].rub[cant].rubrica+value2;	
+					  else
+						  preguntas[auxRow].rub[cant].rubrica=value2;	
 				  }else if (cellIdx==6) {
 					  preguntas[auxRow].rub[cant].actividad=value2;
 				  }

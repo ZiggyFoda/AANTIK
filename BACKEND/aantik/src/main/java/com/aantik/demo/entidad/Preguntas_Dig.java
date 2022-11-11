@@ -1,14 +1,27 @@
 package com.aantik.demo.entidad;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Preguntas_Dig {
+public class Preguntas_Dig implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6334374320762591152L;
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
+	@GenericGenerator(name="native",strategy="native")
     @Column(name = "id")
 	private Long id;
 	@Column
@@ -19,6 +32,12 @@ public class Preguntas_Dig {
 	private  String insump;
 	@Column
 	private String automatica;
+	
+	@JoinTable(name = "rubrica_preg",
+	joinColumns=@JoinColumn(name="id"),
+	inverseJoinColumns=@JoinColumn(name="id_rub"))
+	private Long id_rub;
+	
 	public Long getId() {
 		return id;
 	}

@@ -36,10 +36,10 @@ public class User implements Serializable{
 	private String password;
 	
 	//@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "user_roles",
-			joinColumns=@JoinColumn(name="usuario_id"),
-			inverseJoinColumns=@JoinColumn(name="role_id"))
-	private Role roles;
+	@JoinTable(name = "role",
+			joinColumns=@JoinColumn(name="id"),
+			inverseJoinColumns=@JoinColumn(name="id"))
+	private long roles;
 
 	
 	public Long getId() {
@@ -66,59 +66,17 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((roles == null) ? 0 : roles.hashCode());
-		result = prime * result + ((username == null) ? 0 : username.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (roles == null) {
-			if (other.roles != null)
-				return false;
-		} else if (!roles.equals(other.roles))
-			return false;
-		if (username == null) {
-			if (other.username != null)
-				return false;
-		} else if (!username.equals(other.username))
-			return false;
-		return true;
-	}
 
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Role getRoles() {
+	public long getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Role roles) {
+	public void setRoles(long roles) {
 		this.roles = roles;
 	}
 
@@ -127,7 +85,7 @@ public class User implements Serializable{
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", roles=" + roles + "]";
 	}
 
-	public User(Long id, String username, String password, Role roles) {
+	public User(Long id, String username, String password, long roles) {
 		super();
 		this.id = id;
 		this.username = username;

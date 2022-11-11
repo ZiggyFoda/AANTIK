@@ -1,17 +1,13 @@
 package com.aantik.demo.service;
 
 import java.util.Optional;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aantik.demo.entidad.Profesor;
-import com.aantik.demo.entidad.RedTejido;
 import com.aantik.demo.entidad.Role;
 import com.aantik.demo.entidad.User;
 import com.aantik.demo.model.ModDocente;
-import com.aantik.demo.model.tejidoSocial;
 import com.aantik.demo.repositorio.ProfesorRepositorio;
 import com.aantik.demo.repositorio.RoleRepositorio;
 import com.aantik.demo.repositorio.UsuarioRepositorio;
@@ -36,21 +32,25 @@ public class ProfesorCRUD implements ProfesorCRUDLocal{
 	}
 	
 	@Override
-	public Profesor crearProfesor(Profesor profesor) throws Exception {
-		if(existe(profesor)) {
-			User userDoc=new User();
-			if(profesor.getCorreo()!=null) {
-				userDoc.setUsername(profesor.getCorreo());
+	public void crearProfesor(Profesor addProf) throws Exception {
+		if(existe(addProf)) {
+			if(addProf.getCorreo()!=null && addProf.getCorreo().length()>1) {
+				User userDoc=new User();
+				userDoc.setUsername(addProf.getCorreo());
 				userDoc.setPassword("1236");
 				Role rolDoc;
 				rolDoc=repositoryRol.findByName("Docente");
-				userDoc.setRoles(rolDoc);
+				userDoc.setRoles(rolDoc.getId());
 				repositoryUser.save(userDoc);
-				//profesor.setUserId(userDoc);
-			}		
-			profesor = repository.save(profesor);
+				System.out.println("insertando usuario");
+				addProf.setUserId(userDoc.getId());
+			}
+			if(addProf.getNombre() !=null) {
+				addProf = repository.save(addProf);
+				System.out.println("insertando docente");
+			}
 		}
-		return profesor;
+		//return addProf;
 	}
 
 	@Override

@@ -32,11 +32,10 @@ public class Admin implements Serializable{
 	@Column
 	private String correo;	
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "admin_user",
-			joinColumns=@JoinColumn(name="admin_id"),
-			inverseJoinColumns=@JoinColumn(name="user_id"))
-	private Set<User> userId;
+	@JoinTable(name = "user",
+			joinColumns=@JoinColumn(name="id"),
+			inverseJoinColumns=@JoinColumn(name="id"))
+	private User userId;
 
 	public Long getId() {
 		return id;
@@ -62,11 +61,11 @@ public class Admin implements Serializable{
 		this.correo = correo;
 	}
 
-	public Set<User> getUserId() {
+	public User getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Set<User> userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 	
