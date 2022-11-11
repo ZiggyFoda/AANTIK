@@ -1,30 +1,15 @@
 package com.aantik.demo.entidad;
 
-import java.io.Serializable;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Coordinador implements Serializable{
+public class Coordinador{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6419083030906654410L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
-	@GenericGenerator(name="native",strategy="native")
 	private Long id;
 	@Column
 	private String nombre;
@@ -33,11 +18,10 @@ public class Coordinador implements Serializable{
 	@Column
 	private String asignatura;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "coordinador_user",
-			joinColumns=@JoinColumn(name="coordinador_id"),
-			inverseJoinColumns=@JoinColumn(name="user_id"))
-	private Set<User> userId;
+	@JoinTable(name = "user",
+	joinColumns=@JoinColumn(name="id"),
+	inverseJoinColumns=@JoinColumn(name="id"))
+	private User userId;
 
 	public Long getId() {
 		return id;
@@ -71,11 +55,11 @@ public class Coordinador implements Serializable{
 		this.asignatura = asignatura;
 	}
 
-	public Set<User> getUserId() {
+	public User getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Set<User> userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 	

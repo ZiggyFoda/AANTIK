@@ -1,18 +1,13 @@
 package com.aantik.demo.entidad;
 
 import java.io.Serializable;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -39,11 +34,10 @@ public class OrgSocial implements Serializable{
 	@Column
 	private String producServ;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "orgsocial_user",
-			joinColumns=@JoinColumn(name="orgsocial_id"),
-			inverseJoinColumns=@JoinColumn(name="user_id"))
-	private Set<User> userId;
+	@JoinTable(name = "user",
+	joinColumns=@JoinColumn(name="id"),
+	inverseJoinColumns=@JoinColumn(name="id"))
+	private User userId;
 
 	public Long getId() {
 		return id;
@@ -93,11 +87,11 @@ public class OrgSocial implements Serializable{
 		this.producServ = producServ;
 	}
 
-	public Set<User> getUserId() {
+	public User getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Set<User> userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 	

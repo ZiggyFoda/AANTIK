@@ -1,14 +1,10 @@
 package com.aantik.demo.entidad;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 
 @Entity
 public class Estudiante{
@@ -46,11 +42,10 @@ public class Estudiante{
 	@Column
 	private String infografia; //revision de infografia de pasos a seguir
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "estudiante_user",
-			joinColumns=@JoinColumn(name="estudiante_id"),
-			inverseJoinColumns=@JoinColumn(name="user_id"))
-	private Set<User> userId;
+	@JoinTable(name = "user",
+	joinColumns=@JoinColumn(name="id"),
+	inverseJoinColumns=@JoinColumn(name="id"))
+	private User userId;
 
 	public Long getId() {
 		return id;
@@ -124,11 +119,11 @@ public class Estudiante{
 		this.linAccion = linAccion;
 	}
 
-	public Set<User> getUserId() {
+	public User getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Set<User> userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 

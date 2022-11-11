@@ -59,7 +59,7 @@ export default {
         correo: null,
         telefono: null
       } ],
-prueba: null,
+      prueba: null,
       
     } ,
 
@@ -99,11 +99,15 @@ prueba: null,
         telefono: this.estudiante.telefono
       };*/
       getAll() {
-      this.loginService.getAll().then(data,data2 => {
-        this.datos.estudiante = data.data;
-        this.datos.prueba = data2.data;
-        console.log(prueba);
+      this.loginService.getAll().then(data => {
+        this.datos = data.data;
+        console.log("gj-----");
+        console.log("gj-----",data.data.String);
+        console.log("typeof-----",typeof data.data);
+        console.log("key-----",typeof data.headers);
+        console.log("DATOS-----",this.datos);
       });
+      console.log("gj-----");
       console.log(this.estudiante.nombre);
       },
       /*try {
