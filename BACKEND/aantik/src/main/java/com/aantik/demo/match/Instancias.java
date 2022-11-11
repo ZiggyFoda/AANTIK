@@ -80,13 +80,13 @@ public class Instancias {
 		return ret;
 	}
 	
-/*	public String nomEst(int id) {
-		String nombre;
+	public String nomEst(int id) {
+		String nombre=null;
 		for(int i=0;i<getCantEst();i++) {
 			if(estudiantes[i].id==id) {
 				nombre=estudiantes[i].nombre;
 			}
 		}
 		return nombre;
-	}*/
+	}
 }

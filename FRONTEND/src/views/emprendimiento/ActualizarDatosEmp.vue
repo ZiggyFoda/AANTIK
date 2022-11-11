@@ -13,6 +13,16 @@
     <div>
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
 
+
+        <b-form-group id="input-group-1" label="Nombre:" label-for="input-0">     
+          <b-form-input
+            id="input-0"
+            v-model="form.nada"
+            :placeholder="encargado"
+            disabled
+          ></b-form-input>
+        </b-form-group>
+
         <b-form-group id="input-group-1" label="Teléfono:" label-for="input-1">     
           <b-form-input
             id="input-1"
@@ -69,24 +79,15 @@
           ></b-form-select>
         </b-form-group>
 
-        <b-form-group label="Seleccione los días y campo horario en el que desea recibir notificaciones:" v-slot="{ ariaDescribedby }">
-      <b-form-checkbox-group
-        id="checkbox-group-2"
-        v-model="notif"
-        :aria-describedby="ariaDescribedby"
-        name="flavour-2"
-      >
-        <b-form-checkbox value="Lunes">Lunes</b-form-checkbox>
-        <b-form-checkbox value="Martes">Martes</b-form-checkbox>
-        <b-form-checkbox value="Miercoles">Miercoles</b-form-checkbox>
-        <b-form-checkbox value="Jueves">Jueves</b-form-checkbox>
-        <b-form-checkbox value="Viernes">Viernes</b-form-checkbox>
-        <b-form-checkbox value="Sabado">Sabado</b-form-checkbox>
-        <b-form-checkbox value="Domingo">Domingo</b-form-checkbox>
-        <b-form-checkbox value="AM">Am</b-form-checkbox>
-        <b-form-checkbox value="PM">PM</b-form-checkbox>
-      </b-form-checkbox-group>
-    </b-form-group>
+        <b-form-group id="input-group-4" label="Seleccione los horarios en los que desea recibir notificaciones relacionadas con su proyecto social universitario o CDIO
+" label-for="input-8">     
+          <b-form-select
+            id="input-8"
+            v-model="form.notif"
+            :options="notif"
+            required
+          ></b-form-select>
+        </b-form-group>
         
 
         <b-button type="submit" variant="primary">Guardar</b-button>
@@ -108,10 +109,11 @@
 <script>
 import axios from 'axios';
 import SidebarMenuAkahon from "@/components/SideBar.vue"
-
+import AuthService from "@/service/auth.service"
   export default {
     data() {
       return {
+        encargado: AuthService.getUser(),
         form: {
           telefono: '',
           municipio: '',
@@ -123,8 +125,8 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
         localidad: [{ text: 'Selecione una', value: null }, 'Usaquén', 'Chapinero', 'Santa Fe', 'San Cristóbal', 'Usme', 'Tunjuelito', 'Bosa', 'Kennedy', 'Fontibón', 'Engativá', 'Suba', 'Barrios Unidos', 'Teusaquillo', '	Los Mártires', 'Antonio Nariño', 'Puente Aranda', 'La Candelaria', 'Rafael Uribe Uribe', 'Ciudad Bolívar', 'Sumapaz'],
         experiencia: [{ text: 'Selecione una', value: null }, 'Monitoria en la javeriana', 'Trabajo social o voluntariado', 'No'],
         transporte: [{ text: 'Selecione una', value: null }, 'Carro', 'Moto', 'Otro', 'No'],
-        notif1: [{ text: 'Selecione una', value: null }, '1', '2', '3', '4'],
-        notif: [],
+        notif: [{ text: 'Selecione una', value: null }, 'Entre semana AM', 'Entre semana PM', 'Fines de semana AM', 'Fines de semana PM'],
+        
         show: true
       }
     },
@@ -139,7 +141,9 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
           localidad: this.form.localidad,
           barrio: this.form.barrio,
           direccion: this.form.direccion,
-          notif1: this.form.notif,
+          notif: this.form.notif,
+          nombre: AuthService.getUser(),
+          correo: AuthService.getCorreo(),
         });
 
       },

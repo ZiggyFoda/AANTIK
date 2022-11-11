@@ -13,6 +13,15 @@
     <div>
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
 
+        <b-form-group id="input-group-1" label="Nombre:" label-for="input-0">     
+          <b-form-input
+            id="input-0"
+            v-model="form.nada"
+            :placeholder="encargado"
+            disabled
+          ></b-form-input>
+        </b-form-group>
+
         <b-form-group id="input-group-1" label="Teléfono:" label-for="input-1">     
           <b-form-input
             id="input-1"
@@ -96,24 +105,15 @@
           ></b-form-select>
         </b-form-group>
 
-        <b-form-group label="Seleccione los días y campo horario en el que desea recibir notificaciones:" v-slot="{ ariaDescribedby }">
-      <b-form-checkbox-group
-        id="checkbox-group-2"
-        v-model="selected"
-        :aria-describedby="ariaDescribedby"
-        name="flavour-2"
-      >
-        <b-form-checkbox value="Lunes">Lunes</b-form-checkbox>
-        <b-form-checkbox value="Martes">Martes</b-form-checkbox>
-        <b-form-checkbox value="Miercoles">Miercoles</b-form-checkbox>
-        <b-form-checkbox value="Jueves">Jueves</b-form-checkbox>
-        <b-form-checkbox value="Viernes">Viernes</b-form-checkbox>
-        <b-form-checkbox value="Sabado">Sabado</b-form-checkbox>
-        <b-form-checkbox value="Domingo">Domingo</b-form-checkbox>
-        <b-form-checkbox value="AM">Am</b-form-checkbox>
-        <b-form-checkbox value="PM">PM</b-form-checkbox>
-      </b-form-checkbox-group>
-    </b-form-group>
+        <b-form-group id="input-group-4" label="Seleccione los horarios en los que desea recibir notificaciones relacionadas con su proyecto social universitario o CDIO
+" label-for="input-8">     
+          <b-form-select
+            id="input-8"
+            v-model="form.notif"
+            :options="notif"
+            required
+          ></b-form-select>
+        </b-form-group>
 
         
 
@@ -136,10 +136,11 @@
 <script>
 import axios from 'axios';
 import SidebarMenuAkahon from "@/components/SideBar.vue"
-
+import AuthService from "@/service/auth.service"
   export default {
     data() {
       return {
+        encargado: AuthService.getUser(),
         form: {
           telefono: '',
           municipio: '',
@@ -150,6 +151,7 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
           tipoOrg: null,
           contacto: null,
           sector: null,
+          limitacion: null,
         },
         localidad: [{ text: 'Selecione una', value: null }, 'Usaquén', 'Chapinero', 'Santa Fe', 'San Cristóbal', 'Usme', 'Tunjuelito', 'Bosa', 'Kennedy', 'Fontibón', 'Engativá', 'Suba', 'Barrios Unidos', 'Teusaquillo', '	Los Mártires', 'Antonio Nariño', 'Puente Aranda', 'La Candelaria', 'Rafael Uribe Uribe', 'Ciudad Bolívar', 'Sumapaz'],
         notif: [{ text: 'Selecione una', value: null }, 'Lunes', 'Martes', 'Miercoles', 'Jueves'],
@@ -159,6 +161,7 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
         tipoOrg: [{ text: 'Selecione una', value: null }, 'Fundación', 'Cooperativa', 'Colegio', 'Fondo de empleados', 'Asociación', 'Corporación', 'Hospital'],
         limitacion: [{ text: 'Selecione una', value: null }, 'Social', 'Psicológica', 'Física', 'No'],
         contacto: [{ text: 'Selecione una', value: null }, 'Llamada', 'Whatsapp', 'Teams', 'Correo'],
+        notif: [{ text: 'Selecione una', value: null }, 'Entre semana AM', 'Entre semana PM', 'Fines de semana AM', 'Fines de semana PM'],
         selected: [],
         show: true
       }
@@ -177,6 +180,9 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
           vincu: this.form.vincu,
           titulo: this.form.titulo,
           linacc: this.form.linacc,
+          limitacion: this.form.limitacion,
+          nombre: AuthService.getUser(),
+          //id: AuthService.getUser(),
         });
 
       },
@@ -191,6 +197,7 @@ import SidebarMenuAkahon from "@/components/SideBar.vue"
         this.form.vincu = null
         this.form.titulo = ''
         this.form.linacc = null
+        this.form.limitacion = null
         // Trick to reset/clear native browser form validation state
         this.show = false
         this.$nextTick(() => {

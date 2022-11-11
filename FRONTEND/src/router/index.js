@@ -372,11 +372,23 @@ const routes = [
     component: () => import('../views/emprendimiento/HomeEmp.vue')
     ,meta: {requiresAuth: true}
   },
+  {
+    path: '/datosEmp',
+    name: 'datosEmp',
+    component: () => import('../views/emprendimiento/ActualizarDatosEmp.vue')
+    ,meta: {requiresAuth: true}
+  },
    //DOCENTE
    {
     path: '/HomeDoc',
     name: 'HomeDoc',
     component: () => import('../views/docente/HomeDoc.vue')
+    ,meta: {requiresAuth: true}
+  },
+  {
+    path: '/datosDoc',
+    name: 'datosDoc',
+    component: () => import('../views/docente/ActualizarDatosDoc.vue')
     ,meta: {requiresAuth: true}
   },
     //EMPRENDIMIENTO

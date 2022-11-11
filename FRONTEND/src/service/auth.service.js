@@ -17,6 +17,10 @@ class AuthService {
     var user = JSON.parse(localStorage.getItem('user'));
     return user.username.split("@")[0]
   }
+  getCorreo(){
+    var user = JSON.parse(localStorage.getItem('user'));
+    return user.username
+  }
   logout() {
     localStorage.removeItem('user');
   }

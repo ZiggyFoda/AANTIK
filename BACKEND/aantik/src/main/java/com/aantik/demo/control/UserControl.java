@@ -1,12 +1,15 @@
 package com.aantik.demo.control;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -80,8 +83,10 @@ public class UserControl {
 	}
 
 	@GetMapping("/all")
-	public ResponseEntity<Mpreinscrito[]> sendStudents() {
+	public ResponseEntity<Map<Mpreinscrito[],String>> sendStudents() { 
+	//public ResponseEntity<Mpreinscrito[],String>  sendStudents() {
 		Mpreinscrito est[] = new Mpreinscrito[2];
+		 Map<Mpreinscrito[],String> response = new HashMap<Mpreinscrito[], String>();
 		try {
 			est[0]=new Mpreinscrito();
 			est[1]=new Mpreinscrito();
@@ -93,7 +98,9 @@ public class UserControl {
 			est[1].correo="Julia@gmail.com";
 			est[1].telefono="11122233";
 			System.out.println("Enviar estudiante: "+est[1].nombre);
-				return new ResponseEntity<Mpreinscrito[]>(est, HttpStatus.OK);
+			response.put(est, "success saving data");
+			return ResponseEntity.accepted().body(response);
+				//return new ResponseEntity<MultiValueMap<Mpreinscrito[],String>>  (est, HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();

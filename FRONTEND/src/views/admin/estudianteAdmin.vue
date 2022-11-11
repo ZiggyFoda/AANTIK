@@ -13,18 +13,20 @@
         Ingrese aquí para agregar estudiantes preinscritos de forma masiva
         por medio de un archivo .csv
         <router-link to="/subirFile">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Agregar estudiantes preinscritos</button></router-link><br>
         Ingrese aquí para agregar un estudiante individual
         <router-link to="/agregarStd">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        <button type="submit" class="btn btn-dark btn-lg w-100">
         Agregar estudiante</button></router-link><br>
         <br>
 
         Listado de estudiantes preinscritos
         <br>
         <div>
-          <b-table striped hover :items="items2" :fields="fields2">
+
+          
+         <b-table striped hover :items="users" :fields="fields">
             <template #cell(Editar)="row">
               <router-link to="/preEdit">
               <b-button class="mr-2">Editar
@@ -37,10 +39,10 @@
           </b-table>
         </div>
         Listado de estudiantes inscritos
-           
+
            <br>
            <div>
-             <b-table striped hover id="pages-table" :items="items" :fields="fields">
+             <b-table striped hover id="pages-table" :items="users" :fields="fields">
                <template #cell(Editar)="row">
                 <router-link to="/stuEdit">
                  <b-button class="mr-2">Editar
@@ -62,8 +64,71 @@
         </template>
 
 <script>
+import axios from "axios";
 import SidebarMenuAkahon from "@/components/SideBar.vue"
+//import service from "@/service/studentData"
+export default {
+  components: {
+    SidebarMenuAkahon,
+  },
+name: "user",
 
+data() {
+
+  return{
+    users: {
+
+id: null,
+
+nombre: null,
+
+asignatura: null,
+
+identificacion: null,
+
+} ,
+
+fields: [
+
+  { key: "id" },
+
+  { key: "nombre" },
+
+  { key: "asignatura" },
+
+  { key: "Editar" },
+
+  { key: "Eliminar" }
+
+],
+
+
+
+  }
+},
+mounted() {
+
+  axios.get("http://localhost:8080/api/gesStu").then(
+
+(response) => {
+
+  this.users= response.data;
+
+}
+
+);
+},
+methods: {
+    handleInput(value, data) {},
+  },
+
+
+
+}
+
+
+
+/*
 export default {
   name: 'estudiantesCord',
   props: {
@@ -83,7 +148,7 @@ export default {
       this.$refs["btn" + data.index].disabled = true      
     }
   },
-  data() {
+  
       return {
         items: [
           { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Emprendimiento: 'emprendimiento 2' },
@@ -124,7 +189,8 @@ export default {
         ]
       }      
   }
-}
+}*/
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

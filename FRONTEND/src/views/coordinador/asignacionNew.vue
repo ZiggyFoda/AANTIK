@@ -18,7 +18,7 @@
            
         <br>
         <div>
-          <b-table striped hover id="pages-table" :items="items" :fields="fields">
+          <b-table striped hover id="pages-table" :items="users" :fields="fields">
             <template #cell(asignar)="row">
               <b-button class="mr-2">Asignar
               </b-button>
@@ -38,7 +38,7 @@
 
 <script>
 import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
-
+import axios from "axios";
 export default {
   name: 'estudiantesCord',
   props: {
@@ -47,37 +47,76 @@ export default {
    components: {
     SidebarMenuAkahon,
   },
-  methods: {
-    search() {
-      
-    },
-    update(data) {
-      // I need to disable the button here
-      this.output = data;
-      data.item.name = "Dave";
-      this.$refs["btn" + data.index].disabled = true      
-    }
-  },
   data() {
-      return {
-        items: [
-          { ID: 40, Nombres: 'Dickerson', Clase:'2230' , Emprendimiento: 'emprendimiento 2' },
-          { ID: 40, Nombres: 'Dickerson', Clase:'2230' , Emprendimiento: 'emprendimiento 2' },
-          { ID: 40, Nombres: 'Dickerson', Clase:'2230' , Emprendimiento: 'emprendimiento 2' }
-        ],fields: [
-          {
-            key: "ID",
-            label: "ID",
-            sortable: true
-          },
-          { key: "Nombres" },
-          { key: "Clase" },
-          { key: "Emprendimiento" },
-          { key: "asignar" }
-        ]
-      }      
-  }
+    return {
+      estudiantes: {
+
+        id: null,
+
+        nombre: null,
+
+        clase: null,
+
+        emprendimiento: null,
+
+        asignar: null,
+
+
+} ,
+      fields: [
+        {
+          key: "id",
+        },
+        {
+          key: "nombre",
+        },
+        {
+          key: "clase",
+        },
+        {
+          key: "emprendmineito",
+        },
+        {
+          key: "Asignar",
+        },
+        
+      ],
+
+      form: {
+          estado: '',
+
+        },
+
+        estado: [{ text: 'Selecione una', value: null }, 'Pendiente', 'Satisfecho'],
+        show: true
+      }
+    },
+    items: [
+    {
+      label: "Refrescar",
+      icon: "pi pi-fw pi-refresh",
+      command: () => {
+        this.getAll();
+      }
+    }
+  ],
+  mounted() {
+
+axios.get("http://localhost:8080/api/asignacionNueva").then(
+
+(response) => {
+
+this.items= response.data;
+
 }
+
+);
+},
+  methods: {
+    handleInput(value, data) {},
+  },
+};
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

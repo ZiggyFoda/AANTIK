@@ -156,6 +156,8 @@ public class CSV {
 			    	est[numLineas].limitacion=false;
 	
 		    	est[numLineas].localidad=row[7];
+		    	est[numLineas].nombre=row[1];
+		    	est[numLineas].correo=row[3];
 		    	est[numLineas].disponibilidad=this.obtenerDia(row[24])+"AM;"+this.obtenerDia(row[25])+"PM";
 		    	est[numLineas].tipoOrg=row[29];
 		    	est[numLineas].tipoEmp=row[30];
