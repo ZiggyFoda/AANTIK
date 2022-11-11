@@ -12,9 +12,9 @@ import javax.validation.constraints.Size;
 @Table(	name = "noticia")
 
 public class NoticiaEs {
-	
 
-	
+
+
 	@Id
 	private String titulo;
     private String noticia;
@@ -23,7 +23,7 @@ public class NoticiaEs {
     private String encargado; 
     @Email
     private String correo; 
-    
+
     public String getCorreo() {
 		return correo;
 	}
@@ -74,6 +74,5 @@ public class NoticiaEs {
 	}
 
 
-    
 
 }

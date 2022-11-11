@@ -51,11 +51,11 @@ public class AsigController {
     	try {
 
     Asignacion asigna = new Asignacion();     
-    	
+
     ModAsig asig[] = new ModAsig[20];
-    
+
     asigna.inicial();
-    
+
     asig=asigna.asig;
 
     //asigRepositorio.save(asig);
@@ -66,9 +66,9 @@ public class AsigController {
 		System.out.println("Usuario no existe"+e);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 	}
-    
+
     }
-    
+
 
 
 }
