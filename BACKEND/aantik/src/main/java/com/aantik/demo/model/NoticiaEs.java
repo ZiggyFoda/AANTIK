@@ -7,8 +7,15 @@ public class NoticiaEs {
     private String fuente;   
     private String fecha; 
     private String encargado; 
+    private String correo; 
     
-    public String getFecha() {
+    public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+	public String getFecha() {
 		return fecha;
 	}
 	public void setFecha(String fecha) {

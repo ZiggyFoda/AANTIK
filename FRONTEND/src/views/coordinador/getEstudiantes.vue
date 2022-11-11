@@ -53,11 +53,16 @@ export default {
   },
   data() {
     return{
-      estudiante: {
+      datos:{
+        estudiante:[ {
         nombre: null,
         correo: null,
         telefono: null
-      } ,
+      } ],
+prueba: null,
+      
+    } ,
+
       fields: [
           { key: "nombre" },
           { key: "correo" },
@@ -94,9 +99,12 @@ export default {
         telefono: this.estudiante.telefono
       };*/
       getAll() {
-      this.loginService.getAll().then(data => {
-        this.estudiante = data.data;
+      this.loginService.getAll().then(data,data2 => {
+        this.datos.estudiante = data.data;
+        this.datos.prueba = data2.data;
+        console.log(prueba);
       });
+      console.log(this.estudiante.nombre);
       },
       /*try {
         //let self = this;

@@ -13,13 +13,15 @@
     <div>
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
 
-        <b-table striped hover :items="estudiante" :fields="fields" @change="getFile($event)"></b-table>
-
     
-          <b-card txt=estudiante.nombre>
-            "txt"
-          </b-card>
-
+        <b-form-group id="input-group-1" label="Nombre:" label-for="input-1">     
+          <b-form-input
+            id="input-1"
+            v-model="form.nada"
+            :placeholder="encargado"
+            disabled
+          ></b-form-input>
+        </b-form-group>
 
         <b-form-group id="input-group-1" label="Teléfono:" label-for="input-1">     
           <b-form-input
@@ -94,25 +96,7 @@
           ></b-form-select>
         </b-form-group>
 
-        <b-form-group label="Seleccione los días y campo horario en el que desea recibir notificaciones:" v-slot="{ ariaDescribedby }">
-      <b-form-checkbox-group
-        id="checkbox-group-2"
-        v-model="selected"
-        :aria-describedby="ariaDescribedby"
-        name="flavour-2"
-      >
-        <b-form-checkbox value="Lunes">Lunes</b-form-checkbox>
-        <b-form-checkbox value="Martes">Martes</b-form-checkbox>
-        <b-form-checkbox value="Miercoles">Miercoles</b-form-checkbox>
-        <b-form-checkbox value="Jueves">Jueves</b-form-checkbox>
-        <b-form-checkbox value="Viernes">Viernes</b-form-checkbox>
-        <b-form-checkbox value="Sabado">Sabado</b-form-checkbox>
-        <b-form-checkbox value="Domingo">Domingo</b-form-checkbox>
-        <b-form-checkbox value="AM">Am</b-form-checkbox>
-        <b-form-checkbox value="PM">PM</b-form-checkbox>
-      </b-form-checkbox-group>
-    </b-form-group>
-        
+       
 
         <b-button type="submit" variant="primary">Guardar</b-button>
         <b-button type="reset" variant="danger">Cancelar</b-button>
@@ -133,20 +117,16 @@
 <script>
 import axios from 'axios';
 import SidebarMenuAkahon from "@/components/SideBarPreIns.vue"
-import LoginService from "@/service/LoginService";
+
+import AuthService from "@/service/auth.service"
+
+
 
   export default {
     data() {
       return {
-        estudiante: {
-        nombre: null,
-        correo: null,
-      } ,
-      fields: [
-          { key: "nombre" },
-          { key: "correo" },
-        ],
 
+        encargado: AuthService.getUser(),
         form: {
           telefono: '',
           municipio: '',
@@ -161,7 +141,7 @@ import LoginService from "@/service/LoginService";
         experiencia: [{ text: 'Selecione una', value: null }, 'Monitoria en la javeriana', 'Trabajo social o voluntariado', 'No'],
         limitacion: [{ text: 'Selecione una', value: null }, 'Social', 'Psicológica', 'Física', 'No'],
         transporte: [{ text: 'Selecione una', value: null }, 'Carro', 'Moto', 'Otro', 'No'],
-        notif: [{ text: 'Selecione una', value: null }, '1', '2', '3', '4'],
+        notif: [{ text: 'Selecione una', value: null }, 'Entre semana AM', 'Entre semana PM', 'Fines de semana AM', 'Fines de semana PM'],
         show: true
       }
     },
@@ -174,11 +154,7 @@ import LoginService from "@/service/LoginService";
       }
     }
   ],
-  loginService: null,
-  created() {
-    this.loginService = new LoginService();
-    this.getAll();
-  },
+
     components: {
     SidebarMenuAkahon,
     },
@@ -193,6 +169,8 @@ import LoginService from "@/service/LoginService";
           limitacion: this.form.limitacion,
           localidadrest: this.form.localidadrest,
           notif: this.form.notif,
+          nombre: AuthService.getUser(),
+          //id: AuthService.getUser(),
         });
 
       },
@@ -212,11 +190,6 @@ import LoginService from "@/service/LoginService";
         this.$nextTick(() => {
           this.show = true
         })
-      },
-      getAll() {
-      this.loginService.getAll().then(data => {
-        this.estudiante = data.data;
-      });
       },
     }
   }

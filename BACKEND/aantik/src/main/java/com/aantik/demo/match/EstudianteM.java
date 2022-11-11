@@ -23,4 +23,6 @@ public class EstudianteM {
 	  int pActividad;
 	  int pTipoOrg;
 	  int pComunidad;
+	  String correo;
+	  String nombre;
 }

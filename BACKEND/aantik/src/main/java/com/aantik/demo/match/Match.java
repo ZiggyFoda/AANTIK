@@ -403,7 +403,8 @@ public class Match {
 		for(int i=0;i<asignados;i++) {
 			ModEmprendimiento ret=new ModEmprendimiento();
 			ret=in.getemp(asignaciones[i][1]);
-			System.out.println("Estudiante: "+asignaciones[i][0]+
+			String nombreStu = in.nomEst(asignaciones[i][0]);
+			System.out.println("Estudiante: "+asignaciones[i][0]+"\n"+nombreStu+
 					"\n Asignado a emprendimiento "+asignaciones[i][1]+" "+ret.nombreEmp
 					+"\nUbicado en direccion: "+ret.direccion+" y localidad: "+ret.localidad+"\n\n");
 		}
