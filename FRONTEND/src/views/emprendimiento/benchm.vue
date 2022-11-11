@@ -28,7 +28,7 @@
                 value-field="puntaje"
                 name="Benchmarking"
                 type="bar"
-                color="#ffaa66"
+                color="#2C5698"
                 />
             </DxChart>
         </b-col>
