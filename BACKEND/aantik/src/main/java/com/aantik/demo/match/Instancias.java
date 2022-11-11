@@ -89,4 +89,14 @@ public class Instancias {
 		}
 		return nombre;
 	}
+	
+	public String corEst(int id) {
+		String correo=null;
+		for(int i=0;i<getCantEst();i++) {
+			if(estudiantes[i].id==id) {
+				correo=estudiantes[i].correo;
+			}
+		}
+		return correo;
+	}
 }

@@ -18,13 +18,16 @@
            
         <br>
         <div>
-          <b-table striped hover id="pages-table" :items="users" :fields="fields">
+
+
+          <b-table striped hover :items="users" :fields="fields">
             <template #cell(asignar)="row">
               <b-button class="mr-2">Asignar
               </b-button>
             </template>
-           
           </b-table>
+
+
         </div>
         <br>
        
@@ -40,22 +43,24 @@
 import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
 import axios from "axios";
 export default {
-  name: 'estudiantesCord',
-  props: {
-    msg: String
-  },
+
+
    components: {
     SidebarMenuAkahon,
   },
+
+  name: 'estudiantesCord',
+
   data() {
+    
     return {
-      estudiantes: {
+      users: {
 
         id: null,
 
         nombre: null,
 
-        clase: null,
+        correo: null,
 
         emprendimiento: null,
 
@@ -71,13 +76,13 @@ export default {
           key: "nombre",
         },
         {
-          key: "clase",
+          key: "correo",
         },
         {
-          key: "emprendmineito",
+          key: "emprendimiento",
         },
         {
-          key: "Asignar",
+          key: "asignar",
         },
         
       ],
@@ -91,25 +96,15 @@ export default {
         show: true
       }
     },
-    items: [
-    {
-      label: "Refrescar",
-      icon: "pi pi-fw pi-refresh",
-      command: () => {
-        this.getAll();
-      }
-    }
-  ],
   mounted() {
 
 axios.get("http://localhost:8080/api/asignacionNueva").then(
 
 (response) => {
 
-this.items= response.data;
-
+this.users= response.data;
+console.log(this.users)
 }
-
 );
 },
   methods: {

@@ -1,5 +1,12 @@
 package com.aantik.demo.match;
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.aantik.demo.entidad.Coordinador;
+import com.aantik.demo.repositorio.CoordinadorRepositorio;
 import java.util.Random;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,98 +19,56 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.aantik.demo.cargaUsuarios.leerEmprendimientos;
+import com.aantik.demo.entidad.Estudiante;
+import com.aantik.demo.model.ModEmprendimiento;
+import com.aantik.demo.model.Mpreinscrito;
+import com.aantik.demo.service.UserCRUD;
 
 
-public class Match {
-	//se obtienen de leer las tablas
+public class Asignacion {
+
 	int cantEst=100;
 	int cantEmp=100;
 	int asignados=0;
-	
+	public ModAsig asig[] = new ModAsig[13];
 	int estu[][][]= new int[cantEst][cantEmp+1][2] ;
 	int asignaciones[][]= new int[cantEst][2];
 	int cupos[][] = new int[cantEmp][2];
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		  /*String host="13.66.33.251";
-		    String user="aantik";
-		    String password="+JuGaLi123*";
-		    String command1="cd Aantik";
-		    String command2="ls";
-		    String command3="java HelloWorldApp";
-		    try{
-		    	
-		    	java.util.Properties config = new java.util.Properties(); 
-		    	config.put("StrictHostKeyChecking", "no");
-		    	JSch jsch = new JSch();
-		    	Session session=jsch.getSession(user, host, 22);
-		    	session.setPassword(password);
-		    	session.setConfig(config);
-		    	session.connect();
-		    	System.out.println("Connected");
-		    	
-		    	Channel channel=session.openChannel("exec"); 
-		        ((ChannelExec)channel).setCommand(command1+" && "+command2+" && "+command3); 
-		        channel.setInputStream(null);
-		        ((ChannelExec)channel).setErrStream(System.err);
-				InputStream in=channel.getInputStream();
-				channel.connect();
-		        byte[] tmp=new byte[1024];
-		        while(true){
-					while(in.available()>0){
-					    int i=in.read(tmp, 0, 1024);
-					    if(i<0)break;
-					    System.out.print(new String(tmp, 0, i));
-					  }
-
-		          if(channel.isClosed()){
-		            System.out.println("exit-status: "+channel.getExitStatus());
-		            break;
-		          }
-		          try{Thread.sleep(1000);}catch(Exception ee){}
-		        }
-				
-
-
-		       // respuesta(channel); 
-		        //respuesta(channel);
-		        
-
-		        channel.disconnect();
-		        session.disconnect();
-		        System.out.println("DONE");
-		    }catch(Exception e){
-		    	e.printStackTrace();
-		    }
-		*/
+	public void inicial() {
 		Instancias ins=new Instancias();
-		//ins.instanciaPreinscritos("");
+
 		
 		System.out.println(ins.preinscritos[0]);
 		ins.instanciaEmprendimientos2();
 		String fileEst="test.csv";
 		ins.instanciaEstudiantes(fileEst);
 		
-		Match mt=new Match();
-		mt.calcularPuntaje(ins);
-		mt.llenar2(ins);
-		mt.imprimirD1();
-		mt.imprimirD2();
-		mt.llenarCupos();
-		mt.imprimirCupos();
+		//Asignacion this= this.Class;
+		this.calcularPuntaje(ins);
+		this.llenar2(ins);
+		this.imprimirD1();
+		this.imprimirD2();
+		this.llenarCupos();
+		this.imprimirCupos();
 
-		mt.operacionInicial();
+		this.operacionInicial();
 		System.out.println("----match inicial---");
-		mt.mathcInicial(ins);
+		this.mathcInicial(ins);
 		System.out.println("----resultado match inicial---");
-		mt.imprimirD2();
+		this.imprimirD2();
 		System.out.println("----match recursivo---");
-		mt.mathc2();
+		this.mathc2();
 		System.out.println("----resultado match---");
-		mt.imprimirD2();
-		mt.asignacion(ins);
+		this.imprimirD2();
+		this.asignacion(ins);
 		
 	}
 	
@@ -414,12 +379,17 @@ public class Match {
 					"\n Asignado a emprendimiento "+asignaciones[i][1]+" "+ret.nombreEmp
 					+"\nUbicado en direccion: "+ret.direccion+" y localidad: "
 					+ret.localidad+"\n\n");
-			ModAsig asig[] = new ModAsig[cantEst];
-			asig[i]=new ModAsig();
+			asig[i]= new ModAsig();
 			asig[i].setId(asignaciones[i][0]);
 			asig[i].setNombre(nombreStu);
 			asig[i].setCorreo(correoStu);
 			asig[i].setEmprendimiento(ret.nombreEmp);
+
 		}
 	}
+	
 }
+
+	
+
+

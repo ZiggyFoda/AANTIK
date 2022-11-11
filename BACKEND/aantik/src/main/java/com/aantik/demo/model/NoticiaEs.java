@@ -1,12 +1,27 @@
 package com.aantik.demo.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(	name = "noticia")
+
 public class NoticiaEs {
 	
+
+	
+	@Id
 	private String titulo;
     private String noticia;
     private String fuente;   
     private String fecha; 
     private String encargado; 
+    @Email
     private String correo; 
     
     public String getCorreo() {
@@ -44,6 +59,18 @@ public class NoticiaEs {
 	}
 	public void setFuente(String fuente) {
 		this.fuente = fuente;
+	}
+	public NoticiaEs(String titulo, String noticia, String fuente, String fecha, String encargado, String correo) {
+		super();
+		this.titulo = titulo;
+		this.noticia = noticia;
+		this.fuente = fuente;
+		this.fecha = fecha;
+		this.encargado = encargado;
+		this.correo = correo;
+	}
+	public NoticiaEs() {
+
 	}
 
 

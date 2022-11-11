@@ -20,7 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,39 +33,39 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.bytebuddy.utility.RandomString;
 
+import com.aantik.demo.model.ModAsig;
 
-import com.aantik.demo.model.NoticiaEs;
-import com.aantik.demo.entidad.Noticia;
-import com.aantik.demo.repositorio.noticiaRepositorio;
+//import com.aantik.demo.repositorio.asigRepositorio;
+import com.aantik.demo.match.Asignacion;
+import com.aantik.demo.match.Match;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
 
 @Controller
 
-//RequestMapping("/datos")
+@RequestMapping("/api")
 
-public class NoticiaController {
-	@Autowired private noticiaRepositorio noticiaRepositorio;
-    @PostMapping("/noticiaEs")
-    public ResponseEntity<?> processForgotPassword(@RequestBody NoticiaEs update) {
+public class AsigController {
+	//@Autowired private asigRepositorio asigRepositorio;
+    @GetMapping("/asignacionNueva")
+    public ResponseEntity<ModAsig[]> asigancion() {
+    	try {
 
-    System.out.println("Tit: " + update.getTitulo());
+    Asignacion asigna = new Asignacion();     
+    	
+    ModAsig asig[] = new ModAsig[20];
     
+    asigna.inicial();
     
-    Date date = new Date();
-    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-     String fecha = formatter.format(date);
-    System.out.println("Current date: "+ fecha); 
-    
-    System.out.println("Encargado: " + update.getEncargado());
-    
-    update.setFecha(fecha);
-    
-    NoticiaEs noticia = new NoticiaEs(update.getTitulo(), update.getNoticia(), update.getFuente(), update.getFecha(), update.getEncargado(),update.getCorreo());
+    asig=asigna.asig;
 
-    noticiaRepositorio.save(noticia);
-    
-    return ResponseEntity.ok("ok");
+    //asigRepositorio.save(asig);
+    return new ResponseEntity<ModAsig[]>  (asig, HttpStatus.OK);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		//e.printStackTrace();
+		System.out.println("Usuario no existe"+e);
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+	}
     
     }
     
