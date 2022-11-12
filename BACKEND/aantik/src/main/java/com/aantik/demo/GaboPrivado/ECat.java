@@ -1,0 +1,15 @@
+package com.aantik.demo.GaboPrivado;
+
+public enum ECat {
+    EFICACIA,
+    EFICIENCIA,
+    PRODUCTIVIDAD,
+    COMPETITIVIDAD,
+    ESTRUCTURA_DE_COSTOS,
+    SERVICIO_AL_CLIENTE,
+    GESTIÓN_DE_INVENTARIOS,
+    CONTROL_DE_CALIDAD,
+    RAPIDEZ,
+    PRECIO
+
+}

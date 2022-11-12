@@ -42,10 +42,11 @@ public class BenchmarkingIndica {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     public long idBenchIndica;
 
-    public String CategoriaPregunta;
+    public String categoriaPregunta;
    
-
     public String idPregunta;
+
+    public Integer idDef;
     
     public long getIdBenchIndica() {
         return idBenchIndica;
@@ -60,15 +61,16 @@ public class BenchmarkingIndica {
         this.idPregunta = idPregunta;
     }*/
     public String getCategoriaPregunta() {
-        return CategoriaPregunta;
+        return categoriaPregunta;
     }
     public void setCategoriaPregunta(String categoriaPregunta) {
-        CategoriaPregunta = categoriaPregunta;
+        this.categoriaPregunta = categoriaPregunta;
     }
    
-    public BenchmarkingIndica(String idPregunta, String categoriaPregunta) {
+    public BenchmarkingIndica(String idPregunta, String categoriaPregunta,Integer idDef) {
         this.idPregunta = idPregunta;
-        CategoriaPregunta = categoriaPregunta;
+        this.categoriaPregunta = categoriaPregunta;
+        this.idDef = idDef;
     }
     public BenchmarkingIndica() {
     }
@@ -91,6 +93,12 @@ public class BenchmarkingIndica {
     }
     public void setPreguntasModeloB(Set<PreguntasModeloB> preguntasModeloB) {
         this.preguntasModeloB = preguntasModeloB;
+    }
+    public Integer getIdDef() {
+        return idDef;
+    }
+    public void setIdDef(Integer idDef) {
+        this.idDef = idDef;
     }
 
     

@@ -18,6 +18,7 @@ import com.aantik.demo.service.BenchmarkingExcelReader;
 import com.aantik.demo.service.BenchmarkingExcelService;
 import com.aantik.demo.service.PreguntaExcelService;
 import com.aantik.demo.service.PreguntasExcelReader;
+import com.aantik.demo.repositorio.PreguntasRepository;
 
 @CrossOrigin("http://localhost:8081")
 @Controller
@@ -30,6 +31,9 @@ public class BenchmarkingController {
     @Autowired
     BenchmarkingExcelService BenfileService;
 
+    @Autowired
+    PreguntasRepository tt;
+
     @PostMapping("/uploadDef")
   public ResponseEntity<ResponseMessage> uploadFileDef(@RequestParam("file") MultipartFile file) {
     String message = "";
@@ -37,7 +41,6 @@ public class BenchmarkingController {
     if (PreguntasExcelReader.hasExcelFormat(file)) {
       try {
         fileService.save(file);
-
         message = "Uploaded the file successfully: " + file.getOriginalFilename();
         return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
       } catch (Exception e) {
