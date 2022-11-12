@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 import com.aantik.demo.entidad.Preguntas_Dig;
+import com.aantik.demo.entidad.User;
 
 public interface PreguntaRepositorio extends CrudRepository<Preguntas_Dig,Long>{
 	public Optional<Preguntas_Dig> findById(Long id);
