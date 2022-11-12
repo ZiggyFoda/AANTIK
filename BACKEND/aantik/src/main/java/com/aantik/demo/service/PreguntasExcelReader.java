@@ -13,13 +13,15 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.aantik.demo.GaboPrivado.PreguntasModelo;
+import com.aantik.demo.entidad.PreguntasModeloB;
+
+
 
 public class PreguntasExcelReader {
     
     public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-    static String[] HEADERs = { "Id", "Preguntas", "Descriptions" };
-    static String SHEET = "preguntas por tipo de empr";
+    //static String[] HEADERs = { "Id", "Preguntas", "Descriptions" };
+    static String SHEET = "Definiciones";
 
     public static boolean hasExcelFormat(MultipartFile file) {
 
@@ -30,14 +32,14 @@ public class PreguntasExcelReader {
         return true;
       }
 
-      public static List<PreguntasModelo> excelToTutorials(InputStream is) {
+      public static List<PreguntasModeloB> excelToTutorials(InputStream is) {
         try {
           Workbook workbook = new XSSFWorkbook(is);
     
           Sheet sheet = workbook.getSheet(SHEET);
           Iterator<Row> rows = sheet.iterator();
     
-          List<PreguntasModelo> tutorials = new ArrayList<PreguntasModelo>();
+          List<PreguntasModeloB> tutorials = new ArrayList<PreguntasModeloB>();
     
           int rowNumber = 0;
           while (rows.hasNext()) {
@@ -51,23 +53,20 @@ public class PreguntasExcelReader {
     
             Iterator<Cell> cellsInRow = currentRow.iterator();
     
-            PreguntasModelo tutorial = new PreguntasModelo();
-    
+            PreguntasModeloB tutorial = new PreguntasModeloB();
+
             int cellIdx = 0;
             while (cellsInRow.hasNext()) {
               Cell currentCell = cellsInRow.next();
     
               switch (cellIdx) {
               case 0:
-                tutorial.setId((String) currentCell.getStringCellValue());
+                tutorial.setIndicaid((String) currentCell.getStringCellValue());
+                
                 break;
     
               case 1:
-                tutorial.setPregunta(currentCell.getStringCellValue());
-                break;
-    
-              case 2:
-                tutorial.setDescription(currentCell.getStringCellValue());
+                tutorial.setdescripcion(currentCell.getStringCellValue());
                 break;
     
               default:
