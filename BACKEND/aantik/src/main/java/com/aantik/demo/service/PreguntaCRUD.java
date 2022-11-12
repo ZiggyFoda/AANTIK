@@ -91,4 +91,41 @@ public class PreguntaCRUD implements PreguntaCRUDLocal {
 		}
 	}
 
+
+	public Iterable<Preguntas_Dig> getAll() {
+		// TODO Auto-generated method stub
+		Iterable<Preguntas_Dig> est=repPre.findAll();
+		System.out.println(est);
+		return est;
+	}
+
+
+	public int getCantidad() {
+		// TODO Auto-generated method stub
+		Iterable<Preguntas_Dig> est=repPre.findAll();
+		int cant=0;
+		for(Preguntas_Dig var: est)
+			cant++;
+		return cant;
+	}
+
+	public Iterable<Rubrica_preg_dg>  getRubrica(Long idPreg) {
+		// TODO Auto-generated method stub
+		Iterable<Rubrica_preg_dg> est=repRub.findByIdPreg(idPreg);
+		
+		return est;
+	}
+
+
+	@Override
+	public int getCantidadRubrica(Long idPreg) {
+		// TODO Auto-generated method stub
+		Iterable<Rubrica_preg_dg> est=repRub.findByIdPreg(idPreg);
+		int cantRub=0;
+		for(Rubrica_preg_dg var: est)
+			cantRub++;
+		
+		return cantRub;
+	}
+
 }

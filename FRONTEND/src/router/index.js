@@ -80,26 +80,6 @@ const routes = [
     ,meta: {requiresAuth: true}
   },
   {
-    path: '/datosPre',
-    name: 'datosPre',
-    component: () => import('../views/estudiante/ActualizarDatosPre.vue')
-  },
-  {
-    path: '/datosEs',
-    name: 'datosEs',
-    component: () => import('../views/estudiante/ActualizarDatosEst.vue')
-  },
-  {
-    path: '/reqEs',
-    name: 'reqEs',
-    component: () => import('../views/estudiante/Requisitos.vue')
-  },
-  {
-    path: '/noticiaEs',
-    name: 'noticiaEs',
-    component: () => import('../views/estudiante/SubirNoticia.vue')
-  },
-  {
     path: '/encuesta',
     name: 'encuesta',
     component: () => import('../views/estudiante/Encuesta.vue')
@@ -379,8 +359,14 @@ const routes = [
     ,meta: {requiresAuth: true}
   },
   {
+    path: '/dgvf',
+    name: 'diagn',
+    component: () => import('../views/emprendimiento/forDGV.vue')
+    //,meta: {requiresAuth: true}
+  },
+  {
     path: '/bench',
-    name: 'datosEmp',
+    name: 'benchM',
     component: () => import('../views/emprendimiento/benchm.vue')
     ,meta: {requiresAuth: true}
   },
@@ -423,14 +409,14 @@ const routes = [
       path: '/reqEs',
       name: 'reqEs',
       component: () => import('../views/estudiante/Requisitos.vue')
-      ,meta: {requiresAuth: true}
+    //  ,meta: {requiresAuth: true}
     },
     //SubirNoticia
     {
       path: '/noticiaEs',
       name: 'noticiaEs',
       component: () => import('../views/estudiante/SubirNoticia.vue')
-      ,meta: {requiresAuth: true}
+      //,meta: {requiresAuth: true}
     },
     {
       path: '/benchmarking',
