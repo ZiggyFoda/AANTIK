@@ -9,5 +9,5 @@ import com.aantik.demo.entidad.PreguntasModeloB;
 
 
 public interface  PreguntasRepository extends JpaRepository<PreguntasModeloB, Long> {
-   List<PreguntasModeloB> findByIndicaid (String Indicaid);
+   
 }
