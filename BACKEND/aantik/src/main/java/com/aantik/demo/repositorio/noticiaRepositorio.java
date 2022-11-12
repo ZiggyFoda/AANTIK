@@ -8,8 +8,8 @@ import com.aantik.demo.entidad.Noticia;
 
 
 public interface noticiaRepositorio extends CrudRepository<Noticia,String>{
-	public Optional<Noticia> findByCorreo(String correo);
-	public Optional<Noticia> getUserByCorreo(String correo) throws Exception;
+	public Optional<Noticia> findById(long id);
+	public Optional<Noticia> getUserById(long id) throws Exception;
 
 
 }

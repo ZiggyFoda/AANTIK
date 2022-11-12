@@ -3,6 +3,7 @@ package com.aantik.demo.entidad;
 import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
@@ -11,7 +12,9 @@ public class Noticia{
 	/**
 	 * 
 	 */
-	@Id
+    @Id
+    @GeneratedValue
+    private long id;
 	@Column
 	private String titulo;
 	@Column
@@ -25,6 +28,13 @@ public class Noticia{
 	@Column
 	private String correo;
 	
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getCorreo() {
 		return correo;
 	}
@@ -61,9 +71,10 @@ public class Noticia{
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-	
-	public Noticia(String titulo, String noticia, String fuente, String encargado, String fecha, String correo) {
+	public Noticia(long id, String titulo, String noticia, String fuente, String encargado, String fecha,
+			String correo) {
 		super();
+		this.id = id;
 		this.titulo = titulo;
 		this.noticia = noticia;
 		this.fuente = fuente;
@@ -71,6 +82,8 @@ public class Noticia{
 		this.fecha = fecha;
 		this.correo = correo;
 	}
+	
+
 
 	
 }

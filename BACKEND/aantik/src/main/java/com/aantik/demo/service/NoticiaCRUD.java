@@ -23,12 +23,9 @@ public class NoticiaCRUD implements NoticiaCRUDLocal{
 	    Date date = new Date();
 	    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 	    String fecha = formatter.format(date);
-	    int i=0;
 
-	        Noticia notici = new Noticia(noti.titulo, noti.noticia, noti.fuente, fecha, noti.encargado, noti.correo);
-
+	        Noticia notici = new Noticia(noti.id, noti.titulo, noti.noticia, noti.fuente, fecha, noti.encargado, noti.correo);
 	        repository.save(notici);
-	        i++;
 	    
 		
 		return null;
