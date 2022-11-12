@@ -14,11 +14,11 @@ public class Noticia{
     @Id
     @GeneratedValue
     private long id;
-	@Column
+	@Column(length = 500)
 	private String titulo;
-	@Column
-	private String noticia;
-	@Column
+	@Column(length = 2000)
+	private String noticiaa;
+	@Column(length = 500)
 	private String fuente;
 	@Column
 	private String encargado;		
@@ -46,11 +46,11 @@ public class Noticia{
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public String getNoticia() {
-		return noticia;
+	public String getNoticiaa() {
+		return noticiaa;
 	}
-	public void setNoticia(String noticia) {
-		this.noticia = noticia;
+	public void setNoticia(String noticiaa) {
+		this.noticiaa = noticiaa;
 	}
 	public String getFuente() {
 		return fuente;
@@ -70,12 +70,12 @@ public class Noticia{
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-	public Noticia(long id, String titulo, String noticia, String fuente, String encargado, String fecha,
+	public Noticia(long id, String titulo, String noticiaa, String fuente, String encargado, String fecha,
 			String correo) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
-		this.noticia = noticia;
+		this.noticiaa = noticiaa;
 		this.fuente = fuente;
 		this.encargado = encargado;
 		this.fecha = fecha;

@@ -2,8 +2,6 @@ package com.aantik.demo.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.aantik.demo.entidad.Noticia;
@@ -24,7 +22,7 @@ public class NoticiaCRUD implements NoticiaCRUDLocal{
 	    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 	    String fecha = formatter.format(date);
 
-	        Noticia notici = new Noticia(noti.id, noti.titulo, noti.noticia, noti.fuente, fecha, noti.encargado, noti.correo);
+	        Noticia notici = new Noticia(noti.id, noti.titulo, noti.noticiaa, noti.fuente, fecha, noti.encargado, noti.correo);
 	        repository.save(notici);
 	    
 		
