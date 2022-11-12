@@ -45,7 +45,7 @@ import com.aantik.demo.repositorio.noticiaRepositorio;
 //RequestMapping("/datos")
 
 public class NoticiaController {
-	//@Autowired private noticiaRepositorio noticiaRepositorio;
+	@Autowired private noticiaRepositorio noticiaRepositorio;
     @PostMapping("/noticiaEs")
     public ResponseEntity<?> processForgotPassword(@RequestBody NoticiaEs update) {
 
@@ -61,9 +61,9 @@ public class NoticiaController {
     
     update.fecha=fecha;
     
-    Noticia noticia = new Noticia(update.titulo, update.noticia, update.fuente, update.fecha, update.encargado,update.correo);
+    Noticia noticia = new Noticia(update.id, update.titulo, update.noticia, update.fuente, update.fecha, update.encargado,update.correo);
 
-    //noticiaRepositorio.save(noticia);
+    noticiaRepositorio.save(noticia);
     
     return ResponseEntity.ok("ok");
     
