@@ -6,7 +6,7 @@ public class NoticiaEs {
 	
 	public long id;
 	public String titulo;
-	public String noticia;
+	public String noticiaa;
 	public String fuente;   
 	public String fecha; 
 	public String encargado;

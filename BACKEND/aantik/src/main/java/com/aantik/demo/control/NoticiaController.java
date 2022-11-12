@@ -1,39 +1,12 @@
 package com.aantik.demo.control;
-
-
-import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
-
-//import javax.validation.Valid;
-
-import org.apache.logging.log4j.message.StringFormattedMessage;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.http.HttpStatus;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.MultiValueMap;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
-
 import org.springframework.web.bind.annotation.PostMapping;
-
 import org.springframework.web.bind.annotation.RequestBody;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RequestParam;
-
-import org.springframework.web.bind.annotation.RestController;
-
-import net.bytebuddy.utility.RandomString;
-
-
 import com.aantik.demo.model.NoticiaEs;
 import com.aantik.demo.entidad.Noticia;
 import com.aantik.demo.repositorio.noticiaRepositorio;
@@ -61,7 +34,7 @@ public class NoticiaController {
     
     update.fecha=fecha;
     
-    Noticia noticia = new Noticia(update.id, update.titulo, update.noticia, update.fuente, update.fecha, update.encargado,update.correo);
+    Noticia noticia = new Noticia(update.id, update.titulo, update.noticiaa, update.fuente, update.fecha, update.encargado,update.correo);
 
     noticiaRepositorio.save(noticia);
     
