@@ -29,13 +29,10 @@ public class BenchmarkingExcelReader {
       @Autowired
       BenchPregunRepository benchPregunRepository;
 
-      @Autowired
-      static
-      PreguntasRepository prePregunRepository;
-
     public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
     //static String[] HEADERs = { "Id", "Preguntas", "Descriptions" };
     static String SHEET = "Preguntas";
+    static Integer e = 1;
     static String Cat;
     static Set<PreguntasModeloB> defs = new HashSet<>();
     public static boolean hasExcelFormat(MultipartFile file) {
@@ -48,12 +45,15 @@ public class BenchmarkingExcelReader {
       }
 
       public static List<BenchmarkingIndica> excelToTutorials(InputStream is) {
+
+        PreguntasRepository tt;
+
         try {
           Workbook workbook = new XSSFWorkbook(is);
           
           Sheet sheet = workbook.getSheet(SHEET);
           Iterator<Row> rows = sheet.iterator();
-    
+          
           List<BenchmarkingIndica> tutorials = new ArrayList<BenchmarkingIndica>();
     
           int rowNumber = 0;
@@ -82,21 +82,22 @@ public class BenchmarkingExcelReader {
                 //tut.setCategoriaPregunta(currentCell.getStringCellValue());
                 System.out.println("1: " + currentCell.getStringCellValue());
                 break;
-    
+               // System.out.println(tt.findByindicaid("EFICACIA").get().getId());
               case 1:
-             // PreguntasRepository prePregunRepository;
               //tut.setIdPregunta((String) currentCell.getStringCellValue());
                 String parts[] = currentCell.getStringCellValue().split("-");
                 //String parts[] = tut.getIdPregunta().split("-");
                 System.out.println("2: " + parts.length);
 
                 for(int i=0;i<parts.length;i++){
-
+                    
                     BenchmarkingIndica tut = new BenchmarkingIndica();
                     //List<PreguntasModeloB> def = prePregunRepository.findByIndicaid(Cat);
                    // defs.add((PreguntasModeloB) def);
                     tut.setCategoriaPregunta(Cat);
+                    //System.out.println("ee: "+ Cat);
                     tut.setIdPregunta(parts[i]);
+                    tut.setIdDef(e);
                     tutorials.add(tut);
                     
                     
@@ -117,7 +118,7 @@ public class BenchmarkingExcelReader {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
             
     
-            
+            e++;
                 
 
 

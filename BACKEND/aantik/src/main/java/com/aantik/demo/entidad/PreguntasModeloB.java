@@ -20,7 +20,7 @@ public class PreguntasModeloB {
   private long id;
 
   @Column(name = "IndicadoresId")
-  private String Indicaid;
+  private String indicaid;
 
   @Column(name = "Descripcion")
   private String descripcion;
@@ -34,11 +34,11 @@ public void setId(long id) {
 }
 
 public String getIndicaid() {
-    return Indicaid;
+    return indicaid;
 }
 
 public void setIndicaid(String indicaid) {
-    Indicaid = indicaid;
+    indicaid = indicaid;
 }
 
 public String getdescripcion() {
@@ -49,8 +49,8 @@ public void setdescripcion(String descripcion) {
     this.descripcion = descripcion;
 }
 
-public PreguntasModeloB(String Indicaid, String descripcion) {
-    this.Indicaid = Indicaid;
+public PreguntasModeloB(String indicaid, String descripcion) {
+    this.indicaid = indicaid;
     this.descripcion = descripcion;
 }
 
