@@ -50,7 +50,7 @@ import com.aantik.demo.service.EstudianteCRUD;
 
 //RequestMapping("/datos")
 
-public class actDatosEstController {
+public class EstController {
 	
 	@Autowired
 	EstudianteCRUD servcioEst;
@@ -65,7 +65,7 @@ public class actDatosEstController {
 	}
 	
     @GetMapping("/preinsCargaM")
-	public ResponseEntity<Estudiante[]> sendCiiu() {
+	public ResponseEntity<Estudiante[]> cargaPreins() {
 		Estudiante est[] = new Estudiante[2];
 		try {
 			Mpreinscrito [] preLista = new Mpreinscrito[500];
@@ -98,4 +98,36 @@ public class actDatosEstController {
 		}
 	}
 
+    @GetMapping("/studCargaM")
+	public ResponseEntity<Estudiante[]> cargaStu() {
+		Estudiante est[] = new Estudiante[2];
+		try {
+			ModEstudiante [] estLista = new ModEstudiante[500];
+			leerEstudiantes excelStu = new leerEstudiantes();
+			FileInputStream fis2;
+			int cant=0;
+			try {
+				fis2 = new FileInputStream(new File("resEncuesta.xlsx"));
+				cant=excelStu.getInscritos(fis2,estLista);
+				System.out.println(cant);
+				
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				System.out.println("Actualizando "+cant+" datos cod CIIU");
+				servcioEst.saveAllstud(estLista,cant);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				return new ResponseEntity<Estudiante[]>(est, HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println("Usuario no existe"+e);
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+	}
 }

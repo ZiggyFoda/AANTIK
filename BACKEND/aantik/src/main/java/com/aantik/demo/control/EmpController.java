@@ -41,7 +41,7 @@ import com.aantik.demo.model.encuestaPre;
 
 //RequestMapping("/datos")
 
-public class actDatosEmpController {
+public class EmpController {
     @PostMapping("/datosEmp")
     public ResponseEntity<?> processForgotPassword(@RequestBody encuestaPre update) {
 

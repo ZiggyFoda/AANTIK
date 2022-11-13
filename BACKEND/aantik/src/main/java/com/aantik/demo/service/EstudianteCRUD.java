@@ -4,9 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.aantik.demo.entidad.Estudiante;
-import com.aantik.demo.entidad.Profesor;
 import com.aantik.demo.entidad.Role;
 import com.aantik.demo.entidad.User;
 import com.aantik.demo.model.ModEstudiante;
@@ -25,20 +23,82 @@ public class EstudianteCRUD implements EstudianteCRUDLocal{
 	@Autowired
 	RoleRepositorio repositoryRol;
 	
-	private boolean checkEstudianteExiste(Estudiante estd) throws Exception {
-		Optional<Estudiante> estdEncontrado = repository.findById(estd.getId());
-		if(estdEncontrado.isPresent()) {
-			throw new Exception("Usuario ya se encuentra registrado");
-		}
-		return true;
-	}
+
 	
 	@Override
-	public Estudiante crearEstudiante(Estudiante estd) throws Exception {
-		if(checkEstudianteExiste(estd)) {
-			estd = repository.save(estd);
+	public void crearEstudiante(Estudiante estd) throws Exception {
+		if(existe(estd) && existeUser(estd.getCorreo())) {
+			if(estd.getCorreo()!=null && estd.getCorreo().length()>1) {
+				User userDoc=new User();
+				userDoc.setUsername(estd.getCorreo());
+				userDoc.setPassword("1236");
+				Role rolDoc;
+				rolDoc=repositoryRol.findByName("Estudiante");
+				userDoc.setRoles(rolDoc.getId());
+				repositoryUser.save(userDoc);
+				System.out.println("insertando usuario");
+				estd.setUserId(userDoc.getId());
+			}
+			if(estd.getNombre() !=null) {
+				estd = repository.save(estd);
+				System.out.println("insertando estudiante");
+			}
+		}else {
+			Estudiante actualizar=repository.getByCorreo(estd.getCorreo());
+			mapear(estd,actualizar);
+			repository.save(actualizar);
 		}
-		return estd;
+		
+		
+	}
+
+	private void mapear(Estudiante estd, Estudiante actualizar) {
+		actualizar.setActividadEco(estd.getActividadEco());
+		actualizar.setActividadExtra(estd.getActividadExtra());
+		actualizar.setAsignatura(estd.getAsignatura());
+		actualizar.setBarrio(estd.getBarrio());
+		actualizar.setCiudad(estd.getCiudad());
+		actualizar.setClase(estd.getClase());
+		actualizar.setComunidad(estd.getComunidad());
+		actualizar.setContacto(estd.getContacto());
+		actualizar.setCorreo(estd.getCorreo());
+		actualizar.setDireccion(estd.getDireccion());
+		actualizar.setDisponibilidad(estd.getDisponibilidad());
+		actualizar.setDocenteNoPref(estd.getDocenteNoPref());
+		actualizar.setDocentePref(estd.getDocentePref());
+		actualizar.setDocumento(estd.getDocumento());
+		actualizar.setEnfasis(estd.getEnfasis());
+		actualizar.setEntidad(estd.getEntidad());
+		actualizar.setExperiencia(estd.getExperiencia());
+		actualizar.setFechaSP(estd.getFechaSP());
+		actualizar.setGenero(estd.getGenero());
+		actualizar.setId(estd.getId());
+		actualizar.setIdentificacion(estd.getIdentificacion());
+		actualizar.setIdEstudiantil(estd.getIdEstudiantil());
+		actualizar.setInfografia(estd.getInfografia());
+		actualizar.setLimitacion(estd.getLimitacion());
+		actualizar.setLimitLocalidad(estd.getLimitLocalidad());
+		actualizar.setLinAccion(estd.getLinAccion());
+		actualizar.setLocalidad(estd.getLocalidad());
+		actualizar.setModalidad(estd.getModalidad());
+		actualizar.setNombre(estd.getNombre());
+		actualizar.setNotificaciones(estd.getNotificaciones());
+		actualizar.setPromedio (estd.getPromedio());
+		actualizar.setTallerSP(estd.getTallerSP());
+		actualizar.setTelefono(estd.getTelefono());
+		actualizar.setTipoEmp(estd.getTipoEmp());
+		actualizar.setTipoOrg(estd.getTipoOrg());
+		actualizar.setTransporte(estd.getTransporte());
+		actualizar.setUserId(estd.getUserId());   
+	}
+
+	private boolean existeUser(String correo) {
+		Optional<User> Encontrado = repositoryUser.findByUsername(correo);
+		if(Encontrado.isPresent()) {
+			System.out.println("Usuario ya se encuentra registrado");
+			return false;
+		}
+		return true;
 	}
 
 	@Override
@@ -101,10 +161,55 @@ public class EstudianteCRUD implements EstudianteCRUDLocal{
 	private boolean existe(Estudiante preins) {
 		Optional<Estudiante> preEncontrado = repository.findByNombre(preins.getNombre());
 		if(preEncontrado.isPresent()) {
-			System.out.println("Nodo ya se encuentra registrado");
+			System.out.println("Estudiante ya se encuentra registrado");
 			return false;
 		}
 		return true;
+	}
+
+	public void saveAllstud(ModEstudiante[] estLista, int cant) {
+		// TODO Auto-generated method stub
+		Estudiante insc=new Estudiante();
+		System.out.println("VERIFICANDO "+estLista.length);
+		for(int i =0;i<estLista.length;i++) {
+			insc=new Estudiante();
+			if(estLista[i]!=null) {
+				insc.setActividadEco(estLista[i].actividadEco);
+				insc.setActividadExtra(estLista[i].actividadExtra);
+				insc.setAsignatura(estLista[i].asignatura);
+				insc.setBarrio(estLista[i].barrio);
+				insc.setCiudad(estLista[i].ciudad);
+				insc.setComunidad(estLista[i].comunidad);
+				insc.setContacto(estLista[i].contacto);
+				insc.setCorreo(estLista[i].correo);
+				insc.setDireccion(estLista[i].direccion);
+				insc.setDisponibilidad(estLista[i].disponibilidad);
+				insc.setDocenteNoPref(estLista[i].docenteNoPref);
+				insc.setDocentePref(estLista[i].docentePref);
+				insc.setDocumento(estLista[i].documento);
+				insc.setEnfasis(estLista[i].enfasis);
+				insc.setExperiencia(estLista[i].experiencia);
+				insc.setGenero(estLista[i].genero);
+				insc.setLimitacion(estLista[i].limitacion);
+				insc.setLimitLocalidad(estLista[i].limitLocalidad);
+				insc.setLinAccion(estLista[i].linAccion);
+				insc.setLocalidad(estLista[i].localidad);
+				insc.setModalidad(estLista[i].modalidad);
+				insc.setNombre(estLista[i].nombre);
+				insc.setNotificaciones(estLista[i].notificaciones);
+				insc.setPromedio(estLista[i].promedio);
+				insc.setTelefono(estLista[i].telefono);
+				insc.setTipoEmp(estLista[i].tipoEmp);
+				insc.setTransporte(estLista[i].transporte);
+				try {
+					crearEstudiante(insc);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+		}
 	}
 
 }
