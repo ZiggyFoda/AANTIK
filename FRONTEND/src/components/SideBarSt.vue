@@ -160,19 +160,6 @@ import AuthService from "@/service/auth.service";
           },
         ],
       },
-      //! Search
-      isSearch: {
-        type: Boolean,
-        default: true,
-      },
-      searchPlaceholder: {
-        type: String,
-        default: 'Buscar...',
-      },
-      searchTooltip: {
-        type: String,
-        default: 'Search',
-      },
       //! Profile detailes
       profileImg: {
         type: String,
@@ -223,10 +210,6 @@ import AuthService from "@/service/auth.service";
         type: String,
         default: '#e4e9f7',
       },
-      searchInputTextColor: {
-        type: String,
-        default: '#fff',
-      },
       menuItemsHoverColor: {
         type: String,
         default: '#FFF',
@@ -258,7 +241,6 @@ import AuthService from "@/service/auth.service";
           '--logo-title-color': this.logoTitleColor,
           '--icons-color': this.iconsColor,
           '--items-tooltip-color': this.itemsTooltipColor,
-          '--serach-input-text-color': this.searchInputTextColor,
           '--menu-items-hover-color': this.menuItemsHoverColor,
           '--menu-items-text-color': this.menuItemsTextColor,
           '--menu-footer-text-color': this.menuFooterTextColor,

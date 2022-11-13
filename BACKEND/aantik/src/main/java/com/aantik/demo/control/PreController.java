@@ -37,7 +37,7 @@ import com.aantik.demo.model.actualizarDatosPre;
 
 //RequestMapping("/datos")
 
-public class actDatosPreController {
+public class PreController {
     @PostMapping("/datosPre")
     public ResponseEntity<?> processForgotPassword(@RequestBody actualizarDatosPre update) {
 

@@ -31,7 +31,7 @@ import com.aantik.demo.tejido.leerExcelTejido;
 @CrossOrigin(origins = "*", maxAge = 3600)
 
 @Controller
-public class actDatosDocController {
+public class DocController {
 	@Autowired
 	ProfesorCRUD servDoc;
 	

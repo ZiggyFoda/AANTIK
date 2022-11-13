@@ -17,6 +17,8 @@ import com.aantik.demo.model.tejidoSocial;
 import com.aantik.demo.model.ModCiiuXemp;
 import com.aantik.demo.model.ModRedTejido;
 import com.aantik.demo.service.CiiuCRUD;
+import com.aantik.demo.service.EmprendimientoCRUD;
+import com.aantik.demo.service.OrgSocialCRUD;
 import com.aantik.demo.service.TejidoCRUD;
 import com.aantik.demo.tejido.leerExcelTejido;
 import com.aantik.demo.tejido.tejidoServicio;
@@ -27,8 +29,12 @@ public class TejidoControl {
 	CiiuCRUD servCiiu;
 	@Autowired
 	TejidoCRUD servRed;
+	@Autowired
+	EmprendimientoCRUD servEmp;
+	@Autowired
+	OrgSocialCRUD servOS;
 	
-	@GetMapping("/prueba")
+	@GetMapping("/cargaCIIU")
 	public ResponseEntity<CIIU[]> sendCiiu() {
 		CIIU est[] = new CIIU[2];
 		try {
@@ -74,7 +80,7 @@ public class TejidoControl {
 	}
 	
 
-	@GetMapping("/pruebaRed")
+	@GetMapping("/generaRed")
 	public ResponseEntity<ModRedTejido> hacerTejido() {
 		ModRedTejido red = new ModRedTejido();
 		try {

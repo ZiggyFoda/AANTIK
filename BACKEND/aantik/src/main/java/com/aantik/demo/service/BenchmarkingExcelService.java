@@ -7,27 +7,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.aantik.demo.entidad.PreguntasModeloB;
+import com.aantik.demo.entidad.BenchmarkingIndica;
+import com.aantik.demo.repositorio.BenchPregunRepository;
+import com.aantik.demo.service.BenchmarkingExcelReader;
 import com.aantik.demo.repositorio.PreguntasRepository;
-import com.aantik.demo.service.PreguntasExcelReader;
-
 
 @Service
-public class PreguntaExcelService {
+public class BenchmarkingExcelService {
     
     @Autowired
-    PreguntasRepository repository;
+    BenchPregunRepository repository;
+
+    @Autowired
+    PreguntasRepository Rerepository;
 
     public void save(MultipartFile file) {
         try {
-          List<PreguntasModeloB> tutorials = PreguntasExcelReader.excelToTutorials(file.getInputStream());
+          List<BenchmarkingIndica> tutorials = BenchmarkingExcelReader.excelToTutorials(file.getInputStream());
           repository.saveAll(tutorials);
+
         } catch (IOException e) {
           throw new RuntimeException("fail to store excel data: " + e.getMessage());
         }
       }
     
-      public List<PreguntasModeloB> getAllTutorials() {
+      public List<BenchmarkingIndica> getAllTutorials() {
         return repository.findAll();
       }
+
+
 }
