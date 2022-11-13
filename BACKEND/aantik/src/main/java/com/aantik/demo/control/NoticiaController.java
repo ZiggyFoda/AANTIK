@@ -109,19 +109,16 @@ public class NoticiaController {
     	}
 	
 	@PostMapping("/notiDelete")
-    public ResponseEntity<?> noticiaGet(@RequestBody NoticiaEs update) {  
-    Date date = new Date();
-    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-     String fecha = formatter.format(date);
-    System.out.println("Current date: "+ fecha); 
-    
-    System.out.println("Encargado: " + update.encargado);
-    
-    update.fecha=fecha;
-    
-    Noticia noticia = new Noticia(update.id, update.titulo, update.noticiaa, update.fuente, update.encargado, update.fecha, update.correo);
+    public ResponseEntity<?> noticiaDelete(@RequestBody NoticiaEs update) {  
 
-    noticiaRepositorio.save(noticia);
+    
+    System.out.println("id: " + update.id);
+    
+    long id = update.id;
+    
+    //Noticia noticia = noticiaRepositorio.findById(update.id);
+    
+    noticiaRepositorio.deleteById(id);
     
     return ResponseEntity.ok("ok");
     }

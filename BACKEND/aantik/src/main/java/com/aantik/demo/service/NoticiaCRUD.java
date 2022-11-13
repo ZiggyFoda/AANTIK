@@ -36,13 +36,7 @@ public class NoticiaCRUD implements NoticiaCRUDLocal{
 		Iterable<Noticia> noti =  repository.findAll();
 		return noti;
 	}
-	
-	@Override
-	public Iterable<Noticia> getOne() {
-		// TODO Auto-generated method stub
-		Iterable<Noticia> noti =  repository.findAll();
-		return noti;
-	}
+
 
 	
 

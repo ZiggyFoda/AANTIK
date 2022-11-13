@@ -20,7 +20,7 @@
 
     <!--<pre class="mt-3 mb-0">{{ items }}</pre>-->
 
-    <div v-for="item in items" :key="item"><div>
+    <div v-for= "(item, index) in items" :key="item"><div>
 
       <b-card bg-variant="light" border-variant="secondary">
       <template #header>
@@ -35,7 +35,7 @@
         Fuente: <i><v-card-text v-text="item.fuente"/></i>
         </b-card-text>
         
-        <b-button type="submit" variant="primary">Eliminar</b-button>
+        <b-button @click="notiDelete(item, index, item.id)" variant="primary">Eliminar</b-button>
 
       <template #footer>
         Estudiante encargado: <v-card-text v-text="item.encargado"/>
@@ -113,17 +113,14 @@ console.log(this.items)
 },
   methods: {
 
-
-    onSubmit() {
-        axios.post("http://localhost:8080/api/notiDelete",{
-          id: this.form.id,
-          responsable: AuthService.getUser(),
-
-         
+    notiDelete: function (items, index, id){
+      this.items.splice(index,1);
+      axios.post("http://localhost:8080/api/notiDelete",{
+          id         
         });
-        console.log(AuthService.getCorreo());
-console.log(this.form.id)
-      },
+
+    },
+
       onReset(event) {
         event.preventDefault()
         // Reset our form values
