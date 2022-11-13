@@ -1,5 +1,8 @@
 package com.aantik.demo.control;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;  
+
+import java.util.ListIterator;  
 import java.util.Date;
 import java.util.stream.Collectors;
 
@@ -54,9 +57,9 @@ public class NoticiaController {
     	try {
     	Iterable<Noticia> res = servNoticia.getAll();
 
-    	for(Noticia s: res){
-    		System.out.println(s);
-    	}
+        while (res.hasPrevious()) {  
+            System.out.println(res.previous());  
+        } 
 
 
     	return new ResponseEntity<Iterable<Noticia>>  (res, HttpStatus.OK);
