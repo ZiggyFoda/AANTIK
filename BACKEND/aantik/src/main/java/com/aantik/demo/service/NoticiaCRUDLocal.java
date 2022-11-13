@@ -8,6 +8,6 @@ import com.aantik.demo.model.NoticiaEs;
 public interface NoticiaCRUDLocal {
 	public Noticia crearNoticia(NoticiaEs noti) throws Exception;
 	public Iterable<Noticia> getAll();
-	//public Noticia deleteById(long id);
+	public void deleteById(long id);
 
 }

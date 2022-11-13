@@ -37,6 +37,20 @@ public class NoticiaCRUD implements NoticiaCRUDLocal{
 		return noti;
 	}
 
+	@Override
+	public void deleteById(long id) {
+		// TODO Auto-generated method stub
+		Noticia noti = repository.getById(id);
+		
+		repository.delete(noti);
+	}
+
+	public void crearNoticia(Noticia noticia) {
+		// TODO Auto-generated method stub
+		repository.save(noticia);
+		
+	}
+
 
 	
 

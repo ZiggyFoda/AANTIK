@@ -31,7 +31,6 @@ import java.util.List;
 @RequestMapping("/api")
 
 public class NoticiaController {
-	@Autowired noticiaRepositorio noticiaRepositorio;
 	@Autowired NoticiaCRUD servNoticia;
     @PostMapping("/noticiaEs")
     public ResponseEntity<?> noticiaGet(@RequestBody NoticiaEs update) {  
@@ -46,7 +45,7 @@ public class NoticiaController {
     
     Noticia noticia = new Noticia(update.id, update.titulo, update.noticiaa, update.fuente, update.encargado, update.fecha, update.correo);
 
-    noticiaRepositorio.save(noticia);
+    servNoticia.crearNoticia(noticia);
     
     return ResponseEntity.ok("ok");
     }
@@ -118,7 +117,7 @@ public class NoticiaController {
     
     //Noticia noticia = noticiaRepositorio.findById(update.id);
     
-    noticiaRepositorio.deleteById(id);
+    servNoticia.deleteById(id);
     
     return ResponseEntity.ok("ok");
     }
