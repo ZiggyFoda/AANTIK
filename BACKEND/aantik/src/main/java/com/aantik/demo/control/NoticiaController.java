@@ -1,7 +1,7 @@
 package com.aantik.demo.control;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;  
-
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ListIterator;  
 import java.util.Date;
 import java.util.stream.Collectors;
@@ -22,7 +22,7 @@ import com.aantik.demo.entidad.Noticia;
 import com.aantik.demo.repositorio.noticiaRepositorio;
 import com.aantik.demo.service.NoticiaCRUD;
 
-import antlr.collections.List;
+import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 
@@ -57,13 +57,25 @@ public class NoticiaController {
     	try {
     	Iterable<Noticia> res = servNoticia.getAll();
 
-        while (res.hasPrevious()) {  
-            System.out.println(res.previous());  
-        } 
+        List<Noticia> res2= new ArrayList<Noticia>();
+        List<Noticia> res3= new ArrayList<Noticia>();
+        
+        res.forEach(res2::add);
+        
+        Collections.reverse(res2);
+        
+       /* for (int i=0;i<res2.size();i++) {
+          
+          System.out.println(res2.get(i));
+        }*/
+        if(res2.size() > 10) {
+        res3 = res2.subList(0, 10);
 
-
-    	return new ResponseEntity<Iterable<Noticia>>  (res, HttpStatus.OK);
-    	} catch (Exception e) {
+    	return new ResponseEntity<Iterable<Noticia>>  (res3, HttpStatus.OK);
+        }else
+        	return new ResponseEntity<Iterable<Noticia>>  (res2, HttpStatus.OK);
+        
+        } catch (Exception e) {
     		// TODO Auto-generated catch block
     		//e.printStackTrace();
     		System.out.println("Usuario no existe"+e);
@@ -72,7 +84,12 @@ public class NoticiaController {
     	
     	}
     
-    @GetMapping("/notiEdit")
+    private int sizeof(Iterable<Noticia> res) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@GetMapping("/notiEdit")
     public ResponseEntity<Iterable<Noticia>> noticiaSetAll() {
     	 
     	try {
