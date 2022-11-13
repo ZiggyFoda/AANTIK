@@ -55,41 +55,41 @@ public class EstudianteCRUD implements EstudianteCRUDLocal{
 	private void mapear(Estudiante estd, Estudiante actualizar) {
 		actualizar.setActividadEco(estd.getActividadEco());
 		actualizar.setActividadExtra(estd.getActividadExtra());
-		actualizar.setAsignatura(estd.getAsignatura());
+		//actualizar.setAsignatura(estd.getAsignatura());
 		actualizar.setBarrio(estd.getBarrio());
 		actualizar.setCiudad(estd.getCiudad());
-		actualizar.setClase(estd.getClase());
+		//actualizar.setClase(estd.getClase());
 		actualizar.setComunidad(estd.getComunidad());
 		actualizar.setContacto(estd.getContacto());
-		actualizar.setCorreo(estd.getCorreo());
+		//actualizar.setCorreo(estd.getCorreo());
 		actualizar.setDireccion(estd.getDireccion());
 		actualizar.setDisponibilidad(estd.getDisponibilidad());
 		actualizar.setDocenteNoPref(estd.getDocenteNoPref());
 		actualizar.setDocentePref(estd.getDocentePref());
 		actualizar.setDocumento(estd.getDocumento());
 		actualizar.setEnfasis(estd.getEnfasis());
-		actualizar.setEntidad(estd.getEntidad());
+		//actualizar.setEntidad(estd.getEntidad());
 		actualizar.setExperiencia(estd.getExperiencia());
-		actualizar.setFechaSP(estd.getFechaSP());
+		//actualizar.setFechaSP(estd.getFechaSP());
 		actualizar.setGenero(estd.getGenero());
-		actualizar.setId(estd.getId());
-		actualizar.setIdentificacion(estd.getIdentificacion());
-		actualizar.setIdEstudiantil(estd.getIdEstudiantil());
-		actualizar.setInfografia(estd.getInfografia());
+		//actualizar.setId(estd.getId());
+		//actualizar.setIdentificacion(estd.getIdentificacion());
+		//actualizar.setIdEstudiantil(estd.getIdEstudiantil());
+		//actualizar.setInfografia(estd.getInfografia());
 		actualizar.setLimitacion(estd.getLimitacion());
 		actualizar.setLimitLocalidad(estd.getLimitLocalidad());
 		actualizar.setLinAccion(estd.getLinAccion());
 		actualizar.setLocalidad(estd.getLocalidad());
 		actualizar.setModalidad(estd.getModalidad());
-		actualizar.setNombre(estd.getNombre());
+		//actualizar.setNombre(estd.getNombre());
 		actualizar.setNotificaciones(estd.getNotificaciones());
 		actualizar.setPromedio (estd.getPromedio());
-		actualizar.setTallerSP(estd.getTallerSP());
+		//actualizar.setTallerSP(estd.getTallerSP());
 		actualizar.setTelefono(estd.getTelefono());
 		actualizar.setTipoEmp(estd.getTipoEmp());
 		actualizar.setTipoOrg(estd.getTipoOrg());
 		actualizar.setTransporte(estd.getTransporte());
-		actualizar.setUserId(estd.getUserId());   
+		//actualizar.setUserId(estd.getUserId());   
 	}
 
 	private boolean existeUser(String correo) {
