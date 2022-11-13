@@ -6,15 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aantik.demo.entidad.Emprendimiento;
-import com.aantik.demo.entidad.Estudiante;
+import com.aantik.demo.entidad.Role;
+import com.aantik.demo.entidad.User;
 import com.aantik.demo.model.ModEmprendimiento;
 import com.aantik.demo.repositorio.EmprendimientoRepositorio;
+import com.aantik.demo.repositorio.RoleRepositorio;
+import com.aantik.demo.repositorio.UsuarioRepositorio;
 
 @Service
 public class EmprendimientoCRUD implements EmprendimientoCRUDLocal{
 
 	@Autowired
 	EmprendimientoRepositorio repository;
+	@Autowired
+	UsuarioRepositorio repositoryUser;
+	@Autowired
+	RoleRepositorio repositoryRol;
 	
 	private boolean checkEmprendimientoExiste(Emprendimiento empren) throws Exception {
 		Optional<Emprendimiento> emprenEncontrado = repository.findById(empren.getId());
@@ -75,7 +82,7 @@ public class EmprendimientoCRUD implements EmprendimientoCRUDLocal{
 				empren.setTemaAsesorar (empLista[i].temaAsesorar) ;                                                   
 				empren.setTransporte (empLista[i].transporte) ;                                            
 				try {
-					crearPreins(empren);
+					crearEmpr(empren);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -85,9 +92,82 @@ public class EmprendimientoCRUD implements EmprendimientoCRUDLocal{
 		}
 	}
 
-	private void crearPreins(Emprendimiento empren) {
+	private void crearEmpr(Emprendimiento empren) {
 		// TODO Auto-generated method stub
-		
+		if(existe(empren) && existeUser(empren.getCorreoIE())) {
+			if(empren.getCorreoIE()!=null && empren.getCorreoIE().length()>1) {
+				User userDoc=new User();
+				userDoc.setUsername(empren.getCorreoIE());
+				userDoc.setPassword("1236");
+				Role rolDoc;
+				rolDoc=repositoryRol.findByName("Emprendimiento");
+				userDoc.setRoles(rolDoc.getId());
+				repositoryUser.save(userDoc);
+				System.out.println("insertando usuario");
+				empren.setUserId(userDoc.getId());
+			}
+			if(empren.getNombreEmp() !=null) {
+				empren = repository.save(empren);
+				System.out.println("insertando estudiante");
+			}
+		}else {
+			Emprendimiento actualizar=repository.getByCorreoIE(empren.getCorreoIE());
+			mapear(empren,actualizar);
+			repository.save(actualizar);
+		}
+	}
+
+	private boolean existeUser(String correo) {
+		Optional<User> Encontrado = repositoryUser.findByUsername(correo);
+		if(Encontrado.isPresent()) {
+			System.out.println("Usuario ya se encuentra registrado");
+			return false;
+		}
+		return true;
+	}
+
+	private boolean existe(Emprendimiento empren) {
+		Optional<Emprendimiento> empEncontrado = repository.findByNombreEmp(empren.getNombreEmp());
+		if(empEncontrado.isPresent()) {
+			System.out.println("Estudiante ya se encuentra registrado");
+			return false;
+		}
+		return true;
+	}
+
+	private void mapear(Emprendimiento empren, Emprendimiento actualizar) {
+		// TODO Auto-generated method stub
+		actualizar.setActividadEco (empren.getActividadEco());         
+		actualizar.setBarrio(empren.getBarrio());               
+		actualizar.setComunidad(empren.getComunidad());            
+		actualizar.setContacto(empren.getContacto());             
+		actualizar.setCorreoIE(empren.getCorreoIE());               
+		actualizar.setCorreoIOS(empren.getCorreoIOS());            
+		actualizar.setCupos (empren.getCupos()); 
+		actualizar.setDireccion (empren.getDireccion());            
+		actualizar.setDisponibilidad (empren.getDisponibilidad());       
+		actualizar.setEmpleados (empren.getEmpleados());            
+		actualizar.setExperiencia (empren.getExperiencia());          
+		actualizar.setFechaCons (empren.getFechaCons());            
+		actualizar.setGenero (empren.getGenero());               
+		actualizar.setHorarioAtencion (empren.getHorarioAtencion());      
+		actualizar.setHorarioNotif (empren.getHorarioNotif());    
+		actualizar.setInterlocutorEmp (empren.getInterlocutorEmp());      
+		actualizar.setLimitacion (empren.getLimitacion());           
+		actualizar.setLinAccion (empren.getLinAccion());            
+		actualizar.setLocalidad (empren.getLocalidad());            
+		actualizar.setModalidad (empren.getModalidad());            
+		actualizar.setNIT (empren.getNIT());                  
+		actualizar.setNombreEmp (empren.getNombreEmp());            
+		actualizar.setNombreInterOS (empren.getNombreInterOS());        
+		actualizar.setOrgSocial (empren.getOrgSocial());            
+		actualizar.setProdServ (empren.getProdServ());             
+		actualizar.setPromedio (empren.getPromedio());              
+		actualizar.setTelefonoIE (empren.getTelefonoIE());           
+		actualizar.setTelefonoIOS (empren.getTelefonoIOS());          
+		actualizar.setTemaAsesorar (empren.getTemaAsesorar());         
+		actualizar.setTransporte (empren.getTransporte());           
+		actualizar.setUserId (empren.getUserId());   
 	}
 
 }

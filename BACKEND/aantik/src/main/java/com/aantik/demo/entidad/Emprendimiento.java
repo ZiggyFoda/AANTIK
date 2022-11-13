@@ -29,10 +29,6 @@ public class Emprendimiento implements Serializable{
 	@Column
 	private String nombreEmp;
 	@Column
-	private String correo;
-	@Column
-	private String telefono;
-	@Column
 	private String direccion;
 	@Column
 	private String prodServ;
@@ -111,22 +107,6 @@ public class Emprendimiento implements Serializable{
 
 	public void setNombreEmp(String nombreEmp) {
 		this.nombreEmp = nombreEmp;
-	}
-
-	public String getCorreo() {
-		return correo;
-	}
-
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
-
-	public String getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
 	}
 
 	public String getDireccion() {
@@ -367,6 +347,26 @@ public class Emprendimiento implements Serializable{
 
 	public void setUserId(long userId) {
 		this.userId = userId;
+	}
+
+	public boolean getExperiencia() {
+		// TODO Auto-generated method stub
+		return this.experiencia;
+	}
+
+	public boolean getLimitacion() {
+		// TODO Auto-generated method stub
+		return this.limitacion;
+	}
+
+	public boolean getPromedio() {
+		// TODO Auto-generated method stub
+		return this.promedio;
+	}
+
+	public boolean getTransporte() {
+		// TODO Auto-generated method stub
+		return this.transporte;
 	}
 
 	

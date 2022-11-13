@@ -1,49 +1,21 @@
 package com.aantik.demo.control;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.Map;
-
-//import javax.validation.Valid;
-
-import org.apache.logging.log4j.message.StringFormattedMessage;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.HttpStatus;
-
 import org.springframework.http.ResponseEntity;
-
-import org.springframework.util.MultiValueMap;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import org.springframework.web.bind.annotation.RequestBody;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RequestParam;
-
 import org.springframework.web.bind.annotation.RestController;
-
-import net.bytebuddy.utility.RandomString;
-
 import com.aantik.demo.cargaUsuarios.leerEmprendimientos;
-import com.aantik.demo.cargaUsuarios.leerEstudiantes;
-import com.aantik.demo.entidad.Estudiante;
 import com.aantik.demo.model.ModBench;
 import com.aantik.demo.model.ModEmprendimiento;
-import com.aantik.demo.model.ModEstudiante;
-import com.aantik.demo.model.Mpreinscrito;
 import com.aantik.demo.model.encuestaPre;
 import com.aantik.demo.service.EmprendimientoCRUD;
-import com.aantik.demo.service.UserCRUD;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 
