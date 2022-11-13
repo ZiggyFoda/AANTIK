@@ -54,6 +54,10 @@ public class NoticiaController {
     	try {
     	Iterable<Noticia> res = servNoticia.getAll();
 
+    	for(Noticia s: res){
+    		System.out.println(s);
+    	}
+
 
     	return new ResponseEntity<Iterable<Noticia>>  (res, HttpStatus.OK);
     	} catch (Exception e) {
