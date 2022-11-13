@@ -41,7 +41,7 @@ const routes = [
     path: '/foro',
     name: 'foro',
     component: () => import('../views/foro.vue')
-    ,meta: {requiresAuth: true}
+    //,meta: {requiresAuth: true}
   },
   {
     path: '/noticias',

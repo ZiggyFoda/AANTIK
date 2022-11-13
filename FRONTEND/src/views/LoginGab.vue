@@ -138,6 +138,7 @@ export default {
   methods: {
     handleLogin() {
       this.loading = true;
+      console.log(this.user.username)
       this.$validator.validateAll().then(isValid => {
         if (!isValid) {
           this.loading = false;
