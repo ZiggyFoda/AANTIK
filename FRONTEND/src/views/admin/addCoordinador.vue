@@ -2,7 +2,6 @@
   <b-container>  
       <div>
         <sidebar-menu-akahon 
-          @search-input-emit="search"
         />
       </div> 
   <b-row>
@@ -188,7 +187,7 @@
 </template>
 
 <script>
-import SidebarMenuAkahon from "@/components/SideBar.vue"
+import SidebarMenuAkahon from "@/components/SideBarAdmin.vue"
 
   export default {
     data() {

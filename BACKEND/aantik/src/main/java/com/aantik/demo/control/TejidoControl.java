@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.aantik.demo.entidad.CIIU;
 import com.aantik.demo.entidad.RedTejido;
 import com.aantik.demo.entidad.Ciiu_Emp;
+import com.aantik.demo.entidad.Emprendimiento;
+import com.aantik.demo.entidad.OrgSocial;
 import com.aantik.demo.model.tejidoSocial;
+import com.aantik.demo.repositorio.EmprendimientoRepositorio;
 import com.aantik.demo.model.ModCiiuXemp;
 import com.aantik.demo.model.ModRedTejido;
 import com.aantik.demo.service.CiiuCRUD;
@@ -33,6 +36,8 @@ public class TejidoControl {
 	EmprendimientoCRUD servEmp;
 	@Autowired
 	OrgSocialCRUD servOS;
+	@Autowired
+	EmprendimientoRepositorio repository;
 	
 	@GetMapping("/cargaCIIU")
 	public ResponseEntity<CIIU[]> sendCiiu() {
@@ -86,15 +91,19 @@ public class TejidoControl {
 		try {
 			Iterable<RedTejido> redTejido;
 			Iterable<Ciiu_Emp> cruzar;
+			Iterable<Emprendimiento> empL;
+			Iterable<OrgSocial> osL;
 			//getall de ciiu emp
 			cruzar=servCiiu.getAllCE();
 			//getall de tejido social
 			redTejido=servRed.getAll();
+			empL=servEmp.getAll();
+			osL=servOS.getAll();
 			tejidoServicio ts= new tejidoServicio();
 			Ciiu_Emp buscar = new Ciiu_Emp();
 			buscar.setIdName("Prodesa");
 			buscar.setIdCiiu((long)3830);
-			red=ts.hacerTejido(buscar,redTejido,cruzar);
+			red=ts.hacerTejido(buscar,redTejido,cruzar,empL,osL);
 			red.raiz.nombre="Prodesa";
 			return new ResponseEntity<ModRedTejido>(red, HttpStatus.OK);
 		} catch (Exception e) {

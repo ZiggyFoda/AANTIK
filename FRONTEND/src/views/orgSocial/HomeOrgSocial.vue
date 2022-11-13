@@ -21,41 +21,47 @@
         Si su organización social cuenta con emprendimientos que estén siendo asesorados, 
         aquí puede consular el progreso y validar la continuidad del emprendimiento en 
         el programa de asesoría técnica.
+        <router-link to="/estudiantes">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Progreso</button>        
+        Progreso</button></router-link>       
         <br>
         Aquí puede consultar las asignaciones de sus emprendimientos o 
         de su organización social si se encuentra en proceso de 
         asistencia tecnica.
-
+        <router-link to="/estudiantes">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Consultar asignación actual</button>
-        <br>
+        <br></router-link>   
         Recuerde mantener sus datos actualizados con el fin de garantizar
          el buen funcionamiento del sistema.
+         <router-link to="/estudiantes">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Actualizar datos</button>
+        Actualizar datos</button></router-link>
         <br>
         Aqui puede ver el historial de los procesos de madurez realizados
         desde el uso de la aplicación.
+        <router-link to="/estudiantes">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Ver historial</button>
+        Ver historial</button></router-link>
         <br>
         Si te interesa conocer de estrategias sugeridas de crecimiento
          basado en la situación del sector economico, ingresa aquí.
+         <router-link to="/benchOS">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Benchmarking</button>
+        Benchmarking</button></router-link>
         <br>
         En este módulo puede encontrar noticias por sector economico y 
         enfocadas a los emprendimientos, adicionalmente puede acceder a la 
         red de colaboracion.
+        <router-link to="/estudiantes">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Módulo de información</button>
+        Módulo de información</button></router-link>
         <br>
         Si te interesa conseguir clientes, proveedores o posibles 
         aliados, ingrese aquí.
+        <router-link to="/tejidoOS">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Tejido social</button>
+        Tejido social</button></router-link>
       </b-col>
       <b-col>
         
