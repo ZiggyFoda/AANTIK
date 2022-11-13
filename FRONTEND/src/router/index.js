@@ -375,7 +375,7 @@ const routes = [
     name: 'diagn',
     component: () => import('../views/emprendimiento/forDGV.vue')
     //,meta: {requiresAuth: true}
-  },
+  },/*
   {
     path: '/bench',
     name: 'benchM',
@@ -388,6 +388,7 @@ const routes = [
     component: () => import('../views/orgSocial/benchmOS.vue')
     ,meta: {requiresAuth: true}
   },
+
    //DOCENTE
    {
     path: '/HomeDoc',
@@ -408,6 +409,13 @@ const routes = [
       component: () => import('../views/emprendimiento/asesoria.vue')
       ,meta: {requiresAuth: true}
     },
+    {
+      path: '/foroEmp',
+      name: 'foroEmp',
+      component: () => import('../views/emprendimiento/foroEmp.vue')
+      ,meta: {requiresAuth: true}
+    },
+
     //ACTDATOSPre
     {
       path: '/datosPre',
@@ -436,11 +444,11 @@ const routes = [
       component: () => import('../views/estudiante/SubirNoticia.vue')
       //,meta: {requiresAuth: true}
     },
-    {
+    /*{
       path: '/benchmarking',
       name: 'Benchmarking',
       component: () => import("@/views/PreguntaBenchmarking.vue")
-    }
+    }*/
 ]
 
 const router = new VueRouter({

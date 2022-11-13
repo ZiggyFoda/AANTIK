@@ -2,12 +2,10 @@ package com.aantik.demo.model;
 
 
 
-public class NoticiaEs {
+public class ModForo {
 	
 	public long id;
-	public String titulo;
-	public String noticiaa;
-	public String fuente;   
+	public String pregunta;  
 	public String encargado;
 	public String fecha; 
 	public String correo;

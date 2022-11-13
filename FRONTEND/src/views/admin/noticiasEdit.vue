@@ -14,36 +14,35 @@
       <hr width=100%  color=#fff size=50   noshade="noshade">
       <hr width=100%  color=#2C5698  size=50   noshade="noshade">
       <div class="texto">
-      <h1><br>Noticias de <b>AANTIK</b>, mantengase al día</h1>
+      <h1><br>Editor de Noticias</h1>
       </div>
     </div>
 
- 
+    <!--<pre class="mt-3 mb-0">{{ items }}</pre>-->
 
-    <div v-for="item in items" :key="item"><div>
+    <div v-for= "(item, index) in items" :key="item"><div>
 
-    <b-card bg-variant="light" border-variant="secondary">
+      <b-card bg-variant="light" border-variant="secondary">
       <template #header>
         <h6 class="mb-0"> </h6>
       </template>
-      <h4><b><v-card-title v-text="item.Titulo"/></b></h4>
+      <h4><b><v-card-title v-text="item.titulo"/></b></h4>
       <b-card-text>
-        <h6><b>Fecha:</b></h6> <v-card-text v-text="item.Fecha"/><br><br>
-        <v-card-text v-text="item.Resumen"/><br><br>
-        Fuente: <i><v-card-text v-text="item.Fuente"/></i>
+        <h6><b>Fecha:</b></h6> <v-card-text v-text="item.fecha"/><br><br>
+        <div>
+        <v-card-text v-text="item.noticiaa"/><br><br>
+      </div>
+        Fuente: <i><v-card-text v-text="item.fuente"/></i>
         </b-card-text>
-        <b-button variant="primary">Eliminar</b-button>
         
+        <b-button @click="notiDelete(item, index, item.id)" variant="primary">Eliminar</b-button>
+
       <template #footer>
-        Estudiante encargado: <v-card-text v-text="item.Estudiante"/>
+        Estudiante encargado: <v-card-text v-text="item.encargado"/>
       </template>
     </b-card>
 
     </div>
-
-
-
-
     <br>
     </div>
      
@@ -53,6 +52,95 @@
   </template>
   
   <script>
+
+import axios from "axios";
+export default {
+
+  name: 'noticias',
+
+  data() {
+
+    
+    
+    return {
+      items: {
+
+        titulo: null,
+
+        noticiaa: null,
+
+        encargado: null,
+
+        fuente: null,
+
+        fecha: null,
+
+
+} ,
+
+      fields: [
+        {
+          key: "titulo",
+        },
+        {
+          key: "noticiaa",
+        },
+        {
+          key: "fuente",
+        },
+        {
+          key: "fecha",
+        },
+        {
+          key: "encargado",
+        },
+        
+      ],
+
+        show: true
+      }
+    },
+  mounted() {
+
+axios.get("http://localhost:8080/api/notiEdit").then(
+
+(response) => {
+
+this.items= response.data;
+console.log(this.items)
+}
+);
+},
+  methods: {
+
+    notiDelete: function (items, index, id){
+      this.items.splice(index,1);
+      axios.post("http://localhost:8080/api/notiDelete",{
+          id         
+        });
+
+    },
+
+      onReset(event) {
+        event.preventDefault()
+        // Reset our form values
+        this.form.pregunta = ''
+
+
+        // Trick to reset/clear native browser form validation state
+        this.show = false
+        this.$nextTick(() => {
+          this.show = true
+        })
+      },
+
+    handleInput(value, data) {},
+  },
+};
+
+
+  
+  /*
   export default {
     name: 'noticias',
     props: {
@@ -61,6 +149,9 @@
      components: {
     },
     methods: {
+      modalId(i) {
+      return 'modal' + i;
+    },
       search() {
         
       }
@@ -89,7 +180,7 @@
            ]
         }      
     }
-  }
+  }*/
   </script>
   
   <style scoped>

@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Noticia{
+public class Foro{
 	
 	/**
 	 * 
@@ -14,12 +14,8 @@ public class Noticia{
     @Id
     @GeneratedValue
     private long id;
-	@Column(length = 500)
-	private String titulo;
 	@Column(length = 2000)
-	private String noticiaa;
-	@Column(length = 500)
-	private String fuente;
+	private String pregunta;
 	@Column
 	private String encargado;		
 	@Column
@@ -32,23 +28,11 @@ public class Noticia{
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getTitulo() {
-		return titulo;
+	public String getPregunta() {
+		return pregunta;
 	}
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-	public String getNoticiaa() {
-		return noticiaa;
-	}
-	public void setNoticiaa(String noticiaa) {
-		this.noticiaa = noticiaa;
-	}
-	public String getFuente() {
-		return fuente;
-	}
-	public void setFuente(String fuente) {
-		this.fuente = fuente;
+	public void setPregunta(String pregunta) {
+		this.pregunta = pregunta;
 	}
 	public String getEncargado() {
 		return encargado;
@@ -68,26 +52,19 @@ public class Noticia{
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	public Noticia(long id, String titulo, String noticiaa, String fuente, String encargado, String fecha,
-			String correo) {
+	public Foro(long id, String pregunta, String encargado, String fecha, String correo) {
 		super();
 		this.id = id;
-		this.titulo = titulo;
-		this.noticiaa = noticiaa;
-		this.fuente = fuente;
+		this.pregunta = pregunta;
 		this.encargado = encargado;
 		this.fecha = fecha;
 		this.correo = correo;
 	}
-	
-	public Noticia() {
+	public Foro() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-
 	
-
-
 	
 }
