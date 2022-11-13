@@ -137,31 +137,80 @@
 
 <script>
 import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
+import axios from 'axios';
 
   export default {
     data() {
       return {
+        fields: [
+          { key: "nombre" },
+          { key: "correo" },
+          { key: "fechaC" },
+          { key: "direccion" },
+          { key: "localidad" },
+          { key: "nombreI" },
+          { key: "telefono" },
+          { key: "correoI" },
+          { key: "exp" },
+          { key: "prom" },
+          { key: "noti" },
+        ],
         form: {
-          email: '',
-          name: '',
-          food: null,
-          checked: []
+          nombre: '',
+          correo: '',
+          fechaC: '',
+          direccion: '',
+          localidad: [],
+          nombreI: '',
+          telefono: '',
+          correoI: '',
+          exp: [],
+          prom: [],
+          noti: [],
+  
         },
-        asignatura: [{ text: 'Selecione una', value: null }, 'Chapinero', 'Usme'],
         show: true,
-        opciones: [{ text: 'Selecione una', value: null }, 'Si', 'No'],
+
+        localidad: [{ text: 'Selecione una', value: null }, 'Usaquén', 'Chapinero', 'Santa Fe', 'San Cristóbal', 'Usme', 'Tunjuelito', 'Bosa', 'Kennedy', 'Fontibón', 'Engativá', 'Suba', 'Barrios Unidos', 'Teusaquillo', '	Los Mártires', 'Antonio Nariño', 'Puente Aranda', 'La Candelaria', 'Rafael Uribe Uribe', 'Ciudad Bolívar', 'Sumapaz'],
         show: true,
-        opcionesH: [{ text: 'Selecione una', value: null }, 'Entre semana AM', 'Entre semana PM'],
+        sino: [{ text: 'Selecione una', value: null }, 'Si', 'No'],
+        show: true,
+        notif: [{ text: 'Selecione una', value: null }, 'Entre semana AM', 'Entre semana PM', 'Fines de semana AM', 'Fines de semana PM'],
         show: true
       }
+    },
+    items: [
+    {
+      label: "Refrescar",
+      icon: "pi pi-fw pi-refresh",
+      command: () => {
+        this.getAll();
+      }
+    }
+  ],
+
+
+    components: {
+    SidebarMenuAkahon,
     },
     components: {
     SidebarMenuAkahon,
     },
     methods: {
-      onSubmit(event) {
-        event.preventDefault()
-        alert(JSON.stringify(this.form))
+      onSubmit() {
+        axios.post("http://localhost:8080/addOrgSoc",{
+          telefono: this.form.telefono,
+          municipio: this.form.municipio,
+          localidad: this.form.localidad,
+          barrio: this.form.barrio,
+          direccion: this.form.direccion,
+          limitacion: this.form.limitacion,
+          localidadrest: this.form.localidadrest,
+          notif: this.form.notif,
+          nombre: AuthService.getUser(),
+          //id: AuthService.getUser(),
+        });
+
       },
       onReset(event) {
         event.preventDefault()
