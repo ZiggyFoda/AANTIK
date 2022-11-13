@@ -8,50 +8,32 @@
   <b-row>
     <b-col>
     <br><br>
-    <h3>Diligencie la siguiente información de la noticia</h3>
+    <h3>Diligencie la siguiente información</h3>
     <br><br>
     <div>
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
 
-        <b-form-group id="input-group-1" label="Titulo:" label-for="input-1">     
-          <b-form-input
-            id="input-1"
-            v-model="form.titulo"
-            placeholder="Titulo"
-            required
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group id="input-group-1" label="Noticia:" label-for="input-2"  >     
+        <b-form-group id="input-group-1" label="Pregunta o petición:" label-for="input-1"  >     
           <b-form-textarea
             id="input-2"
-            v-model="form.noticiaa"
-            placeholder="Noticia"
+            v-model="form.pregunta"
+            placeholder="Pregunta o petición"
             required
-            rows="3" 
-            max-rows="10"
+            rows="2" 
+            max-rows="5"
           ></b-form-textarea>
         </b-form-group>
 
-
-        <b-form-group id="input-group-1" label="Fuente:" label-for="input-3">     
-          <b-form-input
-            id="input-3"
-            v-model="form.fuente"
-            placeholder="Fuente"
-            required
-          ></b-form-input>
-        </b-form-group>
         <br>
         <b-button type="submit" variant="primary">Guardar</b-button>
         <b-button type="reset" variant="danger">Cancelar</b-button>
       </b-form>
       <br>
-      <router-link to="/noticias">
+      <router-link to="/foro">
         <button type="submit1" class="btn btn-dark btn-lg w-100">
-        Ver otras noticias</button></router-link>
+       Espacio Colaborativo</button></router-link>
       <br>  <br>
-      <router-link to="/studentHome">
+      <router-link to="/homeEmp">
         <button type="submit1" class="btn btn-dark btn-lg w-100">
         Volver</button></router-link>
     </div>
@@ -72,15 +54,13 @@ import AuthService from "@/service/auth.service"
     data() {
       return {
       fields: [
-          { key: "titulo" },
-          { key: "noticiaa" },
-          { key: "fuente" },
+          { key: "pregunta" },
+          { key: "responsable" },
         ],
 
         form: {
-          titulo: null,
-          noticiaa: null,
-          fuente: null,
+          pregunta: null,
+          responsable: null,
    
         },
         show: true
@@ -100,12 +80,10 @@ import AuthService from "@/service/auth.service"
     },
     methods: {
       onSubmit() {
-        axios.post("http://localhost:8080/api/noticiaEs",{
-          titulo: this.form.titulo,
-          noticiaa: this.form.noticiaa,
-          fuente: this.form.fuente,
-          encargado: AuthService.getUser(),
-          correo: AuthService.getCorreo(),
+        axios.post("http://localhost:8080/foroEmp",{
+          pregunta: this.form.pregunta,
+          responsable: AuthService.getUser(),
+
          
         });
         console.log(AuthService.getCorreo());
@@ -114,9 +92,8 @@ console.log(this.store.state.auth.user.username)
       onReset(event) {
         event.preventDefault()
         // Reset our form values
-        this.form.titulo = ''
-        this.form.noticiaa = ''
-        this.form.fuente = ''
+        this.form.pregunta = ''
+
 
         // Trick to reset/clear native browser form validation state
         this.show = false

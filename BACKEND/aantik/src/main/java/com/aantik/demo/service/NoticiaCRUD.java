@@ -21,8 +21,9 @@ public class NoticiaCRUD implements NoticiaCRUDLocal{
 	    Date date = new Date();
 	    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 	    String fecha = formatter.format(date);
+	    noti.fecha=fecha;
 
-	        Noticia notici = new Noticia(noti.id, noti.titulo, noti.noticiaa, noti.fuente, fecha, noti.encargado, noti.correo);
+	        Noticia notici = new Noticia(noti.id, noti.titulo, noti.noticiaa, noti.fuente, noti.fecha, noti.encargado, noti.correo);
 	        repository.save(notici);
 	    
 		
@@ -31,6 +32,13 @@ public class NoticiaCRUD implements NoticiaCRUDLocal{
 
 	@Override
 	public Iterable<Noticia> getAll() {
+		// TODO Auto-generated method stub
+		Iterable<Noticia> noti =  repository.findAll();
+		return noti;
+	}
+	
+	@Override
+	public Iterable<Noticia> getOne() {
 		// TODO Auto-generated method stub
 		Iterable<Noticia> noti =  repository.findAll();
 		return noti;

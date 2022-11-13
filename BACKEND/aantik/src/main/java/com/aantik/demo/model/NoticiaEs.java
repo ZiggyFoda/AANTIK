@@ -8,7 +8,7 @@ public class NoticiaEs {
 	public String titulo;
 	public String noticiaa;
 	public String fuente;   
-	public String fecha; 
 	public String encargado;
+	public String fecha; 
 	public String correo;
 }

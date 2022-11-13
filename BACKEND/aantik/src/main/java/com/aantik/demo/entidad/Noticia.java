@@ -26,19 +26,11 @@ public class Noticia{
 	private String fecha;
 	@Column
 	private String correo;
-	
-	
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	public String getCorreo() {
-		return correo;
-	}
-	public void setCorreo(String correo) {
-		this.correo = correo;
 	}
 	public String getTitulo() {
 		return titulo;
@@ -49,7 +41,7 @@ public class Noticia{
 	public String getNoticiaa() {
 		return noticiaa;
 	}
-	public void setNoticia(String noticiaa) {
+	public void setNoticiaa(String noticiaa) {
 		this.noticiaa = noticiaa;
 	}
 	public String getFuente() {
@@ -70,6 +62,12 @@ public class Noticia{
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
 	public Noticia(long id, String titulo, String noticiaa, String fuente, String encargado, String fecha,
 			String correo) {
 		super();
@@ -81,6 +79,13 @@ public class Noticia{
 		this.fecha = fecha;
 		this.correo = correo;
 	}
+	
+	public Noticia() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+
 	
 
 

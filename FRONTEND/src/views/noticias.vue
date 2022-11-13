@@ -18,30 +18,30 @@
       </div>
     </div>
 
- 
+    <!--<pre class="mt-3 mb-0">{{ items }}</pre>-->
 
     <div v-for="item in items" :key="item"><div>
 
-    <b-card bg-variant="light" border-variant="secondary">
+      <b-card bg-variant="light" border-variant="secondary">
       <template #header>
         <h6 class="mb-0"> </h6>
       </template>
-      <h4><b><v-card-title v-text="item.Titulo"/></b></h4>
-        <b-button v-b-modal.mod variant="primary">Click para leer</b-button>
-        
+      <h4><b><v-card-title v-text="item.titulo"/></b></h4>
+      <b-card-text>
+        <h6><b>Fecha:</b></h6> <v-card-text v-text="item.fecha"/><br><br>
+        <div>
+        <v-card-text v-text="item.noticiaa"/><br><br>
+      </div>
+        Fuente: <i><v-card-text v-text="item.fuente"/></i>
+        </b-card-text>
+
+       
       <template #footer>
-        Estudiante encargado: <v-card-text v-text="item.Estudiante"/>
+        Estudiante encargado: <v-card-text v-text="item.encargado"/>
       </template>
     </b-card>
 
     </div>
-    <b-modal id= "mod" size="xl" title="Noticia">
-          <b-card-text>
-        <h6><b>Fecha:</b></h6> <v-card-text v-text="item.Fecha"/><br><br>
-        <v-card-text v-text="item.Resumen"/><br><br>
-        Fuente: <i><v-card-text v-text="item.Fuente"/></i>
-        </b-card-text>
-      </b-modal>
 
     <br>
     </div>
@@ -52,6 +52,73 @@
   </template>
   
   <script>
+
+import axios from "axios";
+export default {
+
+  name: 'noticias',
+
+  data() {
+
+    
+    
+    return {
+      items: {
+
+        titulo: null,
+
+        noticiaa: null,
+
+        encargado: null,
+
+        fuente: null,
+
+        fecha: null,
+
+
+} ,
+
+      fields: [
+        {
+          key: "titulo",
+        },
+        {
+          key: "noticiaa",
+        },
+        {
+          key: "fuente",
+        },
+        {
+          key: "fecha",
+        },
+        {
+          key: "encargado",
+        },
+        
+      ],
+
+        show: true
+      }
+    },
+  mounted() {
+
+axios.get("http://localhost:8080/api/noticias").then(
+
+(response) => {
+
+this.items= response.data;
+console.log(this.items)
+}
+);
+},
+  methods: {
+    handleInput(value, data) {},
+  },
+};
+
+
+  
+  /*
   export default {
     name: 'noticias',
     props: {
@@ -91,7 +158,7 @@
            ]
         }      
     }
-  }
+  }*/
   </script>
   
   <style scoped>
