@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Container from "../components/Container";
+import Container from "@/components/Container";
 import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
 
 export default {

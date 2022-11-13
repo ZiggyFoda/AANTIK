@@ -1,47 +1,29 @@
 package com.aantik.demo.control;
 
-
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.Map;
-
-//import javax.validation.Valid;
-
-import org.apache.logging.log4j.message.StringFormattedMessage;
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.HttpStatus;
-
 import org.springframework.http.ResponseEntity;
-
-import org.springframework.util.MultiValueMap;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import org.springframework.web.bind.annotation.RequestBody;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RequestParam;
-
 import org.springframework.web.bind.annotation.RestController;
-
-import net.bytebuddy.utility.RandomString;
-
+import com.aantik.demo.cargaUsuarios.leerEmprendimientos;
 import com.aantik.demo.model.ModBench;
-import com.aantik.demo.model.Mpreinscrito;
+import com.aantik.demo.model.ModEmprendimiento;
 import com.aantik.demo.model.encuestaPre;
+import com.aantik.demo.service.EmprendimientoCRUD;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 
 @RestController
-
-//RequestMapping("/datos")
-
-public class actDatosEmpController {
+public class EmpController {
+	@Autowired
+	EmprendimientoCRUD empService;
+	
     @PostMapping("/datosEmp")
     public ResponseEntity<?> processForgotPassword(@RequestBody encuestaPre update) {
 
@@ -50,6 +32,36 @@ public class actDatosEmpController {
     System.out.println("Localidad: " + update.getLocalidad());
     return ResponseEntity.ok("ok");
     }
+    
+    @GetMapping("/empCargaM")
+	public ResponseEntity<ModEmprendimiento[]> cargaStu() {
+		ModEmprendimiento est[] = new ModEmprendimiento[2];
+		try {
+			ModEmprendimiento [] empLista = new ModEmprendimiento[500];
+			leerEmprendimientos excelEmp = new leerEmprendimientos();
+			FileInputStream fis2;
+			try {
+				fis2 = new FileInputStream(new File("Datos basicos-formato.xlsx"));
+				excelEmp.getEmprendimientos(fis2,empLista);
+				
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				empService.saveAll(empLista);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				return new ResponseEntity<ModEmprendimiento[]>(est, HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println("Usuario no existe"+e);
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+	}
     
 	@GetMapping("/benchGet")
 	public ResponseEntity<ModBench[]> sendStudents() { 

@@ -3,8 +3,6 @@ package com.aantik.demo.repositorio;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
-
-import com.aantik.demo.entidad.Preguntas_Dig;
 import com.aantik.demo.entidad.Rubrica_preg_dg;
 
 public interface RubricaRepositorio extends CrudRepository<Rubrica_preg_dg,Long> {

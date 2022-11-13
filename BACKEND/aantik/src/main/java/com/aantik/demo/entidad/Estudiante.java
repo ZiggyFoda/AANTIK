@@ -54,6 +54,52 @@ public class Estudiante implements Serializable{
 	private String fechaSP; //fecha asistencia sentido de mi practica			
 	@Column
 	private String infografia; //revision de infografia de pasos a seguir
+	//personalizacion datos
+	@Column
+	public char genero;
+	@Column
+	public String documento;
+	@Column
+	public String ciudad;
+	@Column
+	public String localidad;
+	@Column
+	public String barrio;
+	@Column
+	public boolean actividadExtra;
+	@Column
+	public boolean experiencia;
+	@Column
+	public boolean limitacion;
+	@Column
+	public String limitLocalidad;
+	@Column
+	public boolean transporte;
+	@Column
+	public String docentePref;
+	@Column
+	public String docenteNoPref;   
+	@Column
+	public boolean promedio;
+	@Column
+	public String enfasis;
+	@Column
+	public String contacto;
+	@Column
+	public char modalidad;
+	@Column
+	public String disponibilidad;
+	@Column
+	public String notificaciones;
+	@Column
+	public String tipoOrg;
+	@Column
+	public String tipoEmp;
+	@Column
+	public String actividadEco;
+	@Column
+	public String comunidad;
+	
 	
 	@JoinTable(name = "user",
 	joinColumns=@JoinColumn(name="id"),
@@ -132,14 +178,6 @@ public class Estudiante implements Serializable{
 		this.linAccion = linAccion;
 	}
 
-	public long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(long userId) {
-		this.userId = userId;
-	}
-
 	public String getIdEstudiantil() {
 		return idEstudiantil;
 	}
@@ -180,6 +218,190 @@ public class Estudiante implements Serializable{
 		this.infografia = infografia;
 	}
 
+	public char getGenero() {
+		return genero;
+	}
+
+	public void setGenero(char genero) {
+		this.genero = genero;
+	}
+
+	public String getDocumento() {
+		return documento;
+	}
+
+	public void setDocumento(String documento) {
+		this.documento = documento;
+	}
+
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public String getLocalidad() {
+		return localidad;
+	}
+
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+
+	public String getBarrio() {
+		return barrio;
+	}
+
+	public void setBarrio(String barrio) {
+		this.barrio = barrio;
+	}
+
+	public boolean isActividadExtra() {
+		return actividadExtra;
+	}
+
+	public void setActividadExtra(boolean actividadExtra) {
+		this.actividadExtra = actividadExtra;
+	}
+
+	public boolean isExperiencia() {
+		return experiencia;
+	}
+
+	public void setExperiencia(boolean experiencia) {
+		this.experiencia = experiencia;
+	}
+
+	public boolean isLimitacion() {
+		return limitacion;
+	}
+
+	public void setLimitacion(boolean limitacion) {
+		this.limitacion = limitacion;
+	}
+
+	public String getLimitLocalidad() {
+		return limitLocalidad;
+	}
+
+	public void setLimitLocalidad(String limitLocalidad) {
+		this.limitLocalidad = limitLocalidad;
+	}
+
+	public boolean isTransporte() {
+		return transporte;
+	}
+
+	public void setTransporte(boolean transporte) {
+		this.transporte = transporte;
+	}
+
+	public String getDocentePref() {
+		return docentePref;
+	}
+
+	public void setDocentePref(String docentePref) {
+		this.docentePref = docentePref;
+	}
+
+	public String getDocenteNoPref() {
+		return docenteNoPref;
+	}
+
+	public void setDocenteNoPref(String docenteNoPref) {
+		this.docenteNoPref = docenteNoPref;
+	}
+
+	public boolean isPromedio() {
+		return promedio;
+	}
+
+	public void setPromedio(boolean promedio) {
+		this.promedio = promedio;
+	}
+
+	public String getEnfasis() {
+		return enfasis;
+	}
+
+	public void setEnfasis(String enfasis) {
+		this.enfasis = enfasis;
+	}
+
+	public String getContacto() {
+		return contacto;
+	}
+
+	public void setContacto(String contacto) {
+		this.contacto = contacto;
+	}
+
+	public char getModalidad() {
+		return modalidad;
+	}
+
+	public void setModalidad(char modalidad) {
+		this.modalidad = modalidad;
+	}
+
+	public String getDisponibilidad() {
+		return disponibilidad;
+	}
+
+	public void setDisponibilidad(String disponibilidad) {
+		this.disponibilidad = disponibilidad;
+	}
+
+	public String getNotificaciones() {
+		return notificaciones;
+	}
+
+	public void setNotificaciones(String notificaciones) {
+		this.notificaciones = notificaciones;
+	}
+
+	public String getTipoOrg() {
+		return tipoOrg;
+	}
+
+	public void setTipoOrg(String tipoOrg) {
+		this.tipoOrg = tipoOrg;
+	}
+
+	public String getTipoEmp() {
+		return tipoEmp;
+	}
+
+	public void setTipoEmp(String tipoEmp) {
+		this.tipoEmp = tipoEmp;
+	}
+
+	public String getActividadEco() {
+		return actividadEco;
+	}
+
+	public void setActividadEco(String actividadEco) {
+		this.actividadEco = actividadEco;
+	}
+
+	public String getComunidad() {
+		return comunidad;
+	}
+
+	public void setComunidad(String comunidad) {
+		this.comunidad = comunidad;
+	}
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(asignatura, clase, correo, direccion, entidad, fechaSP, id, idEstudiantil, identificacion,
@@ -212,6 +434,31 @@ public class Estudiante implements Serializable{
 				+ entidad + ", linAccion=" + linAccion + ", idEstudiantil=" + idEstudiantil + ", identificacion="
 				+ identificacion + ", tallerSP=" + tallerSP + ", fechaSP=" + fechaSP + ", infografia=" + infografia
 				+ ", userId=" + userId + "]";
+	}
+
+	public boolean getPromedio() {
+		// TODO Auto-generated method stub
+		return this.promedio;
+	}
+
+	public boolean getTransporte() {
+		// TODO Auto-generated method stub
+		return this.transporte;
+	}
+
+	public boolean getLimitacion() {
+		// TODO Auto-generated method stub
+		return this.limitacion;
+	}
+
+	public boolean getExperiencia() {
+		// TODO Auto-generated method stub
+		return this.experiencia;
+	}
+
+	public boolean getActividadExtra() {
+		// TODO Auto-generated method stub
+		return this.actividadExtra;
 	}	
 	
 }

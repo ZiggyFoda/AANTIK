@@ -146,4 +146,14 @@ footer {
   font-style: bold;
   font-size: 30pt;
 }
+.btn-block {
+    display: block;
+    width: 30%;
+}
+.btn{
+    cursor: pointer;
+    margin-bottom: 50px;
+    margin-top: 20px;    
+    margin-left: 20%;
+}
 </style>
