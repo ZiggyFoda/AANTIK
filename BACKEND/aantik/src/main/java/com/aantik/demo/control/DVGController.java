@@ -1,12 +1,6 @@
 package com.aantik.demo.control;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Optional;
-
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,14 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.aantik.demo.entidad.Noticia;
 import com.aantik.demo.entidad.Preguntas_Dig;
 import com.aantik.demo.entidad.Rubrica_preg_dg;
-import com.aantik.demo.model.ModBench;
 import com.aantik.demo.model.ModDGV;
 import com.aantik.demo.model.ModRubrica;
 import com.aantik.demo.model.ModeloPregunta;
-import com.aantik.demo.model.NoticiaEs;
+import com.aantik.demo.service.DiagnosticoCRUD;
 import com.aantik.demo.service.PreguntaCRUD;
 
 @Controller
@@ -29,6 +21,8 @@ public class DVGController {
 	
 	@Autowired
 	PreguntaCRUD servPreg;
+	@Autowired
+	DiagnosticoCRUD servDG;
 	
 	@GetMapping("/dgvGet")
 	public ResponseEntity<ModeloPregunta[]> sendStudents() { 
@@ -78,11 +72,22 @@ public class DVGController {
 		    System.out.println("dgv string: " + dgvRespuestas.puntajeS);
 		    System.out.println("dgv string: " + dgvRespuestas.codigo);
 		    System.out.println("dgv string: " + dgvRespuestas.correo);
+		    try {
+				servDG.crearDiagnostico(dgvRespuestas);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
 		 }else if(dgvRespuestas.puntajeN != 0) {
-			 System.out.println("dgv string: " + dgvRespuestas.puntajeN);
+			System.out.println("dgv string: " + dgvRespuestas.puntajeN);
 		    System.out.println("dgv string: " + dgvRespuestas.codigo);
-		    System.out.println("dgv string: " + dgvRespuestas.correo);
-		     
+		    System.out.println("dgv string: " + dgvRespuestas.correo);	
+			 try {
+				servDG.crearDiagnostico(dgvRespuestas);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	     
 		 }
 	    return ResponseEntity.ok("ok");	    
 	 }

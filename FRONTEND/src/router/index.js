@@ -38,9 +38,9 @@ const routes = [
     meta: {requiresAuth: true}
   },
   {
-    path: '/prueba',
-    name: 'prueba',
-    component: () => import('../views/emprendimiento/pruebas.vue'),
+    path: '/dgvfOs',
+    name: 'dgvfOs',
+    component: () => import('../views/orgSocial/forDGVOS.vue'),
     meta: {requiresAuth: true}
   },
   {
@@ -56,15 +56,15 @@ const routes = [
     ,meta: {requiresAuth: true}
   },
   {
-    path: '/tejido',
-    name: 'tejido',
-    component: () => import('../views/tejido.vue')
+    path: '/tejidoOS',
+    name: 'tejidoOS',
+    component: () => import('../views/orgSocial/tejidoOS.vue')
  //   ,meta: {requiresAuth: true}
   },
   {
-    path: '/tejido2',
-    name: 'tejido2',
-    component: () => import('../views/tejido copy.vue')
+    path: '/tejidoEmp',
+    name: 'tejidoEmp',
+    component: () => import('../views/emprendimiento/tejidoEm.vue')
   },  //ORGANIZACION SOCIAL
   {
     path: '/orgSocHome',
@@ -380,6 +380,12 @@ const routes = [
     path: '/bench',
     name: 'benchM',
     component: () => import('../views/emprendimiento/benchm.vue')
+    ,meta: {requiresAuth: true}
+  },
+  {
+    path: '/benchOS',
+    name: 'benchOS',
+    component: () => import('../views/orgSocial/benchmOS.vue')
     ,meta: {requiresAuth: true}
   },
    //DOCENTE
