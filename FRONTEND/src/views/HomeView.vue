@@ -5,8 +5,10 @@
     <hr width=100% color=#e3b82a  size=50   noshade="noshade">
     <hr width=100%  color=#fff size=50   noshade="noshade">
     <hr width=100%  color=#2C5698  size=50   noshade="noshade">
-
-    <h3>Bienvenido a AANTIK</h3>
+    <router-link to="/ayuda">
+        <i class='bx bx-help-circle bx-lg' color="red"></i>
+    </router-link>
+    <h1>Bienvenido a AANTIK</h1>
     <p>AANTIK es un sistema de información personalizado para la gestión de procesos de madurez
       empresarial, aplicandose en emprendimientos que pertenecen al programa de PSU, facilitando tareas de 
       asignación de entidad y estudiantes por medio de la personalización.
@@ -21,6 +23,7 @@
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Iniciar sesión</button></router-link><br>
     </p>
+
   </div>
 </template>
 
@@ -37,7 +40,8 @@ export default {
 </script>
 
 <style scoped>
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css');
   hr {
     height: 25px;
     margin-top: 0px;
@@ -59,8 +63,18 @@ export default {
   }
   .btn-block {
     display: block;
-    width: 20%;
+    width: 30%;
     align-items: center;
+  }
+  i{
+    font-size:50px;
+    padding: 20px;
+    margin-right: 20px;
+    float: right;
+  }
+  h1{
+    padding-top: 50px;
+    color: #2C5698;
   }
 </style>
   

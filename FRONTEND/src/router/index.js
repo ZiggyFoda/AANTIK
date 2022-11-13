@@ -38,6 +38,12 @@ const routes = [
     meta: {requiresAuth: true}
   },
   {
+    path: '/prueba',
+    name: 'prueba',
+    component: () => import('../views/emprendimiento/pruebas.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
     path: '/foro',
     name: 'foro',
     component: () => import('../views/foro.vue')
@@ -90,6 +96,12 @@ const routes = [
     path: "/CoordHome",
     name: "CoordHome",
     component: () => import('../views/coordinador/Homecoordinador.vue')
+    ,meta: {requiresAuth: true}
+  },
+  {
+    path: "/ayudaCord",
+    name: "ayudaCord",
+    component: () => import('../views/coordinador/ayudaCord.vue')
     ,meta: {requiresAuth: true}
   },
   {

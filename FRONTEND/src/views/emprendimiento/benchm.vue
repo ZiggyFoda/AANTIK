@@ -37,8 +37,8 @@
   </template>
   
   <script>
-  import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
-  import LoginService from "@/service/LoginService";
+import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
+import LoginService from "@/service/LoginService";
 import { DxChart, DxSeries } from "devextreme-vue/chart";
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.compact.css';
