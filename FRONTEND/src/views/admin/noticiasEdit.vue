@@ -35,7 +35,7 @@
         Fuente: <i><v-card-text v-text="item.fuente"/></i>
         </b-card-text>
         
-        <b-button type="delete" variant="primary">Eliminar</b-button>
+        <b-button type="submit" variant="primary">Eliminar</b-button>
 
       <template #footer>
         Estudiante encargado: <v-card-text v-text="item.encargado"/>
@@ -112,6 +112,31 @@ console.log(this.items)
 );
 },
   methods: {
+
+
+    onSubmit() {
+        axios.post("http://localhost:8080/api/notiDelete",{
+          id: this.form.id,
+          responsable: AuthService.getUser(),
+
+         
+        });
+        console.log(AuthService.getCorreo());
+console.log(this.form.id)
+      },
+      onReset(event) {
+        event.preventDefault()
+        // Reset our form values
+        this.form.pregunta = ''
+
+
+        // Trick to reset/clear native browser form validation state
+        this.show = false
+        this.$nextTick(() => {
+          this.show = true
+        })
+      },
+
     handleInput(value, data) {},
   },
 };

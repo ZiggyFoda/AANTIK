@@ -67,7 +67,9 @@ public class NoticiaController {
        /* for (int i=0;i<res2.size();i++) {
           
           System.out.println(res2.get(i));
-        }*/
+        }
+        SELECT TOP 10 * FROM noticia WHERE id IN (SELECT MAX(id) FROM noticia GROUP BY correo)
+        */
         if(res2.size() > 10) {
         res3 = res2.subList(0, 10);
 
@@ -105,6 +107,24 @@ public class NoticiaController {
     	}
     	
     	}
+	
+	@PostMapping("/notiDelete")
+    public ResponseEntity<?> noticiaGet(@RequestBody NoticiaEs update) {  
+    Date date = new Date();
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+     String fecha = formatter.format(date);
+    System.out.println("Current date: "+ fecha); 
+    
+    System.out.println("Encargado: " + update.encargado);
+    
+    update.fecha=fecha;
+    
+    Noticia noticia = new Noticia(update.id, update.titulo, update.noticiaa, update.fuente, update.encargado, update.fecha, update.correo);
+
+    noticiaRepositorio.save(noticia);
+    
+    return ResponseEntity.ok("ok");
+    }
     
     
            
