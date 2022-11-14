@@ -1,24 +1,22 @@
 <template>
-  <b-container>  
+  <b-container fluid="xl">  
        <div>
           <sidebar-menu-akahon 
-            @search-input-emit="search"
           />
         </div> 
-    <b-row>
-      <b-col>
+    <b-row class="change_row">
+      <b-col class="change_col">
         <div class="hello">
           <h3>Gestor de contenido colaborativo</h3>
-          <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div>
         <div>
-          <b-table striped hover id="pages-table" :items="items" :fields="fields">
-            <template #cell(Editar)="row">
-              <router-link to="/foroEdit">
-              <b-button class="mr-2">Editar/Ver
-              </b-button></router-link>
-            </template>
+          <b-table class="table" striped Bordered hover id="pages-table" :items="this.user" :fields="fields" :key="id">
             <template #cell(Eliminar)="row">
+        <b-button size="sm" @click="Eliminate(row.item.id)" class="mr-2"> Eliminar
+        </b-button>
+      </template>
+
+            <template >
               <b-button class="mr-2">Elminar
               </b-button>
             </template>
@@ -36,7 +34,7 @@
 
 <script>
 import SidebarMenuAkahon from "@/components/SideBar.vue"
-
+import axios from 'axios'
 export default {
   name: 'Homecoordinador',
   props: {
@@ -44,32 +42,53 @@ export default {
   },
   data() {
       return {
-        items: [
-          { ID: 40, Pregunta: 'Nuevo impuesto a..', Fecha: '10/10/22', Autor: 'Pepito' },
-          { ID: 40, Pregunta: 'Apoyo a emprendimientos en col..', Fecha: '10/10/22', Autor: 'Juanito' },
-          { ID: 40, Pregunta: 'notica', Fecha: '01/10/22', Autor: 'Camilo' }
-        ],
-        fields: [
+        user: [],
+        fields:[
           {
-            key: "ID",
-            label: "ID",
-            sortable: true
+            key:"id",
+            label:"Id",
+            thStyle: { width: "5%" }
           },
-          { key: "Pregunta" },
-          { key: "Fecha" },
-          { key: "Autor" },
-          { key: "Editar" },
-          { key: "Eliminar" }
-        ]
+          {
+            key:"postedby",
+            label:"Autor"
+          },
+          {
+            key:"postBody",
+            label:"pregunta",
+            thStyle: { width: "50%" }
+          },
+          {
+            key:"createDate",
+            label:"Fecha",
+            thStyle: { width: "20%" }
+          },
+          {
+            key:"Eliminar",
+          },
+        ],
       }      
   },
    components: {
     SidebarMenuAkahon,
   },
   methods: {
-    search() {
-      
+    Eliminate(id){
+      console.log(id)
+       axios.post("http://localhost:8080/deletePost", { 
+        postedby:id,
+    }).then((response) => {
+      this.user=response.data;
+    })
     }
+    
+  },
+  mounted(){
+    axios.get("http://localhost:8080/foroPreguntas").then((response)=>{
+     // console.log(response)
+      this.user=response.data;
+      console.log(this.user)
+    })
   }
 }
 </script>
@@ -89,5 +108,14 @@ li {
 }
 a {
   color: #42b983;
+}
+.table{
+  width: 50rem;
+}
+.change_row{
+  width: 100rem;
+}
+.change_col{
+  width: 100rem;
 }
 </style>
