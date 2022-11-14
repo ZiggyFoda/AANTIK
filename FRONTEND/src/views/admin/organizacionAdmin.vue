@@ -1,57 +1,149 @@
 <template>
-  <b-container>  
-       <div>
-          <sidebar-menu-akahon 
-            @search-input-emit="search"
-          />
-        </div> 
+  <b-container>
+    <div>
+      <sidebar-menu-akahon/>
+    </div>
 
 
-        <div class="hello">
-          <h3>Gestor de organizaciones sociales</h3>
-        </div>
-        Ingrese aquí para agregar organizaciones sociales de forma masiva
-        por medio de un archivo .csv
-        <router-link to="/subirFileOrgSoc">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar organizaciones sociales</button></router-link><br>
-        Ingrese aquí para agregar una organizacion social de forma individual
-        <router-link to="/agregarOrgSoc">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Agregar organizacion social</button></router-link><br>
-        <br>
+    <div class="hello">
+      <h3>Gestor de organizaciones sociales</h3>
+    </div>
+    Ingrese aquí para agregar organizaciones sociales de forma masiva
+    por medio de un archivo .csv
+    <router-link to="/subirFileOrgSoc">
+      <button type="submit" class="btn btn-dark btn-lg btn-block">
+        Agregar organizaciones sociales</button>
+    </router-link><br>
+    Ingrese aquí para agregar una organizacion social de forma individual
+    <router-link to="/agregarOrgSoc">
+      <button type="submit" class="btn btn-dark btn-lg btn-block">
+        Agregar organizacion social</button>
+    </router-link><br>
+    <br>
 
 
-
-            
     <b-row>
       <b-col>
         Listado de organizaciones sociales inscritas
-           
+
         <br>
         <div>
-          <b-table striped hover id="pages-table" :items="items" :fields="fields">
-            <template #cell(Editar)="row">
-              <router-link to="/orgEdit">
-              <b-button class="mr-2">Ver y Editar
-              </b-button></router-link>
-            </template>
-            <template #cell(Eliminar)="row">
-              <b-button class="mr-2">Eliminar
-              </b-button>
-            </template>
+          <b-table striped hover id="pages-table" :items="users" :fields="fields" :key="field">
+            
+              <template #cell(Editar)="data">
+                <router-link to="/orgEdit">
+                  <b-button class="mr-2">Editar/Borrar
+                  </b-button>
+                </router-link>
+              </template>
+
+              <template #cell(Eliminar)="data">
+                <b-button @click="orgDelete(data.item.id, data.index)" class="mr-2">Eliminar
+                </b-button>
+              </template>
           </b-table>
         </div>
         <br>
       </b-col>
-      
+
+
     </b-row>
-  </b-container>   
+  </b-container>
 </template>
 
 <script>
 import SidebarMenuAkahon from "@/components/SideBar.vue"
+import axios from 'axios';
 
+
+export default {
+  components: {
+    SidebarMenuAkahon,
+  },
+
+
+  name: 'orgS',
+
+  data() {
+
+    return {
+      users: [{
+
+        id: null,
+
+        nombreEmp: null,
+
+        nombreInterOS: null,
+
+        tipoOS: null,
+
+        actividadEco: null,
+
+        prodServ: null,
+
+      }],
+
+      fields: [
+        {
+          key: "id",
+          label: "id"
+        },
+        {
+          key: "nombreEmp",
+          label: "Nombre"
+        },
+        {
+          key: "nombreInterOS",
+          label: "Interlocutor"
+        },
+        {
+          key: "tipoOS",
+          label: "Tipo de organización"
+        },
+        {
+          key: "actividadEco",
+          label: "Actividad"
+        },
+        {
+          key: "prodServ",
+          label: "Servicio o producto"
+        },
+        { key: "Editar" },
+        { key: "Eliminar" },
+
+
+      ],
+    }
+  },
+  id2: null,
+  mounted() {
+
+    axios.get("http://localhost:8080/getOrg").then(
+
+      (response) => {
+
+        this.users = response.data;
+        console.log(this.users)
+      }
+    );
+  },
+  methods: {
+    orgDelete: function (id, index) {
+      console.log(index)
+      console.log(id)
+      axios.post("http://localhost:8080/orgDelete", {
+        id
+      });
+
+    },
+
+    handleInput(value, data) { },
+  },
+};
+
+
+
+/*
 export default {
   name: 'estudiantesCord',
   props: {
@@ -61,6 +153,7 @@ export default {
     SidebarMenuAkahon,
   },
   methods: {
+    
     search() {
       
     },
@@ -101,7 +194,7 @@ export default {
         ],
       }      
   }
-}
+}*/
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -109,14 +202,17 @@ export default {
 h3 {
   margin: 40px 0 0;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
 }
+
 li {
   display: inline-block;
   margin: 0 10px;
 }
+
 a {
   color: #42b983;
 }

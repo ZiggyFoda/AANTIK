@@ -20,7 +20,7 @@ public class OrgSocial implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
 	@GenericGenerator(name="native",strategy="native")
-	private Long id;
+	private long id;
 	@Column
 	private String nombreEmp;
 	@Column
@@ -81,11 +81,11 @@ public class OrgSocial implements Serializable{
 	inverseJoinColumns=@JoinColumn(name="id"))
 	private long userId;
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -312,6 +312,55 @@ public class OrgSocial implements Serializable{
 	public void setUserId(long userId) {
 		this.userId = userId;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public OrgSocial(long id, String nombreEmp, String nIT, String fechaCons, String direccion, String localidad,
+			String barrio, String nombreInterOS, String telefonoIOS, String correoIOS, String temaAsesorar, int cupos,
+			String empleados, String linAccion, String tipoOS, String actividadEco, String prodServ, String contacto,
+			boolean experiencia, boolean promedio, String horarioNotif, char modalidad, String disponibilidad,
+			String horarioAtencion, char genero, boolean limitacion, String comunidad, boolean transporte) {
+		super();
+		this.id = id;
+		this.nombreEmp = nombreEmp;
+		this.NIT = nIT;
+		this.fechaCons = fechaCons;
+		this.direccion = direccion;
+		this.localidad = localidad;
+		this.barrio = barrio;
+		this.nombreInterOS = nombreInterOS;
+		this.telefonoIOS = telefonoIOS;
+		this.correoIOS = correoIOS;
+		this.temaAsesorar = temaAsesorar;
+		this.cupos = cupos;
+		this.empleados = empleados;
+		this.linAccion = linAccion;
+		this.tipoOS = tipoOS;
+		this.actividadEco = actividadEco;
+		this.prodServ = prodServ;
+		this.contacto = contacto;
+		this.experiencia = experiencia;
+		this.promedio = promedio;
+		this.horarioNotif = horarioNotif;
+		this.modalidad = modalidad;
+		this.disponibilidad = disponibilidad;
+		this.horarioAtencion = horarioAtencion;
+		this.genero = genero;
+		this.limitacion = limitacion;
+		this.comunidad = comunidad;
+		this.transporte = transporte;
+	}
+
+	public OrgSocial() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+	
 	
 	
 }

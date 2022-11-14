@@ -3,6 +3,8 @@ package com.aantik.demo.service;
 import java.util.Optional; 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.aantik.demo.entidad.Noticia;
 import com.aantik.demo.entidad.OrgSocial;
 import com.aantik.demo.entidad.Role;
 import com.aantik.demo.entidad.User;
@@ -153,6 +155,20 @@ public class OrgSocialCRUD implements OrgSocialCRUDLocal{
 			return false;
 		}
 		return true;
+	}
+
+	public void crearOrg(OrgSocial orgS) throws Exception {
+		// TODO Auto-generated method stub
+        repository.save(orgS);
+		
+	}
+
+	public void deleteById(long id) {
+		// TODO Auto-generated method stub
+		OrgSocial org = repository.getById(id);
+		
+		repository.delete(org);
+		
 	}
 
 }

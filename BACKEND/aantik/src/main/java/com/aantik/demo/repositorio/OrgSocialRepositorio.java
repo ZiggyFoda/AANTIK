@@ -10,4 +10,5 @@ public interface OrgSocialRepositorio extends CrudRepository<OrgSocial,Long>{
 	public Optional<OrgSocial> getUserById(Long id) throws Exception;
 	public OrgSocial getByCorreoIOS(String correoIOS);
 	public Optional<OrgSocial> findByNombreEmp(String nombreEmp);
+	public OrgSocial getById(long id);
 }
