@@ -42,6 +42,8 @@ import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBui
 import com.aantik.demo.GaboPrivado.*;
 import com.aantik.demo.Payload.*;
 
+import net.bytebuddy.utility.RandomString;
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 //@RequestMapping("/comments")
@@ -49,6 +51,9 @@ public class CommentController {
     
     @Autowired
     CommentsRepository repo;
+
+    @Autowired
+    CrearPostRepository crearPostRepository;
 
     @PostMapping("/make")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody Comments comment) {
@@ -61,12 +66,39 @@ public class CommentController {
 
         return ResponseEntity.ok(repo.findAll());
 	}
+    @PostMapping("/delete")
+	public ResponseEntity<?> authewnticateUser(@Valid @RequestBody Comments comment) {
+
+       int l=Integer.parseInt(comment.getIdPost());       
+       repo.deleteById(l);
+
+        return ResponseEntity.ok(repo.findAll());
+	}
     @GetMapping("/foro")
-    public ResponseEntity<Set<Comments>> getComments(){ //assigment id
+    public ResponseEntity<?> getComments(){ //assigment id
 
         
-    return ResponseEntity.ok(repo.findByIdPost("ss"));
+    return ResponseEntity.ok(repo.findAll());
     }
+    @GetMapping("/foroPreguntas")
+    public ResponseEntity<?> getPosts(){ //assigment id
 
+        
 
+    return ResponseEntity.ok(crearPostRepository.findAll());
+    }
+    @PostMapping("/crear")
+    public ResponseEntity<?> crearPosts(@Valid @RequestBody CrearPosts crearPosts) {
+
+    System.out.println(crearPosts.getPostedby());
+    System.out.println(crearPosts.getPostBody());
+    String token = RandomString.make(5);   
+
+     crearPosts.setCreateDate(LocalDate.now());
+     crearPosts.setIdGeneration(token); 
+     
+     crearPostRepository.save(crearPosts);
+
+     return ResponseEntity.ok(new MessageResponse("Post registrado exitosamente!"));
+    }
 }

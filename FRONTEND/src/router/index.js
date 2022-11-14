@@ -12,6 +12,11 @@ const routes = [
     component: HomeView
   },
   {
+    path: '/crearForo',
+    name: 'CrearForo',
+    component: () => import('../views/CrearForo.vue')
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import('../views/Login.vue')

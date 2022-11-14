@@ -39,7 +39,7 @@ public class EmailServiceImpl implements EmailService {
             // be send
             mimeMessageHelper
                 = new MimeMessageHelper(mimeMessage, false);
-            //mimeMessageHelper.setFrom("aantikpuj@gmail.com");
+            
             mimeMessageHelper.setTo(email);
             String url="http://localhost:8081/#/user/reset/"+token;
             mimeMessageHelper.setText("Siga en el siguiente link para restablecer tu contraseña \n "+ url);

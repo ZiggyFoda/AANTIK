@@ -17,7 +17,7 @@ public class Comments {
     private int id;
     
     private String createdby;
-    //@Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String commentBody;
     private String idPost;
     private LocalDate createDate;

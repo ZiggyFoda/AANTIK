@@ -11,36 +11,36 @@
     <h3>Acá podrá solucionar sus dudas con la comunidad</h3><br>
     </div>
   </div>
-  
+
   <div v-for="item in items" :key="item.id">
     <b-card bg-variant="light" border-variant="secondary">
       <template #header>
-        <h6 class="mb-0"> <b>Pregunta de: </b> </h6> <v-card-title v-text="item.Nombres"/>
+        <h6 class="mb-0"> <b>Pregunta de: </b> </h6> <v-card-title v-text="item.postedby"/>
       </template>
-      <h4><b><v-card-title v-text="item.Titulo"/></b></h4>
+      <h4><b><v-card-title  v-text="item.postBody"/></b></h4>
       <b-card-text>
-        <h6><b>Fecha:</b></h6> <v-card-text v-text="item.Fecha"/><br><br>
-        <v-card-text v-text="item.Pregunta"/><br><br>
+        <h6><b>Fecha:</b></h6> <v-card-text v-text="item.createDate"/><br><br>
         
           <textarea class="inputArea" v-model="Commenttext" type="text" placeholder=" Ingresar una respuesta..." ref="com"></textarea>
-          <Button @click="handleComments" class="btn btn-primary btn-block">
-            Comentar
-          </Button>
-          
-      <div class="respostas" v-for="comments in comment" :key="comments.id">
-        <b-card class="card-body">
+          <Button @click="handleComments(item.id)" class="btn btn-primary btn-block">Comentar </Button>
+          <!--<Button @click="handlewComments(item.id)" class="btn btn-primary btn-block">Comentar </Button>-->
+      <div class="respostas" v-for="comments in comment" :key="comments.id" >
+         <b-card class="card-body" v-if="comments.idPost == item.id">
           <b>
-            <div>
+            <div >
             <v-card-body class="dataTitle" v-text="comments.createdby"/>
             </div>
             <div class="dataComment">
-            <v-card-body v-text="comments.createDate"/>
+            <v-card-body  v-text="comments.createDate"/>
             </div>
           </b>
           <b-card-text class="databody" v-text="comments.commentBody"></b-card-text> 
-        </b-card>
+          <Button v-if="comments.createdby == test" @click="handleEraseComments(comments.id)" class="btn1" >Borrar </Button>
+          
+         </b-card>
       </div>
-       </b-card-text>
+      </b-card-text>
+
       <template #footer>
         <em> </em>
       </template>
@@ -54,12 +54,15 @@
 <script>
 import axios from 'axios';
 import service from "@/service/auth.service"
-import estudianteEditVue from './coordinador/estudianteEdit.vue';
+
 export default {
   name: 'foro',
   props: {
     msg: String
-  },components: {
+  },
+  computed:{
+  },
+  components: {
   },
   data() {
       return {
@@ -67,11 +70,32 @@ export default {
         createdby:"",
         idPost:"",
         response:"",
-        test:"",
-        items: [
-          { Nombres: 'America solidaria', Pregunta: 'Como puedo registrar un nuevo emprendimiento', Fecha: '01/01/22'},
-          { Nombres: 'Org Soc1 ', Pregunta: 'Como puedo encontrar clientes', Fecha: '02/03/22' },
-         ],
+        test:service.getUser(),
+        items: {
+          id:null,
+          postBody:null,
+          postedby:null,
+          idGeneration:null,
+          createDate:null
+        },
+        itemsfield:[
+          {
+            key:"id",
+          },
+          {
+            key:"postedby",
+          },
+          {
+            key:"postbody",
+          },
+          {
+            key:"idGeneration",
+          },
+          {
+            key:"createDate",
+          },
+        ],
+
          comment:{
           idPost:null,
           id:null,
@@ -96,35 +120,46 @@ export default {
             key: "createDate"
           }
         
-          ],
-        items2: [
-          { Nombres: 'Emprendimiento 1', Respuesta: 'Comunicandose con coordinacion de proyectos' },
-         // { Nombres: 'Estudiante pepito', Respuesta: 'Te enviaremos un correo con la información'}
-       ]
+          ]
       }      
   },
   methods: {
-    handleComments(){
+    handleComments(id){
+      console.log(id)
       console.log(service.getUser())
       //console.log(this.Commenttext)
-      return axios.post("http://localhost:8080/make", {
+       axios.post("http://localhost:8080/make", {
         
         createdby:service.getUser(),
         commentBody: this.Commenttext,
-        idPost:"ss",
+        idPost:id,
+        
 
     }).then((response) => {
       this.comment=response.data;
       this.Commenttext="";
     })
     
+    },
+    handleEraseComments(id){
+      console.log(id)
+      //console.log(this.Commenttext)
+       axios.post("http://localhost:8080/delete", { 
+        idPost:id,
+    }).then((response) => {
+      this.comment=response.data;
+      this.Commenttext="";
+    })
     }
   },
   mounted(){
     axios.get("http://localhost:8080/foro").then((response)=>{
       console.log(response)
       this.comment=response.data;
-      console.log(this.comment)
+    }),
+    axios.get("http://localhost:8080/foroPreguntas").then((response2)=>{
+      console.log(response2)
+      this.items=response2.data;
     })
   }
   
@@ -147,6 +182,14 @@ export default {
 }
   .btn{
     width: 15%;
+  }
+  .btn1{
+    color: #fff;
+    background-color: #ff0000;
+    border-color: #ff0000;
+    position: relative;
+    right: -650px;
+    
   }
   .respostas{
     margin-top: 10px;
