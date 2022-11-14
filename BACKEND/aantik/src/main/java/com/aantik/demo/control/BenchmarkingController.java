@@ -34,13 +34,14 @@ public class BenchmarkingController {
     @Autowired
     PreguntasRepository tt;
 
-    @PostMapping("/uploadDef")
+    @PostMapping("/upload")
   public ResponseEntity<ResponseMessage> uploadFileDef(@RequestParam("file") MultipartFile file) {
     String message = "";
 
     if (PreguntasExcelReader.hasExcelFormat(file)) {
       try {
         fileService.save(file);
+        BenfileService.save(file);
         message = "Uploaded the file successfully: " + file.getOriginalFilename();
         return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
       } catch (Exception e) {
