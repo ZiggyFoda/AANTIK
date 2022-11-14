@@ -17,4 +17,10 @@ export default class diagnosticoService {
         return axios.get(this.url + "dgvGet");
     }
 
+    getRespDiag(correo){
+        return axios.post(this.url + "getResDG",{
+            correo : correo
+        });
+    }
+
 }

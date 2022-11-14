@@ -95,7 +95,7 @@ const routes = [
     name: 'progress',
     component: () => import('../views/estudiante/Progreso.vue'),
     meta: {requiresAuth: true}
-  }, 
+  },
   {
     path: '/benchInd',
     name: 'benchInd',
@@ -173,6 +173,12 @@ const routes = [
     path: "/agregarStd",
     name: "agregarStd",
     component: () => import('../views/coordinador/addEstudiante.vue')
+    ,meta: {requiresAuth: true}
+  },
+  {
+    path: "/datosCord",
+    name: "datosCord",
+    component: () => import('../views/coordinador/datosCoord.vue')
     ,meta: {requiresAuth: true}
   },
   {

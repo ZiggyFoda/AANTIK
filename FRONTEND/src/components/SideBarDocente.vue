@@ -48,12 +48,13 @@
             :key="index"
           >
             <li>
-              <a :href="menuItem.link">
+              <a><router-link :to="menuItem.link">
                 <i
                   class="bx"
                   :class="menuItem.icon || 'bx-square-rounded'"
                 />
                 <span class="links_name">{{ menuItem.name }}</span>
+              </router-link>
               </a>
               <span class="tooltip">{{ menuItem.tooltip || menuItem.name }}</span>
             </li>
@@ -121,38 +122,38 @@ import AuthService from "@/service/auth.service";
         type: Array,
         default: () => [
           {
-            link: '#datosEs',
+            link: '/datosDoc',
             name: AuthService.getUser(),
             tooltip: 'User',
             icon: 'bx-user',
           },
           {
-            link: '#coordHome',
+            link: '/coordHome',
             name: 'Inicio',
             tooltip: 'Dashboard',
             icon: 'bx-home',
             
           },
           {
-            link: '#',
+            link: '/',
             name: 'Estudiantes',
             tooltip: 'Messages',
             icon: 'bx-pencil',
           },
           {
-            link: '#',
+            link: '/',
             name: 'Docentes',
             tooltip: 'Analytics',
             icon: 'bx-chalkboard',
           },
           {
-            link: '#noticiaEs',
+            link: '/',
             name: 'Emprendimientos',
             tooltip: 'Order',
             icon: 'bx-store',
           },          
           {
-            link: '#ayudaDocente',
+            link: '/ayudaDocente',
             name: 'Ayuda',
             tooltip: 'Setting',
             icon: 'bx-help-circle',

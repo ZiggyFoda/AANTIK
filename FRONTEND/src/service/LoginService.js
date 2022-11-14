@@ -15,8 +15,7 @@ export default class LoginService {
           username:user.username,
           password:user.password,
         })
-    }
-    
+    }    
 
     register(email, password) {
       const user = { email, password };

@@ -38,6 +38,7 @@ import com.aantik.demo.cargaUsuarios.leerEstudiantes;
 import com.aantik.demo.entidad.Diagnostico;
 import com.aantik.demo.entidad.Estudiante;
 import com.aantik.demo.entidad.Profesor;
+import com.aantik.demo.model.ModDGRes;
 import com.aantik.demo.model.ModDocente;
 import com.aantik.demo.model.ModEmprendimiento;
 import com.aantik.demo.model.ModEstudLiv;
@@ -150,11 +151,11 @@ public class EstController {
     }
     
 	@PostMapping("/getResDG")
-	public ResponseEntity<Iterable<Diagnostico>> diagnosticoResp(@RequestBody String correo) {
-
-	System.out.println("Tel: " + update.getTelefono());
-
-    System.out.println("Localidad: " + update.getNotif());
-    return new ResponseEntity<Iterable<Diagnostico>>(resp, HttpStatus.OK);
+	public ResponseEntity<ModDGRes[]> diagnosticoResp(@RequestBody String correo) {
+		ModDGRes[] resp= new ModDGRes[8];
+		System.out.println("estudiante: " + correo);
+		for(int i =0;i<8;i++)
+			resp[i]=new ModDGRes();
+	    return new ResponseEntity<ModDGRes[]>(resp, HttpStatus.OK);
 	}
 }
