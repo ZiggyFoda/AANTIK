@@ -145,6 +145,12 @@ import AuthService from "@/service/auth.service";
             name: 'Requisitos',
             tooltip: 'Analytics',
             icon: 'bx-user-check',
+          },        
+          {
+            link: '#ayudaPreins',
+            name: 'Ayuda',
+            tooltip: 'Setting',
+            icon: 'bx-help-circle',
           },
         ],
       },

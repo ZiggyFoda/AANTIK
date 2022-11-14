@@ -2,7 +2,6 @@
   <b-container>  
       <div>
         <sidebar-menu-akahon 
-          @search-input-emit="search"
         />
       </div> 
   <b-row>
@@ -99,12 +98,9 @@
        
 
         <b-button type="submit" variant="primary">Guardar</b-button>
-        <b-button type="reset" variant="danger">Cancelar</b-button>
+        <b-button type="reset" variant="danger" @click="volver()">Cancelar</b-button>
       </b-form>
       <br>
-      <router-link to="/preinscHome">
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Volver</button></router-link>
     </div>
   </b-col>
       <b-col>
@@ -191,6 +187,12 @@ import AuthService from "@/service/auth.service"
           this.show = true
         })
       },
+      volver(){
+        this.$router.push({name:'studentHome' })
+      },
+      enviar(){
+
+      }
     }
   }
 </script>

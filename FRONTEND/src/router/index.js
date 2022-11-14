@@ -38,6 +38,66 @@ const routes = [
     meta: {requiresAuth: true}
   },
   {
+    path: '/ayudaAdmin',
+    name: 'ayudaAdmin',
+    component: () => import('../views/admin/ayudaA.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/ayudaCoord',
+    name: 'ayudaCoord',
+    component: () => import('../views/coordinador/ayudaC.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/ayudaDocente',
+    name: 'ayudaDocente',
+    component: () => import('../views/docente/ayudaD.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/ayudaEmpren',
+    name: 'ayudaEmpren',
+    component: () => import('../views/emprendimiento/ayudaE.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/ayudaOrgSoc',
+    name: 'ayudaOrgSoc',
+    component: () => import('../views/orgSocial/ayudaOS.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/ayudaPreins',
+    name: 'ayudaPreins',
+    component: () => import('../views/estudiante/ayudaP.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/ayudaStud',
+    name: 'ayudaStud',
+    component: () => import('../views/estudiante/ayudaS.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/respDG',
+    name: 'respDG',
+    component: () => import('../views/estudiante/respDG.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/progress',
+    name: 'progress',
+    component: () => import('../views/estudiante/Progreso.vue'),
+    meta: {requiresAuth: true}
+  }, 
+  {
+    path: '/benchInd',
+    name: 'benchInd',
+    component: () => import('../views/estudiante/benchIndicadores.vue'),
+    meta: {requiresAuth: true}
+  },              
+  {
     path: '/dgvfOs',
     name: 'dgvfOs',
     component: () => import('../views/orgSocial/forDGVOS.vue'),
@@ -375,7 +435,7 @@ const routes = [
     name: 'diagn',
     component: () => import('../views/emprendimiento/forDGV.vue')
     //,meta: {requiresAuth: true}
-  },/*
+  },
   {
     path: '/bench',
     name: 'benchM',

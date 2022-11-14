@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 //import javax.validation.Valid;
 
@@ -34,14 +35,17 @@ import net.bytebuddy.utility.RandomString;
 
 import com.aantik.demo.cargaUsuarios.leerDocentes;
 import com.aantik.demo.cargaUsuarios.leerEstudiantes;
+import com.aantik.demo.entidad.Diagnostico;
 import com.aantik.demo.entidad.Estudiante;
 import com.aantik.demo.entidad.Profesor;
 import com.aantik.demo.model.ModDocente;
 import com.aantik.demo.model.ModEmprendimiento;
+import com.aantik.demo.model.ModEstudLiv;
 import com.aantik.demo.model.ModEstudiante;
 import com.aantik.demo.model.ModOrgSocial;
 import com.aantik.demo.model.Mpreinscrito;
 import com.aantik.demo.model.actualizarDatosEs;
+import com.aantik.demo.model.gestEstudiantes;
 import com.aantik.demo.service.EstudianteCRUD;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -129,5 +133,28 @@ public class EstController {
 			System.out.println("Usuario no existe"+e);
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
+	}
+	
+	@GetMapping("/gesStu")
+    public ResponseEntity<gestEstudiantes> obtenerUsuarios(){
+    	try {
+			gestEstudiantes resp = new gestEstudiantes();
+			servcioEst.getGestStud(resp);
+    		return new ResponseEntity<gestEstudiantes>(resp, HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			
+			System.out.println("Falla en gestion usuario"+e);
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+    }
+    
+	@PostMapping("/getResDG")
+	public ResponseEntity<Iterable<Diagnostico>> diagnosticoResp(@RequestBody String correo) {
+
+	System.out.println("Tel: " + update.getTelefono());
+
+    System.out.println("Localidad: " + update.getNotif());
+    return new ResponseEntity<Iterable<Diagnostico>>(resp, HttpStatus.OK);
 	}
 }

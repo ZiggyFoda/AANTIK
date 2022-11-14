@@ -1,14 +1,15 @@
 package com.aantik.demo.service;
 
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.aantik.demo.entidad.Estudiante;
 import com.aantik.demo.entidad.Role;
 import com.aantik.demo.entidad.User;
+import com.aantik.demo.model.ModEstudLiv;
 import com.aantik.demo.model.ModEstudiante;
 import com.aantik.demo.model.Mpreinscrito;
+import com.aantik.demo.model.gestEstudiantes;
 import com.aantik.demo.repositorio.EstudianteRepositorio;
 import com.aantik.demo.repositorio.RoleRepositorio;
 import com.aantik.demo.repositorio.UsuarioRepositorio;
@@ -210,6 +211,92 @@ public class EstudianteCRUD implements EstudianteCRUDLocal{
 			}
 			
 		}
+	}
+
+	public Iterable<Estudiante> getInscritos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Estudiante[] getpreins(Estudiante[] preinscritos) {
+		// TODO Auto-generated method stub
+		Role rol=repositoryRol.findByName("Preinscrito");
+		Iterable<User> buscar =repositoryUser.getByRoles((long)rol.getId()); 
+		int cantidad= countUser(buscar);
+		preinscritos=new Estudiante[cantidad];
+		int i=0;
+		for(User user:buscar){
+			Optional<Estudiante> preEncontrado = repository.findByUserId(user.getId());
+			if(preEncontrado.isPresent()) {
+				preinscritos[0]=new Estudiante(); 
+			//	preinscritos[0]=preEncontrado.; 
+						
+			//	System.out.println("Estudiante ya se encuentra registrado");
+			}
+		}
+		return preinscritos;
+	}
+
+	private int countUser(Iterable<User> buscar) {
+		// TODO Auto-generated method stub
+		int tam=0;
+		for (@SuppressWarnings("unused") User contar: buscar)
+			tam++;
+		return tam;
+	}
+
+	public int getTamanio(Iterable<Estudiante> insc) {
+		// TODO Auto-generated method stub
+		int tam=0;
+		for (@SuppressWarnings("unused") Estudiante contar: insc)
+			tam++;
+		return tam;
+	}
+
+	public void getGestStud(gestEstudiantes resp) {
+		// TODO Auto-generated method stub
+		Role rol=repositoryRol.findByName("Preinscrito");
+		Role rol2=repositoryRol.findByName("Estudiante");
+		Iterable<User> buscarPre =repositoryUser.getByRoles((long)rol.getId()); 
+		Iterable<User> buscarSt =repositoryUser.getByRoles((long)rol2.getId());
+		int cantidad= countUser(buscarPre);
+		int cantidad2= countUser(buscarSt);
+		int i=0,j=0;
+		resp.preins=new ModEstudLiv[cantidad];
+		resp.ins=new ModEstudLiv[cantidad2];
+		for(User user:buscarPre){
+			Optional<Estudiante> preEncontrado = repository.findByUserId(user.getId());
+			if(preEncontrado.isPresent()) {
+				Estudiante aux=repository.getByUserId(user.getId());
+				resp.preins[i]=new ModEstudLiv();
+				resp.preins[i].id=aux.getId();
+				resp.preins[i].nombre=aux.getNombre();
+				resp.preins[i].datoCambiante=aux.getAsignatura();
+				i++;	
+				System.out.println("Preinscrito");
+			}
+		}
+		for(User user:buscarSt){
+			Optional<Estudiante> preEncontrado = repository.findByUserId(user.getId());
+			if(preEncontrado.isPresent()) {
+				Estudiante aux=repository.getByUserId(user.getId());
+				resp.ins[j]=new ModEstudLiv();
+				resp.ins[j].id=aux.getId();
+				resp.ins[j].nombre=aux.getNombre();
+				if(aux.getEntidad()==null)
+					resp.ins[j].datoCambiante="Pendiente asiganacion";
+				else
+				resp.ins[j].datoCambiante=aux.getEntidad();
+				j++;	
+				System.out.println("Estudiante");
+			}
+		}
+	}
+
+	@Override
+	public Iterable<Estudiante> getpreins() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

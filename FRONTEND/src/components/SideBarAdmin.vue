@@ -156,6 +156,12 @@ import AuthService from "@/service/auth.service";
             tooltip: 'Setting',
             icon: 'bx-calendar',
           },
+          {
+            link: '#ayudaAdmin',
+            name: 'Ayuda',
+            tooltip: 'Setting',
+            icon: 'bx-help-circle',
+          },
         ],
       },
       //! Search

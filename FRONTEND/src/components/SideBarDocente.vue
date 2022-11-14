@@ -152,7 +152,7 @@ import AuthService from "@/service/auth.service";
             icon: 'bx-store',
           },          
           {
-            link: '#',
+            link: '#ayudaDocente',
             name: 'Ayuda',
             tooltip: 'Setting',
             icon: 'bx-help-circle',

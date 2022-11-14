@@ -25,7 +25,7 @@
         <div>
 
           
-         <b-table striped hover :items="users" :fields="fields1">
+         <b-table striped hover :items="users.preins" :fields="fields1">
             <template #cell(Editar)="row">
               <b-button class="mr-2"  @click="editarSt(row.item.id)">Editar
               </b-button>
@@ -40,10 +40,10 @@
 
            <br>
            <div>
-             <b-table striped hover id="pages-table" :items="users" :fields="fields2">
+             <b-table striped hover id="pages-table" :items="users.ins" :fields="fields2">
                <template #cell(Editar)="row">
-                <button type="submit" class="btn btn-dark btn-lg btn-block" @click="editarSt(row.item.id)">{{row.item.id}}Editar
-                 </button>
+                <b-button class="mr-2"  @click="editarSt(row.item.id)">Editar
+                 </b-button>
                </template>
                <template #cell(Eliminar)="row">
                  <b-button class="mr-2">Eliminar
@@ -70,38 +70,36 @@ export default {
   data() {
     return{
       users:{
-        preinscritos: [{
+        preins: [{
           id: null,
           nombre: null,
-          asignatura: null,
-          identificacion: null,
+          datoCambiante: null
         }],
-        inscritos: [{
+        ins: [{
           id: null,
           nombre: null,
-          asignatura: null,
-          identificacion: null,
+          datoCambiante: null
         }],
       },
 
       fields1: [
         { key: "id" },
         { key: "nombre" },
-        { key: "asignatura" },
+        { key: "datoCambiante", label:"Asignatura" },
         { key: "Editar" },
         { key: "Eliminar" }
       ],
       fields2: [
         { key: "id" },
         { key: "nombre" },
-        { key: "asignatura" },
+        { key: "datoCambiante", label:"Asignación" },
         { key: "Editar" },
         { key: "Eliminar" }
       ],
     }
   },
   mounted() {
-    axios.get("http://localhost:8080/api/gesStu").then(
+    axios.get("http://localhost:8080/gesStu").then(
       (response) => {
         this.users= response.data;
         console.log(this.users)

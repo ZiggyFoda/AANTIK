@@ -11,4 +11,7 @@ public interface EstudianteCRUDLocal {
 	public void crearPreins(Estudiante preins);
 	public void saveAllPre(Mpreinscrito[] preLista, int cant);
 	public void saveAllstud(ModEstudiante[] estLista, int cant);
+	public Iterable<Estudiante> getInscritos();
+	public Iterable<Estudiante> getpreins();
+	public int getTamanio(Iterable<Estudiante> insc);
 }

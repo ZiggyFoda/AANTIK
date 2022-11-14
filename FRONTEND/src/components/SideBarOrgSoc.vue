@@ -153,10 +153,10 @@ import AuthService from "@/service/auth.service";
             icon: 'bx-news',
           },          
           {
-            link: '#',
-            name: 'Subir archivos',
+            link: '#ayudaOrgSoc',
+            name: 'Ayuda',
             tooltip: 'Setting',
-            icon: 'bx-cloud-upload',
+            icon: 'bx-help-circle',
           },
         ],
       },
