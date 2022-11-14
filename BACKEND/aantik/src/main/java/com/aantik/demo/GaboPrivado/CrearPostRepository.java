@@ -10,7 +10,7 @@ import com.aantik.demo.GaboPrivado.*;;
 
 
 @Repository
-public interface CrearPostRepository extends JpaRepository<CrearPosts, Long>{
+public interface CrearPostRepository extends JpaRepository<CrearPosts, Integer>{
 
     
 }

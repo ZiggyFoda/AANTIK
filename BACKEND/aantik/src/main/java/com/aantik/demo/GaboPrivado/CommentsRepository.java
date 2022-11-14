@@ -13,5 +13,5 @@ import com.aantik.demo.GaboPrivado.Comments;
 public interface CommentsRepository extends JpaRepository<Comments, Integer>{
     
     Set<Comments> findByIdPost(String idPost);
-    
+    void deleteAllByIdPost(String idPost);
 }

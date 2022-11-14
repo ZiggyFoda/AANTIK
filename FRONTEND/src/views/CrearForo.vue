@@ -23,13 +23,12 @@
           <b-form-group class="label" id="input-group-1" label="Contenido:" label-for="input-2">     
             <textarea class="inputArea" v-model="Commenttext" type="text" placeholder=" Que esta en tu mente..." ref="com"></textarea>
           </b-form-group>
-          
-          <b-button class="btns" type="reset" variant="danger">Cancelar</b-button>
           <b-button class="btns" type="submit" variant="primary">Guardar</b-button>
         </b-form>
         <div class="form-group">
-          <div v-if="message" class="alert alert-danger" role="alert">{{responses}}</div>
+          <div v-if="this.responses" class="alert alert-success" role="alert">{{this.responses.message}}</div>
         </div>
+
         <br>
       </div>
     </b-col>
@@ -62,7 +61,7 @@
             postBody: this.Commenttext,
           }).then((response)=>{
             this.responses=response.data;
-            this.Commenttext = ''
+            this.Commenttext="";
           })
           console.log(this.responses)
           
@@ -70,7 +69,7 @@
         onReset(event) {
           event.preventDefault()
           // Reset our form values
-          this.Commenttext = ''
+          this.Commenttext="";
           // Trick to reset/clear native browser form validation state
           this.show = false
           this.$nextTick(() => {
@@ -107,6 +106,9 @@
   }
   .btns{
     margin-right: 5px;
+  }
+  .form-group{
+    margin-top: 5px;
   }
   </style>
   

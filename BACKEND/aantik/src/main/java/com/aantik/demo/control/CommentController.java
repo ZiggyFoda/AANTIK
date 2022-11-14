@@ -66,6 +66,16 @@ public class CommentController {
 
         return ResponseEntity.ok(repo.findAll());
 	}
+    
+    @PostMapping("/deletePost")
+	public ResponseEntity<?> authewnticaateUser(@Valid @RequestBody CrearPosts crearPosts) {
+
+        int l=Integer.parseInt(crearPosts.getPostedby());
+        //l=l+1;
+        crearPostRepository.deleteById(l);
+        //repo.deleteAllByIdPost(crearPosts.getPostedby());
+        return ResponseEntity.ok(crearPostRepository.findAll());
+	}
     @PostMapping("/delete")
 	public ResponseEntity<?> authewnticateUser(@Valid @RequestBody Comments comment) {
 
