@@ -18,7 +18,7 @@
                 </b-form-group>
 
                 <b-form-group id="input-group-1" label="NIT de la organización social:" label-for="input-1">
-                  <b-form-input id="input-1" v-model="form.NIT" placeholder="NIT" required></b-form-input>
+                  <b-form-input id="input-1" v-model="form.nitId" placeholder="NIT" required></b-form-input>
                 </b-form-group>
 
               </b-col>
@@ -159,7 +159,7 @@ export default {
     return {
       fields: [
         { key: "nombreEmp" },
-        { key: "NIT" },
+        { key: "nitId" },
         { key: "fechaCons" },
         { key: "direccion" },
         { key: "localidad" },
@@ -188,7 +188,7 @@ export default {
       ],
       form: {
         nombreEmp: '',
-        NIT: '',
+        nitId: '',
         fechaCons: '',
         direccion: '',
         localidad: '',
@@ -292,7 +292,7 @@ export default {
 
       axios.post("http://localhost:8080/addOrgSoc", {
         nombreEmp: this.form.nombreEmp,
-        NIT: this.form.NIT,
+        nitId: this.form.nitId,
         fechaCons: this.form.fechaCons,
         direccion: this.form.direccion,
         localidad: this.form.localidad,
@@ -327,7 +327,7 @@ export default {
       event.preventDefault()
       // Reset our form values
       this.form.nombreEmp = ''
-      this.form.NIT = ''
+      this.form.nitId = ''
       this.form.fechaCons = ''
       this.form.direccion = ''
       this.form.localidad = null

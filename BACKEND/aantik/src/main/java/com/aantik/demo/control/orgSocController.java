@@ -1,6 +1,7 @@
 package com.aantik.demo.control;
 
 import java.io.File;
+import com.aantik.demo.repositorio.OrgSocialRepositorio;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +30,8 @@ import com.aantik.demo.service.OrgSocialCRUD;
 public class orgSocController {
 	@Autowired
 	OrgSocialCRUD orgScService;
+	@Autowired
+	OrgSocialRepositorio orgScService2;
 
 	@GetMapping("/orgSCargaM")
 	public ResponseEntity<ModOrgSocial[]> cargaStu() {
@@ -62,7 +66,7 @@ public class orgSocController {
 	@PostMapping("/addOrgSoc")
 	public ResponseEntity<?> orgSocGet(@RequestBody ModOrgSocial update) throws Exception {
 
-		OrgSocial org = new OrgSocial(update.id, update.nombreEmp, update.NIT, update.fechaCons, update.direccion,
+		OrgSocial org = new OrgSocial(update.id, update.nombreEmp, update.nitId, update.fechaCons, update.direccion,
 				update.localidad, update.barrio, update.nombreInterOS, update.telefonoIOS, update.correoIOS,
 				update.temaAsesorar, update.cupos, update.empleados, update.linAccion, update.tipoOS,
 				update.actividadEco, update.prodServ, update.contacto, update.experiencia, update.promedio,
@@ -90,7 +94,7 @@ public class orgSocController {
 	}
 	
 	@PostMapping("/orgDelete")
-    public ResponseEntity<?> noticiaDelete(@RequestBody ModOrgSocial update) {  
+    public ResponseEntity<?> orgDelete(@RequestBody ModOrgSocial update) {  
     
     long id = update.id;
     
@@ -98,5 +102,51 @@ public class orgSocController {
     
     return ResponseEntity.ok("ok");
     }
+	
+	@PostMapping("/orgGetOne")
+    public ResponseEntity<?> orgGet(@RequestBody ModOrgSocial update) {
+		System.out.println("hola");
+    
+    System.out.println("ID ES " + update.id);
+    
+    //OrgSocial res = orgScService.findById(update.id);
+    //System.out.println(res);
+	//Optional<OrgSocial> orgEncontrado = repository.findById(org.getId());
+    //long id = update.id-1;
+    
+    //ptional<OrgSocial> orgEncontrado = orgScService.findById(id);
+    
+    //OrgSocial org = orgScService2.findByNitId("1");
+    //System.out.println(org.getCorreoIOS());
+    //System.out.println(org);
+    return ResponseEntity.ok(2);
+    //return new ResponseEntity<OrgSocial>(org, HttpStatus.OK);
+    
+    }
+	@PostMapping("/editOrgSoc")
+	public ResponseEntity<?> orgSocEdit(@RequestBody ModOrgSocial update) throws Exception {
 
+		long id = update.id;
+		System.out.println(id);
+		System.out.println(update.nitId);
+		System.out.println(update.genero);
+	    orgScService.deleteById(id);
+		
+		OrgSocial org = new OrgSocial(update.id, update.nombreEmp, update.nitId, update.fechaCons, update.direccion,
+				update.localidad, update.barrio, update.nombreInterOS, update.telefonoIOS, update.correoIOS,
+				update.temaAsesorar, update.cupos, update.empleados, update.linAccion, update.tipoOS,
+				update.actividadEco, update.prodServ, update.contacto, update.experiencia, update.promedio,
+				update.horarioNotif, update.modalidad, update.disponibilidad, update.horarioAtencion, update.genero,
+				update.limitacion, update.comunidad, update.transporte);
+		
+		orgScService.crearOrganizacion(org);
+		System.out.println(update.id);
+		System.out.println(update.nitId);
+		
+
+
+		return ResponseEntity.ok("ok");
+	}
+
+	
 }

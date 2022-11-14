@@ -69,7 +69,7 @@ public class OrgSocialCRUD implements OrgSocialCRUDLocal{
 				orgS.setLinAccion (orgLista[i].linAccion) ;                                                      
 				orgS.setLocalidad (orgLista[i].localidad) ;                                                      
 				orgS.setModalidad (orgLista[i].modalidad) ;                                                      
-				orgS.setNIT (orgLista[i].NIT) ;                                                            
+				orgS.setNitId (orgLista[i].nitId) ;                                                            
 				orgS.setNombreEmp (orgLista[i].nombreEmp) ;                                                      
 				orgS.setNombreInterOS (orgLista[i].nombreInterOS) ;                                                    
 				orgS.setProdServ (orgLista[i].prodServ) ;                                                       
@@ -130,7 +130,7 @@ public class OrgSocialCRUD implements OrgSocialCRUDLocal{
 		actualizar.setLinAccion (orgS.getLinAccion());            
 		actualizar.setLocalidad (orgS.getLocalidad());            
 		actualizar.setModalidad (orgS.getModalidad());            
-		actualizar.setNIT (orgS.getNIT());                  
+		actualizar.setNitId (orgS.getNitId());                  
 		actualizar.setNombreEmp (orgS.getNombreEmp());            
 		actualizar.setNombreInterOS (orgS.getNombreInterOS());             
 		actualizar.setProdServ (orgS.getProdServ());              
@@ -170,5 +170,13 @@ public class OrgSocialCRUD implements OrgSocialCRUDLocal{
 		repository.delete(org);
 		
 	}
+
+	public OrgSocial getById(long id) {
+		// TODO Auto-generated method stub
+		OrgSocial org = repository.getById(id);
+		//return repository.getById(id);
+		return org;
+	}
+
 
 }

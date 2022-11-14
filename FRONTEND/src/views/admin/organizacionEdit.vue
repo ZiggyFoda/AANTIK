@@ -6,12 +6,20 @@
     <b-row>
       <b-col>
         <br>
+        <br>
+        <!--<br>
+        <br>
+        <b-table striped hover id="pages-table" :items="users" :fields="fields"></b-table>
+
         Click acá para eliminar permanentemente
-    <router-link to="/subirFileOrgSoc">
-      <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Eliminar</button>
-    </router-link><br>
-        
+
+
+        <router-link to="/subirFileOrgSoc">
+          
+          <button @click="orgDelete(data.item.id, data.index)" class="btn btn-dark btn-lg btn-block">
+            Eliminar</button>
+        </router-link><br>-->
+
         <br>
         <h3>Diligencie el siguiente formulario con los datos de la organización social</h3>
         <br><br>
@@ -25,7 +33,7 @@
                 </b-form-group>
 
                 <b-form-group id="input-group-1" label="NIT de la organización social:" label-for="input-1">
-                  <b-form-input id="input-1" v-model="form.NIT" placeholder="NIT" required></b-form-input>
+                  <b-form-input id="input-1" v-model="form.nitId" placeholder="NIT" required></b-form-input>
                 </b-form-group>
 
               </b-col>
@@ -158,15 +166,46 @@
 </template>
 
 <script>
-import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
+import SidebarMenuAkahon from "@/components/SideBar.vue"
 import axios from 'axios';
 
 export default {
   data() {
     return {
+      users: [{
+        id: null,
+        nombreEmp: '',
+        nitId: null,
+        fechaCons: '',
+        direccion: '',
+        localidad: '',
+        barrio: '',
+        nombreInterOS: '',
+        telefonoIOS: '',
+        correoIOS: '',
+        temaAsesorar: '',
+        cupos: '',
+        empleados: '',
+        linAccion: '',
+        tipoOS: '',
+        actividadEco: '',
+        prodServ: '',
+        contacto: '',
+        experiencia: '',
+        promedio: '',
+        horarioNotif: '',
+        modalidad: '',
+        diponibilidad: '',
+        horarioAtencion: '',
+        genero: '',
+        limitacion: '',
+        comunidad: '',
+        transporte: '',
+
+      }],
       fields: [
         { key: "nombreEmp" },
-        { key: "NIT" },
+        { key: "nitId" },
         { key: "fechaCons" },
         { key: "direccion" },
         { key: "localidad" },
@@ -195,7 +234,7 @@ export default {
       ],
       form: {
         nombreEmp: '',
-        NIT: '',
+        nitId: '',
         fechaCons: '',
         direccion: '',
         localidad: '',
@@ -242,11 +281,37 @@ export default {
 
       genero: [{ text: 'Selecione una', value: null }, 'Indiferente', 'Masculino', 'Femenino'],
 
-      comunidad: [{ text: 'Selecione una', value: null }, 'Niños 0-3', 'Jovenes 18-30', 'Adiltos 30-60', 'Ancianos 60+'],
+      comunidad: [{ text: 'Selecione una', value: null }, 'Niños 0-3', 'Jovenes 18-30', 'Adultos 30-60', 'Ancianos 60+'],
 
       show: true,
     }
   },
+
+  //id: {id: this.$route.params.id},
+
+  //id: this.$route.params.id
+
+  //console.log(id),
+
+
+  mounted() {
+    //console.log($route.params.id)
+/*
+    axios.post("http://localhost:8080/orgGetOne", {
+      id: this.$route.params.id
+    }).then(
+
+      (response) => {
+        this.users = response.data;
+        console.log(this.users)
+
+      }
+    );*/
+  },
+  //<h2>{{ $route.params.id }}</h2> 
+
+
+
   items: [
     {
       label: "Refrescar",
@@ -262,7 +327,12 @@ export default {
     SidebarMenuAkahon,
   },
   methods: {
+
+
+
     onSubmit() {
+      id: this.$route.params.id
+
       if (this.form.experiencia == 'Si') {
         this.form.experiencia = true;
       } else
@@ -298,8 +368,9 @@ export default {
         this.form.modalidad = "m";
 
       axios.post("http://localhost:8080/editOrgSoc", {
+        id: this.$route.params.id,
         nombreEmp: this.form.nombreEmp,
-        NIT: this.form.NIT,
+        nitId: this.form.nitId,
         fechaCons: this.form.fechaCons,
         direccion: this.form.direccion,
         localidad: this.form.localidad,
@@ -334,7 +405,7 @@ export default {
       event.preventDefault()
       // Reset our form values
       this.form.nombreEmp = ''
-      this.form.NIT = ''
+      this.form.nitId = ''
       this.form.fechaCons = ''
       this.form.direccion = ''
       this.form.localidad = null
@@ -366,7 +437,7 @@ export default {
       this.$nextTick(() => {
         this.show = true
       })
-    }
+    },
   }
 }
 </script>

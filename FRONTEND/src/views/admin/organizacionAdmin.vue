@@ -31,15 +31,17 @@
           <b-table striped hover id="pages-table" :items="users" :fields="fields" :key="field">
             
               <template #cell(Editar)="data">
-                <router-link to="/orgEdit">
-                  <b-button class="mr-2">Editar/Borrar
-                  </b-button>
-                </router-link>
+
+                  <router-link id = data.item.id :to="{ path: '/orgEdit'+ data.item.id}" v-bind:tooltip=data.item.id append>
+                  <b-button class="mr-2">Editar/Ver
+                  </b-button></router-link>
+
               </template>
 
               <template #cell(Eliminar)="data">
+                <router-link to="/orgAdmin">
                 <b-button @click="orgDelete(data.item.id, data.index)" class="mr-2">Eliminar
-                </b-button>
+                </b-button></router-link>
               </template>
           </b-table>
         </div>
@@ -60,6 +62,8 @@ export default {
   components: {
     SidebarMenuAkahon,
   },
+
+
 
 
   name: 'orgS',
@@ -129,6 +133,7 @@ export default {
   },
   methods: {
     orgDelete: function (id, index) {
+      window.location.reload();
       console.log(index)
       console.log(id)
       axios.post("http://localhost:8080/orgDelete", {

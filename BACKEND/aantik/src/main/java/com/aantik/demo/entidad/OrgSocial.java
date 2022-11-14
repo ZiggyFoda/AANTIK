@@ -24,7 +24,7 @@ public class OrgSocial implements Serializable{
 	@Column
 	private String nombreEmp;
 	@Column
-	private String NIT;
+	private String nitId;
 	@Column
 	private String fechaCons;
 	@Column
@@ -96,13 +96,13 @@ public class OrgSocial implements Serializable{
 	public void setNombreEmp(String nombreEmp) {
 		this.nombreEmp = nombreEmp;
 	}
-
-	public String getNIT() {
-		return NIT;
+	
+	public String getNitId() {
+		return nitId;
 	}
 
-	public void setNIT(String nIT) {
-		NIT = nIT;
+	public void setNitId(String nitId) {
+		this.nitId = nitId;
 	}
 
 	public String getFechaCons() {
@@ -317,7 +317,7 @@ public class OrgSocial implements Serializable{
 		return serialVersionUID;
 	}
 
-	public OrgSocial(long id, String nombreEmp, String nIT, String fechaCons, String direccion, String localidad,
+	public OrgSocial(long id, String nombreEmp, String nitId, String fechaCons, String direccion, String localidad,
 			String barrio, String nombreInterOS, String telefonoIOS, String correoIOS, String temaAsesorar, int cupos,
 			String empleados, String linAccion, String tipoOS, String actividadEco, String prodServ, String contacto,
 			boolean experiencia, boolean promedio, String horarioNotif, char modalidad, String disponibilidad,
@@ -325,7 +325,7 @@ public class OrgSocial implements Serializable{
 		super();
 		this.id = id;
 		this.nombreEmp = nombreEmp;
-		this.NIT = nIT;
+		this.nitId = nitId;
 		this.fechaCons = fechaCons;
 		this.direccion = direccion;
 		this.localidad = localidad;
