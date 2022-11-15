@@ -164,6 +164,18 @@ import AuthService from "@/service/auth.service";
             tooltip: 'Setting',
             icon: 'bx-help-circle',
           },
+          {
+            link: '/#/gesForo',
+            name: 'Gestionar foro',
+            tooltip: 'Setting',
+            icon: 'bx-edit',
+          },
+          {
+            link: '/#/foro',
+            name: 'Foro',
+            tooltip: 'Setting',
+            icon: 'bx-message-dots',
+          },
         ],
       },
       //! Search

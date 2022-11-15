@@ -22,12 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.bytebuddy.utility.RandomString;
 import com.aantik.demo.Payload.ResetRequest;
+import com.aantik.demo.HelperClassServices.Password_reset;
+import com.aantik.demo.HelperClassServices.PswrdRepo;
+import com.aantik.demo.HelperClassServices.UserG;
+import com.aantik.demo.HelperClassServices.UserRepository;
 import com.aantik.demo.Payload.MessageResponse;
-import com.aantik.demo.GaboPrivado.UserRepository;
-import com.aantik.demo.GaboPrivado.Password_reset;
-import com.aantik.demo.GaboPrivado.PswrdRepo;
 import com.aantik.demo.Payload.Resetpswrd;
-import com.aantik.demo.GaboPrivado.UserG;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController

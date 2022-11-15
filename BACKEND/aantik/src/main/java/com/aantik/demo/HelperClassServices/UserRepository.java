@@ -1,11 +1,11 @@
-package com.aantik.demo.GaboPrivado;
+package com.aantik.demo.HelperClassServices;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.aantik.demo.GaboPrivado.UserG;
+import com.aantik.demo.HelperClassServices.UserG;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserG, Long> {

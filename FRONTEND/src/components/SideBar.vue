@@ -272,7 +272,7 @@ import AuthService from "@/service/auth.service";
     },
     methods: {
       logOut1() {
-      this.$router.push('/login2');  
+      this.$router.push('/#/login2');  
       this.$store.dispatch("auth/logout");
        
     },

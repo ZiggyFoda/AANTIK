@@ -15,6 +15,7 @@ const routes = [
     path: '/crearForo',
     name: 'CrearForo',
     component: () => import('../views/CrearForo.vue')
+    ,meta: {requiresAuth: true}
   },
   {
     path: '/login',
@@ -112,7 +113,7 @@ const routes = [
     path: '/foro',
     name: 'foro',
     component: () => import('../views/foro.vue')
-    //,meta: {requiresAuth: true}
+    ,meta: {requiresAuth: true}
   },
   {
     path: '/noticias',

@@ -152,6 +152,12 @@ import AuthService from "@/service/auth.service";
             name: 'Emprendimientos',
             tooltip: 'Order',
             icon: 'bx-store',
+          },
+          {
+            link: '/foro',
+            name: 'Foro',
+            tooltip: 'Setting',
+            icon: 'bx-message-dots',
           },          
           {
             link: '/ayudaCoord',

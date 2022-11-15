@@ -1,4 +1,4 @@
-package com.aantik.demo.GaboPrivado;
+package com.aantik.demo.HelperClassServices;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.aantik.demo.GaboPrivado.*;
+import com.aantik.demo.HelperClassServices.*;
 
 @CrossOrigin("http://localhost:8081")
 @Controller

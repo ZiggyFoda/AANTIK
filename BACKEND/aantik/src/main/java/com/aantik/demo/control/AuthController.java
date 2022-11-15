@@ -37,7 +37,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
-import com.aantik.demo.GaboPrivado.*;
+import com.aantik.demo.HelperClassServices.*;
 import com.aantik.demo.Payload.*;
 import com.aantik.demo.Security.Services.UserDetailsImpl;
 import com.aantik.demo.Security.jwt.*;

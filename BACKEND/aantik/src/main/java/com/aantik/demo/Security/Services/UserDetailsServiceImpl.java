@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.aantik.demo.GaboPrivado.*;
+import com.aantik.demo.HelperClassServices.*;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

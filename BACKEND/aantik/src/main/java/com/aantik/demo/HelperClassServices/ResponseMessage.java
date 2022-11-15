@@ -1,4 +1,4 @@
-package com.aantik.demo.GaboPrivado;
+package com.aantik.demo.HelperClassServices;
 
 public class ResponseMessage {
     private String message;

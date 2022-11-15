@@ -159,6 +159,18 @@ import AuthService from "@/service/auth.service";
             tooltip: 'Setting',
             icon: 'bx-help-circle',
           },
+          {
+            link: '/#/crearForo',
+            name: 'Preguntar en el foro',
+            tooltip: 'Setting',
+            icon: 'bx-add-to-queue',
+          },
+          {
+            link: '/#/foro',
+            name: 'Foro',
+            tooltip: 'Setting',
+            icon: 'bx-message-dots',
+          },
         ],
       },
       //! Search
