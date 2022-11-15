@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aantik.demo.entidad.Preguntas_Dig;
 import com.aantik.demo.entidad.Rubrica_preg_dg;
+import com.aantik.demo.model.ModDGRes;
 import com.aantik.demo.model.ModDGV;
 import com.aantik.demo.model.ModRubrica;
 import com.aantik.demo.model.ModeloPregunta;
@@ -92,5 +94,16 @@ public class DVGController {
 	    return ResponseEntity.ok("ok");	    
 	 }
 	    
-	
+		@PostMapping("/getResDG")
+		public ResponseEntity<ModDGRes[]> diagnosticoResp( @RequestParam String correo) {
+	        System.out.println(correo);
+	        int tam=servDG.getTamanio(correo);
+			ModDGRes[] resp=new ModDGRes[tam];
+			resp=servDG.getResXuser(resp,correo);
+			
+			System.out.println("estudiante: " + correo);
+			/*for(int i =0;i<8;i++)
+				resp[i]=new ModDGRes();
+		    */return new ResponseEntity<ModDGRes[]>(resp, HttpStatus.OK);
+		}
 }

@@ -78,8 +78,9 @@ import serviceD from "@/service/diagnosticoService"
         getAll() {
             try{
                 this.serviceD.getRespDiag(AuthService.getCorreo())
-                .then(function(response) {
-                    console.log(response.data);
+                .then(data => {
+                 this.resp = data.data;
+                    console.log(this.resp.data);
                 }).catch(function(error) {
                     console.log(error);
                 });   

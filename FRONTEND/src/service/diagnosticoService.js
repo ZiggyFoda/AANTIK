@@ -18,8 +18,8 @@ export default class diagnosticoService {
     }
 
     getRespDiag(correo){
-        return axios.post(this.url + "getResDG",{
-            correo : correo
+        return axios.post(this.url + "getResDG",null,{
+            params: { correo}
         });
     }
 

@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
+import javax.xml.crypto.Data;
+
 //import javax.validation.Valid;
 
 import org.apache.logging.log4j.message.StringFormattedMessage;
@@ -21,6 +23,7 @@ import org.springframework.util.MultiValueMap;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestBody;
@@ -48,6 +51,7 @@ import com.aantik.demo.model.Mpreinscrito;
 import com.aantik.demo.model.actualizarDatosEs;
 import com.aantik.demo.model.gestEstudiantes;
 import com.aantik.demo.service.EstudianteCRUD;
+import com.google.gson.Gson;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 
@@ -150,12 +154,5 @@ public class EstController {
 		}
     }
     
-	@PostMapping("/getResDG")
-	public ResponseEntity<ModDGRes[]> diagnosticoResp(@RequestBody String correo) {
-		ModDGRes[] resp= new ModDGRes[8];
-		System.out.println("estudiante: " + correo);
-		for(int i =0;i<8;i++)
-			resp[i]=new ModDGRes();
-	    return new ResponseEntity<ModDGRes[]>(resp, HttpStatus.OK);
-	}
+
 }

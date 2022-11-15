@@ -92,7 +92,7 @@ public class BenchmarkingController {
 			auxB=BenfileService.getInfo(auxB);
 			pregServ.getCodigoPreg(auxB,auxB.length);
 			String aux=auxB[0].indicador;	
-			int i=0,total=0;
+			int i=0,total=0,CP=0;
 			est[0]=new ModBench();
 			for(ModelBenchAux var: auxB) {
 				System.out.println("preguntas que aplican"+var.codigo+var.indicador);
@@ -100,8 +100,16 @@ public class BenchmarkingController {
 					total=total+dgvServ.getPuntaje(var.codigo);		
 					est[i].nombre=var.indicador;
 					est[i].puntaje=total;
-					System.out.println(var.indicador+"--------"+total);										
+					System.out.println(var.indicador+"--------"+total);		
+					CP++;
+					System.out.println("----CANTIDAD X INDICADOR----"+CP);	
 				}else {
+					if(CP>1 && i>1) {
+						float promedio = est[i-1].puntaje/CP;
+						System.out.println("----anterior----"+est[i-1].puntaje+"-.----actual"+est[i].puntaje+"prom...."+promedio);		
+					}else
+						System.out.println("----promerio----"+total);		
+					CP=1;
 					i++;
 					est[i]=new ModBench();
 					aux=var.indicador;
