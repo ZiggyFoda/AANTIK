@@ -166,7 +166,6 @@ import AuthService from "@/service/auth.service"
           localidadrest: this.form.localidadrest,
           notif: this.form.notif,
           nombre: AuthService.getUser(),
-          //id: AuthService.getUser(),
         });
 
       },

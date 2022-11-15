@@ -76,5 +76,61 @@ public class DocController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 	}
+	
+@PostMapping("/addDoc")
+	
+	public ResponseEntity<?> addDoc(@RequestBody ModDocente update) throws Exception {
+
+		
+		Profesor pro = new Profesor(update.id, update.nombre, update.vinculacion, update.titulo, update.especialidad,
+				update.asignatura, update.telefono, update.correo, update.oficina, update.direcRes,
+				update.localidad, update.sectoEc, update.hisAse, update.contacto, update.lineaAc,
+				update.secEco2, update.tipoOS, update.horarioNotif, update.horarioAtencion, update.nOdisponibilidad,
+				update.limitacion);
+		
+		servDoc.crearProfesor(pro);
+		return ResponseEntity.ok("ok");
+	}
+	
+	@PostMapping("/editDoc")
+	
+	public ResponseEntity<?> docEdit(@RequestBody ModDocente update) throws Exception {
+
+		long id = update.id;
+		servDoc.deleteById(id);
+		
+		Profesor pro = new Profesor(update.id, update.nombre, update.vinculacion, update.titulo, update.especialidad,
+				update.asignatura, update.telefono, update.correo, update.oficina, update.direcRes,
+				update.localidad, update.sectoEc, update.hisAse, update.contacto, update.lineaAc,
+				update.secEco2, update.tipoOS, update.horarioNotif, update.horarioAtencion, update.nOdisponibilidad,
+				update.limitacion);
+		
+		servDoc.editDoc(pro);
+		return ResponseEntity.ok("ok");
+	}
+	
+	@PostMapping("/docDelete")
+    public ResponseEntity<?> orgDelete(@RequestBody ModDocente update) {  
+    
+    long id = update.id;
+    
+    servDoc.deleteById(id);
+    
+    return ResponseEntity.ok("ok");
+    }
+	
+	@GetMapping("/getDoc")
+	public ResponseEntity<Iterable<Profesor>> orgSet() {
+		try {
+			Iterable<Profesor> res = servDoc.getAll();
+			return new ResponseEntity<Iterable<Profesor>>(res, HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			// e.printStackTrace();
+			System.out.println("Usuario no existe" + e);
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+
+	}
 
 }

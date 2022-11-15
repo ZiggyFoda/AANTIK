@@ -113,7 +113,7 @@ console.log(this.items)
 },
   methods: {
 
-    notiDelete: function (items, index, id){
+    notiDelete: function (item, index, id){
       this.items.splice(index,1);
       axios.post("http://localhost:8080/api/notiDelete",{
           id         

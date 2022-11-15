@@ -3,6 +3,8 @@ package com.aantik.demo.service;
 import java.util.Optional; 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.aantik.demo.entidad.Noticia;
 import com.aantik.demo.entidad.OrgSocial;
 import com.aantik.demo.entidad.Role;
 import com.aantik.demo.entidad.User;
@@ -67,7 +69,7 @@ public class OrgSocialCRUD implements OrgSocialCRUDLocal{
 				orgS.setLinAccion (orgLista[i].linAccion) ;                                                      
 				orgS.setLocalidad (orgLista[i].localidad) ;                                                      
 				orgS.setModalidad (orgLista[i].modalidad) ;                                                      
-				orgS.setNIT (orgLista[i].NIT) ;                                                            
+				orgS.setNitId (orgLista[i].nitId) ;                                                            
 				orgS.setNombreEmp (orgLista[i].nombreEmp) ;                                                      
 				orgS.setNombreInterOS (orgLista[i].nombreInterOS) ;                                                    
 				orgS.setProdServ (orgLista[i].prodServ) ;                                                       
@@ -128,7 +130,7 @@ public class OrgSocialCRUD implements OrgSocialCRUDLocal{
 		actualizar.setLinAccion (orgS.getLinAccion());            
 		actualizar.setLocalidad (orgS.getLocalidad());            
 		actualizar.setModalidad (orgS.getModalidad());            
-		actualizar.setNIT (orgS.getNIT());                  
+		actualizar.setNitId (orgS.getNitId());                  
 		actualizar.setNombreEmp (orgS.getNombreEmp());            
 		actualizar.setNombreInterOS (orgS.getNombreInterOS());             
 		actualizar.setProdServ (orgS.getProdServ());              
@@ -154,5 +156,27 @@ public class OrgSocialCRUD implements OrgSocialCRUDLocal{
 		}
 		return true;
 	}
+
+	public void crearOrg(OrgSocial orgS) throws Exception {
+		// TODO Auto-generated method stub
+        repository.save(orgS);
+		
+	}
+
+	public void deleteById(long id) {
+		// TODO Auto-generated method stub
+		OrgSocial org = repository.getById(id);
+		
+		repository.delete(org);
+		
+	}
+
+	public OrgSocial getById(long id) {
+		// TODO Auto-generated method stub
+		OrgSocial org = repository.getById(id);
+		//return repository.getById(id);
+		return org;
+	}
+
 
 }

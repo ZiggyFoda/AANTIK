@@ -58,7 +58,7 @@ public class leerEntidades {
 					       	  lista[rowDatos].nombreEmp=value2;//row.getCell(1).getStringCellValue();
 					       	  break;
 				        	  case 2:
-					        	  lista[rowDatos].NIT=value2;//row.getCell(2).getStringCellValue();
+					        	  lista[rowDatos].nitId=value2;//row.getCell(2).getStringCellValue();
 					        	  break;
 				        	  case 3:
 					        	  lista[rowDatos].fechaCons=value2;//Long.parseLong(value2);
@@ -137,7 +137,7 @@ public class leerEntidades {
 			        		    break;
 					         }	  
 		   
-			          }	System.out.println(lista[rowDatos].id+" "+lista[rowDatos].nombreEmp+" "+lista[rowDatos].NIT+" "+
+			          }	System.out.println(lista[rowDatos].id+" "+lista[rowDatos].nombreEmp+" "+lista[rowDatos].nitId+" "+
 					        			  lista[rowDatos].fechaCons+" "+lista[rowDatos].direccion+" "+
 					        			  lista[rowDatos].temaAsesorar+
 					        			  " "+lista[rowDatos].tipoOS+" "+lista[rowDatos].localidad

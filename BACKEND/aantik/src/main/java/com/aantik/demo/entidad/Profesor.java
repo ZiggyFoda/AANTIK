@@ -38,7 +38,7 @@ public class Profesor{
 	@Column
 	private String sectoEc;
 	@Column
-	private String HisAse;
+	private String hisAse;
 	@Column
 	private String contacto;//medio de comunicacion que prefiere**
 	@Column
@@ -52,7 +52,7 @@ public class Profesor{
 	@Column
 	private String horarioAtencion;
 	@Column
-	private String NOdisponibilidad;
+	private String nOdisponibilidad;
 	@Column
 	private boolean limitacion;
 		
@@ -158,11 +158,11 @@ public class Profesor{
 	}
 
 	public String getHisAse() {
-		return HisAse;
+		return hisAse;
 	}
 
 	public void setHisAse(String hisAse) {
-		HisAse = hisAse;
+		hisAse = hisAse;
 	}
 
 	public String getContacto() {
@@ -214,11 +214,11 @@ public class Profesor{
 	}
 
 	public String getNOdisponibilidad() {
-		return NOdisponibilidad;
+		return nOdisponibilidad;
 	}
 
 	public void setNOdisponibilidad(String nOdisponibilidad) {
-		NOdisponibilidad = nOdisponibilidad;
+		nOdisponibilidad = nOdisponibilidad;
 	}
 
 	public boolean isLimitacion() {
@@ -239,7 +239,7 @@ public class Profesor{
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(HisAse, NOdisponibilidad, asignatura, contacto, correo, direcRes, especialidad,
+		return Objects.hash(hisAse, nOdisponibilidad, asignatura, contacto, correo, direcRes, especialidad,
 				horarioAtencion, horarioNotif, id, limitacion, lineaAc, localidad, nombre, oficina, secEco2, sectoEc,
 				telefono, tipoOS, titulo, userId, vinculacion);
 	}
@@ -253,7 +253,7 @@ public class Profesor{
 		if (getClass() != obj.getClass())
 			return false;
 		Profesor other = (Profesor) obj;
-		return Objects.equals(HisAse, other.HisAse) && Objects.equals(NOdisponibilidad, other.NOdisponibilidad)
+		return Objects.equals(hisAse, other.hisAse) && Objects.equals(nOdisponibilidad, other.nOdisponibilidad)
 				&& Objects.equals(asignatura, other.asignatura) && Objects.equals(contacto, other.contacto)
 				&& Objects.equals(correo, other.correo) && Objects.equals(direcRes, other.direcRes)
 				&& Objects.equals(especialidad, other.especialidad)
@@ -272,11 +272,47 @@ public class Profesor{
 		return "Profesor [id=" + id + ", nombre=" + nombre + ", vinculacion=" + vinculacion + ", titulo=" + titulo
 				+ ", especialidad=" + especialidad + ", asignatura=" + asignatura + ", telefono=" + telefono
 				+ ", correo=" + correo + ", oficina=" + oficina + ", direcRes=" + direcRes + ", localidad=" + localidad
-				+ ", sectoEc=" + sectoEc + ", HisAse=" + HisAse + ", contacto=" + contacto + ", lineaAc=" + lineaAc
+				+ ", sectoEc=" + sectoEc + ", HisAse=" + hisAse + ", contacto=" + contacto + ", lineaAc=" + lineaAc
 				+ ", secEco2=" + secEco2 + ", tipoOS=" + tipoOS + ", horarioNotif=" + horarioNotif
-				+ ", horarioAtencion=" + horarioAtencion + ", NOdisponibilidad=" + NOdisponibilidad + ", limitacion="
+				+ ", horarioAtencion=" + horarioAtencion + ", nOdisponibilidad=" + nOdisponibilidad + ", limitacion="
 				+ limitacion + ", userId=" + userId + "]";
 	}
+
+	public Profesor(Long id, String nombre, String vinculacion, String titulo, String especialidad, String asignatura,
+			String telefono, String correo, String oficina, String direcRes, String localidad, String sectoEc,
+			String hisAse, String contacto, String lineaAc, String secEco2, String tipoOS, String horarioNotif,
+			String horarioAtencion, String nOdisponibilidad, boolean limitacion) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.vinculacion = vinculacion;
+		this.titulo = titulo;
+		this.especialidad = especialidad;
+		this.asignatura = asignatura;
+		this.telefono = telefono;
+		this.correo = correo;
+		this.oficina = oficina;
+		this.direcRes = direcRes;
+		this.localidad = localidad;
+		this.sectoEc = sectoEc;
+		this.hisAse = hisAse;
+		this.contacto = contacto;
+		this.lineaAc = lineaAc;
+		this.secEco2 = secEco2;
+		this.tipoOS = tipoOS;
+		this.horarioNotif = horarioNotif;
+		this.horarioAtencion = horarioAtencion;
+		this.nOdisponibilidad = nOdisponibilidad;
+		this.limitacion = limitacion;
+	}
+
+	public Profesor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
 	
 	
 

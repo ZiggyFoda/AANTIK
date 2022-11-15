@@ -382,7 +382,7 @@ const routes = [
     component: () => import('../views/admin/organizacionAdmin.vue')
   },
   {
-    path: '/orgEdit',
+    path: '/orgEdit:id',
     name: 'orgEdit',
     component: () => import('../views/admin/organizacionEdit.vue')
   },
