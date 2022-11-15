@@ -1,11 +1,13 @@
 package com.aantik.demo.model;
 
 public class ModEmprendimiento {
-	public int id;
+	public long id;
 	public String nombreEmp;
-	public String NIT;
-	public String fechaCons;
 	public String direccion;
+	public String prodServ;
+	public String linAccion;//**p
+	public String nitId;
+	public String fechaCons;
 	public String orgSocial;
 	public String localidad;//****
 	public String barrio;
@@ -18,9 +20,7 @@ public class ModEmprendimiento {
 	public String correoIOS;
 	public int cupos;//**p
 	public String empleados;
-	public String linAccion;//**p
 	public String actividadEco;//**
-	public String prodServ;
 	public String contacto;//medio de comunicacion que prefiere**
 	public boolean experiencia;//**
 	public boolean promedio;//**

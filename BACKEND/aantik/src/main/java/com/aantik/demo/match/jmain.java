@@ -67,7 +67,7 @@ public class jmain {
 		}
 		for(int j =1;j<cantEmp+1;j++) {
 			//estu[0][j][0]=new Random().nextInt(30)+11;
-			estu[0][j][0]=in.emprendimientos2[j-1].id;
+			estu[0][j][0]=(int) in.emprendimientos2[j-1].id;
 			cupos[j-1][0]=estu[0][j][0];
 		}
 		//puntajes 

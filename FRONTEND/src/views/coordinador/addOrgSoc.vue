@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <div>
-      <sidebar-menu-akahon @search-input-emit="search" />
+      <sidebar-menu-akahon />
     </div>
     <b-row>
       <b-col>

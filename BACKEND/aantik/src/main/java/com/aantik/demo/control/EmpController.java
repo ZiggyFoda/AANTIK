@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.aantik.demo.cargaUsuarios.leerEmprendimientos;
+import com.aantik.demo.entidad.Emprendimiento;
+import com.aantik.demo.entidad.OrgSocial;
 import com.aantik.demo.model.ModBench;
 import com.aantik.demo.model.ModEmprendimiento;
+import com.aantik.demo.model.ModOrgSocial;
 import com.aantik.demo.model.encuestaPre;
 import com.aantik.demo.service.EmprendimientoCRUD;
 
@@ -121,6 +124,19 @@ public class EmpController {
 			System.out.println("Usuario no existe"+e);
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
+	}
+	@PostMapping("/addEmp")
+	public ResponseEntity<?> addEmp(@RequestBody ModEmprendimiento update) throws Exception {
+
+		Emprendimiento emp = new Emprendimiento(update.id, update.nombreEmp, update.direccion, update.prodServ, update.linAccion, update.nitId,
+				update.fechaCons, update.orgSocial, update.localidad, update.barrio, update.temaAsesorar,
+				update.interlocutorEmp, update.telefonoIE, update.correoIE, update.nombreInterOS, update.telefonoIOS,
+				update.correoIOS, update.cupos, update.empleados, update.actividadEco, update.contacto, update.experiencia,
+				update.promedio, update.horarioNotif, update.modalidad, update.disponibilidad, update.horarioAtencion,
+				update.genero, update.limitacion, update.comunidad, update.transporte);
+		empService.crearEmprendimiento(emp);
+
+		return ResponseEntity.ok("ok");
 	}
 
 }
