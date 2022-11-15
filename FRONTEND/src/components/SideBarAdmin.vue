@@ -48,12 +48,14 @@
             :key="index"
           >
             <li>
-              <a :href="menuItem.link">
+              <a>
+                <router-link :to="menuItem.link">
                 <i
                   class="bx"
                   :class="menuItem.icon || 'bx-square-rounded'"
                 />
                 <span class="links_name">{{ menuItem.name }}</span>
+              </router-link>
               </a>
               <span class="tooltip">{{ menuItem.tooltip || menuItem.name }}</span>
             </li>
@@ -121,42 +123,46 @@ import AuthService from "@/service/auth.service";
         type: Array,
         default: () => [
           {
-            link: '#datosEs',
+            link: '/datosAdmin',
             name: AuthService.getUser(),
             tooltip: 'User',
             icon: 'bx-user',
           },
           {
-            link: '#studentHome',
+            link: '/adminHome',
             name: 'Inicio',
             tooltip: 'Dashboard',
-            icon: 'bx-home',
-            
+            icon: 'bx-home',            
           },
-
           {
-            link: '#',
-            name: 'Diagnóstico',
+            link: '/gesStu',
+            name: 'Estudiantes',
             tooltip: 'Messages',
-            icon: 'bx-list-check',
+            icon: 'bx bxs-graduation',
           },
           {
-            link: '#',
-            name: 'Progreso',
+            link: '/gesIndicadores',
+            name: 'Indicadores',
             tooltip: 'Analytics',
             icon: 'bx-line-chart',
           },
           {
-            link: '#noticiaEs',
+            link: '/gesNoticias',
             name: 'Noticias',
             tooltip: 'Order',
             icon: 'bx-news',
           },          
           {
-            link: '#',
-            name: 'Subir archivos',
+            link: '/gesCiclos',
+            name: 'ciclos',
             tooltip: 'Setting',
-            icon: 'bx-cloud-upload',
+            icon: 'bx-calendar',
+          },
+          {
+            link: '/ayudaAdmin',
+            name: 'Ayuda',
+            tooltip: 'Setting',
+            icon: 'bx-help-circle',
           },
           {
             link: '/#/gesForo',

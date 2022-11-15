@@ -2,14 +2,12 @@
   <b-container>  
        <div>
           <sidebar-menu-akahon 
-            @search-input-emit="search"
           />
         </div> 
     <b-row>
       <b-col>
         <div class="hello">
           <h3>Panel administrativo</h3>
-          <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
         </div><br><br>
         <router-link to="/gesStu">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
@@ -58,17 +56,8 @@
 import SidebarMenuAkahon from "@/components/SideBarAdmin.vue"
 
 export default {
-  name: 'Homecoordinador',
-  props: {
-    msg: String
-  },
    components: {
     SidebarMenuAkahon,
-  },
-  methods: {
-    search() {
-      
-    }
   }
 }
 </script>

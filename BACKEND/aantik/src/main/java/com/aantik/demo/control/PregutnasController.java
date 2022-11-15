@@ -31,14 +31,19 @@ public class PregutnasController {
 		String est = "NO OK";
 		try {
 			convenciones conven = new convenciones();
-			ModInfoPregunta infoPreg[] = null;
+			ModInfoPregunta infoPreg[] = new ModInfoPregunta[200];
 			leerDiagnostico DGV = new leerDiagnostico();
 			FileInputStream fis2;
 			ModeloPregunta preguntas[]= new ModeloPregunta[200];
 			int cant = 0,cant2=0,cant3=0,cant4=0,cant5=0;
 			try {
 				fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
-				cant2=DGV.leerInfoPreg(fis2,infoPreg);
+				cant=DGV.leerConvenciones(fis2,conven);
+				
+				//CONVENCIONES
+				
+				servPreg.saveConvenciones(conven,cant);
+				
 				fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
 				cant3=DGV.leerPregLP(fis2,preguntas);
 				System.out.println("--------"+cant3);
@@ -81,23 +86,20 @@ public class PregutnasController {
 				fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
 				cant5=DGV.leerPregP(fis2,preguntas,cant5);
 				System.out.println("--------"+cant5);
+				System.out.println("Actualizando "+cant5+" datos cod CIIU");
+				cant5++;
+				servPreg.saveAll(preguntas,cant5);
+				
+				//INFORMACION PREGUNTA
+				fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
+				cant=DGV.leerInfoPreg(fis2,infoPreg);
+				servPreg.saveInfoPreg(infoPreg);
 				
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-			try {
-				System.out.println("Actualizando "+cant5+" datos cod CIIU");
-				servPreg.saveAll(preguntas,cant5);
-				/*System.out.println("Actualizando "+cant+" datos cod CIIU por emprendimineto");
-				servCiiu.saveAll2(cruzar,cant2);
-				System.out.println("Actualizando "+cantRed+" red tejido por codigos CIIU");
-				servRed.saveAll(redTejido,cantRed);*/
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-				return new ResponseEntity<String>(est, HttpStatus.OK);
+			}			
+			return new ResponseEntity<String>(est, HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();

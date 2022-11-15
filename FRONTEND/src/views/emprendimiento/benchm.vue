@@ -2,7 +2,6 @@
     <b-container>  
          <div>
             <sidebar-menu-akahon 
-              @search-input-emit="search"
             />
           </div> 
       <b-row>
@@ -14,7 +13,7 @@
           valores obtenidos por su compañia
           <br>
           <div>
-            <b-table striped hover :items="indicadores" :fields="fields" @change="getFile($event)"></b-table>
+            <b-table striped hover :items="indicadores" :fields="fields1" @change="getFile($event)"></b-table>
           </div>
           <br>
           
@@ -37,9 +36,10 @@
   </template>
   
   <script>
-  import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
-  import LoginService from "@/service/LoginService";
+import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
+import LoginService from "@/service/LoginService";
 import { DxChart, DxSeries } from "devextreme-vue/chart";
+import AuthService from "@/service/auth.service"
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.compact.css';
   
@@ -73,7 +73,7 @@ import 'devextreme/dist/css/dx.light.compact.css';
           puntaje: 55,
           desc: null
         } ],
-        fields: [
+        fields1: [
             { key: "nombre", label:"Indicador" },
             { key: "puntaje" , label:"Puntaje"},
             { key: "descripcion", label:"Descripcion" }
@@ -102,44 +102,30 @@ import 'devextreme/dist/css/dx.light.compact.css';
       this.print();
     },
     methods: {
-     /* async save() {
-        var data = {
-          nombre: this.estudiante.nombre,
-          correo: this.estudiante.correo,
-          telefono: this.estudiante.telefono
-        };*/
-        getAll() {
-        this.loginService.getAllBenc().then(data => {
-          this.indicadores = data.data;
-          console.log("gj-----");
-          console.log("gj-----",data.data.String);
-          console.log("typeof-----",typeof data.data);
-          console.log("key-----",typeof data.headers);
-          console.log("DATOS-----",this.datos);
+      getAll() {
+          try{
+            this.loginService.getAllBenc()
+            .then(function(response) {
+              data => {
+              this.indicadores = data.data;
+              console.log("gj-----");
+             /* console.log("gj-----",data.data.String);
+              console.log("typeof-----",typeof data.data);
+              console.log("key-----",typeof data.headers);
+              console.log("DATOS-----",this.datos);*/
+          }
         });
-        console.log("gj-----");
-        console.log(this.indicadores.nombre);
-        },
-        /*try {
-          //let self = this;
-          await this.loginService.save()
-          .then(function(response) {
-            console.log(response.data); // DISPLAYS THE DATA I WANT
-           // user = response.data; // THROWS TYPE ERROR: Cannot set property 'thoughtWallet' of undefined at eval
-          //  self.$router.push({name:'about' })
-          }).catch(function(error) {
-            console.log(error);
-          });
-  
-          //.then(response => this.$router.push("/about"))
-          //.catch(error => this.$router.push("/login"));
+            console.log("gj-----");
+            console.log(this.indicadores.nombre);
         } catch (error) {
-          console.log(error);
-        }
-      },*/
-        print() {
-          console.log("Esto es un método"+this.estudiante.correo);
-        }
+        console.log('error');
+        console.log(error);
+        } 
+      },
+      print() {
+        console.log("Esto es un método");
+      }
+            
     }
   }
   </script>

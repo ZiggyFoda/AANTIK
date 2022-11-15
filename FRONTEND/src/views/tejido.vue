@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <!-- <img width="25%" src="./assets/logo.png"> -->
+    
+    <div>
+      <sidebar-menu-akahon 
+      />
+    </div> 
     <container></container>
     <br>
   </div>
@@ -8,11 +12,12 @@
 
 <script>
 import Container from "../components/Container";
-import TejidoService from "@/service/TejidoService";
+import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
 
 export default {
   name: "App",
   components: {
+    SidebarMenuAkahon,
     Container
   },
 };

@@ -40,11 +40,15 @@
         Ver asesorias</button></router-link>
         <br>
         En este módulo puede encontrar noticias por sector economico y 
-        enfocadas a los emprendimientos, adicionalmente puede acceder a la 
-        red de colaboración.
+        enfocadas a los emprendimientos.
         <router-link to="/noticias">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Módulo de información</button></router-link>
+        <br>
+        En este módulo puede encontrar la red de colaboración para hacer peticiones y preguntas.
+        <router-link to="/foroEmp">
+        <button type="submit" class="btn btn-dark btn-lg btn-block">
+        Red de colaboración</button></router-link>
         <br>
         Si te interesa conseguir clientes, proveedores o posibles 
         aliados, ingrese aquí.

@@ -12,4 +12,7 @@ public interface EstudianteRepositorio extends CrudRepository<Estudiante,Long>{
 	public Optional<Estudiante> findByIdEstudiantil(Long idEstudiantil);
 	public Optional<Estudiante> findByIdentificacion(Long identificacion);
 	public Optional<Estudiante> findByNombre(String nombre);
+	public Estudiante getByCorreo(String correo);
+	public Optional<Estudiante> findByUserId(Long id);
+	public Estudiante getByUserId(Long id);
 }

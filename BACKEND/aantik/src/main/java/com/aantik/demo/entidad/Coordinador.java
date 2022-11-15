@@ -1,15 +1,23 @@
 package com.aantik.demo.entidad;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 
 @Entity
-public class Coordinador{
+public class Coordinador implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7576192674039575737L;
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
 	private Long id;
 	@Column
 	private String nombre;
@@ -17,11 +25,13 @@ public class Coordinador{
 	private String correo;	
 	@Column
 	private String asignatura;
+	@Column
+	private String password;
 	
 	@JoinTable(name = "user",
 	joinColumns=@JoinColumn(name="id"),
-	inverseJoinColumns=@JoinColumn(name="id"))
-	private User userId;
+	inverseJoinColumns=@JoinColumn(name="userId"))
+	private long userId;
 
 	public Long getId() {
 		return id;
@@ -55,11 +65,15 @@ public class Coordinador{
 		this.asignatura = asignatura;
 	}
 
-	public User getUserId() {
-		return userId;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setUserId(User userId) {
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 	

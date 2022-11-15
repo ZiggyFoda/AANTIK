@@ -2,7 +2,6 @@
   <b-container>  
        <div>
           <sidebar-menu-akahon 
-            @search-input-emit="search"
           />
         </div> 
     <b-row>
@@ -26,11 +25,10 @@
         <div>
 
           
-         <b-table striped hover :items="users" :fields="fields">
+         <b-table striped hover :items="users.preins" :fields="fields1">
             <template #cell(Editar)="row">
-              <router-link to="/preEdit">
-              <b-button class="mr-2">Editar
-              </b-button></router-link>
+              <b-button class="mr-2"  @click="editarSt(row.item.id)">Editar
+              </b-button>
             </template>
             <template #cell(Eliminar)="row">
               <b-button class="mr-2">Eliminar
@@ -42,11 +40,10 @@
 
            <br>
            <div>
-             <b-table striped hover id="pages-table" :items="users" :fields="fields">
+             <b-table striped hover id="pages-table" :items="users.ins" :fields="fields2">
                <template #cell(Editar)="row">
-                <router-link to="/stuEdit">
-                 <b-button class="mr-2">Editar
-                 </b-button></router-link>
+                <b-button class="mr-2"  @click="editarSt(row.item.id)">Editar
+                 </b-button>
                </template>
                <template #cell(Eliminar)="row">
                  <b-button class="mr-2">Eliminar
@@ -55,142 +52,71 @@
              </b-table>
            </div>
            <br>  
-              </b-col>
-              <b-col>
-              
-              </b-col>
-            </b-row>
-          </b-container>   
-        </template>
+      </b-col>
+    </b-row>
+  </b-container>   
+</template>
 
 <script>
 import axios from "axios";
-import SidebarMenuAkahon from "@/components/SideBar.vue"
+import SidebarMenuAkahon from "@/components/SideBarAdmin.vue"
 //import service from "@/service/studentData"
 export default {
   components: {
     SidebarMenuAkahon,
   },
-name: "user",
+  name: "user",
 
-data() {
+  data() {
+    return{
+      users:{
+        preins: [{
+          id: null,
+          nombre: null,
+          datoCambiante: null
+        }],
+        ins: [{
+          id: null,
+          nombre: null,
+          datoCambiante: null
+        }],
+      },
 
-  return{
-    users: {
-
-id: null,
-
-nombre: null,
-
-asignatura: null,
-
-identificacion: null,
-
-} ,
-
-fields: [
-
-  { key: "id" },
-
-  { key: "nombre" },
-
-  { key: "asignatura" },
-
-  { key: "Editar" },
-
-  { key: "Eliminar" }
-
-],
-
-
-
-  }
-},
-mounted() {
-
-  axios.get("http://localhost:8080/api/gesStu").then(
-
-(response) => {
-
-  this.users= response.data;
-  console.log(this.users)
-}
-
-);
-},
-methods: {
-    handleInput(value, data) {},
-  },
-
-
-
-}
-
-
-
-/*
-export default {
-  name: 'estudiantesCord',
-  props: {
-    msg: String
-  },
-   components: {
-    SidebarMenuAkahon,
-  },
-  methods: {
-    search() {
-      
-    },
-    update(data) {
-      // I need to disable the button here
-      this.output = data;
-      data.item.name = "Dave";
-      this.$refs["btn" + data.index].disabled = true      
+      fields1: [
+        { key: "id" },
+        { key: "nombre" },
+        { key: "datoCambiante", label:"Asignatura" },
+        { key: "Editar" },
+        { key: "Eliminar" }
+      ],
+      fields2: [
+        { key: "id" },
+        { key: "nombre" },
+        { key: "datoCambiante", label:"Asignación" },
+        { key: "Editar" },
+        { key: "Eliminar" }
+      ],
     }
   },
-  
-      return {
-        items: [
-          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Clase: '4202', Emprendimiento: 'emprendimiento 2' },
-          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Clase: '4202' },
-          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: '2353001', Clase: '4206', Emprendimiento: 'emprendimiento 2' },
-          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Clase: '4208', Emprendimiento: 'emprendimiento 1',isActive: true }
-        ],
-        items2: [
-          { ID: 40, Nombres: 'Dickerson', Apellido: 'Macdonald', Asignatura: '2353001', Requisitos: 'Satisfecho' },
-          { ID: 21, Nombres: 'Larsen', Apellido: 'Shaw', Asignatura: '2353001', Requisitos: 'Pendiente' },
-          { ID: 89, Nombres: 'Geneva', Apellido: 'Wilson', Asignatura: '2353001', Requisitos: 'Pendiente' },
-          { ID: 38, Nombres: 'Jami', Apellido: 'Carney', Asignatura: '2353001', Requisitos: 'Satisfecho' }
-        ],fields: [
-          {
-            key: "ID",
-            label: "ID",
-            sortable: true
-          },
-          { key: "Nombres" },
-          { key: "Apellido" },
-          { key: "Asignatura" },
-          { key: "Clase" },
-          { key: "Emprendimiento" },
-          { key: "Editar" },
-          { key: "Eliminar" }
-        ],fields2: [
-          {
-            key: "ID",
-            label: "ID",
-            sortable: true
-          },
-          { key: "Nombres" },
-          { key: "Apellido" },
-          { key: "Asignatura" },
-          { key: "Requisitos" },
-          { key: "Editar" },
-          { key: "Eliminar" }
-        ]
-      }      
+  mounted() {
+    axios.get("http://localhost:8080/gesStu").then(
+      (response) => {
+        this.users= response.data;
+        console.log(this.users)
+      }
+    );
+  },
+  methods: {
+      editarSt(idSt){
+        console.log("id---------",idSt);
+        //self.$router.push({name:'preEdit' })
+      },
+      editarPre(idSt){
+        console.log("id---------",idSt);
+        //self.$router.push({name:'preEdit' })
+      }
+    },
   }
-}*/
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -208,5 +134,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.w-100 {
+    width: 80% !important;
 }
 </style>

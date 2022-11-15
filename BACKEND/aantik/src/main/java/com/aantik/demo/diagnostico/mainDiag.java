@@ -14,14 +14,14 @@ public class mainDiag {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		convenciones conven = new convenciones();
-		ModInfoPregunta infoPreg[] = null;
+		ModInfoPregunta infoPreg[] =new ModInfoPregunta[200] ;
 		leerDiagnostico DGV = new leerDiagnostico();
 		FileInputStream fis2;
 		ModeloPregunta preguntas[]= new ModeloPregunta[200];
 		int cant = 0,cant2=0,cant3=0,cant4=0,cant5=0;
 		try {
 			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
-			/*cant=DGV.leerConvenciones(fis2,conven);
+			cant=DGV.leerConvenciones(fis2,conven);
 			System.out.println("cantidad datos= "+conven.AreaFuncional[0].id);
 			System.out.println("cantidad datos= "+cant);
 			System.out.println("AREA FUNCIONAL");
@@ -47,12 +47,14 @@ public class mainDiag {
 				if(conven.NivelScor[i].titulo!=null) {
 					System.out.println(conven.NivelScor[i].id+" "+conven.NivelScor[i].titulo);
 				}
-			}*/
+			}
 			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
-			cant2=DGV.leerInfoPreg(fis2,infoPreg);
+			cant=DGV.leerInfoPreg(fis2,infoPreg);
+			System.out.println(".---"+cant);
+			System.out.println(infoPreg[1].pregunta+".---"+cant);
+
 			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
 			cant3=DGV.leerPregLP(fis2,preguntas);
-			System.out.println("--------"+cant3);
 			fis2 = new FileInputStream(new File("DGV3 OCTUBRE 2022.xlsx"));
 			cant4=DGV.leerPregCP(fis2,preguntas,cant3);
 			System.out.println("--------"+cant4);
@@ -94,7 +96,7 @@ public class mainDiag {
 			System.out.println("--------"+cant5);
 			System.out.println(preguntas[2].rub[1].cuanti+" "+preguntas[2].automatica+preguntas[2].rub[1].rubrica);
 			System.out.println(preguntas[1].rub[2].cuanti+" "+preguntas[1].automatica);
-			System.out.println(preguntas[39].rub[1].cuanti+" "+preguntas[39].automatica+preguntas[39].rub[1].rubrica);
+			System.out.println(preguntas[79].rub[1].cuanti+" "+preguntas[79].pregunta+preguntas[79].rub[1].rubrica);
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

@@ -44,6 +44,72 @@ const routes = [
     meta: {requiresAuth: true}
   },
   {
+    path: '/ayudaAdmin',
+    name: 'ayudaAdmin',
+    component: () => import('../views/admin/ayudaA.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/ayudaCoord',
+    name: 'ayudaCoord',
+    component: () => import('../views/coordinador/ayudaC.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/ayudaDocente',
+    name: 'ayudaDocente',
+    component: () => import('../views/docente/ayudaD.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/ayudaEmpren',
+    name: 'ayudaEmpren',
+    component: () => import('../views/emprendimiento/ayudaE.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/ayudaOrgSoc',
+    name: 'ayudaOrgSoc',
+    component: () => import('../views/orgSocial/ayudaOS.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/ayudaPreins',
+    name: 'ayudaPreins',
+    component: () => import('../views/estudiante/ayudaP.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/ayudaStud',
+    name: 'ayudaStud',
+    component: () => import('../views/estudiante/ayudaS.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/respDG',
+    name: 'respDG',
+    component: () => import('../views/estudiante/respDG.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/progress',
+    name: 'progress',
+    component: () => import('../views/estudiante/Progreso.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/benchInd',
+    name: 'benchInd',
+    component: () => import('../views/estudiante/benchIndicadores.vue'),
+    meta: {requiresAuth: true}
+  },              
+  {
+    path: '/dgvfOs',
+    name: 'dgvfOs',
+    component: () => import('../views/orgSocial/forDGVOS.vue'),
+    meta: {requiresAuth: true}
+  },
+  {
     path: '/foro',
     name: 'foro',
     component: () => import('../views/foro.vue')
@@ -56,15 +122,15 @@ const routes = [
     ,meta: {requiresAuth: true}
   },
   {
-    path: '/tejido',
-    name: 'tejido',
-    component: () => import('../views/tejido.vue')
+    path: '/tejidoOS',
+    name: 'tejidoOS',
+    component: () => import('../views/orgSocial/tejidoOS.vue')
  //   ,meta: {requiresAuth: true}
   },
   {
-    path: '/tejido2',
-    name: 'tejido2',
-    component: () => import('../views/tejido copy.vue')
+    path: '/tejidoEmp',
+    name: 'tejidoEmp',
+    component: () => import('../views/emprendimiento/tejidoEm.vue')
   },  //ORGANIZACION SOCIAL
   {
     path: '/orgSocHome',
@@ -86,26 +152,6 @@ const routes = [
     ,meta: {requiresAuth: true}
   },
   {
-    path: '/datosPre',
-    name: 'datosPre',
-    component: () => import('../views/estudiante/ActualizarDatosPre.vue')
-  },
-  {
-    path: '/datosEs',
-    name: 'datosEs',
-    component: () => import('../views/estudiante/ActualizarDatosEst.vue')
-  },
-  {
-    path: '/reqEs',
-    name: 'reqEs',
-    component: () => import('../views/estudiante/Requisitos.vue')
-  },
-  {
-    path: '/noticiaEs',
-    name: 'noticiaEs',
-    component: () => import('../views/estudiante/SubirNoticia.vue')
-  },
-  {
     path: '/encuesta',
     name: 'encuesta',
     component: () => import('../views/estudiante/Encuesta.vue')
@@ -119,9 +165,21 @@ const routes = [
     ,meta: {requiresAuth: true}
   },
   {
+    path: "/ayudaCord",
+    name: "ayudaCord",
+    component: () => import('../views/coordinador/ayudaCord.vue')
+    ,meta: {requiresAuth: true}
+  },
+  {
     path: "/agregarStd",
     name: "agregarStd",
     component: () => import('../views/coordinador/addEstudiante.vue')
+    ,meta: {requiresAuth: true}
+  },
+  {
+    path: "/datosCord",
+    name: "datosCord",
+    component: () => import('../views/coordinador/datosCoord.vue')
     ,meta: {requiresAuth: true}
   },
   {
@@ -325,7 +383,7 @@ const routes = [
     component: () => import('../views/admin/organizacionAdmin.vue')
   },
   {
-    path: '/orgEdit',
+    path: '/orgEdit:id',
     name: 'orgEdit',
     component: () => import('../views/admin/organizacionEdit.vue')
   },
@@ -385,11 +443,24 @@ const routes = [
     ,meta: {requiresAuth: true}
   },
   {
+    path: '/dgvf',
+    name: 'diagn',
+    component: () => import('../views/emprendimiento/forDGV.vue')
+    //,meta: {requiresAuth: true}
+  },
+  {
     path: '/bench',
-    name: 'datosEmp',
+    name: 'benchM',
     component: () => import('../views/emprendimiento/benchm.vue')
     ,meta: {requiresAuth: true}
   },
+  {
+    path: '/benchOS',
+    name: 'benchOS',
+    component: () => import('../views/orgSocial/benchmOS.vue')
+    ,meta: {requiresAuth: true}
+  },
+
    //DOCENTE
    {
     path: '/HomeDoc',
@@ -410,6 +481,13 @@ const routes = [
       component: () => import('../views/emprendimiento/asesoria.vue')
       ,meta: {requiresAuth: true}
     },
+    {
+      path: '/foroEmp',
+      name: 'foroEmp',
+      component: () => import('../views/emprendimiento/foroEmp.vue')
+      ,meta: {requiresAuth: true}
+    },
+
     //ACTDATOSPre
     {
       path: '/datosPre',
@@ -429,20 +507,20 @@ const routes = [
       path: '/reqEs',
       name: 'reqEs',
       component: () => import('../views/estudiante/Requisitos.vue')
-      ,meta: {requiresAuth: true}
+    //  ,meta: {requiresAuth: true}
     },
     //SubirNoticia
     {
       path: '/noticiaEs',
       name: 'noticiaEs',
       component: () => import('../views/estudiante/SubirNoticia.vue')
-      ,meta: {requiresAuth: true}
+      //,meta: {requiresAuth: true}
     },
-    {
+    /*{
       path: '/benchmarking',
       name: 'Benchmarking',
       component: () => import("@/views/PreguntaBenchmarking.vue")
-    }
+    }*/
 ]
 
 const router = new VueRouter({

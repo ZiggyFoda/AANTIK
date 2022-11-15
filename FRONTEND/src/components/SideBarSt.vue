@@ -48,12 +48,14 @@
             :key="index"
           >
             <li>
-              <a :href="menuItem.link">
+              <a >
+                <router-link :to="menuItem.link">                
                 <i
                   class="bx"
                   :class="menuItem.icon || 'bx-square-rounded'"
                 />
                 <span class="links_name">{{ menuItem.name }}</span>
+              </router-link>
               </a>
               <span class="tooltip">{{ menuItem.tooltip || menuItem.name }}</span>
             </li>
@@ -121,13 +123,13 @@ import AuthService from "@/service/auth.service";
         type: Array,
         default: () => [
           {
-            link: '#datosEs',
+            link: '/datosEs',
             name: AuthService.getUser(),
             tooltip: 'User',
             icon: 'bx-user',
           },
           {
-            link: '#studentHome',
+            link: '/studentHome',
             name: 'Inicio',
             tooltip: 'Dashboard',
             icon: 'bx-home',
@@ -135,19 +137,19 @@ import AuthService from "@/service/auth.service";
           },
 
           {
-            link: '#',
+            link: '/respDG',
             name: 'Diagnóstico',
             tooltip: 'Messages',
             icon: 'bx-list-check',
           },
           {
-            link: '#',
+            link: '/progress',
             name: 'Progreso',
             tooltip: 'Analytics',
             icon: 'bx-line-chart',
           },
           {
-            link: '#noticiaEs',
+            link: '/noticiaEs',
             name: 'Noticias',
             tooltip: 'Order',
             icon: 'bx-news',
@@ -159,25 +161,12 @@ import AuthService from "@/service/auth.service";
             icon: 'bx-message-dots',
           },          
           {
-            link: '#',
-            name: 'Subir archivos',
+            link: '/ayudaStud',
+            name: 'Ayuda',
             tooltip: 'Setting',
-            icon: 'bx-cloud-upload',
+            icon: 'bx-help-circle',
           },
         ],
-      },
-      //! Search
-      isSearch: {
-        type: Boolean,
-        default: true,
-      },
-      searchPlaceholder: {
-        type: String,
-        default: 'Buscar...',
-      },
-      searchTooltip: {
-        type: String,
-        default: 'Search',
       },
       //! Profile detailes
       profileImg: {
@@ -229,10 +218,6 @@ import AuthService from "@/service/auth.service";
         type: String,
         default: '#e4e9f7',
       },
-      searchInputTextColor: {
-        type: String,
-        default: '#fff',
-      },
       menuItemsHoverColor: {
         type: String,
         default: '#FFF',
@@ -264,7 +249,6 @@ import AuthService from "@/service/auth.service";
           '--logo-title-color': this.logoTitleColor,
           '--icons-color': this.iconsColor,
           '--items-tooltip-color': this.itemsTooltipColor,
-          '--serach-input-text-color': this.searchInputTextColor,
           '--menu-items-hover-color': this.menuItemsHoverColor,
           '--menu-items-text-color': this.menuItemsTextColor,
           '--menu-footer-text-color': this.menuFooterTextColor,

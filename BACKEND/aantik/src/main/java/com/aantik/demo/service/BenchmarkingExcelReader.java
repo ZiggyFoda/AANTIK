@@ -123,10 +123,8 @@ public class BenchmarkingExcelReader {
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////        
-          }
-    
-          workbook.close();
-    
+          }    
+          //workbook.close();    
           return tutorials;
         } catch (IOException e) {
           throw new RuntimeException("fail to parse Excel file: " + e.getMessage());

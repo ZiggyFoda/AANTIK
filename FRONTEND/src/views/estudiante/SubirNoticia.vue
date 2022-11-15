@@ -22,15 +22,17 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-1" label="Noticia:" label-for="input-2" >     
-          <b-form-input
+        <b-form-group id="input-group-1" label="Noticia:" label-for="input-2"  >     
+          <b-form-textarea
             id="input-2"
-            v-model="form.noticia"
+            v-model="form.noticiaa"
             placeholder="Noticia"
             required
-            style="height: 100px"
-          ></b-form-input>
+            rows="3" 
+            max-rows="10"
+          ></b-form-textarea>
         </b-form-group>
+
 
         <b-form-group id="input-group-1" label="Fuente:" label-for="input-3">     
           <b-form-input
@@ -71,13 +73,13 @@ import AuthService from "@/service/auth.service"
       return {
       fields: [
           { key: "titulo" },
-          { key: "noticia" },
+          { key: "noticiaa" },
           { key: "fuente" },
         ],
 
         form: {
           titulo: null,
-          noticia: null,
+          noticiaa: null,
           fuente: null,
    
         },
@@ -98,9 +100,9 @@ import AuthService from "@/service/auth.service"
     },
     methods: {
       onSubmit() {
-        axios.post("http://localhost:8080/noticiaEs",{
+        axios.post("http://localhost:8080/api/noticiaEs",{
           titulo: this.form.titulo,
-          noticia: this.form.noticia,
+          noticiaa: this.form.noticiaa,
           fuente: this.form.fuente,
           encargado: AuthService.getUser(),
           correo: AuthService.getCorreo(),
@@ -113,7 +115,7 @@ console.log(this.store.state.auth.user.username)
         event.preventDefault()
         // Reset our form values
         this.form.titulo = ''
-        this.form.noticia = ''
+        this.form.noticiaa = ''
         this.form.fuente = ''
 
         // Trick to reset/clear native browser form validation state

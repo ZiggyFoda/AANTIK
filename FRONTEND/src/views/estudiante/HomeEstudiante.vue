@@ -2,28 +2,28 @@
   <b-container>  
        <div>
           <sidebar-menu-akahon 
-            @search-input-emit="search"
           />
         </div> 
     <b-row>
       <b-col>
         <div class="hello">
-          <h3>Se encuentra inscrito al ciclo 2022-03</h3>
-          <label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
-        </div><br>
+          <h3>Se encuentra inscrito al ciclo {{ciclo}}</h3>
+         </div><br>
         Aquí puede consultar el puntaje del diagnóstico del emprendimiento asignado
          y asignar puntaje a las preguntas del diagnóstico que no se califican automáticamente.
-        <router-link to="/estudiantes">
+        <router-link to="/respDG">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Gestionar diagnóstico</button></router-link>
         <br>
         Aquí puede definir el proyecto social y subir los informes de soporte.
+        <router-link to="/progress">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Progreso</button>
+        Progreso</button></router-link>
         <br>
-        Aquí puede consultar el benchmarking.
+        Aquí puede consultar los indicadores del benchmarking.
+        <router-link to="/benchInd">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Benchmarking</button>
+        Benchmarking</button></router-link>
         <br>
         Aquí puede subir una noticia, ver su historial o dirigirse a 
         las noticias publicadas en el sistema.
@@ -72,19 +72,15 @@
 import SidebarMenuAkahon from "@/components/SideBarSt.vue"
 
 export default {
-  name: 'Homecoordinador',
-  props: {
-    msg: String
-  },
    components: {
     SidebarMenuAkahon,
   },
-  methods: {
-    search() {
-      
-    }
+  data() {
+    return{
+      ciclo: "2022-03",
+    };
+  },
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

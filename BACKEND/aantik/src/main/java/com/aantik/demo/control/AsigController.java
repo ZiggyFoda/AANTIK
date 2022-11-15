@@ -61,7 +61,7 @@ public class AsigController {
     asig=asigna.asig;
 
     asigRepositorio.crearAsignacion(asig);    //asigRepositorio.save(asig);
-    Iterable<Asignacion> res=asigRepositorio.getAll();
+    Iterable<Asignacion> res = asigRepositorio.getAll();
     return new ResponseEntity<Iterable<Asignacion>>  (res, HttpStatus.OK);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block

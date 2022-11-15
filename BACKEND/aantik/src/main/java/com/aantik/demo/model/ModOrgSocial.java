@@ -1,9 +1,9 @@
 package com.aantik.demo.model;
 
 public class ModOrgSocial {
-	public int id;
+	public long id;
 	public String nombreEmp;
-	public String NIT;
+	public String nitId;
 	public String fechaCons;
 	public String direccion;
 	public String localidad;//****

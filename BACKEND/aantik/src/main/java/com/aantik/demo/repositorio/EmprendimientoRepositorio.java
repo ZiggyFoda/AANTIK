@@ -11,4 +11,5 @@ public interface EmprendimientoRepositorio extends CrudRepository<Emprendimiento
 	public Optional<Emprendimiento> getUserById(Long id) throws Exception;
 	public Optional<Emprendimiento> findByNombreEmp(String nombreEmp);
 	public Optional<Emprendimiento> findByLinAccion(String linAccion);
+	public Emprendimiento getByCorreoIE(String correoIE);
 }

@@ -1,8 +1,8 @@
 package com.aantik.demo.entidad;
 
-import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
@@ -11,12 +11,14 @@ public class Noticia{
 	/**
 	 * 
 	 */
-	@Id
-	@Column
+    @Id
+    @GeneratedValue
+    private long id;
+	@Column(length = 500)
 	private String titulo;
-	@Column
-	private String noticia;
-	@Column
+	@Column(length = 2000)
+	private String noticiaa;
+	@Column(length = 500)
 	private String fuente;
 	@Column
 	private String encargado;		
@@ -24,12 +26,11 @@ public class Noticia{
 	private String fecha;
 	@Column
 	private String correo;
-	
-	public String getCorreo() {
-		return correo;
+	public long getId() {
+		return id;
 	}
-	public void setCorreo(String correo) {
-		this.correo = correo;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getTitulo() {
 		return titulo;
@@ -37,11 +38,11 @@ public class Noticia{
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public String getNoticia() {
-		return noticia;
+	public String getNoticiaa() {
+		return noticiaa;
 	}
-	public void setNoticia(String noticia) {
-		this.noticia = noticia;
+	public void setNoticiaa(String noticiaa) {
+		this.noticiaa = noticiaa;
 	}
 	public String getFuente() {
 		return fuente;
@@ -61,16 +62,32 @@ public class Noticia{
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-	
-	public Noticia(String titulo, String noticia, String fuente, String encargado, String fecha, String correo) {
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+	public Noticia(long id, String titulo, String noticiaa, String fuente, String encargado, String fecha,
+			String correo) {
 		super();
+		this.id = id;
 		this.titulo = titulo;
-		this.noticia = noticia;
+		this.noticiaa = noticiaa;
 		this.fuente = fuente;
 		this.encargado = encargado;
 		this.fecha = fecha;
 		this.correo = correo;
 	}
+	
+	public Noticia() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+
+	
+
 
 	
 }
