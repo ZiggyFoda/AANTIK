@@ -4,6 +4,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.aantik.demo.entidad.OrgSocial;
 import com.aantik.demo.entidad.Profesor;
 import com.aantik.demo.entidad.Role;
 import com.aantik.demo.entidad.User;
@@ -84,14 +85,14 @@ public class ProfesorCRUD implements ProfesorCRUDLocal{
 			docente.setDirecRes(docLista[i].direcRes);
 			docente.setLocalidad(docLista[i].localidad);
 			docente.setSectoEc(docLista[i].sectoEc);
-			docente.setHisAse(docLista[i].HisAse);
+			docente.setHisAse(docLista[i].hisAse);
 			docente.setContacto(docLista[i].contacto);
 			docente.setLineaAc(docLista[i].lineaAc);
 			docente.setSecEco2(docLista[i].secEco2);
 			docente.setTipoOS(docLista[i].tipoOS);
 			docente.setHorarioNotif(docLista[i].horarioNotif);
 			docente.setHorarioAtencion(docLista[i].horarioAtencion);
-			docente.setNOdisponibilidad(docLista[i].NOdisponibilidad);
+			docente.setNOdisponibilidad(docLista[i].nOdisponibilidad);
 			docente.setLimitacion(docLista[i].limitacion);
 			try {
 				crearProfesor(docente);
@@ -100,5 +101,19 @@ public class ProfesorCRUD implements ProfesorCRUDLocal{
 				e.printStackTrace();
 			}
 		}	
+	}
+
+	public void deleteById(long id) {
+		// TODO Auto-generated method stub
+		Profesor prof = repository.getById(id);
+		
+		repository.delete(prof);
+		
+	}
+
+	public void editDoc(Profesor pro)  throws Exception {
+		// TODO Auto-generated method stub
+		repository.save(pro);
+		
 	}
 }

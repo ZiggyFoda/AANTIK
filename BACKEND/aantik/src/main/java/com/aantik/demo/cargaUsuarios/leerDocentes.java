@@ -89,7 +89,7 @@ public class leerDocentes {
 			        		    lista[rowDatos].sectoEc=value2;//**p
 			        		    break;
 			        		case 12:
-			        		    lista[rowDatos].HisAse=value2;
+			        		    lista[rowDatos].hisAse=value2;
 			        		    break;
 			        		case 13:
 			        		    lista[rowDatos].contacto=value2;//**p
@@ -110,7 +110,7 @@ public class leerDocentes {
 			        		    lista[rowDatos].horarioAtencion=value2;//**
 			        		    break;
 			        		case 19:
-			        		    lista[rowDatos].NOdisponibilidad=value2;//**
+			        		    lista[rowDatos].nOdisponibilidad=value2;//**
 			        		    break;
 			        		case 20:
 			        		    lista[rowDatos].horarioNotif=value2;
