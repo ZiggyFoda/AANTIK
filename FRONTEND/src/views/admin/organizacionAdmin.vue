@@ -10,12 +10,12 @@
     </div>
     Ingrese aquí para agregar organizaciones sociales de forma masiva
     por medio de un archivo .csv
-    <router-link to="/subirFileOrgSoc">
+    <router-link to="/subirFileOrgSocA">
       <button type="submit" class="btn btn-dark btn-lg btn-block">
         Agregar organizaciones sociales</button>
     </router-link><br>
     Ingrese aquí para agregar una organizacion social de forma individual
-    <router-link to="/agregarOrgSoc">
+    <router-link to="/addOrg">
       <button type="submit" class="btn btn-dark btn-lg btn-block">
         Agregar organizacion social</button>
     </router-link><br>
@@ -33,7 +33,7 @@
               <template #cell(Editar)="data">
 
                   <router-link id = data.item.id :to="{ path: '/orgEdit'+ data.item.id}" v-bind:tooltip=data.item.id append>
-                  <b-button class="mr-2">Editar/Ver
+                  <b-button class="mr-2">Editar
                   </b-button></router-link>
 
               </template>

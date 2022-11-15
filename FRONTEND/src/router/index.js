@@ -90,6 +90,12 @@ const routes = [
     name: 'encuesta',
     component: () => import('../views/estudiante/Encuesta.vue')
   },
+  {
+    path: '/noticiaEs',
+    name: 'noticiaEs',
+    component: () => import('../views/estudiante/SubirNoticia.vue')
+    //,meta: {requiresAuth: true}
+  },
 
   //COORDINADOR
   {
@@ -355,6 +361,21 @@ const routes = [
     name: 'indidEdit',
     component: () => import('../views/admin/indicadoresEdit.vue')
   },
+  {
+    path: '/addDoc',
+    name: 'addDoc',
+    component: () => import('../views/admin/addDoc.vue')
+  },
+  {
+    path: '/addEmp',
+    name: 'addEmp',
+    component: () => import('../views/admin/addEmp.vue')
+  },
+  {
+    path: '/addOrg',
+    name: 'addOrg',
+    component: () => import('../views/admin/addOrg.vue')
+  },
 
 
   //EMPRENDIMIENTO
@@ -437,7 +458,7 @@ const routes = [
       component: () => import('../views/estudiante/Requisitos.vue')
     //  ,meta: {requiresAuth: true}
     },
-    //SubirNoticia
+    SubirNoticia
     {
       path: '/noticiaEs',
       name: 'noticiaEs',

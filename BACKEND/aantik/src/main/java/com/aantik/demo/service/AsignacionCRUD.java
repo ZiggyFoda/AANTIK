@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.aantik.demo.entidad.Ciiu_Emp;
+import com.aantik.demo.entidad.Noticia;
 import com.aantik.demo.model.ModAsig;
 import com.aantik.demo.entidad.Asignacion;
 import com.aantik.demo.entidad.CIIU;
@@ -34,6 +35,7 @@ public class AsignacionCRUD implements AsignacionCRUDLocal{
 	        asignar.setEmprendimiento(asig[i].emprendimiento);
 	        asignar.setId(asig[i].id);
 	        asignar.setFecha(fecha);
+	        asignar.setNombre(asig[i].nombre);
 	        
 	        repository.save(asignar);
 	        i++;
@@ -48,6 +50,15 @@ public class AsignacionCRUD implements AsignacionCRUDLocal{
 		Iterable<Asignacion> asig =  repository.findAll();
 		return asig;
 	}
+
+
+	/*public void deleteByCorreo(String correo) {
+		// TODO Auto-generated method stub
+		Asignacion asi = repository.getByCorreo(correo);
+		
+		repository.delete(asi);
+		
+	}*/
 	
 
 	

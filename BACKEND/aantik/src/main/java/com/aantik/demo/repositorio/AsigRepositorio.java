@@ -11,4 +11,7 @@ public interface AsigRepositorio extends CrudRepository<Asignacion,Long>{
 	public Optional<Asignacion> findById(Long id);
 	public Optional<Asignacion> getUserById(Long id) throws Exception;
 	public Optional<Asignacion> getUserById1(Long id1) throws Exception;
+	//public Asignacion getByCorreo(String correo);
+	//public void deleteByCorreo();
+
 	}

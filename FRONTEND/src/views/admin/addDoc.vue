@@ -122,7 +122,7 @@
 </template>
 
 <script>
-import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
+import SidebarMenuAkahon from "@/components/SideBar.vue"
 import axios from 'axios';
 
 export default {

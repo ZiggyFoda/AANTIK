@@ -51,6 +51,8 @@ public class AsigController {
     @GetMapping("/asignacionNueva")
     public ResponseEntity<Iterable<Asignacion>> asigancion() {
     	try {
+    		
+
 
     AsignacionF asigna = new AsignacionF();     
     	
@@ -59,6 +61,9 @@ public class AsigController {
     asigna.inicial();
     
     asig=asigna.asig;
+   /* for(int i=0; i < asig.length ; i++) {
+        asigRepositorio.deleteByCorreo(asig[i].correo);
+    }*/
 
     asigRepositorio.crearAsignacion(asig);    //asigRepositorio.save(asig);
     Iterable<Asignacion> res = asigRepositorio.getAll();
@@ -72,6 +77,5 @@ public class AsigController {
     
     }
     
-
 
 }
