@@ -34,16 +34,17 @@ public class DiagnosticoCRUD implements DiagnosticoCRUDLocal{
 	@Override
 	public void crearDiagnostico(ModDGV diag) throws Exception {
 		// TODO Auto-generated method stub
-		Diagnostico addDg =new Diagnostico();
-		if(diag.puntajeS != null) {
+		Diagnostico addDg =new Diagnostico();		 
+		if(diag.puntajeN != 0) {
 			addDg.setCorreo(diag.correo);
 			addDg.setPreguntaCod(diag.codigo);
-			addDg.setPuntajeS(diag.puntajeS);
-		 }else if(diag.puntajeN != 0) {
-			addDg.setCorreo(diag.correo);
-			addDg.setPreguntaCod(diag.codigo);
-			addDg.setPuntajeN(diag.puntajeN);	    
-		 }
+			addDg.setPuntajeN(diag.puntajeN);
+			addDg.setPuntajeS(diag.puntajeS);	    
+		}else  if(diag.puntajeS != null) {
+				addDg.setCorreo(diag.correo);
+				addDg.setPreguntaCod(diag.codigo);
+				addDg.setPuntajeS(diag.puntajeS);
+		}
 		if(valida(addDg)) {
 			repDG.save(addDg);
 		}else {
@@ -98,10 +99,9 @@ public class DiagnosticoCRUD implements DiagnosticoCRUDLocal{
 			for(Diagnostico aux: respuestas) {
 				
 				resp[i]= new ModDGRes();
-				resp[i].pregunta=getPreguntaXcod(aux.getPreguntaCod());
-				
-				resp[i].puntaje=8;
-				resp[i].respuesta="prueba";
+				resp[i].pregunta=getPreguntaXcod(aux.getPreguntaCod());				
+				resp[i].respuesta=aux.getPuntajeS();				
+				resp[i].puntaje=aux.getPuntajeN();
 				System.out.println("-----"+resp[i].pregunta);
 				i++;
 			}

@@ -35,7 +35,8 @@
                     {{ item2.rubrica  }}
                 <i :ref="actualizaCod(item2.codigoP)"/>
                 </div>
-                <i :ref="actualiza(item.codigo)"/>
+                <i :ref="actualiza(item.codigo,item.rub)"/>
+                
                 </template>
                 <template v-if="item.automatica == false">
                     <b-form inline>
@@ -91,6 +92,7 @@ export default {
     },
     dgR: [{}],
     codigoAc:null,
+    pregunta:null,
     dgvService: null,
     created() {
         this.dgvService = new dgvService();
@@ -110,10 +112,16 @@ export default {
             console.log("DATOS-----",this.dg.codigo);
             console.log("DATOS-----",this.dg.rub);
         },
-        actualiza(cuanti) {
-            if(cuanti != undefined && cuanti >0){
-                console.log("VALOR-----",cuanti,"codigo",this.codigoAc);
-                this.getVal(cuanti);
+        actualiza(cuanti2,rub) {
+            if(cuanti2 != undefined && cuanti2 >0){
+                for(let j=0;j<rub.length;j++){
+                    if(rub[j].cuanti==cuanti2){
+                        let resp= rub[j].rubrica;
+                        console.log("VALOR-----",cuanti2,"codigo",this.codigoAc+"RESPUESTA "+resp);
+                        this.getVal(cuanti2,resp);
+                    }
+                }
+                
                 
             }
         },
@@ -138,15 +146,16 @@ export default {
         print(vard,valo){
             console.log("imprime cod",vard,"--",valo);
         },
-        getVal(cuanti){           
+        getVal(cuanti,preg){           
             let valida="false";
             if(this.dgR == null){
-                let aux={valorN:cuanti,codigoP:this.codigoAc}
+                let aux={valorN:cuanti,codigoP:this.codigoAc,valorS:preg}
                 this.dgR.push(aux) 
             }
             for(let i=0; i<this.dgR.length; i++) {
                  if(this.dgR[i].codigoP === this.codigoAc){
                     this.dgR[i].valorN=cuanti
+                    this.dgR[i].valorS=preg
                     this.dgR[i].codigoP=this.codigoAc
                     valida="true";
                     console.log(`Actualiza ${i} is ${this.dgR[i].codigoP}`,"val ",this.dgR[i].valorN);              
@@ -156,13 +165,14 @@ export default {
             }
             if(valida == "false"){
                 console.log("debe agregar")
-                let aux={valorN:cuanti,codigoP:this.codigoAc}
+                let aux={valorN:cuanti,codigoP:this.codigoAc,valorS:preg}
                 this.dgR.push(aux)               
             }
         },
-        actualizaCod(code){
+        actualizaCod(code,pregn){
             this.codigoAc=code;
-            console.log("codigo actual",this.codigoAc)
+            this.pregunta=null;
+            console.log("codigo actual",this.codigoAc,"_--rubrica",pregn)
         },
         actualizaCodTex(text,code){
             this.codigoAc=code;
