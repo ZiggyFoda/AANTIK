@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.aantik.demo.GaboPrivado.ResponseMessage;
+import com.aantik.demo.HelperClassServices.ResponseMessage;
 import com.aantik.demo.entidad.PreguntasModeloB;
 import com.aantik.demo.service.BenchmarkingExcelReader;
 import com.aantik.demo.service.BenchmarkingExcelService;

@@ -1,4 +1,4 @@
-package com.aantik.demo.GaboPrivado;
+package com.aantik.demo.HelperClassServices;
 import javax.persistence.*;
 @Entity
 @Table(name = "rolesGabo")

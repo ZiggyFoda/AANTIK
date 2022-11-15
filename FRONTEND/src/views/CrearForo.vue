@@ -41,7 +41,7 @@
   
   <script>
   import axios from 'axios';
-  import SidebarMenuAkahon from "@/components/SideBarSt.vue"
+  import SidebarMenuAkahon from "@/components/SideBarEmpren.vue"
   import AuthService from "@/service/auth.service"
     export default {
       data() {

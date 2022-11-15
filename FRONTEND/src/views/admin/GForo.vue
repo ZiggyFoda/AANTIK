@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import SidebarMenuAkahon from "@/components/SideBar.vue"
+import SidebarMenuAkahon from "@/components/SideBarAdmin.vue"
 import axios from 'axios'
 export default {
   name: 'Homecoordinador',

@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import SidebarMenuAkahon from "@/components/SideBar.vue"
+import SidebarMenuAkahon from "@/components/SideBarEmpren.vue"
 
 export default {
   name: 'Homecoordinador',

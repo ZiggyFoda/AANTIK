@@ -9,8 +9,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.aantik.demo.HelperClassServices.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.aantik.demo.GaboPrivado.*;
 
 public class UserDetailsImpl implements UserDetails {
 

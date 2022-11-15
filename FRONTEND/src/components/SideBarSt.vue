@@ -151,6 +151,12 @@ import AuthService from "@/service/auth.service";
             name: 'Noticias',
             tooltip: 'Order',
             icon: 'bx-news',
+          },
+          {
+            link: '/#/foro',
+            name: 'Foro',
+            tooltip: 'Setting',
+            icon: 'bx-message-dots',
           },          
           {
             link: '#',
