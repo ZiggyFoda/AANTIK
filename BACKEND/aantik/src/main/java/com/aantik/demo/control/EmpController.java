@@ -125,9 +125,13 @@ public class EmpController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 	}
-	@PostMapping("/addEmp")
-	public ResponseEntity<?> addEmp(@RequestBody ModEmprendimiento update) throws Exception {
+	@PostMapping("/addemprendimientos")
+	public ResponseEntity<?> addemprendimientos(@RequestBody ModEmprendimiento update) throws Exception {
 
+		System.out.println(update.id);
+		
+		System.out.println(update.empleados);
+		
 		Emprendimiento emp = new Emprendimiento(update.id, update.nombreEmp, update.direccion, update.prodServ, update.linAccion, update.nitId,
 				update.fechaCons, update.orgSocial, update.localidad, update.barrio, update.temaAsesorar,
 				update.interlocutorEmp, update.telefonoIE, update.correoIE, update.nombreInterOS, update.telefonoIOS,
@@ -138,5 +142,51 @@ public class EmpController {
 
 		return ResponseEntity.ok("ok");
 	}
+	
+	@GetMapping("/getEmp")
+	public ResponseEntity<Iterable<Emprendimiento>> empSet() {
 
+		try {
+			Iterable<Emprendimiento> res = empService.getAll();
+			return new ResponseEntity<Iterable<Emprendimiento>>(res, HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			// e.printStackTrace();
+			System.out.println("Usuario no existe" + e);
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+	}
+		
+		@PostMapping("/editEmp")
+		public ResponseEntity<?> empEdit(@RequestBody ModEmprendimiento update) throws Exception {
+
+			long id = update.id;
+			System.out.println(id);
+		    empService.deleteById(id);
+			
+			Emprendimiento emp = new Emprendimiento(update.id, update.nombreEmp, update.direccion, update.prodServ, update.linAccion, update.nitId,
+					update.fechaCons, update.orgSocial, update.localidad, update.barrio, update.temaAsesorar,
+					update.interlocutorEmp, update.telefonoIE, update.correoIE, update.nombreInterOS, update.telefonoIOS,
+					update.correoIOS, update.cupos, update.empleados, update.actividadEco, update.contacto, update.experiencia,
+					update.promedio, update.horarioNotif, update.modalidad, update.disponibilidad, update.horarioAtencion,
+					update.genero, update.limitacion, update.comunidad, update.transporte);
+			empService.crearEmprendimiento(emp);
+			
+			System.out.println(update.id);
+			System.out.println(update.nitId);
+			
+			return ResponseEntity.ok("ok");
+		}
+		
+		@PostMapping("/empDelete")
+	    public ResponseEntity<?> empDelete(@RequestBody ModEmprendimiento update) {  
+	    
+	    long id = update.id;
+	    
+	    empService.deleteById(id);
+	    
+	    return ResponseEntity.ok("ok");
+	    }
 }
+
+

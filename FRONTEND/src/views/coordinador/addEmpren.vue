@@ -27,9 +27,18 @@
                   </b-form-input>
                 </b-form-group>
 
+                <b-form-group id="input-group-2" label="Nombre del Interlocutor:" label-for="input-2">
+                  <b-form-input id="input-2" v-model="form.interlocutorEmp" placeholder="Nombre Interlocutor"
+                    required></b-form-input>
+                </b-form-group>
+
                 <b-form-group id="input-group-2" label="Correo Interlocutor:" label-for="input-2">
                   <b-form-input id="input-2" v-model="form.correoIE" type="email" placeholder="Correo Interlocutor"
                     required></b-form-input>
+                </b-form-group>
+
+                <b-form-group id="input-group-7" label="Teléfono:" label-for="input-7">
+                  <b-form-input id="input-7" v-model="form.telefonoIE" placeholder="Teléfono" required></b-form-input>
                 </b-form-group>
               </b-col>
               <b-col>
@@ -69,6 +78,14 @@
                   <b-form-select id="input-4" v-model="form.linAccion" :options="linAccion" required></b-form-select>
                 </b-form-group>
 
+                <b-form-group id="input-group-4" label="Tema de la asesoración:" label-for="input-4">
+                  <b-form-input id="input-4" v-model="form.temaAsesorar" placeholder="Tema" required></b-form-input>
+                </b-form-group>
+
+                <b-form-group id="input-group-4" label="Actividad económica:" label-for="input-4">
+                  <b-form-input id="input-4" v-model="form.actividadEco" placeholder="Tema" required></b-form-input>
+                </b-form-group>
+
                 <h4>DATOS DE INTERLOCUTOR DE LA ORGANIZACIÓN SOCIAL</h4>
                 <b-form-group id="input-group-6" label="Nombre:" label-for="input-6">
                   <b-form-input id="input-6" v-model="form.nombreInterOS" placeholder="Nombre" required></b-form-input>
@@ -106,6 +123,11 @@
                 <b-form-group id="input-group-6" label="horarios de disponibildiad:"
                   label-for="input-6">
                   <b-form-select id="input-5" v-model="form.disponibilidad" :options="horario" required></b-form-select>
+                </b-form-group>
+
+                <b-form-group id="input-group-6" label="Medio de contacto:"
+                  label-for="input-6">
+                  <b-form-select id="input-5" v-model="form.contacto" :options="contacto" required></b-form-select>
                 </b-form-group>
 
                 <b-form-group id="input-group-6" label="modalidad de contacto:"
@@ -169,7 +191,7 @@ export default {
         { key: "telefonoIE" },
         { key: "correoIE" },
         { key: "nombreInterOS" },
-        { key: "telefonoOS" },
+        { key: "telefonoIOS" },
         { key: "correoOS" },
         { key: "cupos" },
         { key: "empleados" },
@@ -211,7 +233,7 @@ export default {
         promedio: '',
         horarioNotif: '',
         modalidad: '',
-        diponibilidad: '',
+        disponibilidad: '',
         horarioAtencion: '',
         genero: '',
         limitacion: '',
@@ -255,8 +277,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log("nada")
-      console.log(this.form.experiencia)
+
       if (this.form.experiencia == 'Si') {
         this.form.experiencia = true;
       } else
@@ -291,7 +312,9 @@ export default {
       } else
         this.form.modalidad = "m";
 
-      axios.post("http://localhost:8080/addEmp", {
+        console.log(this.form)
+
+      axios.post("http://localhost:8080/addemprendimientos", {
         nombreEmp: this.nombreEmp,
         direccion: this.form.direccion,
         prodServ: this.form.prodServ,
@@ -322,7 +345,12 @@ export default {
         limitacion: this.form.limitacion,
         comunidad: this.form.comunidad,
         transporte: this.form.transporte,
-      });
+
+      }).catch((error) => {
+    if( error.response ){
+        console.log(error.response.data); // => the response payload 
+    }
+});
 
     },
 

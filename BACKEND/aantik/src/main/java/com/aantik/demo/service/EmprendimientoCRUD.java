@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aantik.demo.entidad.Emprendimiento;
+import com.aantik.demo.entidad.OrgSocial;
 import com.aantik.demo.entidad.Role;
 import com.aantik.demo.entidad.User;
 import com.aantik.demo.model.ModEmprendimiento;
@@ -168,6 +169,21 @@ public class EmprendimientoCRUD implements EmprendimientoCRUDLocal{
 		actualizar.setTemaAsesorar (empren.getTemaAsesorar());         
 		actualizar.setTransporte (empren.getTransporte());           
 		actualizar.setUserId (empren.getUserId());   
+	}
+
+	public void deleteById(long id) {
+		// TODO Auto-generated method stub
+		Emprendimiento emp = repository.getById(id);
+		
+		repository.delete(emp);
+		
+	}
+	
+	public Emprendimiento getById(long id) {
+		// TODO Auto-generated method stub
+		Emprendimiento emp = repository.getById(id);
+		//return repository.getById(id);
+		return emp;
 	}
 
 }

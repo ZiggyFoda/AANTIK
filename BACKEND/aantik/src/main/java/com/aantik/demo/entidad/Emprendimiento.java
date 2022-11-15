@@ -25,7 +25,7 @@ public class Emprendimiento implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
 	@GenericGenerator(name="native",strategy="native")
     @Column(name = "id")
-	private Long id;
+	private long id;
 	@Column
 	private String nombreEmp;
 	@Column
@@ -369,7 +369,7 @@ public class Emprendimiento implements Serializable{
 		return this.transporte;
 	}
 
-	public Emprendimiento(Long id, String nombreEmp, String direccion, String prodServ, String linAccion, String nitId,
+	public Emprendimiento(long id, String nombreEmp, String direccion, String prodServ, String linAccion, String nitId,
 			String fechaCons, String orgSocial, String localidad, String barrio, String temaAsesorar,
 			String interlocutorEmp, String telefonoIE, String correoIE, String nombreInterOS, String telefonoIOS,
 			String correoIOS, int cupos, String empleados, String actividadEco, String contacto, boolean experiencia,
