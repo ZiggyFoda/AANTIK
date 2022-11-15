@@ -105,7 +105,7 @@ public class leerDiagnostico {
 		  int colNumber = sheet.getRow(1).getPhysicalNumberOfCells();
 		  int auxRow= sheet.getLastRowNum();
 		  int rowNumber = 0, cant=0;
-		  infoPreg=new ModInfoPregunta[auxRow];
+		  //infoPreg=new ModInfoPregunta[auxRow];
 		  System.out.println("xcol: "+colNumber+" rows "+auxRow);	   	      
 		  while (rows.hasNext()) {
 		
@@ -116,10 +116,11 @@ public class leerDiagnostico {
 			  break;
 		  }
 		Cell cell; 
-		 //getting the cell representing the given column     //getting cell value  
+		 //getting the cell representing the given column     //getting cell value
+		
 		int cellIdx = 0;
-		String value2;
-		infoPreg[rowNumber-1]=new ModInfoPregunta();
+		String value2;	
+		infoPreg[cant]=new ModInfoPregunta();
 		while (cellIdx<colNumber) {
 		  cell=row.getCell(cellIdx);
 		  if(cell!=null) {
@@ -128,29 +129,29 @@ public class leerDiagnostico {
 		      else
 		  	      value2= String.valueOf(cell.getStringCellValue());
 		      if(value2.length()!=0) {
-		    	  
 		    	  if (cellIdx==0) {
-		    		  infoPreg[rowNumber-1].idAreaF=(int) Double.parseDouble(value2);        	    	  
+		    		  infoPreg[cant].idAreaF=(int) Double.parseDouble(value2);		    		         	    	 
 				  }else if (cellIdx==2) {
-		    		  infoPreg[rowNumber-1].idCargoR=(int) Double.parseDouble(value2);					  
+		    		  infoPreg[cant].idCargoR=(int) Double.parseDouble(value2);					  
 				  }else if (cellIdx==4) {
-		    		  infoPreg[rowNumber-1].idVarOrg=(int) Double.parseDouble(value2);		
+		    		  infoPreg[cant].idVarOrg=(int) Double.parseDouble(value2);		
 				  }else if (cellIdx==6) {
-		    		  infoPreg[rowNumber-1].idNivScor=(int) Double.parseDouble(value2);	
+		    		  infoPreg[cant].idNivScor=(int) Double.parseDouble(value2);	
 				  }else if (cellIdx==8) {
-		    		  infoPreg[rowNumber-1].numeroPregunta=(int) Double.parseDouble(value2);	
-				  }else if (cellIdx==11) {
-		    		  infoPreg[rowNumber-1].pregunta=value2;	
+		    		  infoPreg[cant].numeroPregunta=(int) Double.parseDouble(value2);	
+				  }else if (cellIdx==10) {
+		    		  infoPreg[cant].pregunta=value2;
+	    		  	//System.out.println(cant);	
+		    		  cant++;
 				  }
 		  //System.out.println("dato "+value2+" cant "+cellIdx+" row "+rowNumber);		        	  
 		          }	           
 		      }	    	  
 		      cellIdx++;
 		   }
-		
 		}
 		 // System.out.println("CLOSE: "+cant);	
-		  return auxRow;
+		  return cant;
 		} catch (IOException e) {
 		  throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
 		}

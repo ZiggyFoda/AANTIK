@@ -77,4 +77,12 @@ public class DiagnosticoCRUD implements DiagnosticoCRUDLocal{
 		return null;
 	}
 
+	public int getPuntaje(String codigo) {
+		// TODO Auto-generated method stub
+		Diagnostico aux=repDG.getByPreguntaCod(codigo);
+		if(aux==null)
+			return 0;
+		return aux.getPuntajeN();
+	}
+
 }

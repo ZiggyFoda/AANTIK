@@ -13,14 +13,13 @@
           valores obtenidos por su compañia
           <br>
           <div>
-            <b-table striped hover :items="indicadores" :fields="fields" @change="getFile($event)"></b-table>
+            <b-table striped hover :items="indicadores" :fields="fields1" @change="getFile($event)"></b-table>
           </div>
           <br>
           
           <DxChart
                 id="chart"
                 :data-source="indicadores"
-                :ref="chartRefKey"
             >
                 <DxSeries
                 argument-field="nombre"
@@ -72,7 +71,7 @@ import 'devextreme/dist/css/dx.light.compact.css';
           puntaje: 55,
           desc: null
         } ],
-        fields: [
+        fields1: [
             { key: "nombre", label:"Indicador" },
             { key: "puntaje" , label:"Puntaje"},
             { key: "descripcion", label:"Descripcion" }
@@ -114,7 +113,7 @@ import 'devextreme/dist/css/dx.light.compact.css';
         console.log(this.indicadores.nombre);
         },
         print() {
-          console.log("Esto es un método"+this.estudiante.correo);
+          console.log("Esto es un método");
         }
     }
   }

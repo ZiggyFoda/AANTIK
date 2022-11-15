@@ -32,6 +32,17 @@ public class Preguntas_Dig implements Serializable{
 	private  String insump;
 	@Column
 	private String automatica;
+	//INFO PREGUNTA
+	@Column
+	private int idAreaF;
+	@Column
+	private int idCargoR;
+	@Column
+	private int idVarOrg;
+	@Column
+	private int idNivScor;
+	@Column
+	private int numeroPregunta;
 	
 	@JoinTable(name = "rubrica_preg",
 	joinColumns=@JoinColumn(name="id"),
@@ -67,6 +78,44 @@ public class Preguntas_Dig implements Serializable{
 	}
 	public void setAutomatica(String automatica) {
 		this.automatica = automatica;
+	}
+	
+	
+	public int getIdAreaF() {
+		return idAreaF;
+	}
+	public void setIdAreaF(int idAreaF) {
+		this.idAreaF = idAreaF;
+	}
+	public int getIdCargoR() {
+		return idCargoR;
+	}
+	public void setIdCargoR(int idCargoR) {
+		this.idCargoR = idCargoR;
+	}
+	public int getIdVarOrg() {
+		return idVarOrg;
+	}
+	public void setIdVarOrg(int idVarOrg) {
+		this.idVarOrg = idVarOrg;
+	}
+	public int getIdNivScor() {
+		return idNivScor;
+	}
+	public void setIdNivScor(int idNivScor) {
+		this.idNivScor = idNivScor;
+	}
+	public int getNumeroPregunta() {
+		return numeroPregunta;
+	}
+	public void setNumeroPregunta(int numeroPregunta) {
+		this.numeroPregunta = numeroPregunta;
+	}
+	public Long getId_rub() {
+		return id_rub;
+	}
+	public void setId_rub(Long id_rub) {
+		this.id_rub = id_rub;
 	}
 	@Override
 	public int hashCode() {

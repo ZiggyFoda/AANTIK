@@ -13,7 +13,7 @@
           valores obtenidos por su compañia
           <br>
           <div>
-            <b-table striped hover :items="indicadores" :fields="fields" @change="getFile($event)"></b-table>
+            <b-table striped hover :items="indicadores" :fields="fields1" @change="getFile($event)"></b-table>
           </div>
           <br>
           
@@ -39,6 +39,7 @@
 import SidebarMenuAkahon from "@/components/SideBarCoord.vue"
 import LoginService from "@/service/LoginService";
 import { DxChart, DxSeries } from "devextreme-vue/chart";
+import AuthService from "@/service/auth.service"
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.compact.css';
   
@@ -72,7 +73,7 @@ import 'devextreme/dist/css/dx.light.compact.css';
           puntaje: 55,
           desc: null
         } ],
-        fields: [
+        fields1: [
             { key: "nombre", label:"Indicador" },
             { key: "puntaje" , label:"Puntaje"},
             { key: "descripcion", label:"Descripcion" }
@@ -101,21 +102,30 @@ import 'devextreme/dist/css/dx.light.compact.css';
       this.print();
     },
     methods: {
-        getAll() {
-        this.loginService.getAllBenc().then(data => {
-          this.indicadores = data.data;
-          console.log("gj-----");
-          console.log("gj-----",data.data.String);
-          console.log("typeof-----",typeof data.data);
-          console.log("key-----",typeof data.headers);
-          console.log("DATOS-----",this.datos);
+      getAll() {
+          try{
+            this.loginService.getAllBenc()
+            .then(function(response) {
+              data => {
+              this.indicadores = data.data;
+              console.log("gj-----");
+             /* console.log("gj-----",data.data.String);
+              console.log("typeof-----",typeof data.data);
+              console.log("key-----",typeof data.headers);
+              console.log("DATOS-----",this.datos);*/
+          }
         });
-        console.log("gj-----");
-        console.log(this.indicadores.nombre);
-        },
-        print() {
-          console.log("Esto es un método"+this.estudiante.correo);
-        }
+            console.log("gj-----");
+            console.log(this.indicadores.nombre);
+        } catch (error) {
+        console.log('error');
+        console.log(error);
+        } 
+      },
+      print() {
+        console.log("Esto es un método");
+      }
+            
     }
   }
   </script>

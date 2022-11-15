@@ -14,8 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.aantik.demo.cargaUsuarios.leerEmprendimientos;
 import com.aantik.demo.model.ModBench;
 import com.aantik.demo.model.ModEmprendimiento;
+import com.aantik.demo.model.ModelBenchAux;
 import com.aantik.demo.model.encuestaPre;
+import com.aantik.demo.repositorio.PreguntasRepository;
+import com.aantik.demo.service.BenchmarkingExcelService;
+import com.aantik.demo.service.DiagnosticoCRUD;
 import com.aantik.demo.service.EmprendimientoCRUD;
+import com.aantik.demo.service.PreguntaCRUD;
+import com.aantik.demo.service.PreguntaExcelService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 
@@ -23,6 +29,15 @@ import com.aantik.demo.service.EmprendimientoCRUD;
 public class EmpController {
 	@Autowired
 	EmprendimientoCRUD empService;
+
+    @Autowired
+    BenchmarkingExcelService BenfileService;
+    
+    @Autowired
+    DiagnosticoCRUD dgvServ;
+    
+    @Autowired
+    PreguntaCRUD pregServ;
 	
     @PostMapping("/datosEmp")
     public ResponseEntity<?> processForgotPassword(@RequestBody encuestaPre update) {
@@ -62,13 +77,44 @@ public class EmpController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 	}
-    
+	
 	@GetMapping("/benchGet")
-	public ResponseEntity<ModBench[]> sendStudents() { 
+	public ResponseEntity<ModBench[]> generarBench() { 
 	//public ResponseEntity<Mpreinscrito[],String>  sendStudents() {
 		ModBench est[] = new ModBench[10];
+		//System.out.println("estudiante: " + correo);
 		try {
+			int tamanio=BenfileService.cantidad();
+			ModelBenchAux[] auxB = new ModelBenchAux[tamanio];
+			auxB=BenfileService.getInfo(auxB);
+			pregServ.getCodigoPreg(auxB,auxB.length);
+			String aux=auxB[0].indicador;	
+			int i=0,total=0;
 			est[0]=new ModBench();
+			for(ModelBenchAux var: auxB) {
+				System.out.println("preguntas que aplican"+var.codigo+var.indicador);
+				if(aux.equals(var.indicador)) {
+					total=total+dgvServ.getPuntaje(var.codigo);		
+					est[i].nombre=var.indicador;
+					est[i].puntaje=total;
+					System.out.println(var.indicador+"--------"+total);										
+				}else {
+					i++;
+					est[i]=new ModBench();
+					aux=var.indicador;
+					total=dgvServ.getPuntaje(var.codigo);
+					System.out.println(var.indicador+"--------"+total);						
+					est[i].nombre=var.indicador;
+					est[i].puntaje=total;
+				}
+			}
+			BenfileService.getDesc(est);
+			System.out.println("RESULTADO......");
+			for(int j=0;j<i;j++) {
+				System.out.println(est[j].nombre+"----"+est[j].puntaje);
+			}
+			
+		/*	est[0]=new ModBench();
 			est[1]=new ModBench();
 			est[2]=new ModBench();
 			est[3]=new ModBench();
@@ -112,7 +158,7 @@ public class EmpController {
 			est[9].puntaje=27;
 			est[9].descripcion="El precio es la cantidad monetaria que se interpone a un producto y debe ser congruente para poder ofrecerlo al público de manera que sea competitivo con los demás en el mercado.";
 
-			
+			*/
 			
 			return new ResponseEntity<ModBench[]>  (est, HttpStatus.OK);
 		} catch (Exception e) {
@@ -122,5 +168,5 @@ public class EmpController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 	}
-
+    
 }

@@ -7,7 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.aantik.demo.entidad.Preguntas_Dig;
 import com.aantik.demo.entidad.Rubrica_preg_dg;
+import com.aantik.demo.model.ModInfoPregunta;
+import com.aantik.demo.model.ModelBenchAux;
 import com.aantik.demo.model.ModeloPregunta;
+import com.aantik.demo.model.convenciones;
 import com.aantik.demo.repositorio.RubricaRepositorio;
 import com.aantik.demo.repositorio.PreguntaRepositorio;
 
@@ -70,7 +73,7 @@ public class PreguntaCRUD implements PreguntaCRUDLocal {
 				//System.out.println("RUB: "+preguntas[i].rub[j].rubrica);
 				//rub.setIdPreg();
 			}
-			System.out.println("PREGUNTA_"+pregunta.getPregunta());
+			System.out.println("PREGUNTA_-----------------------"+pregunta.getPregunta());
 			Preguntas_Dig insert=crearPregunta(pregunta);
 			crearRubrica(insert.getId(),rub);
 		}	
@@ -127,5 +130,67 @@ public class PreguntaCRUD implements PreguntaCRUDLocal {
 		
 		return cantRub;
 	}
+
+
+	public void saveInfoPreg(ModInfoPregunta[] infoPreg) {
+		// TODO Auto-generated method stub
+		Preguntas_Dig actualiza = new Preguntas_Dig();
+		for(int i=0;i<infoPreg.length;i++) {
+			if(infoPreg[i]!=null) {
+				if(infoPreg[i].pregunta !=null ) {
+					actualiza=repPre.getByCodigo(infoPreg[i].pregunta);
+					if(actualiza!=null) {
+						actualiza.setIdAreaF(infoPreg[i].idAreaF);
+						actualiza.setIdCargoR(infoPreg[i].idCargoR);
+						actualiza.setIdVarOrg(infoPreg[i].idVarOrg);
+						actualiza.setIdNivScor(infoPreg[i].idNivScor);
+						actualiza.setNumeroPregunta(infoPreg[i].numeroPregunta);
+						repPre.save(actualiza);
+					}
+					
+				}
+			}
+			
+		}		
+	}
+
+
+	public void saveConvenciones(convenciones conven, int cant) {
+		// TODO Auto-generated method stub
+		for (int i=0;i<cant;i++) {
+			if(conven.AreaFuncional[i].titulo!=null) {
+				System.out.println(conven.AreaFuncional[i].id+" "+conven.AreaFuncional[i].titulo);
+			}
+		}
+		System.out.println("CARGO QUE DEBERIA RESPONDER");
+		for (int i=0;i<cant;i++) {
+			if(conven.CargoResp[i].titulo!=null) {
+				System.out.println(conven.CargoResp[i].id+" "+conven.CargoResp[i].titulo);
+			}
+		}
+		System.out.println("VARIABLE ORGANIZACIONAL");
+		for (int i=0;i<cant;i++) {
+			if(conven.VarOrga[i].titulo!=null) {
+				System.out.println(conven.VarOrga[i].id+" "+conven.VarOrga[i].titulo);
+			}
+		}
+		System.out.println("NIVEL SCOR");
+		for (int i=0;i<cant;i++) {
+			if(conven.NivelScor[i].titulo!=null) {
+				System.out.println(conven.NivelScor[i].id+" "+conven.NivelScor[i].titulo);
+			}
+		}
+	}
+
+	public void getCodigoPreg(ModelBenchAux[] auxB, int length) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<length;i++) {
+			Preguntas_Dig aux= repPre.getByNumeroPregunta(Integer.parseInt(auxB[i].numero));
+			if(aux != null) {
+				auxB[i].codigo=aux.getCodigo();
+			}
+		}
+	}
+
 
 }
