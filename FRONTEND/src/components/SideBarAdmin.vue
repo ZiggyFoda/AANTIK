@@ -147,7 +147,7 @@ import AuthService from "@/service/auth.service";
             icon: 'bx-line-chart',
           },
           {
-            link: '/gesNoticias',
+            link: '/noticias',
             name: 'Noticias',
             tooltip: 'Order',
             icon: 'bx-news',
@@ -165,13 +165,13 @@ import AuthService from "@/service/auth.service";
             icon: 'bx-help-circle',
           },
           {
-            link: '/#/gesForo',
+            link: '/gesForo',
             name: 'Gestionar foro',
             tooltip: 'Setting',
             icon: 'bx-edit',
           },
           {
-            link: '/#/foro',
+            link: '/foro',
             name: 'Foro',
             tooltip: 'Setting',
             icon: 'bx-message-dots',

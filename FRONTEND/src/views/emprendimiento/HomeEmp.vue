@@ -20,8 +20,8 @@
         Actualizar datos</button></router-link>
         <br>
         Aquí puede responder las preguntas del diagnóstico organizacional.
-        <button type="submit" class="btn btn-dark btn-lg btn-block">
-        Diagnostico organizacional</button>
+        <router-link to="/dgvf"><button type="submit" class="btn btn-dark btn-lg btn-block">
+        Diagnostico organizacional</button></router-link>
         <br>
         Aquí puede ver el estado de la asesoría en curso.
         <button @click="$bvModal.show('my-modal3')" class="btn btn-dark btn-lg btn-block">

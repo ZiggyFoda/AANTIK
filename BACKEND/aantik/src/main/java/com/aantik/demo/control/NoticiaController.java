@@ -36,7 +36,7 @@ public class NoticiaController {
     public ResponseEntity<?> noticiaGet(@RequestBody NoticiaEs update) {  
     Date date = new Date();
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-     String fecha = formatter.format(date);
+    String fecha = formatter.format(date);
     System.out.println("Current date: "+ fecha); 
     
     System.out.println("Encargado: " + update.encargado);

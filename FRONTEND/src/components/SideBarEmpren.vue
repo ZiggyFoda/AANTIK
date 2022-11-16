@@ -136,7 +136,7 @@ import AuthService from "@/service/auth.service";
           },
 
           {
-            link: '/',
+            link: '/dgvf',
             name: 'Diagnóstico',
             tooltip: 'Messages',
             icon: 'bx-list-check',
@@ -154,22 +154,22 @@ import AuthService from "@/service/auth.service";
             icon: 'bx-news',
           },            
           {
-            link: '/ayudaEmpren',
-            name: 'Ayuda',
-            tooltip: 'Setting',
-            icon: 'bx-help-circle',
-          },
-          {
-            link: '/#/crearForo',
+            link: '/crearForo',
             name: 'Preguntar en el foro',
             tooltip: 'Setting',
             icon: 'bx-add-to-queue',
           },
           {
-            link: '/#/foro',
+            link: '/foro',
             name: 'Foro',
             tooltip: 'Setting',
             icon: 'bx-message-dots',
+          },
+          {
+            link: '/ayudaEmpren',
+            name: 'Ayuda',
+            tooltip: 'Setting',
+            icon: 'bx-help-circle',
           },
         ],
       },

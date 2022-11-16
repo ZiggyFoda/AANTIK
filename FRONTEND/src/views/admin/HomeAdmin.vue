@@ -37,7 +37,7 @@
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Gestionar foro</button></router-link><br>
         
-        <router-link to="/gesNoticias">
+        <router-link to="/notiedit">
         <button type="submit" class="btn btn-dark btn-lg btn-block">
         Gestionar noticias</button></router-link><br>
         

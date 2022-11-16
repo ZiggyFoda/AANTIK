@@ -22,8 +22,19 @@
             
            <b-table striped hover :items="resp" :fields="campos">
               <template #cell(Editar)="row">
-                <b-button class="mr-2" >Editar
-                </b-button>
+                <b-form inline>
+                <label class="mr-sm-2" for="inline-form-custom-select-pref">Preference</label>
+                <b-form-select
+                id="inline-form-custom-select-pref"
+                class="mb-2 mr-sm-2 mb-sm-0"
+                :options="[{ text: '0', value: null }, '1', '2', '3','4','5']"
+                :value="null"
+            ></b-form-select>
+            <b-button class="mr-2"  @click="enviar(row)">Editar
+                            </b-button>
+    
+            </b-form>
+                
               </template>
             </b-table>
           </div>
@@ -91,6 +102,9 @@ import serviceD from "@/service/diagnosticoService"
         console.log("gj-----");
         console.log(this.resp.pregunta);
       },
+      enviar(roww){
+        console.log("id cargaqdo",roww)
+      }
     },
 }
 </script>
